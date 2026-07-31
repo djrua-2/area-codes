@@ -62,76 +62,37 @@ function citiesByState() {
   return map;
 }
 
-// ---- clickable tracks -> persistent top player (Spotify iFrame API) ----
-function renderTrackList(tracks, artistName) {
+// ---- clickable tracks -> persistent top player ----
+// Uses a plain, visible Spotify embed (not the postMessage Controller API)
+// swapped via src on each click. This is deliberately simple: a hidden/1px
+// iframe controlled via postMessage is exactly the pattern mobile Safari's
+// autoplay heuristics distrust, and the async gap between a click and a
+// controller's "ready" callback breaks the user-gesture chain autoplay
+// needs. A visible iframe with Spotify's own native play/pause button has
+// no such gap and no custom state to get out of sync — it just works,
+// consistently, on every browser and platform.
+function renderTrackList(tracks) {
   return (tracks || []).map(t => {
     if (!t.spotifyId) {
       return `<li class="track-row"><span class="track-static">${escapeHtml(t.title)}</span></li>`;
     }
     return `
       <li class="track-row">
-        <button class="track-toggle" data-spotify-id="${escapeAttr(t.spotifyId)}" data-title="${escapeAttr(t.title)}" data-artist="${escapeAttr(artistName)}">&#9656; ${escapeHtml(t.title)}</button>
+        <button class="track-toggle" data-spotify-id="${escapeAttr(t.spotifyId)}">&#9656; ${escapeHtml(t.title)}</button>
       </li>
     `;
   }).join("");
 }
 
-let spotifyIframeAPI = null;
-let spotifyController = null;
-let pendingTrack = null;
-let isPlaying = false;
-
-window.onSpotifyIframeApiReady = function (IFrameAPI) {
-  spotifyIframeAPI = IFrameAPI;
-  if (pendingTrack) {
-    const t = pendingTrack;
-    pendingTrack = null;
-    playTrack(t.spotifyId, t.title, t.artist);
-  }
-};
-
-function playTrack(spotifyId, title, artist) {
+function playTrack(spotifyId) {
   const bar = document.getElementById("player-bar");
   bar.hidden = false;
-  document.getElementById("player-title").textContent = title;
-  document.getElementById("player-artist").textContent = artist;
-
-  if (!spotifyIframeAPI) {
-    pendingTrack = { spotifyId, title, artist };
-    return;
-  }
-
-  if (!spotifyController) {
-    const mount = document.getElementById("spotify-mount");
-    spotifyIframeAPI.createController(mount, { uri: `spotify:track:${spotifyId}`, width: "1", height: "1" }, controller => {
-      spotifyController = controller;
-      controller.addListener("ready", () => controller.play());
-      controller.addListener("playback_update", e => {
-        isPlaying = !!(e && e.data && !e.data.isPaused);
-        updatePlayerButton();
-      });
-    });
-    return;
-  }
-
-  spotifyController.loadUri(`spotify:track:${spotifyId}`);
-  spotifyController.play();
-}
-
-function togglePlayback() {
-  if (!spotifyController) return;
-  spotifyController.togglePlay();
-}
-
-function updatePlayerButton() {
-  const btn = document.getElementById("player-toggle");
-  if (!btn) return;
-  btn.innerHTML = isPlaying ? "&#10074;&#10074;" : "&#9658;";
+  document.getElementById("player-iframe").src = `https://open.spotify.com/embed/track/${spotifyId}?utm_source=generator&theme=0`;
 }
 
 document.addEventListener("click", e => {
   const btn = e.target.closest(".track-toggle");
-  if (btn) { playTrack(btn.dataset.spotifyId, btn.dataset.title, btn.dataset.artist); return; }
+  if (btn) { playTrack(btn.dataset.spotifyId); return; }
 
   const del = e.target.closest(".delete-artist-link");
   if (del) {
@@ -459,7 +420,7 @@ function renderArtistBlocks(artists, regionId, cityId) {
         </p>
       ` : ""}
       <p>${escapeHtml(a.note)}</p>
-      <ul class="track-list">${renderTrackList(a.tracks, a.name)}</ul>
+      <ul class="track-list">${renderTrackList(a.tracks)}</ul>
     </div>
   `).join("");
 }
