@@ -23,6 +23,6 @@
 */
 
 const AREA_CODES_CONFIG = {
-  ADD_ARTIST_ENDPOINT: "",
-  PASSWORD_HASH: ""
+  ADD_ARTIST_ENDPOINT: "https://area-codes-add-artist.area-codes.workers.dev",
+  PASSWORD_HASH: "81610aced615fe754769e89ed3e4aba6adde4a2008f71a1c783a569dc8e6056a"
 };
