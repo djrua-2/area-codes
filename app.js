@@ -1,12 +1,13 @@
 /*
   AREA CODES — app.js
   -------------------
-  Tiny hash-based router. Reads content from data.json (fetched once at
-  startup — see loadData below), region layout from `STATE_GRID` (states.js)
-  and `STATE_OUTLINES` (stateOutlines.js), and renders into #app. No build
-  step, no framework. Dependencies: Spotify's iFrame API (playback) and,
-  only on the /add page, a Cloudflare Worker (see worker/README.md) that
-  actually persists new entries.
+  Tiny hash-based router. Reads content from data.json and state/city
+  geography from stateOutlines.json (both fetched once at startup — see
+  loadData below), plus the country-map layout from `STATE_GRID` (states.js).
+  Renders into #app. No build step, no framework. Dependencies: Spotify's
+  iFrame API (playback) and, only on the /add page, a Cloudflare Worker
+  (see worker/README.md) that persists new entries AND geocodes+places new
+  city pins automatically.
 
   Routes:
     #/                              home — the state grid map + chart + search
@@ -18,11 +19,16 @@
 
 const app = document.getElementById("app");
 let regions = [];
+let STATE_OUTLINES = {};
 let dataLoaded = false;
 
 async function loadData() {
-  const res = await fetch("data.json", { cache: "no-store" });
-  regions = await res.json();
+  const [regionsRes, outlinesRes] = await Promise.all([
+    fetch("data.json", { cache: "no-store" }),
+    fetch("stateOutlines.json", { cache: "no-store" })
+  ]);
+  regions = await regionsRes.json();
+  STATE_OUTLINES = await outlinesRes.json();
   dataLoaded = true;
 }
 
@@ -689,7 +695,10 @@ async function handleAddSubmit(evt) {
       body: JSON.stringify(payload)
     });
     if (!res.ok) throw new Error(await res.text());
-    statusEl.textContent = "Added! It'll appear on the live site shortly.";
+    const result = await res.json().catch(() => ({}));
+    statusEl.textContent = result.pinAdded === false
+      ? "Added! It'll appear on the live site shortly (couldn't auto-place a map pin for this city, but the artist listing works fine)."
+      : "Added! It'll appear on the live site shortly.";
     document.querySelector(".add-form").reset();
     document.getElementById("track-rows").innerHTML = "";
     addTrackRow();
