@@ -49,57 +49,71 @@ a:visited { color: #551a8b; }
   border-color: var(--bevel-sh) var(--bevel-hi) var(--bevel-hi) var(--bevel-sh);
 }
 
-/* persistent player bar — sticky, always the topmost element, survives navigation */
+/* persistent player bar — sticky, always the topmost element, survives
+   navigation. Styled like a classic Windows app window: a blue titlebar
+   over a beveled grey body. Holds a real, visible Spotify embed (its own
+   native play/pause button) inside an inset frame — not a hidden
+   custom-controlled one, see the note above playTrack() in app.js for why.
+   Note: the iframe's own contents (Spotify's black/green UI) are a
+   cross-origin embed and can't be restyled — only everything around it can. */
 .player-bar {
   position: sticky;
   top: 0;
   z-index: 100;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.5rem 1rem;
-  background: var(--bg);
-  border-bottom: 1px solid var(--ink-faded);
+  background: var(--bevel-face);
+  border-bottom: 2px solid var(--bevel-sh);
 }
 .player-bar[hidden] { display: none; }
 
-.player-toggle {
-  flex: 0 0 auto;
-  width: 2rem;
-  height: 2rem;
+.player-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--ink);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 3px 4px 3px 8px;
+}
+
+.player-close {
+  width: 1.1rem;
+  height: 1.1rem;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: none;
-  border: 1px solid var(--ink);
-  border-radius: 50%;
-  color: var(--ink);
   font-size: 0.85rem;
+  line-height: 1;
+  border-radius: 3px;
+  background: var(--bevel-face);
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--bevel-hi) var(--bevel-sh) var(--bevel-sh) var(--bevel-hi);
+  color: var(--ink-faded);
   cursor: pointer;
-  padding: 0;
 }
-.player-toggle:hover { background: var(--ink); color: #ffffff; }
-
-.player-info {
-  min-width: 0;
-  display: flex;
-  align-items: baseline;
-  gap: 0.5rem;
-  overflow: hidden;
-  white-space: nowrap;
+.player-close:active {
+  border-color: var(--bevel-sh) var(--bevel-hi) var(--bevel-hi) var(--bevel-sh);
 }
-.player-title { color: var(--ink-faded); font-weight: 700; text-overflow: ellipsis; overflow: hidden; }
-.player-artist { color: var(--ink-faded); font-size: 0.85rem; text-overflow: ellipsis; overflow: hidden; }
 
-.spotify-mount { position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0; pointer-events: none; }
-iframe[src*="open.spotify.com"] {
-  position: fixed !important;
-  bottom: 0 !important;
-  left: 0 !important;
-  width: 1px !important;
-  height: 1px !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
+.player-frame {
+  margin: 8px;
+  padding: 6px;
+  border-radius: 3px;
+  background: #ffffff;
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--bevel-sh) var(--bevel-hi) var(--bevel-hi) var(--bevel-sh);
+}
+
+#player-iframe {
+  display: block;
+  width: 100%;
+  height: 80px;
+  border: none;
 }
 
 .site-header {
@@ -183,12 +197,12 @@ main#app {
 .search-hit span { color: var(--ink-faded); font-size: 0.85rem; }
 
 /* ---- state grid map ---- */
-.map-scroll { overflow-x: auto; margin-bottom: 0.75rem; }
+.map-scroll { margin-bottom: 0.75rem; }
 
 .map-grid-container {
   position: relative;
-  width: calc(12 * 3.4rem);
-  height: calc(8 * 3.4rem);
+  width: min(calc(12 * 3.4rem), 100%);
+  aspect-ratio: 12 / 8;
   margin: 0 auto;
 }
 
@@ -231,6 +245,10 @@ main#app {
 
 .is-documented .state-label { color: var(--ink); }
 .is-empty .state-label { color: var(--ink-faint); }
+
+@media (max-width: 480px) {
+  .state-label { font-size: 2.6vw; }
+}
 
 .hover-band {
   position: absolute;

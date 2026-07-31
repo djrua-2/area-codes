@@ -10,13 +10,14 @@
 <body>
 
 <div id="player-bar" class="player-bar" hidden>
-  <button id="player-toggle" class="player-toggle" onclick="togglePlayback()" aria-label="Play or pause">&#9658;</button>
-  <div class="player-info">
-    <span id="player-title" class="player-title"></span>
-    <span id="player-artist" class="player-artist"></span>
+  <div class="player-titlebar">
+    <span>Now Playing</span>
+    <button class="player-close" onclick="document.getElementById('player-bar').hidden = true;" aria-label="Close player">&times;</button>
+  </div>
+  <div class="player-frame">
+    <iframe id="player-iframe" title="Now playing" frameborder="0" allow="encrypted-media"></iframe>
   </div>
 </div>
-<div id="spotify-mount" class="spotify-mount" aria-hidden="true"></div>
 
 <header class="site-header">
   <a href="#/" class="logo">AREA CODES</a>
@@ -33,6 +34,5 @@
 <script src="states.js"></script>
 <script src="config.js"></script>
 <script src="app.js"></script>
-<script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
 </body>
 </html>
