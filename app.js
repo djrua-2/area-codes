@@ -131,7 +131,13 @@ function updatePlayerButton() {
 
 document.addEventListener("click", e => {
   const btn = e.target.closest(".track-toggle");
-  if (btn) playTrack(btn.dataset.spotifyId, btn.dataset.title, btn.dataset.artist);
+  if (btn) { playTrack(btn.dataset.spotifyId, btn.dataset.title, btn.dataset.artist); return; }
+
+  const del = e.target.closest(".delete-artist-link");
+  if (del) {
+    e.preventDefault();
+    deleteArtist(del.dataset.regionId, del.dataset.cityId, parseInt(del.dataset.artistIndex, 10), del.dataset.artistName);
+  }
 });
 
 // ---- randomize: jump to one random artist's city page ----
@@ -150,6 +156,23 @@ function randomizeArtist() {
   location.hash = pick.hoodId
     ? `#/neighborhood/${pick.region.id}/${pick.cityId}/${pick.hoodId}`
     : `#/city/${pick.region.id}/${pick.cityId}`;
+}
+
+// ---- delete an existing artist (password-gated, same session as /add) ----
+async function deleteArtist(regionId, cityId, artistIndex, artistName) {
+  if (!confirm(`Delete "${artistName}"? This can't be undone.`)) return;
+  try {
+    const res = await fetch(AREA_CODES_CONFIG.ADD_ARTIST_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ action: "delete", password: storedPassword(), regionId, cityId, artistIndex })
+    });
+    if (!res.ok) throw new Error(await res.text());
+    alert(`Deleted "${artistName}". It'll disappear from the live site shortly.`);
+    router();
+  } catch (err) {
+    alert("Couldn't delete — " + err.message);
+  }
 }
 
 // ---- organic (non-perfectly-straight) line drawing, oscilloscope-style ----
@@ -190,65 +213,6 @@ function wobblyLine(x1, y1, x2, y2, seed, amplitude) {
     pts.push({ x, y });
   }
   return smoothPath(pts);
-}
-
-// ---- artist-count line chart, oscilloscope trace with organic jitter ----
-function buildTracePath(values, w, h) {
-  const n = values.length;
-  const maxV = Math.max(...values, 1);
-  const mx = 6, my = 5;
-  const uw = w - mx * 2;
-  const uh = h - my * 2;
-
-  const basePoints = values.map((v, i) => ({
-    x: mx + (n === 1 ? uw / 2 : i * (uw / (n - 1))),
-    y: my + uh - (v / maxV) * uh
-  }));
-
-  const pts = [];
-  for (let i = 0; i < basePoints.length; i++) {
-    pts.push(basePoints[i]);
-    if (i < basePoints.length - 1) {
-      const a = basePoints[i], b = basePoints[i + 1];
-      const steps = 5;
-      for (let s = 1; s < steps; s++) {
-        const t = s / steps;
-        const jitter = (seededRand(i * 97 + s) - 0.5) * (uh * 0.08);
-        pts.push({ x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t + jitter });
-      }
-    }
-  }
-
-  return { d: smoothPath(pts), basePoints };
-}
-
-function renderArtistChart() {
-  const byState = citiesByState();
-  const rows = Object.keys(byState).sort().map(abbrev => {
-    const count = byState[abbrev].reduce((sum, { city }) => sum + (city.artists ? city.artists.length : 0), 0);
-    const info = STATE_GRID.find(s => s.abbrev === abbrev);
-    return { abbrev, name: info ? info.name : abbrev, count };
-  });
-
-  if (!rows.length) return "";
-
-  const W = 100, H = 34;
-  const { d, basePoints } = buildTracePath(rows.map(r => r.count), W, H);
-  const gridLines = [0.25, 0.5, 0.75].map(f => `<line x1="0" y1="${(H * f).toFixed(2)}" x2="${W}" y2="${(H * f).toFixed(2)}" />`).join("");
-  const dots = basePoints.map(p => `<circle cx="${p.x.toFixed(2)}" cy="${p.y.toFixed(2)}" r="0.9" />`).join("");
-  const labels = rows.map(r => `<span>${escapeHtml(r.abbrev)}</span>`).join("");
-
-  return `
-    <p class="section-heading">Artists Documented, By State</p>
-    <div class="chart-wrap">
-      <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" class="chart-svg">
-        <g class="chart-grid">${gridLines}</g>
-        <path class="chart-trace" d="${d}" />
-        <g class="chart-dots">${dots}</g>
-      </svg>
-      <div class="chart-labels">${labels}</div>
-    </div>
-  `;
 }
 
 // ---- country map: hovering a state previews up to 5 artist names ----
@@ -331,27 +295,21 @@ function renderHome() {
       <span class="key-swatch is-empty"></span> not yet mapped &nbsp;
       <span class="map-key-note">hover a state to preview artists, click to open its city map</span>
     </p>
-    <div id="map-empty-hide">
-      ${renderArtistChart()}
-    </div>
   `;
 }
 
 function handleSearch(query) {
   const mapWrap = document.getElementById("map-wrap");
-  const chartWrap = document.getElementById("map-empty-hide");
   const resultsEl = document.getElementById("search-results");
   const q = query.trim().toLowerCase();
 
   if (!q) {
     resultsEl.innerHTML = "";
     mapWrap.style.display = "";
-    if (chartWrap) chartWrap.style.display = "";
     return;
   }
 
   mapWrap.style.display = "none";
-  if (chartWrap) chartWrap.style.display = "none";
   const hits = [];
 
   regions.forEach(region => {
@@ -489,10 +447,17 @@ function renderState(abbrev) {
   adjustStateMapLabels();
 }
 
-function renderArtistBlocks(artists) {
-  return (artists || []).map(a => `
+function renderArtistBlocks(artists, regionId, cityId) {
+  const canManage = regionId && cityId && isConfigured() && storedPassword();
+  return (artists || []).map((a, i) => `
     <div class="artist-card">
       <h3>${escapeHtml(a.name)}</h3>
+      ${canManage ? `
+        <p class="manage-controls">
+          <a href="#/edit/${regionId}/${cityId}/${i}">Edit</a> &nbsp;
+          <a href="#" class="delete-artist-link" data-region-id="${escapeAttr(regionId)}" data-city-id="${escapeAttr(cityId)}" data-artist-index="${i}" data-artist-name="${escapeAttr(a.name)}">Delete</a>
+        </p>
+      ` : ""}
       <p>${escapeHtml(a.note)}</p>
       <ul class="track-list">${renderTrackList(a.tracks, a.name)}</ul>
     </div>
@@ -523,7 +488,7 @@ function renderCity(regionId, cityId) {
       <div class="city-list" style="margin-bottom:2rem;">${neighborhoods}</div>
     ` : ""}
 
-    <div class="artist-list">${renderArtistBlocks(city.artists)}</div>
+    <div class="artist-list">${renderArtistBlocks(city.artists, region.id, city.id)}</div>
   `;
 }
 
@@ -600,11 +565,11 @@ function renderNotConfigured() {
   `;
 }
 
-function trackRowHtml(i) {
+function trackRowHtml(i, title, spotifyId) {
   return `
     <div class="track-input-row" data-track-row="${i}">
-      <input type="text" class="retro-field" placeholder="Song title" data-track-title>
-      <input type="text" class="retro-field" placeholder="Spotify link or ID" data-track-spotify>
+      <input type="text" class="retro-field" placeholder="Song title" data-track-title value="${escapeAttr(title || "")}">
+      <input type="text" class="retro-field" placeholder="Spotify link or ID" data-track-spotify value="${escapeAttr(spotifyId || "")}">
       <button type="button" class="retro-btn" onclick="this.closest('[data-track-row]').remove()">&times;</button>
     </div>
   `;
@@ -612,9 +577,9 @@ function trackRowHtml(i) {
 
 let trackRowCounter = 0;
 
-function addTrackRow() {
+function addTrackRow(title, spotifyId) {
   trackRowCounter++;
-  document.getElementById("track-rows").insertAdjacentHTML("beforeend", trackRowHtml(trackRowCounter));
+  document.getElementById("track-rows").insertAdjacentHTML("beforeend", trackRowHtml(trackRowCounter, title, spotifyId));
 }
 
 function renderAddForm() {
@@ -656,6 +621,107 @@ function renderAddForm() {
     <pre id="snippet-box" class="snippet-box" style="display:none;"></pre>
   `;
   addTrackRow();
+}
+
+function renderEditForm(regionId, cityId, artistIndex) {
+  const region = findRegion(regionId);
+  const city = region && findCity(region, cityId);
+  const artist = city && city.artists[artistIndex];
+  if (!artist) {
+    app.innerHTML = `
+      <h1 class="page-title">Edit Artist</h1>
+      <p class="page-subtitle">Couldn't find that artist — it may have already been edited or deleted.</p>
+      <p><a href="#/">Back home</a></p>
+    `;
+    return;
+  }
+
+  trackRowCounter = 0;
+  const stateOptions = STATE_GRID.slice().sort((a, b) => a.name.localeCompare(b.name))
+    .map(s => `<option value="${s.abbrev}" ${s.abbrev === city.state ? "selected" : ""}>${escapeHtml(s.name)}</option>`).join("");
+
+  app.innerHTML = `
+    <h1 class="page-title">Edit Artist</h1>
+    <p class="page-subtitle">Changes go live for everyone within about a minute of submitting.</p>
+    <form class="add-form" onsubmit="handleEditSubmit(event, '${escapeAttr(regionId)}', '${escapeAttr(cityId)}', ${artistIndex})">
+      <div>
+        <label for="f-artist">Artist name</label>
+        <input type="text" class="retro-field" id="f-artist" value="${escapeAttr(artist.name)}" required>
+      </div>
+      <div>
+        <label for="f-state">State</label>
+        <select class="retro-field" id="f-state" required>${stateOptions}</select>
+      </div>
+      <div>
+        <label for="f-city">City</label>
+        <input type="text" class="retro-field" id="f-city" value="${escapeAttr(city.name)}" required>
+      </div>
+      <div>
+        <label for="f-note">One-line note (style, why they represent this place)</label>
+        <textarea class="retro-field" id="f-note" rows="2" required>${escapeHtml(artist.note)}</textarea>
+      </div>
+      <div>
+        <label>Songs</label>
+        <p style="margin:0 0 0.5rem;"><a href="https://open.spotify.com/search" target="_blank" rel="noopener">Search Spotify ↗</a> for the song, then paste its link below.</p>
+        <div id="track-rows"></div>
+        <button type="button" class="add-track-btn retro-btn" onclick="addTrackRow()">+ Add a song</button>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="retro-btn">Save changes</button>
+        <span id="form-status" class="form-status"></span>
+      </div>
+    </form>
+  `;
+
+  if (artist.tracks && artist.tracks.length) {
+    artist.tracks.forEach(t => addTrackRow(t.title, t.spotifyId || ""));
+  } else {
+    addTrackRow();
+  }
+}
+
+async function handleEditSubmit(evt, originalRegionId, originalCityId, originalArtistIndex) {
+  evt.preventDefault();
+  const statusEl = document.getElementById("form-status");
+  statusEl.className = "form-status";
+  statusEl.textContent = "Saving…";
+
+  const tracks = Array.from(document.querySelectorAll("[data-track-row]")).map(row => {
+    const title = row.querySelector("[data-track-title]").value.trim();
+    const spotifyRaw = row.querySelector("[data-track-spotify]").value.trim();
+    const spotifyId = spotifyRaw ? extractSpotifyId(spotifyRaw) : "";
+    return title ? (spotifyId ? { title, spotifyId } : { title }) : null;
+  }).filter(Boolean);
+
+  const payload = {
+    action: "edit",
+    password: storedPassword(),
+    originalRegionId, originalCityId, originalArtistIndex,
+    state: document.getElementById("f-state").value,
+    cityName: document.getElementById("f-city").value.trim(),
+    artistName: document.getElementById("f-artist").value.trim(),
+    note: document.getElementById("f-note").value.trim(),
+    tracks
+  };
+
+  try {
+    const res = await fetch(AREA_CODES_CONFIG.ADD_ARTIST_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    if (!res.ok) throw new Error(await res.text());
+    statusEl.textContent = "Saved! Changes will appear on the live site shortly.";
+  } catch (err) {
+    statusEl.className = "form-status is-error";
+    statusEl.textContent = "Couldn't save — " + err.message;
+  }
+}
+
+function renderEdit(regionId, cityId, artistIndex) {
+  if (!isConfigured()) return renderNotConfigured();
+  if (!storedPassword()) return renderAddGate();
+  renderEditForm(regionId, cityId, parseInt(artistIndex, 10));
 }
 
 function extractSpotifyId(value) {
@@ -721,6 +787,7 @@ function router() {
 
   if (parts.length === 0) return renderHome();
   if (parts[0] === "add") return renderAdd();
+  if (parts[0] === "edit" && parts[1] && parts[2] && parts[3]) return renderEdit(parts[1], parts[2], parts[3]);
   if (parts[0] === "state" && parts[1]) return renderState(parts[1]);
   if (parts[0] === "city" && parts[1] && parts[2]) return renderCity(parts[1], parts[2]);
   if (parts[0] === "neighborhood" && parts[1] && parts[2] && parts[3]) {
