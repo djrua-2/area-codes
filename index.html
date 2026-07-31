@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Area Codes — Rap Music by Region</title>
+<meta name="description" content="An interactive map of rap music across the USA — artists, beats, and the regional sound of hip-hop from city to city.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="player-bar" class="player-bar" hidden>
+  <button id="player-toggle" class="player-toggle" onclick="togglePlayback()" aria-label="Play or pause">&#9658;</button>
+  <div class="player-info">
+    <span id="player-title" class="player-title"></span>
+    <span id="player-artist" class="player-artist"></span>
+  </div>
+</div>
+<div id="spotify-mount" class="spotify-mount" aria-hidden="true"></div>
+
+<header class="site-header">
+  <a href="#/" class="logo">AREA CODES</a>
+  <p class="tagline">rap music, mapped by sound &amp; place</p>
+</header>
+
+<main id="app"></main>
+
+<footer class="site-footer">
+  <p>A work-in-progress guide to regional hip-hop sound. Corrections and additions welcome — this is a living document.</p>
+  <p><a href="#/add">Add an artist</a></p>
+</footer>
+
+<script src="states.js"></script>
+<script src="stateOutlines.js"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+<script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+</body>
+</html>
