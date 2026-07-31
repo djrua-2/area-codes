@@ -251,5 +251,33 @@
         ]
       }
     ]
+  },
+  {
+    "id": "orlando-region",
+    "name": "Orlando",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "orlando",
+        "name": "Orlando",
+        "state": "FL",
+        "artists": [
+          {
+            "name": "9lokkNine",
+            "note": "Best known for his feature on YNW Melly's 2019 single \"223's\"",
+            "tracks": [
+              {
+                "title": "Run On Sentence",
+                "spotifyId": "3Tlqe66OHs2X5irgFjTKMK"
+              },
+              {
+                "title": "Crayola",
+                "spotifyId": "4USfXKG6KJmTVEYOLGS8Ld"
+              }
+            ]
+          }
+        ]
+      }
+    ]
   }
 ]
