@@ -279,5 +279,33 @@
         ]
       }
     ]
+  },
+  {
+    "id": "gainesville-fl-region",
+    "name": "Gainesville, FL",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "gainesville-fl",
+        "name": "Gainesville, FL",
+        "state": "FL",
+        "artists": [
+          {
+            "name": "Fie Scoobie",
+            "note": "Local Gainesville rapper, \"Mr. Gainesville\"",
+            "tracks": [
+              {
+                "title": "Gainesville",
+                "spotifyId": "0lB0yXzmw5mfsEylxcKJV0"
+              },
+              {
+                "title": "I'm So Gainesville(Atl Gmix)",
+                "spotifyId": "1Ec3l2aWb4DWDTkWiIDiD6"
+              }
+            ]
+          }
+        ]
+      }
+    ]
   }
 ]
