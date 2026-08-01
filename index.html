@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Area Codes — Rap Music by Region</title>
 <meta name="description" content="An interactive map of rap music across the USA — artists, beats, and the regional sound of hip-hop from city to city.">
-<link rel="stylesheet" href="style.css?v=3">
+<link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 
@@ -15,7 +15,7 @@
     <button class="player-close" onclick="document.getElementById('player-bar').hidden = true;" aria-label="Close player">&times;</button>
   </div>
   <div class="player-frame">
-    <iframe id="player-iframe" title="Now playing" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="eager"></iframe>
+    <div id="player-mount"></div>
   </div>
 </div>
 
@@ -31,8 +31,9 @@
   <p><a href="#/add">Add an artist</a></p>
 </footer>
 
-<script src="states.js?v=3"></script>
-<script src="config.js?v=3"></script>
-<script src="app.js?v=3"></script>
+<script src="states.js?v=4"></script>
+<script src="config.js?v=4"></script>
+<script src="app.js?v=4"></script>
+<script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
 </body>
 </html>

@@ -63,14 +63,14 @@ function citiesByState() {
 }
 
 // ---- clickable tracks -> persistent top player ----
-// Uses a plain, visible Spotify embed (not the postMessage Controller API)
-// swapped via src on each click. This is deliberately simple: a hidden/1px
-// iframe controlled via postMessage is exactly the pattern mobile Safari's
-// autoplay heuristics distrust, and the async gap between a click and a
-// controller's "ready" callback breaks the user-gesture chain autoplay
-// needs. A visible iframe with Spotify's own native play/pause button has
-// no such gap and no custom state to get out of sync — it just works,
-// consistently, on every browser and platform.
+// Uses Spotify's iFrame Controller API so clicking a song can actually
+// autoplay, but keeps the player VISIBLE (not the old hidden/1px version).
+// A hidden iframe is exactly the pattern mobile Safari's autoplay
+// heuristics distrust; a visible one with Spotify's own native play/pause
+// button as the fallback means even if a strict browser blocks the
+// programmatic play() call, you land on a working player you can tap
+// rather than a silent failure. No custom play/pause state to track here
+// on purpose — Spotify's own UI is always the source of truth.
 function renderTrackList(tracks) {
   return (tracks || []).map(t => {
     if (!t.spotifyId) {
@@ -84,10 +84,39 @@ function renderTrackList(tracks) {
   }).join("");
 }
 
+let spotifyIframeAPI = null;
+let spotifyController = null;
+let pendingSpotifyId = null;
+
+window.onSpotifyIframeApiReady = function (IFrameAPI) {
+  spotifyIframeAPI = IFrameAPI;
+  if (pendingSpotifyId) {
+    const id = pendingSpotifyId;
+    pendingSpotifyId = null;
+    playTrack(id);
+  }
+};
+
 function playTrack(spotifyId) {
   const bar = document.getElementById("player-bar");
   bar.hidden = false;
-  document.getElementById("player-iframe").src = `https://open.spotify.com/embed/track/${spotifyId}?utm_source=generator&theme=0`;
+
+  if (!spotifyIframeAPI) {
+    pendingSpotifyId = spotifyId;
+    return;
+  }
+
+  if (!spotifyController) {
+    const mount = document.getElementById("player-mount");
+    spotifyIframeAPI.createController(mount, { uri: `spotify:track:${spotifyId}`, width: "100%", height: "80" }, controller => {
+      spotifyController = controller;
+      controller.addListener("ready", () => controller.play());
+    });
+    return;
+  }
+
+  spotifyController.loadUri(`spotify:track:${spotifyId}`);
+  spotifyController.play();
 }
 
 document.addEventListener("click", e => {

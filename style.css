@@ -109,7 +109,9 @@ a:visited { color: #551a8b; }
   border-color: var(--bevel-sh) var(--bevel-hi) var(--bevel-hi) var(--bevel-sh);
 }
 
-#player-iframe {
+/* Spotify's iFrame API swaps #player-mount for its own iframe rather than
+   nesting inside it, so style whatever lands there directly. */
+#player-mount, #player-mount iframe, .player-frame iframe {
   display: block;
   width: 100%;
   height: 80px;
