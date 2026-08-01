@@ -458,3 +458,19 @@ h1.page-title {
   max-height: 240px;
   overflow-y: auto;
 }
+
+/* ---- bulk upload preview table ---- */
+.bulk-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+.bulk-table th, .bulk-table td {
+  border: 1px solid var(--ink-faint);
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.bulk-table th { color: var(--ink-faded); font-weight: 700; }
+.bulk-table td { color: var(--ink-faded); }
+.bulk-row-error td:last-child { color: var(--ink); }

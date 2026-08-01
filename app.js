@@ -530,7 +530,7 @@ async function handleUnlock() {
   const hash = await sha256Hex(input.value);
   if (hash === AREA_CODES_CONFIG.PASSWORD_HASH) {
     sessionStorage.setItem("areacodes_pw", input.value);
-    renderAddForm();
+    router();
   } else {
     errorEl.textContent = "Incorrect password.";
   }
@@ -579,7 +579,7 @@ function renderAddForm() {
 
   app.innerHTML = `
     <h1 class="page-title">Add an Artist</h1>
-    <p class="page-subtitle">Goes live for everyone within about a minute of submitting.</p>
+    <p class="page-subtitle">Goes live for everyone within about a minute of submitting. Adding several at once? <a href="#/add/bulk">Bulk upload a CSV or XLSX ↗</a></p>
     <form class="add-form" onsubmit="handleAddSubmit(event)">
       <div>
         <label for="f-artist">Artist name</label>
@@ -722,6 +722,220 @@ function extractSpotifyId(value) {
   return "";
 }
 
+// ---- bulk upload: CSV (no dependency) or XLSX (lazy-loaded parser) ----
+const BULK_MAX_ROWS = 25;
+const BULK_TEMPLATE_HEADERS = ["artist_name", "state", "city", "note", "track1_title", "track1_spotify", "track2_title", "track2_spotify"];
+
+function downloadBulkTemplate() {
+  const csv = BULK_TEMPLATE_HEADERS.join(",") + "\n" +
+    'Example Artist,GA,"Savannah, GA",One-line note about their style,Example Song,https://open.spotify.com/track/...\n';
+  const blob = new Blob([csv], { type: "text/csv" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "area-codes-artists-template.csv";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// Minimal RFC4180-ish CSV parser: handles quoted fields, embedded commas,
+// escaped quotes (""), and CRLF/LF line endings. Returns array of row
+// objects keyed by the header row.
+function parseCSV(text) {
+  const rows = [];
+  let row = [], field = "", inQuotes = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (inQuotes) {
+      if (c === '"') { if (text[i + 1] === '"') { field += '"'; i++; } else inQuotes = false; }
+      else field += c;
+    } else if (c === '"') inQuotes = true;
+    else if (c === ",") { row.push(field); field = ""; }
+    else if (c === "\n" || c === "\r") {
+      if (c === "\r" && text[i + 1] === "\n") i++;
+      row.push(field); field = "";
+      rows.push(row); row = [];
+    } else field += c;
+  }
+  if (field.length || row.length) { row.push(field); rows.push(row); }
+  const nonEmpty = rows.filter(r => r.some(cell => cell.trim() !== ""));
+  if (!nonEmpty.length) return [];
+  const headers = nonEmpty[0].map(h => h.trim());
+  return nonEmpty.slice(1).map(r => {
+    const obj = {};
+    headers.forEach((h, idx) => { obj[h] = (r[idx] || "").trim(); });
+    return obj;
+  });
+}
+
+let xlsxLoadPromise = null;
+function loadXLSXLibrary() {
+  if (window.XLSX) return Promise.resolve();
+  if (xlsxLoadPromise) return xlsxLoadPromise;
+  xlsxLoadPromise = new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = "https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js";
+    script.onload = resolve;
+    script.onerror = () => reject(new Error("Couldn't load the XLSX parser — check your connection, or export as CSV instead."));
+    document.head.appendChild(script);
+  });
+  return xlsxLoadPromise;
+}
+
+function getField(row, ...keys) {
+  const rowKeys = Object.keys(row);
+  for (const key of keys) {
+    const foundKey = rowKeys.find(k => k.trim().toLowerCase() === key);
+    if (foundKey && String(row[foundKey]).trim()) return String(row[foundKey]).trim();
+  }
+  return "";
+}
+
+function normalizeBulkRow(row) {
+  const artistName = getField(row, "artist_name", "artist");
+  const state = getField(row, "state").toUpperCase();
+  const cityName = getField(row, "city", "city_name");
+  const note = getField(row, "note");
+
+  const trackNums = new Set();
+  Object.keys(row).forEach(k => {
+    const m = k.trim().toLowerCase().match(/^track(\d+)_title$/);
+    if (m) trackNums.add(parseInt(m[1], 10));
+  });
+  const tracks = Array.from(trackNums).sort((a, b) => a - b).map(n => {
+    const title = getField(row, `track${n}_title`);
+    if (!title) return null;
+    const spotifyRaw = getField(row, `track${n}_spotify`);
+    const spotifyId = spotifyRaw ? extractSpotifyId(spotifyRaw) : "";
+    return spotifyId ? { title, spotifyId } : { title };
+  }).filter(Boolean);
+
+  return { artistName, state, cityName, note, tracks };
+}
+
+let bulkParsedEntries = [];
+
+async function handleBulkFile(evt) {
+  const file = evt.target.files[0];
+  const statusEl = document.getElementById("bulk-status");
+  const previewEl = document.getElementById("bulk-preview");
+  const submitBtn = document.getElementById("bulk-submit-btn");
+  if (!file) return;
+
+  statusEl.className = "form-status";
+  statusEl.textContent = "Reading file…";
+  previewEl.innerHTML = "";
+  submitBtn.disabled = true;
+  bulkParsedEntries = [];
+
+  try {
+    let rawRows;
+    if (/\.xlsx$/i.test(file.name)) {
+      await loadXLSXLibrary();
+      const buf = await file.arrayBuffer();
+      const wb = window.XLSX.read(buf, { type: "array" });
+      const sheet = wb.Sheets[wb.SheetNames[0]];
+      rawRows = window.XLSX.utils.sheet_to_json(sheet, { defval: "" });
+    } else {
+      const text = await file.text();
+      rawRows = parseCSV(text);
+    }
+
+    if (!rawRows.length) throw new Error("No rows found in that file.");
+    if (rawRows.length > BULK_MAX_ROWS) {
+      throw new Error(`That file has ${rawRows.length} rows — max is ${BULK_MAX_ROWS} per upload. Split it into smaller files.`);
+    }
+
+    const entries = rawRows.map(normalizeBulkRow);
+    bulkParsedEntries = entries;
+
+    const rowsHtml = entries.map((e, i) => {
+      const problems = [];
+      if (!e.artistName) problems.push("missing artist name");
+      if (!e.state) problems.push("missing state");
+      if (!e.cityName) problems.push("missing city");
+      if (!e.note) problems.push("missing note");
+      const ok = problems.length === 0;
+      return `
+        <tr class="${ok ? "" : "bulk-row-error"}">
+          <td>${i + 1}</td>
+          <td>${escapeHtml(e.artistName || "—")}</td>
+          <td>${escapeHtml(e.cityName || "—")}${e.state && !e.cityName.toLowerCase().includes(e.state.toLowerCase()) ? ", " + escapeHtml(e.state) : ""}</td>
+          <td>${e.tracks.length}</td>
+          <td>${ok ? "Ready" : "Fix: " + escapeHtml(problems.join(", "))}</td>
+        </tr>
+      `;
+    }).join("");
+
+    const readyCount = entries.filter(e => e.artistName && e.state && e.cityName && e.note).length;
+
+    previewEl.innerHTML = `
+      <table class="bulk-table">
+        <thead><tr><th>#</th><th>Artist</th><th>City</th><th>Songs</th><th>Status</th></tr></thead>
+        <tbody>${rowsHtml}</tbody>
+      </table>
+    `;
+    statusEl.textContent = `${readyCount} of ${entries.length} row(s) ready to submit.`;
+    submitBtn.disabled = readyCount === 0;
+  } catch (err) {
+    statusEl.className = "form-status is-error";
+    statusEl.textContent = "Couldn't read that file — " + err.message;
+  }
+}
+
+async function submitBulk() {
+  const statusEl = document.getElementById("bulk-status");
+  const submitBtn = document.getElementById("bulk-submit-btn");
+  const readyEntries = bulkParsedEntries.filter(e => e.artistName && e.state && e.cityName && e.note);
+  if (!readyEntries.length) return;
+
+  submitBtn.disabled = true;
+  statusEl.className = "form-status";
+  statusEl.textContent = `Submitting ${readyEntries.length} artist(s)… this can take a little while if several are in brand-new cities.`;
+
+  try {
+    const res = await fetch(AREA_CODES_CONFIG.ADD_ARTIST_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ action: "bulk_add", password: storedPassword(), entries: readyEntries })
+    });
+    if (!res.ok) throw new Error(await res.text());
+    const result = await res.json();
+    const okCount = result.results.filter(r => r.ok).length;
+    const failed = result.results.filter(r => !r.ok);
+    let msg = `Added ${okCount} of ${result.results.length}. ${result.pinsAdded || 0} new map pin(s) placed.`;
+    if (failed.length) msg += " Failed: " + failed.map(f => `row ${f.row} (${f.error})`).join("; ");
+    statusEl.textContent = msg + " Live on the site shortly.";
+  } catch (err) {
+    statusEl.className = "form-status is-error";
+    statusEl.textContent = "Couldn't submit — " + err.message;
+    submitBtn.disabled = false;
+  }
+}
+
+function renderBulkForm() {
+  bulkParsedEntries = [];
+  app.innerHTML = `
+    <p class="crumbs"><a href="#/add">Add an Artist</a> / Bulk Upload</p>
+    <h1 class="page-title">Bulk Upload Artists</h1>
+    <p class="page-subtitle">Upload a CSV or XLSX file — up to ${BULK_MAX_ROWS} artists at a time. Each becomes exactly what the single-artist form would create.</p>
+    <p><button type="button" class="retro-btn" onclick="downloadBulkTemplate()">Download CSV template</button></p>
+    <p class="page-subtitle">Columns: <code>artist_name, state, city, note, track1_title, track1_spotify, track2_title, track2_spotify</code> (add more track columns the same way for more songs; state is the 2-letter abbreviation; spotify columns accept a full link or just the ID).</p>
+    <p><input type="file" class="retro-field" accept=".csv,.xlsx" onchange="handleBulkFile(event)"></p>
+    <div id="bulk-preview"></div>
+    <p class="form-actions">
+      <button type="button" id="bulk-submit-btn" class="retro-btn" disabled onclick="submitBulk()">Submit All</button>
+      <span id="bulk-status" class="form-status"></span>
+    </p>
+  `;
+}
+
+function renderBulk() {
+  if (!isConfigured()) return renderNotConfigured();
+  if (!storedPassword()) return renderAddGate();
+  renderBulkForm();
+}
+
 async function handleAddSubmit(evt) {
   evt.preventDefault();
   const statusEl = document.getElementById("form-status");
@@ -776,6 +990,7 @@ function router() {
   const parts = hash.split("/").filter(Boolean);
 
   if (parts.length === 0) return renderHome();
+  if (parts[0] === "add" && parts[1] === "bulk") return renderBulk();
   if (parts[0] === "add") return renderAdd();
   if (parts[0] === "edit" && parts[1] && parts[2] && parts[3]) return renderEdit(parts[1], parts[2], parts[3]);
   if (parts[0] === "state" && parts[1]) return renderState(parts[1]);
