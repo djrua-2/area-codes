@@ -1110,6 +1110,24 @@
         "name": "Oakland",
         "x": 22.99,
         "y": 44.82
+      },
+      {
+        "id": "los-angeles-ca",
+        "name": "Los Angeles",
+        "x": 59.29,
+        "y": 81.47
+      },
+      {
+        "id": "san-francisco-ca",
+        "name": "San Francisco",
+        "x": 21.76,
+        "y": 44.98
+      },
+      {
+        "id": "inglewood-ca",
+        "name": "Inglewood",
+        "x": 58.29,
+        "y": 82.42
       }
     ]
   },
@@ -1665,6 +1683,12 @@
         "name": "Gainesville",
         "x": 68.36,
         "y": 24.97
+      },
+      {
+        "id": "jacksonville-fl",
+        "name": "Jacksonville",
+        "x": 76.48,
+        "y": 14.36
       }
     ]
   },
@@ -6027,7 +6051,14 @@
         12.28
       ]
     ],
-    "cities": []
+    "cities": [
+      {
+        "id": "north-bergen-nj",
+        "name": "North Bergen",
+        "x": 90.18,
+        "y": 25.45
+      }
+    ]
   },
   "NM": {
     "bbox": {
@@ -6395,6 +6426,12 @@
         "name": "Queensbridge, Queens",
         "x": 74.04,
         "y": 91.97
+      },
+      {
+        "id": "queens-ny",
+        "name": "Queens",
+        "x": 75.42,
+        "y": 92.79
       }
     ]
   },
@@ -8052,6 +8089,12 @@
         "name": "Memphis",
         "x": 6.52,
         "y": 87.28
+      },
+      {
+        "id": "nashville-tn",
+        "name": "Nashville",
+        "x": 41.65,
+        "y": 31.87
       }
     ]
   },
@@ -8384,7 +8427,14 @@
         3.7
       ]
     ],
-    "cities": []
+    "cities": [
+      {
+        "id": "dallas-tx",
+        "name": "Dallas",
+        "x": 73.21,
+        "y": 36.2
+      }
+    ]
   },
   "UT": {
     "bbox": {
