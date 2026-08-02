@@ -4428,7 +4428,14 @@
         3.7
       ]
     ],
-    "cities": []
+    "cities": [
+      {
+        "id": "boston-ma",
+        "name": "Boston",
+        "x": 67.24,
+        "y": 38.92
+      }
+    ]
   },
   "MI": {
     "bbox": {
@@ -6221,6 +6228,12 @@
         "name": "New Brunswick",
         "x": 66.1,
         "y": 37.6
+      },
+      {
+        "id": "nutley-nj",
+        "name": "Nutley",
+        "x": 81.93,
+        "y": 24.74
       }
     ]
   },
@@ -9169,6 +9182,12 @@
         "name": "Richmond",
         "x": 77.72,
         "y": 64.69
+      },
+      {
+        "id": "virginia-beach-va",
+        "name": "Virginia Beach",
+        "x": 95.02,
+        "y": 86.5
       }
     ]
   },
@@ -9425,7 +9444,14 @@
         3.7
       ]
     ],
-    "cities": []
+    "cities": [
+      {
+        "id": "seattle-wa",
+        "name": "Seattle",
+        "x": 31.96,
+        "y": 41.18
+      }
+    ]
   },
   "WV": {
     "bbox": {
