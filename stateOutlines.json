@@ -1731,6 +1731,12 @@
         "name": "Boynton Beach",
         "x": 95.97,
         "y": 74.13
+      },
+      {
+        "id": "fort-pierce-fl",
+        "name": "Fort Pierce",
+        "x": 92.71,
+        "y": 59.68
       }
     ]
   },
@@ -2037,7 +2043,14 @@
         96.3
       ]
     ],
-    "cities": []
+    "cities": [
+      {
+        "id": "honolulu-hi",
+        "name": "Honolulu",
+        "x": -128.71,
+        "y": -69
+      }
+    ]
   },
   "ID": {
     "bbox": {
@@ -7111,6 +7124,12 @@
         "name": "Cleveland",
         "x": 70.99,
         "y": 16.19
+      },
+      {
+        "id": "columbus-oh",
+        "name": "Columbus",
+        "x": 42.84,
+        "y": 56.23
       }
     ]
   },
@@ -8621,6 +8640,12 @@
         "name": "Houston",
         "x": 83.3,
         "y": 62.52
+      },
+      {
+        "id": "san-marcos-tx",
+        "name": "San Marcos",
+        "x": 65.14,
+        "y": 61.45
       }
     ]
   },
