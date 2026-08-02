@@ -443,6 +443,15 @@
                 "title": "Throw Fits (feat. City Girls & Juvenile)"
               }
             ]
+          },
+          {
+            "name": "Ludacris",
+            "note": "Atlanta rapper known for animated, fast-rapping charisma and mainstream Southern hits.",
+            "tracks": [
+              {
+                "title": "Get Back"
+              }
+            ]
           }
         ]
       }
@@ -671,6 +680,15 @@
             "tracks": [
               {
                 "title": "Everyday My Birthday"
+              }
+            ]
+          },
+          {
+            "name": "Luniz",
+            "note": "Oakland duo best known for the classic \"I Got 5 On It.\"",
+            "tracks": [
+              {
+                "title": "I Got 5 On It (feat. Dru Down, E-40, Richie Rich, Shock G & Spice 1) [Remix]"
               }
             ]
           }
@@ -1023,6 +1041,15 @@
             "tracks": [
               {
                 "title": "Gucci Gang"
+              }
+            ]
+          },
+          {
+            "name": "Luke",
+            "note": "Miami bass pioneer whose booming 808s were built for sound systems and dancing.",
+            "tracks": [
+              {
+                "title": "I Wanna Rock"
               }
             ]
           }
@@ -1520,6 +1547,15 @@
               },
               {
                 "title": "Blah Loops"
+              }
+            ]
+          },
+          {
+            "name": "LoveRance",
+            "note": "LA rapper best known for the hyphy-adjacent hit \"Up!.\"",
+            "tracks": [
+              {
+                "title": "Up! (feat. IamSu & Skipper)"
               }
             ]
           }
@@ -3035,6 +3071,36 @@
                 "title": "The Basement"
               }
             ]
+          },
+          {
+            "name": "Louie Ray",
+            "note": "Chicago rapper known for a laid-back, melodic street-rap style.",
+            "tracks": [
+              {
+                "title": "Too Smooth"
+              }
+            ]
+          },
+          {
+            "name": "LUCKI",
+            "note": "Chicago rapper known for hazy, melodic trap steeped in a distinctly laid-back delivery.",
+            "tracks": [
+              {
+                "title": "197 Trap Talk"
+              },
+              {
+                "title": "WHERE I BE"
+              }
+            ]
+          },
+          {
+            "name": "Lupe Fiasco",
+            "note": "Chicago lyricist known for dense, conceptually ambitious wordplay.",
+            "tracks": [
+              {
+                "title": "Around My Way (Freedom Ain't Free)"
+              }
+            ]
           }
         ]
       }
@@ -3634,6 +3700,18 @@
                 "title": "Lil Mama"
               }
             ]
+          },
+          {
+            "name": "Lushlife",
+            "note": "Philadelphia rapper-producer known for lush, orchestral underground rap.",
+            "tracks": [
+              {
+                "title": "Magnolia"
+              },
+              {
+                "title": "Totally Mutual Feeling"
+              }
+            ]
           }
         ]
       }
@@ -3809,6 +3887,18 @@
               },
               {
                 "title": "Right Above It (feat. Drake)"
+              }
+            ]
+          },
+          {
+            "name": "LPB Poody",
+            "note": "New Orleans rapper known for a melodic, street-rooted style.",
+            "tracks": [
+              {
+                "title": "Batman"
+              },
+              {
+                "title": "Bitter"
               }
             ]
           }
@@ -4525,6 +4615,15 @@
             "tracks": [
               {
                 "title": "Summer"
+              }
+            ]
+          },
+          {
+            "name": "Luke Christopher",
+            "note": "Sacramento singer-rapper known for smooth, melodic pop-rap.",
+            "tracks": [
+              {
+                "title": "Roses"
               }
             ]
           }
@@ -5803,6 +5902,52 @@
             "tracks": [
               {
                 "title": "1-800-273-8255 (feat. Alessia Cara & Khalid)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "newark-nj-region",
+    "name": "Newark, NJ",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "newark-nj",
+        "name": "Newark, NJ",
+        "state": "NJ",
+        "artists": [
+          {
+            "name": "Lords of the Underground",
+            "note": "Newark trio best known for the boom-bap classic \"Chief Rocka.\"",
+            "tracks": [
+              {
+                "title": "Chief Rocka"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tallahassee-fl-region",
+    "name": "Tallahassee, FL",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "tallahassee-fl",
+        "name": "Tallahassee, FL",
+        "state": "FL",
+        "artists": [
+          {
+            "name": "Luh Tyler",
+            "note": "Tallahassee rapper known for a laid-back, melodic street-rap style.",
+            "tracks": [
+              {
+                "title": "First Show"
               }
             ]
           }
