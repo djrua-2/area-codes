@@ -6504,6 +6504,12 @@
         "name": "Englewood",
         "x": 92.38,
         "y": 21.98
+      },
+      {
+        "id": "montclair-nj",
+        "name": "Montclair",
+        "x": 78.52,
+        "y": 24.97
       }
     ]
   },
@@ -9622,6 +9628,12 @@
         "name": "Norfolk",
         "x": 91.3,
         "y": 86.51
+      },
+      {
+        "id": "fairfax-va",
+        "name": "Fairfax",
+        "x": 79.24,
+        "y": 23.29
       }
     ]
   },
