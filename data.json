@@ -1000,6 +1000,15 @@
                 "title": "History in the Making (feat. Lil B, The Basedgod & Dope G)"
               }
             ]
+          },
+          {
+            "name": "The Coup",
+            "note": "Oakland group known for politically radical, funk-driven rap.",
+            "tracks": [
+              {
+                "title": "The Guillotine"
+              }
+            ]
           }
         ]
       }
@@ -1485,6 +1494,15 @@
             "tracks": [
               {
                 "title": "Hoochie Mama"
+              }
+            ]
+          },
+          {
+            "name": "The Miami Bass DJ's",
+            "note": "Compilation act rooted in Miami's booming, sound-system-driven bass tradition.",
+            "tracks": [
+              {
+                "title": "The Birthday Jam"
               }
             ]
           }
@@ -2299,6 +2317,24 @@
                 "title": "Bone Thugs N' Haifa"
               }
             ]
+          },
+          {
+            "name": "The Jet Age of Tomorrow",
+            "note": "Odd Future-affiliated production duo known for spacey, funk-inflected beats.",
+            "tracks": [
+              {
+                "title": "The Knight Hawk"
+              }
+            ]
+          },
+          {
+            "name": "The Pharcyde",
+            "note": "LA group known for playful, off-kilter wordplay and jazzy production.",
+            "tracks": [
+              {
+                "title": "Otha Fish"
+              }
+            ]
           }
         ]
       }
@@ -2562,6 +2598,15 @@
             "tracks": [
               {
                 "title": "Sewed Up (feat. Lil 2z)"
+              }
+            ]
+          },
+          {
+            "name": "The D.O.C.",
+            "note": "Dallas-born lyricist whose writing shaped N.W.A and the early G-funk era.",
+            "tracks": [
+              {
+                "title": "It's Funky Enough"
               }
             ]
           }
@@ -3234,6 +3279,15 @@
               },
               {
                 "title": "Ballad of the Black Gold"
+              }
+            ]
+          },
+          {
+            "name": "The Notorious B.I.G.",
+            "note": "Bedford-Stuyvesant rapper whose vivid storytelling and effortless flow made him one of the greatest MCs of all time.",
+            "tracks": [
+              {
+                "title": "Big Poppa (2005 Remaster)"
               }
             ]
           }
@@ -4364,6 +4418,15 @@
                 "title": "BE YOURSELF (feat. Bianca Shaw)"
               }
             ]
+          },
+          {
+            "name": "The Cool Kids",
+            "note": "Chicago duo known for a stripped-down, drum-machine-driven throwback sound.",
+            "tracks": [
+              {
+                "title": "Black Mags"
+              }
+            ]
           }
         ]
       }
@@ -5245,6 +5308,18 @@
                 "title": "MIA (feat. Saba)"
               }
             ]
+          },
+          {
+            "name": "The Roots",
+            "note": "Philadelphia band whose live-instrumentation approach reshaped what a hip-hop group could sound like.",
+            "tracks": [
+              {
+                "title": "Champion"
+              },
+              {
+                "title": "You Got Me (feat. Erykah Badu & Eve)"
+              }
+            ]
           }
         ]
       }
@@ -5964,6 +6039,21 @@
                 "title": "Die Young"
               }
             ]
+          },
+          {
+            "name": "The Game",
+            "note": "Compton rapper known for dense, reference-heavy West Coast storytelling.",
+            "tracks": [
+              {
+                "title": "100 (feat. Drake)"
+              },
+              {
+                "title": "Eazy"
+              },
+              {
+                "title": "El Chapo (Bonus Track)"
+              }
+            ]
           }
         ]
       }
@@ -6132,6 +6222,15 @@
             "tracks": [
               {
                 "title": "Handheld GPS"
+              }
+            ]
+          },
+          {
+            "name": "The Pack",
+            "note": "Bay Area group whose \"Vans\" and \"I'm Shinin'\" tied into the hyphy movement's rise.",
+            "tracks": [
+              {
+                "title": "I'm Shinin'"
               }
             ]
           }
@@ -7272,6 +7371,15 @@
                 "title": "Not Here Anymore (feat. eLZhi)"
               }
             ]
+          },
+          {
+            "name": "The Foreign Exchange",
+            "note": "Durham-rooted duo blending soul, R&B, and rap.",
+            "tracks": [
+              {
+                "title": "Happiness"
+              }
+            ]
           }
         ]
       }
@@ -7339,6 +7447,15 @@
             "tracks": [
               {
                 "title": "Cuttin It Up (feat. B-Luv)"
+              }
+            ]
+          },
+          {
+            "name": "The Jacka",
+            "note": "Bay Area rapper and Mob Figaz member known for introspective, street-rooted rap.",
+            "tracks": [
+              {
+                "title": "Glamorous Lifestyle (feat. Andre Nickatina)"
               }
             ]
           }
