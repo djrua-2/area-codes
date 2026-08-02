@@ -452,6 +452,15 @@
                 "title": "Get Back"
               }
             ]
+          },
+          {
+            "name": "MadeinTYO",
+            "note": "Atlanta-raised rapper known for a laid-back, melodic trap style.",
+            "tracks": [
+              {
+                "title": "HUNNIDDOLLA"
+              }
+            ]
           }
         ]
       }
@@ -689,6 +698,24 @@
             "tracks": [
               {
                 "title": "I Got 5 On It (feat. Dru Down, E-40, Richie Rich, Shock G & Spice 1) [Remix]"
+              }
+            ]
+          },
+          {
+            "name": "Main Attrakionz",
+            "note": "Oakland duo central to the early cloud-rap movement.",
+            "tracks": [
+              {
+                "title": "Cloud Body"
+              }
+            ]
+          },
+          {
+            "name": "Makaveli",
+            "note": "2Pac's posthumous alter-ego persona, rooted in his Bay Area come-up.",
+            "tracks": [
+              {
+                "title": "Me And My Girlfriend"
               }
             ]
           }
@@ -2219,6 +2246,15 @@
                 "title": "Just Relax"
               }
             ]
+          },
+          {
+            "name": "Maino",
+            "note": "Bedford-Stuyvesant rapper known for gritty, hard-edged street narratives.",
+            "tracks": [
+              {
+                "title": "Heard U"
+              }
+            ]
           }
         ]
       }
@@ -2607,6 +2643,15 @@
                 "title": "Calling My Phone"
               }
             ]
+          },
+          {
+            "name": "Mariahlynn",
+            "note": "Bronx rapper and reality-TV personality known for a brash, confident style.",
+            "tracks": [
+              {
+                "title": "Once Upon a Time"
+              }
+            ]
           }
         ]
       }
@@ -2751,6 +2796,15 @@
             "tracks": [
               {
                 "title": "Got Me F'd Up"
+              }
+            ]
+          },
+          {
+            "name": "Mase",
+            "note": "Bad Boy Records rapper known for a smooth, laid-back flow over shiny-suit-era production.",
+            "tracks": [
+              {
+                "title": "Feel So Good"
               }
             ]
           }
@@ -4751,6 +4805,15 @@
                 "title": "Blueberry Faygo"
               }
             ]
+          },
+          {
+            "name": "Macklemore & Ryan Lewis",
+            "note": "Seattle duo known for independently-released, socially conscious mainstream hits.",
+            "tracks": [
+              {
+                "title": "Downtown (feat. Melle Mel, Grandmaster Caz, Kool Moe Dee & Eric Nally)"
+              }
+            ]
           }
         ]
       }
@@ -4930,6 +4993,15 @@
             "tracks": [
               {
                 "title": "gone girl (feat. Trippie Redd)"
+              }
+            ]
+          },
+          {
+            "name": "Lute",
+            "note": "Dreamville rapper known for soulful, introspective North Carolina rap.",
+            "tracks": [
+              {
+                "title": "Premonition (feat. EARTHGANG & Cam O'bi)"
               }
             ]
           }
@@ -5503,6 +5575,15 @@
                 "title": "Tracphone"
               }
             ]
+          },
+          {
+            "name": "Mark Battles",
+            "note": "Milwaukee rapper known for melodic, introspective songwriting.",
+            "tracks": [
+              {
+                "title": "Be You (feat. Curren$y)"
+              }
+            ]
           }
         ]
       }
@@ -5927,6 +6008,15 @@
                 "title": "Chief Rocka"
               }
             ]
+          },
+          {
+            "name": "Mach-Hommy",
+            "note": "Haitian-American rapper known for dense, cryptic, high-priced-release underground rap.",
+            "tracks": [
+              {
+                "title": "#RICHAXXHAITIAN"
+              }
+            ]
           }
         ]
       }
@@ -5948,6 +6038,55 @@
             "tracks": [
               {
                 "title": "First Show"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pittsburgh-pa-region",
+    "name": "Pittsburgh, PA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "pittsburgh-pa",
+        "name": "Pittsburgh, PA",
+        "state": "PA",
+        "artists": [
+          {
+            "name": "Mac Miller",
+            "note": "Pittsburgh rapper known for a warm, jazz-inflected evolution from mixtape rapper to genre-blending artist.",
+            "tracks": [
+              {
+                "title": "100 Grandkids"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "newport-news-va-region",
+    "name": "Newport News, VA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "newport-news-va",
+        "name": "Newport News, VA",
+        "state": "VA",
+        "artists": [
+          {
+            "name": "Masego",
+            "note": "Virginia artist blending jazz, R&B, and hip-hop into a genre he calls \"trap house jazz.\"",
+            "tracks": [
+              {
+                "title": "Disconnected (Shorty from VA)"
+              },
+              {
+                "title": "Girls That Dance"
               }
             ]
           }
