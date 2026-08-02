@@ -542,6 +542,15 @@
                 "title": "Sunset In Benzes"
               }
             ]
+          },
+          {
+            "name": "SahBabii",
+            "note": "Atlanta rapper known for a high-pitched, melodic ad-lib-heavy style.",
+            "tracks": [
+              {
+                "title": "One and Done"
+              }
+            ]
           }
         ]
       }
@@ -1178,6 +1187,15 @@
                 "title": "Boom"
               }
             ]
+          },
+          {
+            "name": "Sada Baby",
+            "note": "Detroit rapper known for a chaotic, high-energy street style.",
+            "tracks": [
+              {
+                "title": "Whole Lotta Choppas"
+              }
+            ]
           }
         ]
       }
@@ -1323,6 +1341,15 @@
             "tracks": [
               {
                 "title": "Costa Rica (feat. Ski Mask the Slump God)"
+              }
+            ]
+          },
+          {
+            "name": "Saucy Santana",
+            "note": "Miami rapper known for high-energy, unapologetically flamboyant bars.",
+            "tracks": [
+              {
+                "title": "Booty (feat. Latto)"
               }
             ]
           }
@@ -2036,6 +2063,24 @@
             "tracks": [
               {
                 "title": "Everlasting Bass"
+              }
+            ]
+          },
+          {
+            "name": "Salva",
+            "note": "LA-based producer known for bass-heavy, club-ready beats.",
+            "tracks": [
+              {
+                "title": "Old English (feat. Young Thug, Freddie Gibbs & A$AP Ferg)"
+              }
+            ]
+          },
+          {
+            "name": "ScHoolboy Q",
+            "note": "TDE member known for gritty, unpredictable South Central storytelling.",
+            "tracks": [
+              {
+                "title": "5200"
               }
             ]
           }
@@ -2904,6 +2949,15 @@
             "tracks": [
               {
                 "title": "Love Language (feat. Les Nubians)"
+              }
+            ]
+          },
+          {
+            "name": "SAINt JHN",
+            "note": "Brooklyn artist blending rap, dancehall, and pop into a genre-fluid sound.",
+            "tracks": [
+              {
+                "title": "Reflex"
               }
             ]
           }
@@ -5985,6 +6039,15 @@
                 "title": "Grab Her Hand (feat. MAC MILLER)"
               }
             ]
+          },
+          {
+            "name": "Seafood Sam",
+            "note": "Boston rapper known for gritty, technically sharp street narratives.",
+            "tracks": [
+              {
+                "title": "Ramsey"
+              }
+            ]
           }
         ]
       }
@@ -6898,6 +6961,15 @@
                 "title": "LEAVING HELL"
               }
             ]
+          },
+          {
+            "name": "Scallops Hotel",
+            "note": "Milo's lo-fi alter-ego project, rooted in Milwaukee's underground scene.",
+            "tracks": [
+              {
+                "title": "Bookoo Bread Co"
+              }
+            ]
           }
         ]
       }
@@ -7806,6 +7878,98 @@
               },
               {
                 "title": "Dub 4 U"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fairfield-ca-region",
+    "name": "Fairfield, CA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "fairfield-ca",
+        "name": "Fairfield, CA",
+        "state": "CA",
+        "artists": [
+          {
+            "name": "Sage the Gemini",
+            "note": "Bay Area rapper known for bouncy, dance-ready hooks.",
+            "tracks": [
+              {
+                "title": "Now and Later"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ithaca-ny-region",
+    "name": "Ithaca, NY",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "ithaca-ny",
+        "name": "Ithaca, NY",
+        "state": "NY",
+        "artists": [
+          {
+            "name": "Sammus",
+            "note": "Ithaca rapper known for nerdy, personal, video-game-inflected lyricism.",
+            "tracks": [
+              {
+                "title": "Qualified (feat. Open Mike Eagle and Arch Thompson)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "newburgh-ny-region",
+    "name": "Newburgh, NY",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "newburgh-ny",
+        "name": "Newburgh, NY",
+        "state": "NY",
+        "artists": [
+          {
+            "name": "Saul Williams",
+            "note": "Poet-rapper known for politically charged, spoken-word-rooted hip-hop.",
+            "tracks": [
+              {
+                "title": "Coded Language"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "santa-clara-ca-region",
+    "name": "Santa Clara, CA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "santa-clara-ca",
+        "name": "Santa Clara, CA",
+        "state": "CA",
+        "artists": [
+          {
+            "name": "Saweetie",
+            "note": "Bay Area rapper known for confident, hook-driven bars.",
+            "tracks": [
+              {
+                "title": "Best Friend (feat. Doja Cat)"
               }
             ]
           }
