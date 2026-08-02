@@ -9113,6 +9113,12 @@
         "name": "Killeen",
         "x": 66.64,
         "y": 50.68
+      },
+      {
+        "id": "bay-city-tx",
+        "name": "Bay City",
+        "x": 79.05,
+        "y": 69.3
       }
     ]
   },
