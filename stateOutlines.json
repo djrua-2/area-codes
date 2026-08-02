@@ -5301,6 +5301,12 @@
         "name": "Minneapolis",
         "x": 51.91,
         "y": 73.06
+      },
+      {
+        "id": "rochester-mn",
+        "name": "Rochester",
+        "x": 61.67,
+        "y": 88.08
       }
     ]
   },
