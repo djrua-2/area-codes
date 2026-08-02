@@ -140,6 +140,15 @@
                 "title": "HeadBand (feat. 2 Chainz)"
               }
             ]
+          },
+          {
+            "name": "Baby Tate",
+            "note": "Atlanta-based rapper/singer known for playful, hook-driven bars.",
+            "tracks": [
+              {
+                "title": "Jersey"
+              }
+            ]
           }
         ]
       }
@@ -407,6 +416,30 @@
                 "title": "H20 (feat. Pharoahe Monch, Rakaa Iriscience & inDJnous)"
               }
             ]
+          },
+          {
+            "name": "Baby Smoove",
+            "note": "Detroit street rapper known for a laid-back, melodic flow.",
+            "tracks": [
+              {
+                "title": "Amg"
+              }
+            ]
+          },
+          {
+            "name": "Babyface Ray",
+            "note": "Detroit rapper known for a laid-back, luxury-focused street-rap style.",
+            "tracks": [
+              {
+                "title": "Ron Artest"
+              },
+              {
+                "title": "Bosses Linking With Bosses"
+              },
+              {
+                "title": "It Ain't My Fault"
+              }
+            ]
           }
         ]
       }
@@ -572,6 +605,15 @@
                 "title": "Gonna Bleach My Eyebrows"
               }
             ]
+          },
+          {
+            "name": "Bambu",
+            "note": "LA-based Filipino-American rapper known for politically conscious lyricism.",
+            "tracks": [
+              {
+                "title": "F'Real F'Real (Kiwi, Bambu + DJ Phatrick)"
+              }
+            ]
           }
         ]
       }
@@ -702,6 +744,15 @@
             "tracks": [
               {
                 "title": "4am - Bay Bridge Music"
+              }
+            ]
+          },
+          {
+            "name": "Berner",
+            "note": "Bay Area rapper known for laid-back flows and a cannabis-culture-adjacent brand.",
+            "tracks": [
+              {
+                "title": "Levitate (feat. Quez)"
               }
             ]
           }
@@ -887,6 +938,21 @@
                 "title": "Descendant of the Stars"
               }
             ]
+          },
+          {
+            "name": "Bas",
+            "note": "Dreamville rapper known for a smooth, jazz-inflected flow.",
+            "tracks": [
+              {
+                "title": "Amnesia (feat. Ari Lennox & Kiddominant)"
+              },
+              {
+                "title": "Boca Raton"
+              },
+              {
+                "title": "The Jackie (feat. Lil Tjay)"
+              }
+            ]
           }
         ]
       }
@@ -976,6 +1042,15 @@
             "tracks": [
               {
                 "title": "Bulletproof"
+              }
+            ]
+          },
+          {
+            "name": "Beast Coast",
+            "note": "Brooklyn collective uniting Flatbush Zombies, Pro Era, and The Underachievers.",
+            "tracks": [
+              {
+                "title": "Desperado (feat. Meechy Darko, Joey Bada$$, Zombie Juice & Kirk Knight)"
               }
             ]
           }
@@ -1079,6 +1154,15 @@
             "tracks": [
               {
                 "title": "Doves (feat. billy woods, E L U C I D & Benjamin Booker)"
+              }
+            ]
+          },
+          {
+            "name": "Beastie Boys",
+            "note": "Pioneering New York group that helped bring rap into the punk and alternative mainstream.",
+            "tracks": [
+              {
+                "title": "Brass Monkey"
               }
             ]
           }
@@ -1570,6 +1654,24 @@
                 "title": "High Tolerance"
               }
             ]
+          },
+          {
+            "name": "Beatking",
+            "note": "Houston rapper known for high-energy, strip-club-ready anthems.",
+            "tracks": [
+              {
+                "title": "Then Leave (feat. Queendome Come)"
+              }
+            ]
+          },
+          {
+            "name": "Beyoncé",
+            "note": "Houston-raised icon whose catalog spans R&B, pop, and hip-hop.",
+            "tracks": [
+              {
+                "title": "BLACK PARADE"
+              }
+            ]
           }
         ]
       }
@@ -1773,6 +1875,136 @@
             "tracks": [
               {
                 "title": "The Way I Live (feat. Lil Boosie)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "las-vegas-nv-region",
+    "name": "Las Vegas, NV",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "las-vegas-nv",
+        "name": "Las Vegas, NV",
+        "state": "NV",
+        "artists": [
+          {
+            "name": "Baby Keem",
+            "note": "Las Vegas-raised rapper/producer known for dense, genre-shifting production.",
+            "tracks": [
+              {
+                "title": "16"
+              },
+              {
+                "title": "family ties"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ypsilanti-mi-region",
+    "name": "Ypsilanti, MI",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "ypsilanti-mi",
+        "name": "Ypsilanti, MI",
+        "state": "MI",
+        "artists": [
+          {
+            "name": "BabyTron",
+            "note": "Part of Michigan's \"Certified Trapper\" wave, known for rapid-fire punchlines.",
+            "tracks": [
+              {
+                "title": "Awful Lotta Yeah"
+              },
+              {
+                "title": "Kai Cenat / Old Days"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "chattanooga-tn-region",
+    "name": "Chattanooga, TN",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "chattanooga-tn",
+        "name": "Chattanooga, TN",
+        "state": "TN",
+        "artists": [
+          {
+            "name": "bbymutha",
+            "note": "Chattanooga rapper known for blunt, confessional bars over sparse, trap-adjacent beats.",
+            "tracks": [
+              {
+                "title": "Sleeping With the Enemy (feat. Kindora)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "buffalo-ny-region",
+    "name": "Buffalo, NY",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "buffalo-ny",
+        "name": "Buffalo, NY",
+        "state": "NY",
+        "artists": [
+          {
+            "name": "Benny the Butcher",
+            "note": "Griselda member known for gritty, coke-rap storytelling.",
+            "tracks": [
+              {
+                "title": "Burden Of Proof"
+              },
+              {
+                "title": "Jesus Arms (feat. Busta Rhymes)"
+              },
+              {
+                "title": "Legend"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "flint-mi-region",
+    "name": "Flint, MI",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "flint-mi",
+        "name": "Flint, MI",
+        "state": "MI",
+        "artists": [
+          {
+            "name": "Bfb Da Packman",
+            "note": "Flint rapper known for blunt, comedic, high-energy bars.",
+            "tracks": [
+              {
+                "title": "Free Joe Exotic (feat. Sada Baby)"
+              },
+              {
+                "title": "Bob and Weave"
               }
             ]
           }
