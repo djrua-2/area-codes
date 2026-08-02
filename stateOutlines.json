@@ -3832,6 +3832,12 @@
         "name": "Shreveport",
         "x": 9.09,
         "y": 15.37
+      },
+      {
+        "id": "baton-rouge-la",
+        "name": "Baton Rouge",
+        "x": 56.15,
+        "y": 63.04
       }
     ]
   },
@@ -6813,6 +6819,12 @@
         "name": "Yonkers",
         "x": 74.57,
         "y": 88.28
+      },
+      {
+        "id": "new-rochelle-ny",
+        "name": "New Rochelle",
+        "x": 75.97,
+        "y": 88.69
       }
     ]
   },
@@ -8915,6 +8927,12 @@
         "name": "San Marcos",
         "x": 65.14,
         "y": 61.45
+      },
+      {
+        "id": "corpus-christi-tx",
+        "name": "Corpus Christi",
+        "x": 68.93,
+        "y": 79.93
       }
     ]
   },
