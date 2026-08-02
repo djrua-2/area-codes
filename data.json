@@ -50,6 +50,27 @@
                 "spotifyId": "0M9ydKzuF3oZTfYYPfaGX1"
               }
             ]
+          },
+          {
+            "name": "2 Chainz",
+            "note": "Ad-lib-heavy, hook-driven Atlanta trap veteran whose delivery became one of the most imitated in the genre.",
+            "tracks": [
+              {
+                "title": "4 AM (feat. Travis Scott)"
+              }
+            ]
+          },
+          {
+            "name": "21 Savage",
+            "note": "Deadpan, menacing delivery that became a blueprint for modern Atlanta trap.",
+            "tracks": [
+              {
+                "title": "a lot"
+              },
+              {
+                "title": "No Heart"
+              }
+            ]
           }
         ]
       }
@@ -130,6 +151,18 @@
                 "spotifyId": "2Zx41xpsAlZZxUVLm1ciar"
               }
             ]
+          },
+          {
+            "name": "2Pac",
+            "note": "One of rap's most influential voices, came up in the Bay Area before becoming a defining West Coast figure.",
+            "tracks": [
+              {
+                "title": "2 of Amerikaz Most Wanted (feat. Snoop Dogg & Snoop Doggy Dogg)"
+              },
+              {
+                "title": "How Do U Want It"
+              }
+            ]
           }
         ]
       }
@@ -204,6 +237,18 @@
               {
                 "title": "Ain't It Funny",
                 "spotifyId": "7ItFoQDmQIh3MAPsxiP6Vt"
+              }
+            ]
+          },
+          {
+            "name": "42 Dugg",
+            "note": "Raspy, rapid-fire Detroit street rapper known for his distinctive slurred cadence.",
+            "tracks": [
+              {
+                "title": "Thump Shit"
+              },
+              {
+                "title": "4 Da Gang"
               }
             ]
           }
@@ -301,6 +346,265 @@
               {
                 "title": "I'm So Gainesville(Atl Gmix)",
                 "spotifyId": "1Ec3l2aWb4DWDTkWiIDiD6"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "los-angeles-ca-region",
+    "name": "Los Angeles, CA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "los-angeles-ca",
+        "name": "Los Angeles, CA",
+        "state": "CA",
+        "artists": [
+          {
+            "name": "03 Greedo",
+            "note": "West Coast street rapper from Watts known for a melodic, gravel-toned delivery over dark synth-driven beats.",
+            "tracks": [
+              {
+                "title": "Substance"
+              },
+              {
+                "title": "Disco Shit (feat. Freddie Gibbs)"
+              },
+              {
+                "title": "Sweet Lady"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "north-bergen-nj-region",
+    "name": "North Bergen, NJ",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "north-bergen-nj",
+        "name": "North Bergen, NJ",
+        "state": "NJ",
+        "artists": [
+          {
+            "name": "070 Shake",
+            "note": "Genre-blurring, half-sung delivery that helped define a moodier, more atmospheric strain of East Coast rap.",
+            "tracks": [
+              {
+                "title": "Glitter"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "jacksonville-fl-region",
+    "name": "Jacksonville, FL",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "jacksonville-fl",
+        "name": "Jacksonville, FL",
+        "state": "FL",
+        "artists": [
+          {
+            "name": "2 Pistols",
+            "note": "Mid-2000s Southern rap voice known for the strip-club anthem \"She Got It.\"",
+            "tracks": [
+              {
+                "title": "She Got It (feat. T-Pain & Tay Dizm)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "san-francisco-ca-region",
+    "name": "San Francisco, CA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "san-francisco-ca",
+        "name": "San Francisco, CA",
+        "state": "CA",
+        "artists": [
+          {
+            "name": "24kGoldn",
+            "note": "Genre-crossing Bay Area artist blending pop-rap hooks with rock and hip-hop production.",
+            "tracks": [
+              {
+                "title": "Mood (feat. iann dior)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "inglewood-ca-region",
+    "name": "Inglewood, CA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "inglewood-ca",
+        "name": "Inglewood, CA",
+        "state": "CA",
+        "artists": [
+          {
+            "name": "310babii",
+            "note": "Named for the LA area code, part of a new wave of melodic West Coast rap.",
+            "tracks": [
+              {
+                "title": "locked in"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dallas-tx-region",
+    "name": "Dallas, TX",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "dallas-tx",
+        "name": "Dallas, TX",
+        "state": "TX",
+        "artists": [
+          {
+            "name": "4batz",
+            "note": "Genre-bending Dallas artist blending R&B melody with rap cadence.",
+            "tracks": [
+              {
+                "title": "roll da dice"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "queens-ny-region",
+    "name": "Queens, NY",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "queens-ny",
+        "name": "Queens, NY",
+        "state": "NY",
+        "artists": [
+          {
+            "name": "50 Cent",
+            "note": "South Jamaica, Queens street rapper turned era-defining mainstream hitmaker.",
+            "tracks": [
+              {
+                "title": "21 Questions (feat. Nate Dogg)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "nashville-tn-region",
+    "name": "Nashville, TN",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "nashville-tn",
+        "name": "Nashville, TN",
+        "state": "TN",
+        "artists": [
+          {
+            "name": "6 Dogs",
+            "note": "Part of Nashville's SoundCloud-era rap scene.",
+            "tracks": [
+              {
+                "title": "Buttcheeks"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "brooklyn-ny-region",
+    "name": "Brooklyn, NY",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "brooklyn-ny",
+        "name": "Brooklyn, NY",
+        "state": "NY",
+        "artists": [
+          {
+            "name": "6ix9ine",
+            "note": "Bushwick rapper known for a chaotic, high-energy delivery and rainbow-haired persona.",
+            "tracks": [
+              {
+                "title": "CHOCOLATÉ"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cleveland-oh-region",
+    "name": "Cleveland, OH",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "cleveland-oh",
+        "name": "Cleveland, OH",
+        "state": "OH",
+        "artists": [
+          {
+            "name": "71 NORTH",
+            "note": "Cleveland rap named for the interstate that runs through the city.",
+            "tracks": [
+              {
+                "title": "Cleveland Shuffle (Radio Mix)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "new-york-ny-region",
+    "name": "New York, NY",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "new-york-ny",
+        "name": "New York, NY",
+        "state": "NY",
+        "artists": [
+          {
+            "name": "88-Keys",
+            "note": "Harlem producer-rapper closely tied to the 2000s New York backpack-rap and Kanye West circles.",
+            "tracks": [
+              {
+                "title": "Stay Up! (Viagra) [feat. Kanye West]"
               }
             ]
           }
