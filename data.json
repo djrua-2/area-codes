@@ -409,6 +409,18 @@
                 "title": "Someday"
               }
             ]
+          },
+          {
+            "name": "G-Eazy",
+            "note": "Oakland rapper known for smooth, radio-friendly pop-rap.",
+            "tracks": [
+              {
+                "title": "Calm Down"
+              },
+              {
+                "title": "Guala (feat. THIRTYRACK)"
+              }
+            ]
           }
         ]
       }
@@ -973,6 +985,24 @@
                 "title": "You Wish"
               }
             ]
+          },
+          {
+            "name": "G Perico",
+            "note": "South Central rapper known for reviving a G-funk-era West Coast sound.",
+            "tracks": [
+              {
+                "title": "Did A Lot"
+              }
+            ]
+          },
+          {
+            "name": "Germ",
+            "note": "Odd Future-affiliated LA rapper.",
+            "tracks": [
+              {
+                "title": "Han Solo"
+              }
+            ]
           }
         ]
       }
@@ -1430,6 +1460,15 @@
                 "title": "A Spike Lee Joint (feat. Anthony Flammia)"
               }
             ]
+          },
+          {
+            "name": "Gang Starr",
+            "note": "Guru and DJ Premier's duo, a cornerstone of jazz-inflected '90s New York boom-bap.",
+            "tracks": [
+              {
+                "title": "Above the Clouds"
+              }
+            ]
           }
         ]
       }
@@ -1543,6 +1582,15 @@
             "tracks": [
               {
                 "title": "BASIC (feat. Anycia & Robb Bank$)"
+              }
+            ]
+          },
+          {
+            "name": "Funk Flex",
+            "note": "Legendary Hot 97 DJ central to New York hip-hop radio culture.",
+            "tracks": [
+              {
+                "title": "Biggie / Tupac Live Freestyle (feat. DJ Mister Cee, The Notorious B.I.G. & 2Pac)"
               }
             ]
           }
@@ -1708,6 +1756,15 @@
               },
               {
                 "title": "All the Way Up (feat. French Montana & Infared) [Remix]"
+              }
+            ]
+          },
+          {
+            "name": "French Montana",
+            "note": "Moroccan-born, Bronx-raised rapper known for a laid-back, hook-driven street style.",
+            "tracks": [
+              {
+                "title": "Phenomenon (feat. Max B)"
               }
             ]
           }
@@ -2022,6 +2079,24 @@
             "tracks": [
               {
                 "title": "Huffing Paint"
+              }
+            ]
+          },
+          {
+            "name": "Fredo Santana",
+            "note": "Chicago street rapper and early figure in the city's drill scene.",
+            "tracks": [
+              {
+                "title": "Chopper (feat. Maxo Kream)"
+              }
+            ]
+          },
+          {
+            "name": "G Herbo",
+            "note": "Chicago rapper known for gritty, autobiographical street narratives.",
+            "tracks": [
+              {
+                "title": "In The A (feat. 21 Savage)"
               }
             ]
           }
@@ -3760,6 +3835,98 @@
               },
               {
                 "title": "Feeling"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kansas-city-mo-region",
+    "name": "Kansas City, MO",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "kansas-city-mo",
+        "name": "Kansas City, MO",
+        "state": "MO",
+        "artists": [
+          {
+            "name": "Froggy Fresh",
+            "note": "Kansas City-area novelty rapper known for viral comedic tracks.",
+            "tracks": [
+              {
+                "title": "Same Old Kid"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "south-orange-nj-region",
+    "name": "South Orange, NJ",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "south-orange-nj",
+        "name": "South Orange, NJ",
+        "state": "NJ",
+        "artists": [
+          {
+            "name": "Fugees",
+            "note": "New Jersey trio (Wyclef Jean, Lauryn Hill, Pras) whose fusion of rap, reggae, and soul reshaped '90s hip-hop.",
+            "tracks": [
+              {
+                "title": "Fu-Gee-La"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "plainfield-nj-region",
+    "name": "Plainfield, NJ",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "plainfield-nj",
+        "name": "Plainfield, NJ",
+        "state": "NJ",
+        "artists": [
+          {
+            "name": "Funkadelic",
+            "note": "George Clinton's genre-defining funk collective, hugely influential on hip-hop sampling culture.",
+            "tracks": [
+              {
+                "title": "Ain't That Funkin' Kinda Hard on You? (We Ain't Neva Gonna Stop Remix) [feat. Kendrick Lamar & Ice Cube]"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "durham-nc-region",
+    "name": "Durham, NC",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "durham-nc",
+        "name": "Durham, NC",
+        "state": "NC",
+        "artists": [
+          {
+            "name": "G YAMAZAWA",
+            "note": "Durham rapper known for blending North Carolina identity with Japanese-American heritage.",
+            "tracks": [
+              {
+                "title": "North Cack (feat. Joshua Gunn & Kane Smego)"
               }
             ]
           }
