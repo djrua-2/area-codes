@@ -1189,6 +1189,12 @@
         "name": "Sacramento",
         "x": 29.99,
         "y": 37.23
+      },
+      {
+        "id": "richmond-ca",
+        "name": "Richmond",
+        "x": 22.3,
+        "y": 43.53
       }
     ]
   },
@@ -5295,6 +5301,12 @@
         "name": "Meridian",
         "x": 80.46,
         "y": 54.31
+      },
+      {
+        "id": "jackson-ms",
+        "name": "Jackson",
+        "x": 41.75,
+        "y": 55.55
       }
     ]
   },
@@ -6676,6 +6688,12 @@
         "name": "Staten Island",
         "x": 71.54,
         "y": 95.48
+      },
+      {
+        "id": "amityville-ny",
+        "name": "Amityville",
+        "x": 80.39,
+        "y": 93.5
       }
     ]
   },
@@ -6932,7 +6950,14 @@
         4.63
       ]
     ],
-    "cities": []
+    "cities": [
+      {
+        "id": "charlotte-nc",
+        "name": "Charlotte",
+        "x": 41.12,
+        "y": 49.67
+      }
+    ]
   },
   "ND": {
     "bbox": {
