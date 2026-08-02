@@ -1897,6 +1897,12 @@
         "name": "Pompano Beach",
         "x": 95.16,
         "y": 78.71
+      },
+      {
+        "id": "plantation-fl",
+        "name": "Plantation",
+        "x": 93.84,
+        "y": 80.45
       }
     ]
   },
@@ -4935,6 +4941,12 @@
         "name": "Gladwin",
         "x": 54.85,
         "y": 44.47
+      },
+      {
+        "id": "saginaw-mi",
+        "name": "Saginaw",
+        "x": 64.05,
+        "y": 57.08
       }
     ]
   },
