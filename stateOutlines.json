@@ -146,6 +146,12 @@
         "name": "Montgomery",
         "x": 59.59,
         "y": 54.8
+      },
+      {
+        "id": "mobile-al",
+        "name": "Mobile",
+        "x": 14.75,
+        "y": 87.64
       }
     ]
   },
@@ -1277,7 +1283,14 @@
         3.7
       ]
     ],
-    "cities": []
+    "cities": [
+      {
+        "id": "denver-co",
+        "name": "Denver",
+        "x": 57.47,
+        "y": 32.91
+      }
+    ]
   },
   "CT": {
     "bbox": {
@@ -2855,7 +2868,14 @@
         3.7
       ]
     ],
-    "cities": []
+    "cities": [
+      {
+        "id": "gary-in",
+        "name": "Gary",
+        "x": 24.25,
+        "y": 7.38
+      }
+    ]
   },
   "IA": {
     "bbox": {
@@ -6271,6 +6291,12 @@
         "name": "Nutley",
         "x": 81.93,
         "y": 24.74
+      },
+      {
+        "id": "paterson-nj",
+        "name": "Paterson",
+        "x": 81.27,
+        "y": 21.04
       }
     ]
   },
