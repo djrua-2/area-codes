@@ -482,6 +482,21 @@
                 "title": "WORTH IT"
               }
             ]
+          },
+          {
+            "name": "Outkast",
+            "note": "One of the most influential duos in hip-hop, foundational to Atlanta's rise as a hip-hop capital.",
+            "tracks": [
+              {
+                "title": "Aquemini"
+              },
+              {
+                "title": "Humble Mumble (with Erykah Badu)"
+              },
+              {
+                "title": "I'll Call B4 I Cum (with Gangsta Boo & Eco)"
+              }
+            ]
           }
         ]
       }
@@ -617,6 +632,15 @@
               },
               {
                 "title": "Stick By My Side"
+              }
+            ]
+          },
+          {
+            "name": "Paper Route Empire",
+            "note": "Young Dolph's Memphis-rooted label and artist collective.",
+            "tracks": [
+              {
+                "title": "Freeze Tag"
               }
             ]
           }
@@ -797,6 +821,15 @@
               },
               {
                 "title": "Ghost Ride It"
+              }
+            ]
+          },
+          {
+            "name": "Ovrkast.",
+            "note": "Oakland rapper known for smooth, jazz-inflected underground rap.",
+            "tracks": [
+              {
+                "title": "Paymeagrip"
               }
             ]
           }
@@ -1047,6 +1080,18 @@
               },
               {
                 "title": "Slim Anus"
+              }
+            ]
+          },
+          {
+            "name": "Peezy",
+            "note": "Detroit rapper known for a laid-back, hustler-narrative street style.",
+            "tracks": [
+              {
+                "title": "Rio Flow"
+              },
+              {
+                "title": "Plug Come Down (feat. 3D Hook King)"
               }
             ]
           }
@@ -1790,6 +1835,42 @@
             "tracks": [
               {
                 "title": "Get Fly (feat. DaBaby)"
+              }
+            ]
+          },
+          {
+            "name": "Open Mike Eagle",
+            "note": "LA-based rapper known for witty, observational underground rap.",
+            "tracks": [
+              {
+                "title": "95 Radios (feat. Has-Lo)"
+              }
+            ]
+          },
+          {
+            "name": "OverDoz.",
+            "note": "LA collective known for a laid-back, retro-tinged West Coast sound.",
+            "tracks": [
+              {
+                "title": "Manifesto"
+              }
+            ]
+          },
+          {
+            "name": "Pac Div",
+            "note": "Carson trio central to LA's 2010s independent rap scene.",
+            "tracks": [
+              {
+                "title": "Slow"
+              }
+            ]
+          },
+          {
+            "name": "Paris Texas",
+            "note": "LA duo known for genre-shredding, punk-inflected rap.",
+            "tracks": [
+              {
+                "title": "DnD (feat. Kenny Mason)"
               }
             ]
           }
@@ -2565,6 +2646,15 @@
             "tracks": [
               {
                 "title": "Brooklyn Zoo"
+              }
+            ]
+          },
+          {
+            "name": "Papoose",
+            "note": "Brooklyn lyricist known for dense, technically sharp wordplay.",
+            "tracks": [
+              {
+                "title": "You Cant Stop the Reign"
               }
             ]
           }
@@ -3542,6 +3632,15 @@
                 "title": "Ace (feat. Smino & Saba)"
               }
             ]
+          },
+          {
+            "name": "Only The Family",
+            "note": "Lil Durk's Chicago-rooted label and artist collective.",
+            "tracks": [
+              {
+                "title": "Hellcats & Trackhawks"
+              }
+            ]
           }
         ]
       }
@@ -3910,6 +4009,15 @@
             "tracks": [
               {
                 "title": "Back End (feat. Don Toliver)"
+              }
+            ]
+          },
+          {
+            "name": "Paul Wall",
+            "note": "Houston rapper known for chopped-and-screwed-era hits and grillz culture.",
+            "tracks": [
+              {
+                "title": "Drive Slow (feat. Kanye West & GLC)"
               }
             ]
           }
@@ -4719,6 +4827,15 @@
             "tracks": [
               {
                 "title": "I'm Geekin (feat. Luh Tyler)"
+              }
+            ]
+          },
+          {
+            "name": "One.Be.Lo",
+            "note": "Michigan underground lyricist best known for the cult classic \"Masters of the Universe.\"",
+            "tracks": [
+              {
+                "title": "Enecs Eht No Kcab (feat. DJ Virus & Decompoze)"
               }
             ]
           }
