@@ -263,6 +263,24 @@
                 "title": "Drip or Drown Remix (feat. Lil Yachty)"
               }
             ]
+          },
+          {
+            "name": "ICYTWAT",
+            "note": "Awful Records affiliate known for hazy, experimental trap production.",
+            "tracks": [
+              {
+                "title": "Down Bad"
+              }
+            ]
+          },
+          {
+            "name": "iLoveMakonnen",
+            "note": "Atlanta artist known for a genre-blurring, melodic take on trap.",
+            "tracks": [
+              {
+                "title": "Tuesday (feat. Drake)"
+              }
+            ]
           }
         ]
       }
@@ -677,6 +695,36 @@
                 "title": "Crack a Bottle (feat. Dr. Dre & 50 Cent)"
               }
             ]
+          },
+          {
+            "name": "Icewear Vezzo",
+            "note": "Detroit street rapper known for a laid-back, hustler-narrative flow.",
+            "tracks": [
+              {
+                "title": "Need Me (feat. Dreezy)"
+              }
+            ]
+          },
+          {
+            "name": "Illa J",
+            "note": "Detroit rapper-singer and J Dilla's younger brother.",
+            "tracks": [
+              {
+                "title": "Air Signs"
+              }
+            ]
+          },
+          {
+            "name": "Insane Clown Posse",
+            "note": "Detroit horrorcore duo known for a cartoonish, shock-value-driven sound.",
+            "tracks": [
+              {
+                "title": "Chop Chop Slide"
+              },
+              {
+                "title": "Slim Anus"
+              }
+            ]
           }
         ]
       }
@@ -1064,6 +1112,27 @@
             "tracks": [
               {
                 "title": "Jump Around"
+              }
+            ]
+          },
+          {
+            "name": "Ice Cube",
+            "note": "South Central rapper and N.W.A co-founder central to gangsta rap's rise.",
+            "tracks": [
+              {
+                "title": "Check Yo Self (Remix)"
+              }
+            ]
+          },
+          {
+            "name": "ICECOLDBISHOP",
+            "note": "South LA rapper known for a laid-back, street-rooted West Coast style.",
+            "tracks": [
+              {
+                "title": "PUSH TO START (Freestyle)"
+              },
+              {
+                "title": "DICKIES SUIT"
               }
             ]
           }
@@ -1866,6 +1935,15 @@
                 "title": "I Like It (I Wanna Be Where You Are)"
               }
             ]
+          },
+          {
+            "name": "Ice Spice",
+            "note": "Bronx drill artist known for a deadpan, viral-hit-driven sound.",
+            "tracks": [
+              {
+                "title": "How High?"
+              }
+            ]
           }
         ]
       }
@@ -1983,6 +2061,15 @@
             "tracks": [
               {
                 "title": "I'll Be Missing You (feat. Faith Evans & 112)"
+              }
+            ]
+          },
+          {
+            "name": "Immortal Technique",
+            "note": "Harlem rapper known for politically radical, uncompromising lyricism.",
+            "tracks": [
+              {
+                "title": "Dance with the Devil"
               }
             ]
           }
@@ -2601,6 +2688,21 @@
               },
               {
                 "title": "Herside Story"
+              }
+            ]
+          },
+          {
+            "name": "IDK",
+            "note": "DMV rapper known for genre-blending, conceptually ambitious releases.",
+            "tracks": [
+              {
+                "title": "24"
+              },
+              {
+                "title": "Moral (feat. Maxo Kream)"
+              },
+              {
+                "title": "Red"
               }
             ]
           }
@@ -3464,6 +3566,15 @@
                 "title": "Dear Labels"
               }
             ]
+          },
+          {
+            "name": "Innanet James",
+            "note": "Sacramento rapper known for a smooth, melodic underground style.",
+            "tracks": [
+              {
+                "title": "Summer"
+              }
+            ]
           }
         ]
       }
@@ -4188,6 +4299,29 @@
             "tracks": [
               {
                 "title": "Cuttin It Up (feat. B-Luv)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tempe-az-region",
+    "name": "Tempe, AZ",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "tempe-az",
+        "name": "Tempe, AZ",
+        "state": "AZ",
+        "artists": [
+          {
+            "name": "Injury Reserve",
+            "note": "Tempe group known for abrasive, experimental production and genre-defying rap.",
+            "tracks": [
+              {
+                "title": "2016 Interlude"
               }
             ]
           }
