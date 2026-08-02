@@ -401,6 +401,39 @@
                 "title": "Never Recover"
               }
             ]
+          },
+          {
+            "name": "Lil Jon",
+            "note": "Atlanta producer-rapper whose booming, ad-lib-heavy crunk sound defined a Southern rap era.",
+            "tracks": [
+              {
+                "title": "Culo"
+              },
+              {
+                "title": "Get Low (feat. Ying Yang Twins)"
+              }
+            ]
+          },
+          {
+            "name": "Lil Nas X",
+            "note": "Lithia Springs artist whose viral hit \"Old Town Road\" reshaped genre boundaries in mainstream music.",
+            "tracks": [
+              {
+                "title": "SCOOP (feat. Doja Cat)"
+              },
+              {
+                "title": "INDUSTRY BABY"
+              }
+            ]
+          },
+          {
+            "name": "Lil Yachty",
+            "note": "Atlanta rapper known for a bright, melodic take on trap and bubblegum rap.",
+            "tracks": [
+              {
+                "title": "Coffin"
+              }
+            ]
           }
         ]
       }
@@ -972,6 +1005,15 @@
             "tracks": [
               {
                 "title": "OKAY"
+              }
+            ]
+          },
+          {
+            "name": "Lil Pump",
+            "note": "Miami rapper known for chaotic, high-energy SoundCloud-era anthems.",
+            "tracks": [
+              {
+                "title": "Gucci Gang"
               }
             ]
           }
@@ -1670,6 +1712,15 @@
                 "title": "Buss It"
               }
             ]
+          },
+          {
+            "name": "Lil Loaded",
+            "note": "Dallas rapper known for a gritty, drill-adjacent street style.",
+            "tracks": [
+              {
+                "title": "6locc 6a6y (feat. NLE Choppa) [Remix]"
+              }
+            ]
           }
         ]
       }
@@ -1802,6 +1853,15 @@
             "tracks": [
               {
                 "title": "Havin' Fun"
+              }
+            ]
+          },
+          {
+            "name": "Lil Tecca",
+            "note": "Queens rapper known for melodic, breezy hooks and a laid-back delivery.",
+            "tracks": [
+              {
+                "title": "Did It Again"
               }
             ]
           }
@@ -2454,6 +2514,18 @@
                 "title": "Sound of da Police"
               }
             ]
+          },
+          {
+            "name": "Lil Tjay",
+            "note": "Bronx singer-rapper known for melodic, emotionally direct street narratives.",
+            "tracks": [
+              {
+                "title": "F.N"
+              },
+              {
+                "title": "Calling My Phone"
+              }
+            ]
           }
         ]
       }
@@ -2977,6 +3049,18 @@
                 "title": "Next Levels (feat. 4 Winds, Lil' Sci & Stahhr)"
               }
             ]
+          },
+          {
+            "name": "Lil Peep",
+            "note": "Long Island artist whose emo-rap fusion helped define a new generation's sound.",
+            "tracks": [
+              {
+                "title": "16 Lines"
+              },
+              {
+                "title": "Falling Down (Bonus Track)"
+              }
+            ]
           }
         ]
       }
@@ -3457,6 +3541,18 @@
                 "title": "$ave Dat Money (feat. Fetty Wap & Rich Homie Quan)"
               }
             ]
+          },
+          {
+            "name": "Lil Uzi Vert",
+            "note": "Philadelphia rapper known for a genre-blurring, emo-tinged take on trap.",
+            "tracks": [
+              {
+                "title": "All My Chains"
+              },
+              {
+                "title": "Watch This (ARIZONATEARS Pluggnb Remix)"
+              }
+            ]
           }
         ]
       }
@@ -3620,6 +3716,18 @@
               },
               {
                 "title": "Nolia Clap"
+              }
+            ]
+          },
+          {
+            "name": "Lil Wayne",
+            "note": "New Orleans rapper whose prolific, wordplay-heavy catalog made him one of the most influential MCs of his era.",
+            "tracks": [
+              {
+                "title": "6 Foot 7 Foot (feat. Cory Gunz)"
+              },
+              {
+                "title": "Right Above It (feat. Drake)"
               }
             ]
           }
@@ -4452,6 +4560,15 @@
             "tracks": [
               {
                 "title": "Back Home (The Return)"
+              }
+            ]
+          },
+          {
+            "name": "Lil Mosey",
+            "note": "Seattle rapper known for melodic, hook-driven mainstream trap.",
+            "tracks": [
+              {
+                "title": "Blueberry Faygo"
               }
             ]
           }
