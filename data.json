@@ -961,6 +961,15 @@
                 "title": "93 'Til Infinity"
               }
             ]
+          },
+          {
+            "name": "Squadda B",
+            "note": "Main Attrakionz member central to the Bay Area's early cloud-rap scene.",
+            "tracks": [
+              {
+                "title": "History in the Making (feat. Lil B, The Basedgod & Dope G)"
+              }
+            ]
           }
         ]
       }
@@ -2203,6 +2212,24 @@
                 "title": "The Field"
               }
             ]
+          },
+          {
+            "name": "Sueco",
+            "note": "LA artist blending pop-punk energy with rap and internet-era virality.",
+            "tracks": [
+              {
+                "title": "fast"
+              }
+            ]
+          },
+          {
+            "name": "Surreal",
+            "note": "Living Legends affiliate central to LA's independent underground scene.",
+            "tracks": [
+              {
+                "title": "Push On"
+              }
+            ]
           }
         ]
       }
@@ -2265,6 +2292,15 @@
             "tracks": [
               {
                 "title": "Who I Smoke (feat. Whoppa Wit Da Choppa)"
+              }
+            ]
+          },
+          {
+            "name": "SpotemGottem",
+            "note": "Jacksonville rapper best known for the viral hit \"Beat Box.\"",
+            "tracks": [
+              {
+                "title": "Beat Box 4"
               }
             ]
           }
@@ -3570,6 +3606,15 @@
                 "title": "Children's Story"
               }
             ]
+          },
+          {
+            "name": "Swizz Beatz",
+            "note": "Bronx producer known for booming, aggressive beats behind a huge swath of 2000s rap hits.",
+            "tracks": [
+              {
+                "title": "Something Dirty / Pic Got Us (feat. Kendrick Lamar, Jadakiss & Styles P)"
+              }
+            ]
           }
         ]
       }
@@ -4657,6 +4702,15 @@
             "tracks": [
               {
                 "title": "Caddy Music (feat. Devin the Dude)"
+              }
+            ]
+          },
+          {
+            "name": "Swishahouse",
+            "note": "Houston label central to the city's chopped-and-screwed rap tradition.",
+            "tracks": [
+              {
+                "title": "International Players Anthem"
               }
             ]
           }
@@ -6315,6 +6369,18 @@
                 "title": "Ramsey"
               }
             ]
+          },
+          {
+            "name": "Statik Selektah",
+            "note": "Boston producer known for soulful, sample-driven boom-bap production.",
+            "tracks": [
+              {
+                "title": "Alarm Clock (feat. Ab-Soul, Jon Connor & Logic)"
+              },
+              {
+                "title": "82 92 (feat. Mac Miller)"
+              }
+            ]
           }
         ]
       }
@@ -7500,6 +7566,15 @@
                 "title": "Navy"
               }
             ]
+          },
+          {
+            "name": "Sylvan LaCue",
+            "note": "Orlando rapper known for introspective, personal songwriting.",
+            "tracks": [
+              {
+                "title": "Best Me"
+              }
+            ]
           }
         ]
       }
@@ -7772,6 +7847,15 @@
             "tracks": [
               {
                 "title": "First Show"
+              }
+            ]
+          },
+          {
+            "name": "T-Pain",
+            "note": "Tallahassee artist whose pioneering use of Auto-Tune reshaped the sound of mainstream rap and R&B.",
+            "tracks": [
+              {
+                "title": "Buy U a Drank (Shawty Snappin') [feat. Yung Joc]"
               }
             ]
           }
@@ -8342,6 +8426,75 @@
             "tracks": [
               {
                 "title": "In The Field (feat. Kodak Black, Nuely & Yo Baby)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "massillon-oh-region",
+    "name": "Massillon, OH",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "massillon-oh",
+        "name": "Massillon, OH",
+        "state": "OH",
+        "artists": [
+          {
+            "name": "Stalley",
+            "note": "Ohio rapper known for a smooth, laid-back, blue-collar-rooted style.",
+            "tracks": [
+              {
+                "title": "1 Deep (Solo)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "topeka-ks-region",
+    "name": "Topeka, KS",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "topeka-ks",
+        "name": "Topeka, KS",
+        "state": "KS",
+        "artists": [
+          {
+            "name": "Stik Figa",
+            "note": "Topeka rapper known for smooth, introspective Midwest rap.",
+            "tracks": [
+              {
+                "title": "Holding Back Tears (feat. Apollo Brown)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "killeen-tx-region",
+    "name": "Killeen, TX",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "killeen-tx",
+        "name": "Killeen, TX",
+        "state": "TX",
+        "artists": [
+          {
+            "name": "Strange Fruit Project",
+            "note": "Central Texas group known for soulful, boom-bap-rooted production.",
+            "tracks": [
+              {
+                "title": "Special (feat. Thesis)"
               }
             ]
           }
