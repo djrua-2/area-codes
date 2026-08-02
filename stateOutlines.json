@@ -4662,6 +4662,12 @@
         "name": "Flint",
         "x": 69.49,
         "y": 66.25
+      },
+      {
+        "id": "pontiac-mi",
+        "name": "Pontiac",
+        "x": 77.87,
+        "y": 74.82
       }
     ]
   },
@@ -6563,6 +6569,12 @@
         "name": "Buffalo",
         "x": 14.39,
         "y": 47.82
+      },
+      {
+        "id": "poughkeepsie-ny",
+        "name": "Poughkeepsie",
+        "x": 74.21,
+        "y": 72.24
       }
     ]
   },
