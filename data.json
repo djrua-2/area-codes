@@ -71,6 +71,15 @@
                 "title": "No Heart"
               }
             ]
+          },
+          {
+            "name": "Anycia",
+            "note": "Rising Atlanta voice known for a laid-back, deadpan flow.",
+            "tracks": [
+              {
+                "title": "ANYCIA"
+              }
+            ]
           }
         ]
       }
@@ -260,6 +269,27 @@
                 "title": "4 Da Gang"
               }
             ]
+          },
+          {
+            "name": "Amir Obe",
+            "note": "Detroit singer-rapper known for moody, R&B-inflected songwriting.",
+            "tracks": [
+              {
+                "title": "Before the Vomit"
+              }
+            ]
+          },
+          {
+            "name": "Apollo Brown",
+            "note": "Detroit producer known for soulful, sample-driven boom-bap.",
+            "tracks": [
+              {
+                "title": "I Can Do No Wrong"
+              },
+              {
+                "title": "H20 (feat. Pharoahe Monch, Rakaa Iriscience & inDJnous)"
+              }
+            ]
           }
         ]
       }
@@ -434,6 +464,15 @@
             "tracks": [
               {
                 "title": "Mood (feat. iann dior)"
+              }
+            ]
+          },
+          {
+            "name": "Andre Nickatina",
+            "note": "Bay Area legend known for a laid-back, poetic street-rap style.",
+            "tracks": [
+              {
+                "title": "4am - Bay Bridge Music"
               }
             ]
           }
@@ -625,6 +664,18 @@
             "tracks": [
               {
                 "title": "Stay Up! (Viagra) [feat. Kanye West]"
+              }
+            ]
+          },
+          {
+            "name": "Andy Mineo",
+            "note": "New York-based Christian hip-hop artist on the Reach Records roster.",
+            "tracks": [
+              {
+                "title": "Working On It (feat. Chandler Moore)"
+              },
+              {
+                "title": "DANCE (You See It)"
               }
             ]
           }
@@ -917,6 +968,15 @@
                 "title": "A Bitch Curious (feat. Sam Truth)"
               }
             ]
+          },
+          {
+            "name": "ALLBLACK",
+            "note": "Bay Area rapper known for laid-back, hustler-narrative street rap.",
+            "tracks": [
+              {
+                "title": "2 Minute Drills"
+              }
+            ]
           }
         ]
       }
@@ -938,6 +998,130 @@
             "tracks": [
               {
                 "title": "Wavey (feat. Spooky Black)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "houston-tx-region",
+    "name": "Houston, TX",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "houston-tx",
+        "name": "Houston, TX",
+        "state": "TX",
+        "artists": [
+          {
+            "name": "Ameer Vann",
+            "note": "Former BROCKHAMPTON member known for gritty, confessional street-rap verses.",
+            "tracks": [
+              {
+                "title": "High Tolerance"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "portland-or-region",
+    "name": "Portland, OR",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "portland-or",
+        "name": "Portland, OR",
+        "state": "OR",
+        "artists": [
+          {
+            "name": "Aminé",
+            "note": "Portland's biggest rap export, known for colorful, hook-driven pop-rap.",
+            "tracks": [
+              {
+                "title": "Campfire (feat. Injury Reserve)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "oxnard-ca-region",
+    "name": "Oxnard, CA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "oxnard-ca",
+        "name": "Oxnard, CA",
+        "state": "CA",
+        "artists": [
+          {
+            "name": "Anderson .Paak",
+            "note": "Drummer-singer-rapper whose funk-and-soul-drenched sound is inseparable from his Southern California roots.",
+            "tracks": [
+              {
+                "title": "6 Summers"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "long-beach-ca-region",
+    "name": "Long Beach, CA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "long-beach-ca",
+        "name": "Long Beach, CA",
+        "state": "CA",
+        "artists": [
+          {
+            "name": "Antwon",
+            "note": "Shock-rap/noise-adjacent artist known for a confrontational, lo-fi style.",
+            "tracks": [
+              {
+                "title": "Lindsey Lohan"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "washington-dc-region",
+    "name": "Washington, DC",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "washington-dc",
+        "name": "Washington, DC",
+        "state": "DC",
+        "artists": [
+          {
+            "name": "Ari Lennox",
+            "note": "Dreamville R&B singer known for a warm, conversational vocal style.",
+            "tracks": [
+              {
+                "title": "Backseat (feat. Cozz)"
+              }
+            ]
+          },
+          {
+            "name": "Arizona Zervas",
+            "note": "DC-area rapper who broke through with the viral hit \"ROXANNE.\"",
+            "tracks": [
+              {
+                "title": "ROXANNE"
               }
             ]
           }
