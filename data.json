@@ -599,6 +599,24 @@
                 "title": "End of Daze (feat. Jurdan Bryant, Mereba & Hollywood JB)"
               }
             ]
+          },
+          {
+            "name": "T.I.",
+            "note": "Atlanta rapper known for a rapid, technically sharp \"trap\" style he helped name and popularize.",
+            "tracks": [
+              {
+                "title": "24'S"
+              }
+            ]
+          },
+          {
+            "name": "Tag Team",
+            "note": "Atlanta duo best known for the party classic \"Whoomp! There It Is.\"",
+            "tracks": [
+              {
+                "title": "Whoomp! There It Is (Edited)"
+              }
+            ]
           }
         ]
       }
@@ -761,6 +779,18 @@
             "tracks": [
               {
                 "title": "Life We Live (feat. Namond Lumpkin & Edgar Fletcher)"
+              }
+            ]
+          },
+          {
+            "name": "Tear Da Club Up Thugs",
+            "note": "The most influential group from the scene — DJ Paul and Juicy J's production defined the horrorcore-meets-rap aesthetic later cited by drill producers worldwide.",
+            "tracks": [
+              {
+                "title": "Slob On My Nob"
+              },
+              {
+                "title": "Slob On My Nob"
               }
             ]
           }
@@ -1280,6 +1310,18 @@
                 "title": "Fall In Love"
               }
             ]
+          },
+          {
+            "name": "Tee Grizzley",
+            "note": "Detroit rapper known for gritty, autobiographical street storytelling.",
+            "tracks": [
+              {
+                "title": "10K"
+              },
+              {
+                "title": "Gorgeous (Remix) [feat. City Girls]"
+              }
+            ]
           }
         ]
       }
@@ -1434,6 +1476,15 @@
             "tracks": [
               {
                 "title": "Booty (feat. Latto)"
+              }
+            ]
+          },
+          {
+            "name": "The 2 Live Crew",
+            "note": "Foundational to Miami bass — booming 808s and electro-influenced uptempo production built specifically for sound systems and dancing.",
+            "tracks": [
+              {
+                "title": "Hoochie Mama"
               }
             ]
           }
@@ -2230,6 +2281,24 @@
                 "title": "Push On"
               }
             ]
+          },
+          {
+            "name": "TeeFLii",
+            "note": "LA singer-rapper known for melodic, R&B-leaning hip-hop.",
+            "tracks": [
+              {
+                "title": "This D"
+              }
+            ]
+          },
+          {
+            "name": "The Alchemist",
+            "note": "Prolific producer known for dusty, sample-driven beats behind a huge swath of underground rap's biggest records.",
+            "tracks": [
+              {
+                "title": "Bone Thugs N' Haifa"
+              }
+            ]
           }
         ]
       }
@@ -2707,6 +2776,15 @@
                 "title": "Beats to the Rhyme"
               }
             ]
+          },
+          {
+            "name": "The Beatnuts",
+            "note": "Queens production duo known for gritty, sample-heavy boom-bap.",
+            "tracks": [
+              {
+                "title": "Se Acabo (feat. Method Man) [Remix]"
+              }
+            ]
           }
         ]
       }
@@ -3141,6 +3219,21 @@
             "tracks": [
               {
                 "title": "2055"
+              }
+            ]
+          },
+          {
+            "name": "Talib Kweli",
+            "note": "Brooklyn lyricist known for dense, socially conscious wordplay.",
+            "tracks": [
+              {
+                "title": "2000 Seasons (Mixed)"
+              },
+              {
+                "title": "Every Ghetto (feat. Rapsody)"
+              },
+              {
+                "title": "Ballad of the Black Gold"
               }
             ]
           }
@@ -4260,6 +4353,15 @@
             "tracks": [
               {
                 "title": "The Sitcom"
+              }
+            ]
+          },
+          {
+            "name": "Taylor Bennett",
+            "note": "Chicago rapper and Chance the Rapper's brother, known for eclectic, genre-blending releases.",
+            "tracks": [
+              {
+                "title": "BE YOURSELF (feat. Bianca Shaw)"
               }
             ]
           }
@@ -7065,6 +7167,15 @@
                 "title": "Yes I Do"
               }
             ]
+          },
+          {
+            "name": "Tech N9ne",
+            "note": "Kansas City rapper known for rapid-fire, technically dense flows across an enormous independent catalog.",
+            "tracks": [
+              {
+                "title": "Caribou Lou"
+              }
+            ]
           }
         ]
       }
@@ -8495,6 +8606,29 @@
             "tracks": [
               {
                 "title": "Special (feat. Thesis)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bay-city-tx-region",
+    "name": "Bay City, TX",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "bay-city-tx",
+        "name": "Bay City, TX",
+        "state": "TX",
+        "artists": [
+          {
+            "name": "That Mexican OT",
+            "note": "Bay City rapper blending Southern trap with Tejano and corrido influences.",
+            "tracks": [
+              {
+                "title": "Johnny Dang"
               }
             ]
           }
