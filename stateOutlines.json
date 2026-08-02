@@ -7590,6 +7590,12 @@
         "name": "Massillon",
         "x": 74.66,
         "y": 34.5
+      },
+      {
+        "id": "canton-oh",
+        "name": "Canton",
+        "x": 77.85,
+        "y": 34.45
       }
     ]
   },
@@ -9137,6 +9143,12 @@
         "name": "Bay City",
         "x": 79.05,
         "y": 69.3
+      },
+      {
+        "id": "port-arthur-tx",
+        "name": "Port Arthur",
+        "x": 93.42,
+        "y": 61.54
       }
     ]
   },
