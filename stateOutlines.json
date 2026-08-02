@@ -4388,6 +4388,12 @@
         "name": "Suitland",
         "x": 57.14,
         "y": 48.25
+      },
+      {
+        "id": "gaithersburg-md",
+        "name": "Gaithersburg",
+        "x": 51.57,
+        "y": 33.45
       }
     ]
   },
