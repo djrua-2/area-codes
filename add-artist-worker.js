@@ -172,12 +172,13 @@ async function spotifySearchOnce(query, token) {
 }
 
 // Best-effort, like geocodeCity: any failure or no-match just returns null
-// and the caller leaves that track without a play link.
+// and the caller leaves that track without a play link. Single query only —
+// a strict+fallback two-pass search used to double the Spotify subrequest
+// count per track, which was enough on its own to blow past the free
+// Workers plan's 50-subrequest-per-request limit on a full batch.
 async function searchSpotifyTrack(title, artistName, token) {
   try {
-    const strict = await spotifySearchOnce(`track:"${title}" artist:"${artistName}"`, token);
-    if (strict) return strict;
-    return await spotifySearchOnce(`${title} ${artistName}`, token);
+    return await spotifySearchOnce(`track:"${title}" artist:"${artistName}"`, token);
   } catch {
     return null;
   }
@@ -280,6 +281,21 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+// Every existing artist name (any region/city/neighborhood), lowercased —
+// used to skip exact-name duplicates on add/bulk_add.
+function collectAllArtistNames(regions) {
+  const names = new Set();
+  regions.forEach(region => {
+    region.cities.forEach(city => {
+      (city.artists || []).forEach(a => names.add(a.name.trim().toLowerCase()));
+      (city.neighborhoods || []).forEach(hood => {
+        (hood.artists || []).forEach(a => names.add(a.name.trim().toLowerCase()));
+      });
+    });
+  });
+  return names;
+}
+
 // Finds an existing city (by name + state) to append to, or creates a new
 // region+city for it. Mutates `regions` and `existingIds` in place. Returns
 // the new city's id if one was created, or null if it merged into an
@@ -311,9 +327,13 @@ async function handleAdd(env, body) {
   const existingIds = new Set();
   regions.forEach(r => { existingIds.add(r.id); r.cities.forEach(c => existingIds.add(c.id)); });
 
+  const artistNameClean = String(artistName).trim();
+  if (collectAllArtistNames(regions).has(artistNameClean.toLowerCase())) {
+    return { status: 200, body: { ok: true, skipped: true } };
+  }
+
   const stateAbbrev = String(state).trim().toUpperCase();
   const cityNameClean = String(cityName).trim();
-  const artistNameClean = String(artistName).trim();
   const cleanTracks = await fillMissingSpotifyIds(cleanTracksFrom(tracks), artistNameClean, env);
   const newArtist = { name: artistNameClean, note: String(note).trim(), tracks: cleanTracks };
 
@@ -333,7 +353,12 @@ async function handleAdd(env, body) {
 // plan's 50-subrequest limit — each brand-new city needs its own geocode
 // call (spaced out to respect Nominatim's ~1-request-per-second usage
 // policy) and each track without a spotifyId needs its own Spotify search.
-const BULK_MAX_ROWS = 15;
+// Worst case per entry: 1 geocode + 1 Spotify search per track, plus ~5
+// shared calls (Spotify token, data.json get/put, stateOutlines get/put).
+// The client additionally caps total tracks per batch (see BULK_BATCH_MAX_TRACKS
+// in app.js) so one artist with many merged tracks can't blow this alone —
+// this entries-count cap is the backstop, not the primary guard.
+const BULK_MAX_ROWS = 12;
 
 async function handleBulkAdd(env, body) {
   const entries = Array.isArray(body.entries) ? body.entries : [];
@@ -349,6 +374,8 @@ async function handleBulkAdd(env, body) {
   const existingIds = new Set();
   regions.forEach(r => { existingIds.add(r.id); r.cities.forEach(c => existingIds.add(c.id)); });
 
+  const existingNames = collectAllArtistNames(regions);
+
   const results = [];
   const newCityQueue = [];
 
@@ -359,27 +386,39 @@ async function handleBulkAdd(env, body) {
       results.push({ row: i + 1, ok: false, artist: artistName || "(unnamed)", error: "Missing required field" });
       continue;
     }
+    const artistNameClean = String(artistName).trim();
+    const nameKey = artistNameClean.toLowerCase();
+    if (existingNames.has(nameKey)) {
+      results.push({ row: i + 1, ok: true, skipped: true, artist: artistNameClean });
+      continue;
+    }
     const stateAbbrev = String(state).trim().toUpperCase();
     const cityNameClean = String(cityName).trim();
-    const artistNameClean = String(artistName).trim();
     const cleanTracks = await fillMissingSpotifyIds(cleanTracksFrom(tracks), artistNameClean, env);
     const newArtist = { name: artistNameClean, note: String(note).trim(), tracks: cleanTracks };
     const newCityId = addArtistToRegions(regions, existingIds, stateAbbrev, cityNameClean, newArtist);
     if (newCityId) newCityQueue.push({ stateAbbrev, cityId: newCityId, cityNameClean });
+    existingNames.add(nameKey);
     results.push({ row: i + 1, ok: true, artist: newArtist.name });
   }
 
-  const successCount = results.filter(r => r.ok).length;
-  if (successCount === 0) {
-    return { status: 200, body: { ok: true, results, pinsAdded: 0 } };
+  const addedCount = results.filter(r => r.ok && !r.skipped).length;
+  const skippedCount = results.filter(r => r.skipped).length;
+  if (addedCount === 0) {
+    return { status: 200, body: { ok: true, results, pinsAdded: 0, addedCount: 0, skippedCount } };
   }
 
-  const putRes = await putFile(env, env.DATA_PATH, regions, dataFile.sha, `Bulk add ${successCount} artist(s)`);
+  const putRes = await putFile(env, env.DATA_PATH, regions, dataFile.sha, `Bulk add ${addedCount} artist(s)`);
   if (!putRes.ok) return { status: 502, error: `Couldn't commit to GitHub (${putRes.status}): ${await putRes.text()}` };
 
   // Geocode + place pins for any brand-new cities, one at a time with a
   // short pause between each, then commit stateOutlines.json once at the end.
+  // Best-effort per city (a failed geocode just skips that pin, same as
+  // single-add), but the final commit itself is checked — if it fails, no
+  // pins actually landed even though individual geocodes may have
+  // succeeded, so pinsAdded must reflect that rather than over-reporting.
   let pinsAdded = 0;
+  let pinsCommitFailed = false;
   if (newCityQueue.length) {
     const outlinesFile = await getFile(env, env.STATE_OUTLINES_PATH);
     if (outlinesFile) {
@@ -395,11 +434,17 @@ async function handleBulkAdd(env, body) {
         }
         if (i < newCityQueue.length - 1) await sleep(1100);
       }
-      await putFile(env, env.STATE_OUTLINES_PATH, outlinesFile.data, outlinesFile.sha, `Bulk add ${pinsAdded} map pin(s)`);
+      if (pinsAdded > 0) {
+        const pinPutRes = await putFile(env, env.STATE_OUTLINES_PATH, outlinesFile.data, outlinesFile.sha, `Bulk add ${pinsAdded} map pin(s)`);
+        if (!pinPutRes.ok) {
+          pinsCommitFailed = true;
+          pinsAdded = 0;
+        }
+      }
     }
   }
 
-  return { status: 200, body: { ok: true, results, pinsAdded } };
+  return { status: 200, body: { ok: true, results, pinsAdded, pinsCommitFailed, addedCount, skippedCount } };
 }
 
 async function handleEdit(env, body) {
@@ -487,6 +532,80 @@ async function handleDelete(env, body) {
   return { status: 200, body: { ok: true } };
 }
 
+// Removes any artist (in any region/city/neighborhood) whose name exactly
+// matches one in namesLower (a Set of lowercased, trimmed names). Cleans up
+// cities and regions that end up empty, same as a normal delete, and
+// collects their ids so the caller can also strip the matching map pins.
+// Purely in-memory — no network calls — so this is cheap regardless of how
+// many names are checked or removed.
+function removeArtistsByName(regions, namesLower) {
+  let removedCount = 0;
+  const emptiedCities = [];
+  for (let ri = regions.length - 1; ri >= 0; ri--) {
+    const region = regions[ri];
+    for (let ci = region.cities.length - 1; ci >= 0; ci--) {
+      const city = region.cities[ci];
+      const stripMatches = arr => (arr || []).filter(a => {
+        const isMatch = namesLower.has(a.name.trim().toLowerCase());
+        if (isMatch) removedCount++;
+        return !isMatch;
+      });
+      city.artists = stripMatches(city.artists);
+      (city.neighborhoods || []).forEach(hood => { hood.artists = stripMatches(hood.artists); });
+      const cityEmpty = city.artists.length === 0 &&
+        (!city.neighborhoods || city.neighborhoods.every(h => !h.artists || h.artists.length === 0));
+      if (cityEmpty) {
+        emptiedCities.push({ stateAbbrev: city.state, cityId: city.id });
+        region.cities.splice(ci, 1);
+      }
+    }
+    if (region.cities.length === 0) regions.splice(ri, 1);
+  }
+  return { removedCount, emptiedCities };
+}
+
+const REMOVE_CONFIRM_PHRASE = "DELETE THESE ARTISTS";
+
+async function handleRemoveByName(env, body) {
+  if (body.confirm !== REMOVE_CONFIRM_PHRASE) {
+    return { status: 400, error: `Confirmation phrase didn't match — expected exactly "${REMOVE_CONFIRM_PHRASE}"` };
+  }
+  const names = Array.isArray(body.names) ? body.names : [];
+  const namesLower = new Set(names.map(n => String(n).trim().toLowerCase()).filter(Boolean));
+  if (!namesLower.size) return { status: 400, error: "No artist names provided" };
+
+  const dataFile = await getFile(env, env.DATA_PATH);
+  if (!dataFile) return { status: 502, error: "Couldn't read data.json from GitHub" };
+  const regions = dataFile.data;
+
+  const { removedCount, emptiedCities } = removeArtistsByName(regions, namesLower);
+  if (removedCount === 0) {
+    return { status: 200, body: { ok: true, removedCount: 0, pinsRemoved: 0 } };
+  }
+
+  const putRes = await putFile(env, env.DATA_PATH, regions, dataFile.sha, `Remove ${removedCount} artist(s) (name-list cleanup)`);
+  if (!putRes.ok) return { status: 502, error: `Couldn't commit to GitHub (${putRes.status}): ${await putRes.text()}` };
+
+  let pinsRemoved = 0;
+  if (emptiedCities.length) {
+    const outlinesFile = await getFile(env, env.STATE_OUTLINES_PATH);
+    if (outlinesFile) {
+      emptiedCities.forEach(({ stateAbbrev, cityId }) => {
+        const stateEntry = outlinesFile.data[stateAbbrev];
+        if (!stateEntry || !stateEntry.cities) return;
+        const before = stateEntry.cities.length;
+        stateEntry.cities = stateEntry.cities.filter(c => c.id !== cityId);
+        if (stateEntry.cities.length !== before) pinsRemoved++;
+      });
+      if (pinsRemoved > 0) {
+        await putFile(env, env.STATE_OUTLINES_PATH, outlinesFile.data, outlinesFile.sha, `Remove ${pinsRemoved} map pin(s) (name-list cleanup)`);
+      }
+    }
+  }
+
+  return { status: 200, body: { ok: true, removedCount, pinsRemoved } };
+}
+
 export default {
   async fetch(request, env) {
     const origin = request.headers.get("Origin") || "";
@@ -506,15 +625,23 @@ export default {
       return new Response("Incorrect password", { status: 401, headers });
     }
 
-    let result;
-    const action = body.action || "add";
-    if (action === "add") result = await handleAdd(env, body);
-    else if (action === "edit") result = await handleEdit(env, body);
-    else if (action === "delete") result = await handleDelete(env, body);
-    else if (action === "bulk_add") result = await handleBulkAdd(env, body);
-    else result = { status: 400, error: "Unknown action" };
+    try {
+      let result;
+      const action = body.action || "add";
+      if (action === "add") result = await handleAdd(env, body);
+      else if (action === "edit") result = await handleEdit(env, body);
+      else if (action === "delete") result = await handleDelete(env, body);
+      else if (action === "bulk_add") result = await handleBulkAdd(env, body);
+      else if (action === "remove_by_name") result = await handleRemoveByName(env, body);
+      else result = { status: 400, error: "Unknown action" };
 
-    if (result.error) return new Response(result.error, { status: result.status, headers });
-    return new Response(JSON.stringify(result.body), { status: 200, headers: { ...headers, "Content-Type": "application/json" } });
+      if (result.error) return new Response(result.error, { status: result.status, headers });
+      return new Response(JSON.stringify(result.body), { status: 200, headers: { ...headers, "Content-Type": "application/json" } });
+    } catch (err) {
+      // Ensures a crash still comes back with CORS headers and a readable
+      // message instead of a bare platform error page (which the browser
+      // reports as an opaque CORS/"Failed to fetch" failure).
+      return new Response(`Server error: ${err && err.message ? err.message : "unknown"}`, { status: 500, headers });
+    }
   },
 };

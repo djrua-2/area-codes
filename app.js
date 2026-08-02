@@ -149,6 +149,23 @@ function randomizeArtist() {
 }
 
 // ---- delete an existing artist (password-gated, same session as /add) ----
+// Mirrors the Worker's own cleanup (removeIfEmpty) so the local `regions`
+// array stays in sync with the server after a delete without needing a
+// refetch — without this, a second delete on the same page computes its
+// artistIndex against a stale (unshifted) local array and eventually 404s.
+function removeArtistLocally(regionId, cityId, artistIndex) {
+  const region = regions.find(r => r.id === regionId);
+  const city = region && region.cities.find(c => c.id === cityId);
+  if (!city) return;
+  city.artists.splice(artistIndex, 1);
+  const cityEmpty = city.artists.length === 0 &&
+    (!city.neighborhoods || city.neighborhoods.every(h => !h.artists || h.artists.length === 0));
+  if (cityEmpty) {
+    region.cities = region.cities.filter(c => c.id !== cityId);
+    if (region.cities.length === 0) regions = regions.filter(r => r.id !== regionId);
+  }
+}
+
 async function deleteArtist(regionId, cityId, artistIndex, artistName) {
   if (!confirm(`Delete "${artistName}"? This can't be undone.`)) return;
   try {
@@ -158,7 +175,7 @@ async function deleteArtist(regionId, cityId, artistIndex, artistName) {
       body: JSON.stringify({ action: "delete", password: storedPassword(), regionId, cityId, artistIndex })
     });
     if (!res.ok) throw new Error(await res.text());
-    alert(`Deleted "${artistName}". It'll disappear from the live site shortly.`);
+    removeArtistLocally(regionId, cityId, artistIndex);
     router();
   } catch (err) {
     alert("Couldn't delete — " + err.message);
@@ -736,7 +753,14 @@ function buildTrackFromRow(row) {
 // groupRowsIntoEntries below). Spotify links aren't part of the template —
 // the Worker auto-searches for each track that doesn't already have one.
 const BULK_MAX_ROWS = 2000; // total song-rows allowed in one file — a sanity ceiling, not a technical limit (batching below has no real cap); headroom above the user's actual 1,682-row library export
-const BULK_BATCH_SIZE = 15; // artist-entries submitted per Worker request — stays under the free Workers plan's 50-subrequest cap even when every entry needs a new-city geocode plus a Spotify search
+// Worst case per entry costs 1 geocode + 1 Spotify search per track; both
+// caps below keep a batch's worst case (all-new cities, no cached Spotify
+// matches) safely under the free Workers plan's 50-subrequest limit — the
+// track cap matters because a few artists in a real library end up with
+// many merged songs (e.g. one artist with 10+ tracks) and entry count alone
+// wouldn't catch that.
+const BULK_BATCH_SIZE = 12; // artist-entries per Worker request
+const BULK_BATCH_MAX_TRACKS = 20; // total tracks per Worker request
 const BULK_TEMPLATE_HEADERS = ["artist_name", "state", "city", "note", "song_title"];
 
 function downloadBulkTemplate() {
@@ -923,10 +947,28 @@ async function handleBulkFile(evt) {
   }
 }
 
-function chunk(arr, size) {
-  const out = [];
-  for (let i = 0; i < arr.length; i += size) out.push(arr.slice(i, i + size));
-  return out;
+// Groups entries into batches respecting both BULK_BATCH_SIZE (entry count)
+// and BULK_BATCH_MAX_TRACKS (total tracks) — whichever limit a batch would
+// hit first ends it. A single artist with more tracks than the track cap
+// still gets its own (larger) batch rather than being split mid-artist.
+function buildBulkBatches(entries) {
+  const batches = [];
+  let current = [];
+  let currentTracks = 0;
+  for (const entry of entries) {
+    const entryTracks = entry.tracks.length;
+    const wouldOverflow = current.length > 0 &&
+      (current.length >= BULK_BATCH_SIZE || currentTracks + entryTracks > BULK_BATCH_MAX_TRACKS);
+    if (wouldOverflow) {
+      batches.push(current);
+      current = [];
+      currentTracks = 0;
+    }
+    current.push(entry);
+    currentTracks += entryTracks;
+  }
+  if (current.length) batches.push(current);
+  return batches;
 }
 
 // Submits grouped artist entries in sequential batches of BULK_BATCH_SIZE —
@@ -940,8 +982,8 @@ async function submitBulk() {
   if (!entries.length) return;
 
   submitBtn.disabled = true;
-  const batches = chunk(entries, BULK_BATCH_SIZE);
-  let doneArtists = 0, addedCount = 0, pinsAdded = 0;
+  const batches = buildBulkBatches(entries);
+  let doneArtists = 0, addedCount = 0, skippedCount = 0, pinsAdded = 0, pinCommitFailures = 0;
   const failures = [];
 
   for (let i = 0; i < batches.length; i++) {
@@ -957,8 +999,10 @@ async function submitBulk() {
       });
       if (!res.ok) throw new Error(await res.text());
       const result = await res.json();
-      addedCount += result.results.filter(r => r.ok).length;
+      addedCount += result.addedCount || 0;
+      skippedCount += result.skippedCount || 0;
       pinsAdded += result.pinsAdded || 0;
+      if (result.pinsCommitFailed) pinCommitFailures++;
       result.results.filter(r => !r.ok).forEach(r => failures.push(r));
       doneArtists += batch.length;
     } catch (err) {
@@ -970,6 +1014,8 @@ async function submitBulk() {
   }
 
   let msg = `Added ${addedCount} of ${entries.length} artist(s), ${pinsAdded} new map pin(s) placed.`;
+  if (skippedCount) msg += ` ${skippedCount} skipped (already existed).`;
+  if (pinCommitFailures) msg += ` ${pinCommitFailures} batch(es) had geocoded pins that failed to save — those cities are live but pin-less; re-run the upload later to retry them.`;
   if (failures.length) msg += ` ${failures.length} failed: ` + failures.slice(0, 5).map(f => `${f.artist} (${f.error})`).join("; ") + (failures.length > 5 ? "…" : "");
   statusEl.className = "form-status";
   statusEl.textContent = msg + " Live on the site shortly.";
@@ -989,8 +1035,102 @@ function renderBulkForm() {
       <button type="button" id="bulk-submit-btn" class="retro-btn" disabled onclick="submitBulk()">Submit All</button>
       <span id="bulk-status" class="form-status"></span>
     </p>
-    <p class="page-subtitle">Large files submit automatically in batches of ${BULK_BATCH_SIZE} artists — a full-size upload can take a while (each new city needs a geocode lookup, each song a Spotify search). Keep this tab open until it finishes.</p>
+    <p class="page-subtitle">Large files submit automatically in batches of up to ${BULK_BATCH_SIZE} artists — a full-size upload can take a while (each new city needs a geocode lookup, each song a Spotify search). Keep this tab open until it finishes.</p>
   `;
+}
+
+// ---- hidden admin page: remove a batch of artists by exact name ----
+// Not linked from anywhere in the site's normal navigation — reachable only
+// by going directly to #/add/remove-batch. Built for undoing a bad bulk
+// upload: load a list of artist names (the same CSV you uploaded works,
+// since it just reads the artist_name column) and it removes any artist
+// site-wide whose name matches exactly, cleaning up empty cities/pins after.
+const REMOVE_BATCH_CONFIRM_PHRASE = "DELETE THESE ARTISTS";
+let removeBatchNames = [];
+
+async function handleRemoveBatchFile(evt) {
+  const file = evt.target.files[0];
+  const statusEl = document.getElementById("remove-batch-status");
+  const submitBtn = document.getElementById("remove-batch-submit-btn");
+  removeBatchNames = [];
+  submitBtn.disabled = true;
+  if (!file) return;
+
+  try {
+    const text = await file.text();
+    let names;
+    if (/\.csv$/i.test(file.name)) {
+      const rows = parseCSV(text);
+      names = rows.map(r => getField(r, "artist_name", "artist")).filter(Boolean);
+    } else {
+      names = text.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+    }
+    const unique = Array.from(new Set(names.map(n => n.trim()).filter(Boolean)));
+    removeBatchNames = unique;
+    statusEl.className = "form-status";
+    statusEl.textContent = `${unique.length} unique artist name(s) loaded from file.`;
+    checkRemoveBatchReady();
+  } catch (err) {
+    statusEl.className = "form-status is-error";
+    statusEl.textContent = "Couldn't read that file — " + err.message;
+  }
+}
+
+function checkRemoveBatchReady() {
+  const submitBtn = document.getElementById("remove-batch-submit-btn");
+  const confirmInput = document.getElementById("remove-batch-confirm");
+  submitBtn.disabled = !(removeBatchNames.length > 0 && confirmInput.value === REMOVE_BATCH_CONFIRM_PHRASE);
+}
+
+async function submitRemoveBatch() {
+  const statusEl = document.getElementById("remove-batch-status");
+  const submitBtn = document.getElementById("remove-batch-submit-btn");
+  const confirmInput = document.getElementById("remove-batch-confirm");
+  if (!removeBatchNames.length || confirmInput.value !== REMOVE_BATCH_CONFIRM_PHRASE) return;
+
+  submitBtn.disabled = true;
+  statusEl.className = "form-status";
+  statusEl.textContent = `Removing ${removeBatchNames.length} artist name(s)…`;
+
+  try {
+    const res = await fetch(AREA_CODES_CONFIG.ADD_ARTIST_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ action: "remove_by_name", password: storedPassword(), names: removeBatchNames, confirm: confirmInput.value })
+    });
+    if (!res.ok) throw new Error(await res.text());
+    const result = await res.json();
+    statusEl.textContent = `Removed ${result.removedCount} artist(s), cleaned up ${result.pinsRemoved} map pin(s). Live on the site shortly.`;
+    removeBatchNames = [];
+    confirmInput.value = "";
+  } catch (err) {
+    statusEl.className = "form-status is-error";
+    statusEl.textContent = "Couldn't remove — " + err.message;
+  }
+  submitBtn.disabled = true;
+}
+
+function renderRemoveBatchForm() {
+  removeBatchNames = [];
+  app.innerHTML = `
+    <p class="crumbs"><a href="#/add">Add an Artist</a> / Remove a Batch</p>
+    <h1 class="page-title">Remove Artists by Name</h1>
+    <p class="page-subtitle"><strong>This permanently removes every artist site-wide whose name exactly matches one in the file you load — across every city, not just one.</strong> There's no in-site undo (though every change is a git commit on GitHub, so it can be reverted there if needed).</p>
+    <p><label>Load a name list — a .csv with an <code>artist_name</code> column (the same file you bulk-uploaded works), or a .txt file with one name per line:</label></p>
+    <p><input type="file" class="retro-field" accept=".csv,.txt" onchange="handleRemoveBatchFile(event)"></p>
+    <p><label for="remove-batch-confirm">Type <code>${REMOVE_BATCH_CONFIRM_PHRASE}</code> to enable the button:</label></p>
+    <p><input type="text" class="retro-field" id="remove-batch-confirm" oninput="checkRemoveBatchReady()"></p>
+    <p class="form-actions">
+      <button type="button" id="remove-batch-submit-btn" class="retro-btn" disabled onclick="submitRemoveBatch()">Remove These Artists</button>
+      <span id="remove-batch-status" class="form-status"></span>
+    </p>
+  `;
+}
+
+function renderRemoveBatch() {
+  if (!isConfigured()) return renderNotConfigured();
+  if (!storedPassword()) return renderAddGate();
+  renderRemoveBatchForm();
 }
 
 function renderBulk() {
@@ -1024,6 +1164,10 @@ async function handleAddSubmit(evt) {
     });
     if (!res.ok) throw new Error(await res.text());
     const result = await res.json().catch(() => ({}));
+    if (result.skipped) {
+      statusEl.textContent = `Skipped — an artist named "${payload.artistName}" already exists on the site.`;
+      return;
+    }
     statusEl.textContent = result.pinAdded === false
       ? "Added! It'll appear on the live site shortly (couldn't auto-place a map pin for this city, but the artist listing works fine)."
       : "Added! It'll appear on the live site shortly.";
@@ -1049,6 +1193,7 @@ function router() {
 
   if (parts.length === 0) return renderHome();
   if (parts[0] === "add" && parts[1] === "bulk") return renderBulk();
+  if (parts[0] === "add" && parts[1] === "remove-batch") return renderRemoveBatch();
   if (parts[0] === "add") return renderAdd();
   if (parts[0] === "edit" && parts[1] && parts[2] && parts[3]) return renderEdit(parts[1], parts[2], parts[3]);
   if (parts[0] === "state" && parts[1]) return renderState(parts[1]);

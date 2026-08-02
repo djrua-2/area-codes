@@ -84,7 +84,13 @@ Visit `yoursite.com/#/add`, enter the password, fill out the form, and submit. W
 
 From the `/add` page, click "Bulk upload a CSV or XLSX". One row per song, up to 2000 songs per file — download the template button on that page for the exact column names. Multiple rows for the same artist (same artist_name/city/state) get grouped into one artist entry automatically. No Spotify column needed — the Worker searches for each song.
 
-Behind the scenes the site submits automatically in batches of 15 artists per Worker request (each brand-new city still gets geocoded and pinned, same as a single add) — that cap keeps every request safely under the free Cloudflare plan's 50-subrequest limit even when a batch mixes new-city geocoding with several Spotify searches. A large file just means more batches, submitted one after another with a progress readout; there's nothing you need to do differently for a big upload versus a small one, it just takes longer.
+Behind the scenes the site submits automatically in batches of up to 12 artists (and up to 20 total songs, whichever limit hits first) per Worker request — each brand-new city still gets geocoded and pinned, same as a single add. Those caps keep every request safely under the free Cloudflare plan's 50-subrequest limit even when a batch mixes new-city geocoding with several Spotify searches. A large file just means more batches, submitted one after another with a progress readout; there's nothing you need to do differently for a big upload versus a small one, it just takes longer.
+
+Any artist whose name **exactly matches** one already on the site (anywhere, any city) gets silently skipped rather than added as a duplicate — this applies to both the single-artist form and bulk upload.
+
+## Undoing a bad upload
+
+There's a hidden page at `#/add/remove-batch` (not linked anywhere in the site's navigation — go there directly) for undoing a bulk upload gone wrong. Load a list of artist names — the same CSV you bulk-uploaded works as-is, since it just reads the `artist_name` column, or a plain `.txt` file with one name per line — then type the exact confirmation phrase shown on the page to enable the button. It removes every artist site-wide whose name exactly matches one in that list, across every city, and cleans up any city/map pin that ends up empty as a result. This is permanent from the site's perspective (no in-site undo), though since every write is a git commit to your repo, you could still revert via GitHub's commit history if you truly needed to.
 
 ## A note on security
 
