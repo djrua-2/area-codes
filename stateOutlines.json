@@ -1725,6 +1725,12 @@
         "name": "Fort Lauderdale",
         "x": 94.93,
         "y": 80.53
+      },
+      {
+        "id": "boynton-beach-fl",
+        "name": "Boynton Beach",
+        "x": 95.97,
+        "y": 74.13
       }
     ]
   },
@@ -4650,6 +4656,12 @@
         "name": "Ypsilanti",
         "x": 71.13,
         "y": 83.87
+      },
+      {
+        "id": "flint-mi",
+        "name": "Flint",
+        "x": 69.49,
+        "y": 66.25
       }
     ]
   },
@@ -5194,7 +5206,14 @@
         3.7
       ]
     ],
-    "cities": []
+    "cities": [
+      {
+        "id": "meridian-ms",
+        "name": "Meridian",
+        "x": 80.46,
+        "y": 54.31
+      }
+    ]
   },
   "MO": {
     "bbox": {
