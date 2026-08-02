@@ -652,6 +652,24 @@
                 "title": "Freeze Tag"
               }
             ]
+          },
+          {
+            "name": "Pooh Shiesty",
+            "note": "Memphis rapper known for aggressive, ad-lib-heavy street trap.",
+            "tracks": [
+              {
+                "title": "Hell Night (feat. Big 30)"
+              }
+            ]
+          },
+          {
+            "name": "Project Pat",
+            "note": "Memphis rapper (Three 6 Mafia-affiliated) known for a gruff, street-rooted delivery.",
+            "tracks": [
+              {
+                "title": "Life We Live (feat. Namond Lumpkin & Edgar Fletcher)"
+              }
+            ]
           }
         ]
       }
@@ -1221,6 +1239,15 @@
             "tracks": [
               {
                 "title": "Hotel Room Service"
+              }
+            ]
+          },
+          {
+            "name": "Pouya",
+            "note": "Miami underground rapper known for a dark, aggressive SoundCloud-era style.",
+            "tracks": [
+              {
+                "title": "Void"
               }
             ]
           }
@@ -2108,6 +2135,18 @@
                 "title": "6locc 6a6y (feat. NLE Choppa) [Remix]"
               }
             ]
+          },
+          {
+            "name": "Post Malone",
+            "note": "Texas-raised genre-blending artist whose catalog spans rap, rock, and pop.",
+            "tracks": [
+              {
+                "title": "Ball For Me (feat. Nicki Minaj)"
+              },
+              {
+                "title": "Sunflower (Spider-Man: Into the Spider-Verse)"
+              }
+            ]
           }
         ]
       }
@@ -2684,6 +2723,24 @@
                 "title": "You Cant Stop the Reign"
               }
             ]
+          },
+          {
+            "name": "Pop Smoke",
+            "note": "Canarsie rapper whose booming voice helped bring Brooklyn drill to the mainstream.",
+            "tracks": [
+              {
+                "title": "Backseat (feat. PnB Rock)"
+              }
+            ]
+          },
+          {
+            "name": "PRO ERA",
+            "note": "Joey Bada$$'s Brooklyn collective central to the borough's boom-bap revival.",
+            "tracks": [
+              {
+                "title": "King to a God"
+              }
+            ]
           }
         ]
       }
@@ -2860,6 +2917,15 @@
               },
               {
                 "title": "These Days"
+              }
+            ]
+          },
+          {
+            "name": "Princess Nokia",
+            "note": "New York artist blending punk, rap, and Afro-Latina identity into a defiant DIY sound.",
+            "tracks": [
+              {
+                "title": "ABCs of New York"
               }
             ]
           }
@@ -3668,6 +3734,15 @@
                 "title": "Hellcats & Trackhawks"
               }
             ]
+          },
+          {
+            "name": "Polo G",
+            "note": "Chicago rapper known for melodic, introspective street storytelling.",
+            "tracks": [
+              {
+                "title": "21"
+              }
+            ]
           }
         ]
       }
@@ -4047,6 +4122,15 @@
                 "title": "Drive Slow (feat. Kanye West & GLC)"
               }
             ]
+          },
+          {
+            "name": "Point Blank",
+            "note": "Houston rapper steeped in the city's screw music tradition.",
+            "tracks": [
+              {
+                "title": "My Mind Went Blank (Screwed)"
+              }
+            ]
           }
         ]
       }
@@ -4406,6 +4490,15 @@
             "tracks": [
               {
                 "title": "ABCD (Friend Zone)"
+              }
+            ]
+          },
+          {
+            "name": "Probcause",
+            "note": "Philadelphia rapper known for introspective, jazz-inflected songwriting.",
+            "tracks": [
+              {
+                "title": "MIA (feat. Saba)"
               }
             ]
           }
@@ -6200,6 +6293,15 @@
                 "title": "Fu-Gee-La"
               }
             ]
+          },
+          {
+            "name": "Pras",
+            "note": "Fugees member central to the group's fusion of rap, reggae, and soul.",
+            "tracks": [
+              {
+                "title": "Blue Angels"
+              }
+            ]
           }
         ]
       }
@@ -7147,6 +7249,29 @@
             "tracks": [
               {
                 "title": "Real Hitta (feat. Kodak Black)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "trenton-nj-region",
+    "name": "Trenton, NJ",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "trenton-nj",
+        "name": "Trenton, NJ",
+        "state": "NJ",
+        "artists": [
+          {
+            "name": "Poor Righteous Teachers",
+            "note": "Trenton group known for socially conscious, Five-Percenter-influenced lyricism.",
+            "tracks": [
+              {
+                "title": "Just Servin' Justice"
               }
             ]
           }
