@@ -6498,6 +6498,12 @@
         "name": "Secaucus",
         "x": 87.69,
         "y": 26.01
+      },
+      {
+        "id": "englewood-nj",
+        "name": "Englewood",
+        "x": 92.38,
+        "y": 21.98
       }
     ]
   },
@@ -7255,6 +7261,12 @@
         "name": "Snow Hill",
         "x": 75.25,
         "y": 41.97
+      },
+      {
+        "id": "winston-salem-nc",
+        "name": "Winston-Salem",
+        "x": 47.56,
+        "y": 20.23
       }
     ]
   },
