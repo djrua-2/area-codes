@@ -3252,7 +3252,14 @@
         3.7
       ]
     ],
-    "cities": []
+    "cities": [
+      {
+        "id": "topeka-ks",
+        "name": "Topeka",
+        "x": 83.03,
+        "y": 33.04
+      }
+    ]
   },
   "KY": {
     "bbox": {
@@ -7559,6 +7566,12 @@
         "name": "Chillicothe",
         "x": 43.24,
         "y": 72.62
+      },
+      {
+        "id": "massillon-oh",
+        "name": "Massillon",
+        "x": 74.66,
+        "y": 34.5
       }
     ]
   },
@@ -9094,6 +9107,12 @@
         "name": "Corpus Christi",
         "x": 68.93,
         "y": 79.93
+      },
+      {
+        "id": "killeen-tx",
+        "name": "Killeen",
+        "x": 66.64,
+        "y": 50.68
       }
     ]
   },
