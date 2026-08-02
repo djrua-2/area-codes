@@ -245,6 +245,24 @@
                 "title": "Everybody in the Club Gettin Shot"
               }
             ]
+          },
+          {
+            "name": "Goodie Mob",
+            "note": "Atlanta group foundational to the city's rise as a hip-hop capital, blending rap with Southern soul and gospel.",
+            "tracks": [
+              {
+                "title": "Cell Therapy"
+              }
+            ]
+          },
+          {
+            "name": "Gunna",
+            "note": "College Park rapper known for a smooth, melodic delivery within Atlanta's trap scene.",
+            "tracks": [
+              {
+                "title": "Drip or Drown Remix (feat. Lil Yachty)"
+              }
+            ]
           }
         ]
       }
@@ -308,6 +326,15 @@
             "tracks": [
               {
                 "title": "Ridin Thru (Red Eyez)"
+              }
+            ]
+          },
+          {
+            "name": "Grip",
+            "note": "Memphis rapper known for gritty, introspective street narratives.",
+            "tracks": [
+              {
+                "title": "911 (Clap for Em)"
               }
             ]
           }
@@ -1003,6 +1030,15 @@
                 "title": "Han Solo"
               }
             ]
+          },
+          {
+            "name": "grouptherapy.",
+            "note": "LA collective blending rap, rock, and pop into a genre-fluid sound.",
+            "tracks": [
+              {
+                "title": "Truth Be Told"
+              }
+            ]
           }
         ]
       }
@@ -1639,6 +1675,15 @@
                 "title": "Crayola"
               }
             ]
+          },
+          {
+            "name": "Ghostemane",
+            "note": "South Florida artist blending metal, industrial, and rap into an aggressive underground sound.",
+            "tracks": [
+              {
+                "title": "Kali Yuga (feat. Clams Casino)"
+              }
+            ]
           }
         ]
       }
@@ -1765,6 +1810,15 @@
             "tracks": [
               {
                 "title": "Phenomenon (feat. Max B)"
+              }
+            ]
+          },
+          {
+            "name": "Grand Puba",
+            "note": "Bronx rapper and Brand Nubian frontman known for a smooth, laid-back flow.",
+            "tracks": [
+              {
+                "title": "I Like It (I Wanna Be Where You Are)"
               }
             ]
           }
@@ -2343,6 +2397,15 @@
                 "title": "Cool Whip"
               }
             ]
+          },
+          {
+            "name": "Geto Boys",
+            "note": "Houston group whose dark, horror-tinged storytelling helped define Southern rap.",
+            "tracks": [
+              {
+                "title": "Damn It Feels Good to Be a Gangsta"
+              }
+            ]
           }
         ]
       }
@@ -2472,6 +2535,18 @@
             "tracks": [
               {
                 "title": "Let Me Clear My Throat (Old School Reunion Remix '96)"
+              }
+            ]
+          },
+          {
+            "name": "GoldLink",
+            "note": "DC artist who helped popularize the go-go-influenced \"future bounce\" sound.",
+            "tracks": [
+              {
+                "title": "After You Left"
+              },
+              {
+                "title": "Herside Story"
               }
             ]
           }
@@ -3401,6 +3476,15 @@
                 "title": "No More Parties (Remix) [feat. Lil Durk]"
               }
             ]
+          },
+          {
+            "name": "Guru",
+            "note": "Gang Starr co-founder known for a deep, monotone flow and jazz-inflected sensibility.",
+            "tracks": [
+              {
+                "title": "Loungin' (feat. Donald Byrd)"
+              }
+            ]
           }
         ]
       }
@@ -3494,6 +3578,33 @@
             "tracks": [
               {
                 "title": "Machine, Man & Monster (feat. Conway the Machine)"
+              }
+            ]
+          },
+          {
+            "name": "Ghostface Killah",
+            "note": "Wu-Tang Clan member known for vivid, stream-of-consciousness storytelling.",
+            "tracks": [
+              {
+                "title": "Nutmeg (feat. RZA)"
+              }
+            ]
+          },
+          {
+            "name": "Gravediggaz",
+            "note": "Wu-Tang-adjacent horrorcore group led by RZA and Prince Paul.",
+            "tracks": [
+              {
+                "title": "1-800 Suicide"
+              }
+            ]
+          },
+          {
+            "name": "GZA",
+            "note": "Wu-Tang Clan's \"Genius,\" known for dense, cerebral wordplay.",
+            "tracks": [
+              {
+                "title": "4th Chamber (feat. RZA, Ghostface Killah & Killah Priest)"
               }
             ]
           }
