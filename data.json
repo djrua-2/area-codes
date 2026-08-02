@@ -107,6 +107,24 @@
                 "title": "Jersey"
               }
             ]
+          },
+          {
+            "name": "Big Boi",
+            "note": "One half of Outkast, foundational to Atlanta's rise as a hip-hop capital.",
+            "tracks": [
+              {
+                "title": "All Night"
+              }
+            ]
+          },
+          {
+            "name": "Big Grams",
+            "note": "Project pairing Outkast's Big Boi with the band Phantogram.",
+            "tracks": [
+              {
+                "title": "Fell in the Sun"
+              }
+            ]
           }
         ]
       }
@@ -341,6 +359,18 @@
                 "title": "It Ain't My Fault"
               }
             ]
+          },
+          {
+            "name": "Big Sean",
+            "note": "Detroit rapper known for triplet flows and hook-driven mainstream hits.",
+            "tracks": [
+              {
+                "title": "24K of Gold (feat. J. Cole)"
+              },
+              {
+                "title": "No Hearts, No Love"
+              }
+            ]
           }
         ]
       }
@@ -535,6 +565,15 @@
                 "title": "4am - Bay Bridge Music"
               }
             ]
+          },
+          {
+            "name": "Berner",
+            "note": "Bay Area rapper known for laid-back flows and a cannabis-culture-adjacent brand.",
+            "tracks": [
+              {
+                "title": "Levitate (feat. Quez)"
+              }
+            ]
           }
         ]
       }
@@ -579,6 +618,18 @@
             "tracks": [
               {
                 "title": "roll da dice"
+              }
+            ]
+          },
+          {
+            "name": "BigXthaPlug",
+            "note": "Dallas rapper known for gruff, hard-hitting Southern trap.",
+            "tracks": [
+              {
+                "title": "Big Stepper"
+              },
+              {
+                "title": "Boy"
               }
             ]
           }
@@ -870,6 +921,15 @@
                 "title": "My Everything (Part III)"
               }
             ]
+          },
+          {
+            "name": "Big Punisher",
+            "note": "Bronx rapper known for rapid-fire, technically dense flows.",
+            "tracks": [
+              {
+                "title": "I'm Not a Player"
+              }
+            ]
           }
         ]
       }
@@ -942,6 +1002,15 @@
             "tracks": [
               {
                 "title": "212 (feat. Lazy Jay)"
+              }
+            ]
+          },
+          {
+            "name": "Big L",
+            "note": "Harlem lyricist revered for intricate wordplay and punchline density.",
+            "tracks": [
+              {
+                "title": "Put It On"
               }
             ]
           }
@@ -1173,6 +1242,15 @@
                 "title": "Then Leave (feat. Queendome Come)"
               }
             ]
+          },
+          {
+            "name": "Beyoncé",
+            "note": "Houston-raised icon whose catalog spans R&B, pop, and hip-hop.",
+            "tracks": [
+              {
+                "title": "BLACK PARADE"
+              }
+            ]
           }
         ]
       }
@@ -1378,6 +1456,15 @@
                 "title": "The Way I Live (feat. Lil Boosie)"
               }
             ]
+          },
+          {
+            "name": "Big Tymers",
+            "note": "Cash Money Records duo (Birdman & Mannie Fresh) known for flashy, bounce-inflected production.",
+            "tracks": [
+              {
+                "title": "Still Fly"
+              }
+            ]
           }
         ]
       }
@@ -1480,6 +1567,81 @@
               },
               {
                 "title": "Legend"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "flint-mi-region",
+    "name": "Flint, MI",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "flint-mi",
+        "name": "Flint, MI",
+        "state": "MI",
+        "artists": [
+          {
+            "name": "Bfb Da Packman",
+            "note": "Flint rapper known for blunt, comedic, high-energy bars.",
+            "tracks": [
+              {
+                "title": "Free Joe Exotic (feat. Sada Baby)"
+              },
+              {
+                "title": "Bob and Weave"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "boynton-beach-fl-region",
+    "name": "Boynton Beach, FL",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "boynton-beach-fl",
+        "name": "Boynton Beach, FL",
+        "state": "FL",
+        "artists": [
+          {
+            "name": "Bhad Bhabie",
+            "note": "Florida rapper who transitioned from viral internet fame into a music career.",
+            "tracks": [
+              {
+                "title": "Gucci Flip Flops (feat. Lil Yachty)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "meridian-ms-region",
+    "name": "Meridian, MS",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "meridian-ms",
+        "name": "Meridian, MS",
+        "state": "MS",
+        "artists": [
+          {
+            "name": "Big K.R.I.T.",
+            "note": "Mississippi rapper/producer known for soulful, Southern-rooted production.",
+            "tracks": [
+              {
+                "title": "1999 (feat. Lloyd)"
+              },
+              {
+                "title": "Fly The Coop"
               }
             ]
           }
