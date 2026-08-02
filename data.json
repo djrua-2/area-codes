@@ -497,6 +497,15 @@
                 "title": "I'll Call B4 I Cum (with Gangsta Boo & Eco)"
               }
             ]
+          },
+          {
+            "name": "Playboi Carti",
+            "note": "Atlanta rapper whose minimalist, ad-lib-heavy delivery became one of the most imitated styles in modern rap.",
+            "tracks": [
+              {
+                "title": "@ MEH"
+              }
+            ]
           }
         ]
       }
@@ -1205,6 +1214,15 @@
                 "title": "I Wanna Rock"
               }
             ]
+          },
+          {
+            "name": "Pitbull",
+            "note": "Miami rapper known for high-energy, party-ready crossover hits.",
+            "tracks": [
+              {
+                "title": "Hotel Room Service"
+              }
+            ]
           }
         ]
       },
@@ -1871,6 +1889,15 @@
             "tracks": [
               {
                 "title": "DnD (feat. Kenny Mason)"
+              }
+            ]
+          },
+          {
+            "name": "People Under the Stairs",
+            "note": "LA duo known for sample-heavy, old-school-rooted boom-bap.",
+            "tracks": [
+              {
+                "title": "#Asapfreedumwillyum$"
               }
             ]
           }
@@ -4372,6 +4399,15 @@
                 "title": "Amen (feat. Drake)"
               }
             ]
+          },
+          {
+            "name": "PnB Rock",
+            "note": "Philadelphia singer-rapper known for melodic, emotionally direct street narratives.",
+            "tracks": [
+              {
+                "title": "ABCD (Friend Zone)"
+              }
+            ]
           }
         ]
       }
@@ -4568,6 +4604,15 @@
             "tracks": [
               {
                 "title": "If It Ain't Live, It Ain't Me"
+              }
+            ]
+          },
+          {
+            "name": "Pell",
+            "note": "New Orleans rapper known for a smooth, genre-blending style.",
+            "tracks": [
+              {
+                "title": "chirpin'"
               }
             ]
           }
@@ -5154,6 +5199,15 @@
                 "title": "Straighten It Out"
               }
             ]
+          },
+          {
+            "name": "Pete Rock",
+            "note": "Mount Vernon producer whose soulful sample-based production became a blueprint for '90s boom-bap.",
+            "tracks": [
+              {
+                "title": "Act Like You Know"
+              }
+            ]
           }
         ]
       }
@@ -5438,6 +5492,18 @@
               },
               {
                 "title": "Voilà"
+              }
+            ]
+          },
+          {
+            "name": "Pharrell Williams",
+            "note": "Virginia Beach producer-artist whose futuristic sound shaped two decades of hip-hop and pop.",
+            "tracks": [
+              {
+                "title": "Entrepreneur (feat. JAY-Z)"
+              },
+              {
+                "title": "That Girl"
               }
             ]
           }
@@ -6187,6 +6253,15 @@
             "tracks": [
               {
                 "title": "I See Now"
+              }
+            ]
+          },
+          {
+            "name": "Phonte",
+            "note": "Little Brother member known for soulful, thoughtful songwriting.",
+            "tracks": [
+              {
+                "title": "Not Here Anymore (feat. eLZhi)"
               }
             ]
           }
@@ -6973,6 +7048,15 @@
                 "title": "Overtime"
               }
             ]
+          },
+          {
+            "name": "Pink Siifu",
+            "note": "Genre-shredding artist blending punk, jazz, and rap into a raw underground sound.",
+            "tracks": [
+              {
+                "title": "It's Too Quiet..'!! (feat. Kamilah, Nick Hakim & Pher)"
+              }
+            ]
           }
         ]
       }
@@ -6994,6 +7078,75 @@
             "tracks": [
               {
                 "title": "I Still Love You (feat. Mayer Hawthorne)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "greenville-nc-region",
+    "name": "Greenville, NC",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "greenville-nc",
+        "name": "Greenville, NC",
+        "state": "NC",
+        "artists": [
+          {
+            "name": "Petey Pablo",
+            "note": "Greenville rapper known for the anthemic hit \"Freek-A-Leek.\"",
+            "tracks": [
+              {
+                "title": "Freek-A-Leek"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "anaheim-ca-region",
+    "name": "Anaheim, CA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "anaheim-ca",
+        "name": "Anaheim, CA",
+        "state": "CA",
+        "artists": [
+          {
+            "name": "Phora",
+            "note": "Anaheim rapper known for confessional, melodic street rap.",
+            "tracks": [
+              {
+                "title": "Before It's over Pt. 2"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fort-myers-fl-region",
+    "name": "Fort Myers, FL",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "fort-myers-fl",
+        "name": "Fort Myers, FL",
+        "state": "FL",
+        "artists": [
+          {
+            "name": "Plies",
+            "note": "Fort Myers rapper known for gruff, street-rooted Southern rap.",
+            "tracks": [
+              {
+                "title": "Real Hitta (feat. Kodak Black)"
               }
             ]
           }
