@@ -371,6 +371,15 @@
                 "title": "No Hearts, No Love"
               }
             ]
+          },
+          {
+            "name": "Black Milk",
+            "note": "Detroit producer-rapper known for dense, live-instrumentation-inflected boom-bap.",
+            "tracks": [
+              {
+                "title": "Everyday Was (feat. Mel)"
+              }
+            ]
           }
         ]
       }
@@ -485,6 +494,30 @@
             "tracks": [
               {
                 "title": "F'Real F'Real (Kiwi, Bambu + DJ Phatrick)"
+              }
+            ]
+          },
+          {
+            "name": "Black Eyed Peas",
+            "note": "LA group that evolved from alt-hip-hop roots into global pop-rap hitmakers.",
+            "tracks": [
+              {
+                "title": "Don't Phunk With My Heart"
+              }
+            ]
+          },
+          {
+            "name": "Blu",
+            "note": "LA underground rapper known for soulful, introspective boom-bap.",
+            "tracks": [
+              {
+                "title": "Amnesia"
+              },
+              {
+                "title": "Dancing In the Rain"
+              },
+              {
+                "title": "The Lost Angels Anthem (feat. Kezia)"
               }
             ]
           }
@@ -764,6 +797,24 @@
                 "title": "Desperado (feat. Meechy Darko, Joey Bada$$, Zombie Juice & Kirk Knight)"
               }
             ]
+          },
+          {
+            "name": "Black Moon",
+            "note": "Boot Camp Clik founders central to Brooklyn's gritty, boom-bap-driven '90s sound.",
+            "tracks": [
+              {
+                "title": "I Got Cha Opin"
+              }
+            ]
+          },
+          {
+            "name": "Black Star",
+            "note": "Mos Def and Talib Kweli's Brooklyn duo, a cornerstone of conscious '90s New York rap.",
+            "tracks": [
+              {
+                "title": "Astronomy (8th Light) [feat. Weldon Irvine]"
+              }
+            ]
           }
         ]
       }
@@ -838,6 +889,18 @@
             "tracks": [
               {
                 "title": "Brass Monkey"
+              }
+            ]
+          },
+          {
+            "name": "billy woods",
+            "note": "Abstract, politically charged underground lyricist central to New York's experimental rap scene.",
+            "tracks": [
+              {
+                "title": "Sauvage (feat. Boldy James & Gabe 'Nandez)"
+              },
+              {
+                "title": "FaceTime (feat. Samuel T. Herring)"
               }
             ]
           }
@@ -1013,6 +1076,15 @@
                 "title": "Put It On"
               }
             ]
+          },
+          {
+            "name": "Black Rob",
+            "note": "Harlem rapper and Bad Boy Records signee known for the anthem \"Whoa!\"",
+            "tracks": [
+              {
+                "title": "Bad Boy For Life"
+              }
+            ]
           }
         ]
       }
@@ -1130,6 +1202,15 @@
             "tracks": [
               {
                 "title": "Foolish"
+              }
+            ]
+          },
+          {
+            "name": "Biz Markie",
+            "note": "\"Clown prince of hip-hop,\" known for the beatboxing/humor-driven classic \"Just a Friend.\"",
+            "tracks": [
+              {
+                "title": "Just a Friend"
               }
             ]
           }
@@ -1375,6 +1456,15 @@
                 "title": "BILLIE EILISH."
               }
             ]
+          },
+          {
+            "name": "Black Thought",
+            "note": "The Roots' frontman, widely regarded as one of the most technically gifted MCs to come out of Philadelphia.",
+            "tracks": [
+              {
+                "title": "Making a Murderer (feat. Styles P)"
+              }
+            ]
           }
         ]
       }
@@ -1463,6 +1553,15 @@
             "tracks": [
               {
                 "title": "Still Fly"
+              }
+            ]
+          },
+          {
+            "name": "Birdman",
+            "note": "Cash Money Records co-founder and New Orleans rap mogul.",
+            "tracks": [
+              {
+                "title": "Stuntin' Like My Daddy (Radio Edit)"
               }
             ]
           }
@@ -1642,6 +1741,52 @@
               },
               {
                 "title": "Fly The Coop"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pontiac-mi-region",
+    "name": "Pontiac, MI",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "pontiac-mi",
+        "name": "Pontiac, MI",
+        "state": "MI",
+        "artists": [
+          {
+            "name": "Binary Star",
+            "note": "Michigan underground duo best known for the cult classic \"Masters of the Universe.\"",
+            "tracks": [
+              {
+                "title": "Honest Expression (feat. Senim Silla & One Be Lo)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "poughkeepsie-ny-region",
+    "name": "Poughkeepsie, NY",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "poughkeepsie-ny",
+        "name": "Poughkeepsie, NY",
+        "state": "NY",
+        "artists": [
+          {
+            "name": "Bishop Nehru",
+            "note": "Hudson Valley rapper known for a laid-back, boom-bap-rooted style.",
+            "tracks": [
+              {
+                "title": "You Stressin'"
               }
             ]
           }
