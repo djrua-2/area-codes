@@ -1774,6 +1774,12 @@
         "name": "Fort Pierce",
         "x": 92.71,
         "y": 59.68
+      },
+      {
+        "id": "tampa-fl",
+        "name": "Tampa",
+        "x": 66.73,
+        "y": 51.84
       }
     ]
   },
@@ -6694,6 +6700,12 @@
         "name": "Amityville",
         "x": 80.39,
         "y": 93.5
+      },
+      {
+        "id": "yonkers-ny",
+        "name": "Yonkers",
+        "x": 74.57,
+        "y": 88.28
       }
     ]
   },
@@ -6956,6 +6968,12 @@
         "name": "Charlotte",
         "x": 41.12,
         "y": 49.67
+      },
+      {
+        "id": "fayetteville-nc",
+        "name": "Fayetteville",
+        "x": 62.26,
+        "y": 55.57
       }
     ]
   },
