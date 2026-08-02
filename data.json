@@ -551,6 +551,15 @@
                 "title": "One and Done"
               }
             ]
+          },
+          {
+            "name": "Shawty Lo",
+            "note": "Bankhead rapper central to Atlanta's snap-music era.",
+            "tracks": [
+              {
+                "title": "Dey Know"
+              }
+            ]
           }
         ]
       }
@@ -1194,6 +1203,15 @@
             "tracks": [
               {
                 "title": "Whole Lotta Choppas"
+              }
+            ]
+          },
+          {
+            "name": "ShittyBoyz",
+            "note": "Detroit duo known for a raw, high-energy street style.",
+            "tracks": [
+              {
+                "title": "Payday"
               }
             ]
           }
@@ -2081,6 +2099,24 @@
             "tracks": [
               {
                 "title": "5200"
+              }
+            ]
+          },
+          {
+            "name": "Shawn Chrystopher",
+            "note": "LA singer-rapper known for smooth, R&B-leaning hip-hop.",
+            "tracks": [
+              {
+                "title": "Faithful"
+              }
+            ]
+          },
+          {
+            "name": "Shoreline Mafia",
+            "note": "LA collective known for hazy, smoked-out street rap.",
+            "tracks": [
+              {
+                "title": "Wake Me up in Traffic (feat. 03 Greedo & Drakeo the Ruler)"
               }
             ]
           }
@@ -3578,6 +3614,15 @@
                 "title": "It Takes Two"
               }
             ]
+          },
+          {
+            "name": "Sheck Wes",
+            "note": "Harlem rapper best known for the breakout hit \"Mo Bamba.\"",
+            "tracks": [
+              {
+                "title": "Mo Bamba"
+              }
+            ]
           }
         ]
       }
@@ -4005,6 +4050,24 @@
             "tracks": [
               {
                 "title": "BUSY/SIRENS (feat. theMIND)"
+              }
+            ]
+          },
+          {
+            "name": "Serengeti",
+            "note": "Chicago rapper known for eccentric, character-driven concept work.",
+            "tracks": [
+              {
+                "title": "Dennehy"
+              }
+            ]
+          },
+          {
+            "name": "Sidewalk Chalk",
+            "note": "Chicago collective blending live instrumentation with rap and soul.",
+            "tracks": [
+              {
+                "title": "The Sitcom"
               }
             ]
           }
@@ -4683,6 +4746,15 @@
               },
               {
                 "title": "Big T*****s (feat. Baauer and EarthGang)"
+              }
+            ]
+          },
+          {
+            "name": "Shy Glizzy",
+            "note": "DC rapper known for melodic, street-rooted trap.",
+            "tracks": [
+              {
+                "title": "White Girl"
               }
             ]
           }
@@ -5615,6 +5687,15 @@
                 "title": "Simulation (feat. Swamp Dogg & Justin Vernon)"
               }
             ]
+          },
+          {
+            "name": "Shordie Shordie",
+            "note": "Baltimore rapper known for a melodic, laid-back street-rap style.",
+            "tracks": [
+              {
+                "title": "FDP"
+              }
+            ]
           }
         ]
       }
@@ -5892,6 +5973,15 @@
                 "title": "Chill Phillipe"
               }
             ]
+          },
+          {
+            "name": "ShooterGang Kony",
+            "note": "Sacramento rapper known for gritty, street-rooted West Coast rap.",
+            "tracks": [
+              {
+                "title": "Deep End (Freestyle)"
+              }
+            ]
           }
         ]
       }
@@ -6096,6 +6186,15 @@
             "tracks": [
               {
                 "title": "Ghost"
+              }
+            ]
+          },
+          {
+            "name": "Shabazz Palaces",
+            "note": "Seattle duo known for abstract, Afrofuturist experimental hip-hop.",
+            "tracks": [
+              {
+                "title": "30 Clip Extension"
               }
             ]
           }
@@ -7970,6 +8069,29 @@
             "tracks": [
               {
                 "title": "Best Friend (feat. Doja Cat)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "malibu-ca-region",
+    "name": "Malibu, CA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "malibu-ca",
+        "name": "Malibu, CA",
+        "state": "CA",
+        "artists": [
+          {
+            "name": "Shwayze",
+            "note": "Malibu artist known for laid-back, beach-culture-steeped pop-rap.",
+            "tracks": [
+              {
+                "title": "Buzzin'"
               }
             ]
           }
