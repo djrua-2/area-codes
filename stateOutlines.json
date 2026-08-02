@@ -7188,6 +7188,12 @@
         "name": "Greenville",
         "x": 78.46,
         "y": 36.65
+      },
+      {
+        "id": "snow-hill-nc",
+        "name": "Snow Hill",
+        "x": 75.25,
+        "y": 41.97
       }
     ]
   },
