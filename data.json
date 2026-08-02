@@ -341,6 +341,15 @@
                 "title": "Community"
               }
             ]
+          },
+          {
+            "name": "K CAMP",
+            "note": "Atlanta rapper known for melodic, hook-driven trap singles.",
+            "tracks": [
+              {
+                "title": "1Hunnid (feat. Fetty Wap)"
+              }
+            ]
           }
         ]
       }
@@ -1313,6 +1322,27 @@
             "tracks": [
               {
                 "title": "Contact"
+              }
+            ]
+          },
+          {
+            "name": "Kaliii",
+            "note": "LA-based rapper known for high-energy, dance-ready bars.",
+            "tracks": [
+              {
+                "title": "BOZO"
+              },
+              {
+                "title": "K Toven"
+              }
+            ]
+          },
+          {
+            "name": "Kankick",
+            "note": "Lootpack-affiliated producer central to the Stones Throw underground scene.",
+            "tracks": [
+              {
+                "title": "On the Lookout (feat. Kombo & Wild Child (Lootpack))"
               }
             ]
           }
@@ -2558,6 +2588,45 @@
                 "title": "Girl Of My Dreams"
               }
             ]
+          },
+          {
+            "name": "Kanye West",
+            "note": "Chicago producer-rapper whose soul-sampling production and boundary-pushing albums reshaped mainstream hip-hop.",
+            "tracks": [
+              {
+                "title": "30 Hours"
+              },
+              {
+                "title": "Life Of The Party"
+              },
+              {
+                "title": "Ni**as in Paris"
+              },
+              {
+                "title": "I Love It"
+              },
+              {
+                "title": "Impossible (feat. Twista, Keyshia Cole & BJ) [Radio Edit]"
+              },
+              {
+                "title": "Mercy.1"
+              },
+              {
+                "title": "Don't Like.1"
+              },
+              {
+                "title": "Champions"
+              },
+              {
+                "title": "Clique"
+              },
+              {
+                "title": "Good Night"
+              },
+              {
+                "title": "New God Flow.1"
+              }
+            ]
           }
         ]
       }
@@ -3218,6 +3287,21 @@
             "tracks": [
               {
                 "title": "A.P.I.D.T.A."
+              }
+            ]
+          },
+          {
+            "name": "Juvenile",
+            "note": "New Orleans rapper whose bounce-inflected hits helped define Cash Money-era Southern rap.",
+            "tracks": [
+              {
+                "title": "Back That Azz Up (feat. Lil Wayne & Mannie Fresh)"
+              },
+              {
+                "title": "Slow Motion"
+              },
+              {
+                "title": "Nolia Clap"
               }
             ]
           }
@@ -4914,6 +4998,32 @@
             "tracks": [
               {
                 "title": "Amsterdam"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "little-rock-ar-region",
+    "name": "Little Rock, AR",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "little-rock-ar",
+        "name": "Little Rock, AR",
+        "state": "AR",
+        "artists": [
+          {
+            "name": "Kari Faux",
+            "note": "Little Rock rapper known for laid-back, confident, genre-blending bars.",
+            "tracks": [
+              {
+                "title": "Fantasy"
+              },
+              {
+                "title": "In the Air"
               }
             ]
           }
