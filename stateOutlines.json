@@ -1158,6 +1158,18 @@
         "name": "Long Beach",
         "x": 59.75,
         "y": 84.25
+      },
+      {
+        "id": "compton-ca",
+        "name": "Compton",
+        "x": 59.43,
+        "y": 83.02
+      },
+      {
+        "id": "berkeley-ca",
+        "name": "Berkeley",
+        "x": 22.97,
+        "y": 44.17
       }
     ]
   },
@@ -4239,7 +4251,14 @@
         3.7
       ]
     ],
-    "cities": []
+    "cities": [
+      {
+        "id": "baltimore-md",
+        "name": "Baltimore",
+        "x": 63.7,
+        "y": 25.74
+      }
+    ]
   },
   "MA": {
     "bbox": {
@@ -6588,6 +6607,12 @@
         "name": "Poughkeepsie",
         "x": 74.21,
         "y": 72.24
+      },
+      {
+        "id": "mount-vernon-ny",
+        "name": "Mount Vernon",
+        "x": 75.29,
+        "y": 88.67
       }
     ]
   },
@@ -9107,7 +9132,14 @@
         3.7
       ]
     ],
-    "cities": []
+    "cities": [
+      {
+        "id": "richmond-va",
+        "name": "Richmond",
+        "x": 77.72,
+        "y": 64.69
+      }
+    ]
   },
   "WA": {
     "bbox": {
