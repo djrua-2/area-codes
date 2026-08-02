@@ -1624,6 +1624,15 @@
                 "title": "Loaded (feat. Mike G)"
               }
             ]
+          },
+          {
+            "name": "Mike G",
+            "note": "Odd Future member known for a laid-back, soulful flow.",
+            "tracks": [
+              {
+                "title": "King"
+              }
+            ]
           }
         ]
       }
@@ -1993,6 +2002,15 @@
                 "title": "Karma"
               }
             ]
+          },
+          {
+            "name": "Meyhem Lauren",
+            "note": "Queens rapper known for gritty, food-and-crime-obsessed street narratives.",
+            "tracks": [
+              {
+                "title": "Dragon vs. Wolf (feat. Action Bronson)"
+              }
+            ]
           }
         ]
       }
@@ -2014,6 +2032,15 @@
             "tracks": [
               {
                 "title": "Buttcheeks"
+              }
+            ]
+          },
+          {
+            "name": "Mez",
+            "note": "Nashville rapper known for melodic, introspective songwriting.",
+            "tracks": [
+              {
+                "title": "Hot Spot"
               }
             ]
           }
@@ -2312,6 +2339,15 @@
                 "title": "Cold Rock a Party"
               }
             ]
+          },
+          {
+            "name": "Memphis Bleek",
+            "note": "Marcy Projects rapper and longtime JAY-Z affiliate.",
+            "tracks": [
+              {
+                "title": "Dear Summer (feat. JAY-Z)"
+              }
+            ]
           }
         ]
       }
@@ -2467,6 +2503,27 @@
             "tracks": [
               {
                 "title": "Can't Stop Won't Stop (feat. Kodak Black)"
+              }
+            ]
+          },
+          {
+            "name": "MIKE",
+            "note": "New York underground rapper known for hazy, introspective production and understated delivery.",
+            "tracks": [
+              {
+                "title": "God's with Me"
+              },
+              {
+                "title": "100 Gecs"
+              },
+              {
+                "title": "2k24 Tour (feat. Niontay)"
+              },
+              {
+                "title": "On God (feat. Earl Sweatshirt & Tony Shhnow)"
+              },
+              {
+                "title": "These Days"
               }
             ]
           }
@@ -2919,6 +2976,15 @@
                 "title": "Floors (feat. Foster Cazz)"
               }
             ]
+          },
+          {
+            "name": "Mike Floss",
+            "note": "Austin rapper known for soulful, conscious songwriting.",
+            "tracks": [
+              {
+                "title": "Movie"
+              }
+            ]
           }
         ]
       }
@@ -3221,6 +3287,15 @@
                 "title": "Around My Way (Freedom Ain't Free)"
               }
             ]
+          },
+          {
+            "name": "Mick Jenkins",
+            "note": "Chicago rapper known for dense, water-and-truth-themed conceptual work.",
+            "tracks": [
+              {
+                "title": "Alchemy"
+              }
+            ]
           }
         ]
       }
@@ -3299,6 +3374,15 @@
               },
               {
                 "title": "Falling Down (Bonus Track)"
+              }
+            ]
+          },
+          {
+            "name": "MF DOOM",
+            "note": "Masked lyricist known for dense, cryptic wordplay and off-kilter, sample-heavy beats.",
+            "tracks": [
+              {
+                "title": "Deep Fried Frenz"
               }
             ]
           }
@@ -4379,6 +4463,15 @@
                 "title": "Girlfriend"
               }
             ]
+          },
+          {
+            "name": "midwxst",
+            "note": "Columbus artist blending hyperpop energy with rap.",
+            "tracks": [
+              {
+                "title": "pretty girls"
+              }
+            ]
           }
         ]
       }
@@ -4875,6 +4968,15 @@
                 "title": "Loungin' (feat. Donald Byrd)"
               }
             ]
+          },
+          {
+            "name": "Michael Christmas",
+            "note": "Boston rapper known for witty, conversational bars.",
+            "tracks": [
+              {
+                "title": "Grab Her Hand (feat. MAC MILLER)"
+              }
+            ]
           }
         ]
       }
@@ -5013,6 +5115,18 @@
             "tracks": [
               {
                 "title": "4th Chamber (feat. RZA, Ghostface Killah & Killah Priest)"
+              }
+            ]
+          },
+          {
+            "name": "Method Man",
+            "note": "Wu-Tang Clan member known for a gravel-toned, charismatic flow.",
+            "tracks": [
+              {
+                "title": "Bring the Pain"
+              },
+              {
+                "title": "Da Rockwilder"
               }
             ]
           }
@@ -5725,6 +5839,24 @@
             "tracks": [
               {
                 "title": "Chain Hang Low"
+              }
+            ]
+          },
+          {
+            "name": "Metro Boomin",
+            "note": "Prolific producer whose dark, minimal trap beats defined a huge swath of 2010s and 2020s rap.",
+            "tracks": [
+              {
+                "title": "10 Freaky Girls (feat. 21 Savage)"
+              },
+              {
+                "title": "Too Many Nights (feat. Don Toliver)"
+              },
+              {
+                "title": "Superhero (Heroes & Villains)"
+              },
+              {
+                "title": "Creepin'"
               }
             ]
           }
