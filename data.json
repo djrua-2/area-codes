@@ -400,6 +400,15 @@
                 "title": "18 Dummy (Main Version)"
               }
             ]
+          },
+          {
+            "name": "Flipsyde",
+            "note": "Oakland group blending rap with rock and acoustic elements.",
+            "tracks": [
+              {
+                "title": "Someday"
+              }
+            ]
           }
         ]
       }
@@ -695,6 +704,15 @@
                 "title": "Soda (feat. Take A Daytrip)"
               }
             ]
+          },
+          {
+            "name": "Flo Rida",
+            "note": "Carol City rapper known for radio-ready, sample-driven pop-rap hits.",
+            "tracks": [
+              {
+                "title": "GDFR (feat. Sage the Gemini & LooKas)"
+              }
+            ]
           }
         ]
       },
@@ -937,6 +955,24 @@
                 "title": "AM // Radio (feat. Wiki)"
               }
             ]
+          },
+          {
+            "name": "Fergie",
+            "note": "Black Eyed Peas member turned solo pop-rap star.",
+            "tracks": [
+              {
+                "title": "Fergalicious (feat. will.i.am)"
+              }
+            ]
+          },
+          {
+            "name": "Flyana Boss",
+            "note": "LA duo known for fast-paced, high-energy viral rap.",
+            "tracks": [
+              {
+                "title": "You Wish"
+              }
+            ]
           }
         ]
       }
@@ -1063,6 +1099,15 @@
             "tracks": [
               {
                 "title": "Dreams"
+              }
+            ]
+          },
+          {
+            "name": "Finatticz",
+            "note": "LA-area group best known for the viral hit \"Don't Drop That Thun Thun.\"",
+            "tracks": [
+              {
+                "title": "Don't Drop That Thun Thun"
               }
             ]
           }
@@ -1374,6 +1419,15 @@
             "tracks": [
               {
                 "title": "Wipeout (feat. The Beach Boys)"
+              }
+            ]
+          },
+          {
+            "name": "Flatbush Zombies",
+            "note": "Flatbush trio known for psychedelic, horror-tinged underground rap.",
+            "tracks": [
+              {
+                "title": "A Spike Lee Joint (feat. Anthony Flammia)"
               }
             ]
           }
@@ -1959,6 +2013,15 @@
             "tracks": [
               {
                 "title": "Hoes Mad"
+              }
+            ]
+          },
+          {
+            "name": "FRANK LEONE",
+            "note": "Pivot Gang-affiliated Chicago rapper known for introspective, poetic lyricism.",
+            "tracks": [
+              {
+                "title": "Huffing Paint"
               }
             ]
           }
@@ -3404,6 +3467,15 @@
                 "title": "21"
               }
             ]
+          },
+          {
+            "name": "Foggieraw",
+            "note": "Charlotte rapper known for soulful, introspective songwriting.",
+            "tracks": [
+              {
+                "title": "Psalm 62"
+              }
+            ]
           }
         ]
       }
@@ -3587,6 +3659,107 @@
             "tracks": [
               {
                 "title": "Boy Meets World"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "paterson-nj-region",
+    "name": "Paterson, NJ",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "paterson-nj",
+        "name": "Paterson, NJ",
+        "state": "NJ",
+        "artists": [
+          {
+            "name": "Fetty Wap",
+            "note": "Paterson rapper known for melodic, Auto-Tuned hooks and the breakout hit \"Trap Queen.\"",
+            "tracks": [
+              {
+                "title": "679 (feat. Remy Boyz)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mobile-al-region",
+    "name": "Mobile, AL",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "mobile-al",
+        "name": "Mobile, AL",
+        "state": "AL",
+        "artists": [
+          {
+            "name": "Flo Milli",
+            "note": "Mobile rapper known for confident, playful, hook-driven bars.",
+            "tracks": [
+              {
+                "title": "19"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "denver-co-region",
+    "name": "Denver, CO",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "denver-co",
+        "name": "Denver, CO",
+        "state": "CO",
+        "artists": [
+          {
+            "name": "Flobots",
+            "note": "Denver group blending rap with rock instrumentation and political lyrics.",
+            "tracks": [
+              {
+                "title": "Handlebars"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gary-in-region",
+    "name": "Gary, IN",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "gary-in",
+        "name": "Gary, IN",
+        "state": "IN",
+        "artists": [
+          {
+            "name": "Freddie Gibbs",
+            "note": "Gary rapper known for dense, technically sharp street narratives over soulful production.",
+            "tracks": [
+              {
+                "title": "20 Karat Jesus"
+              },
+              {
+                "title": "Bomb (feat. Raekwon)"
+              },
+              {
+                "title": "1985"
+              },
+              {
+                "title": "Feeling"
               }
             ]
           }
