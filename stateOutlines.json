@@ -789,7 +789,14 @@
         3.7
       ]
     ],
-    "cities": []
+    "cities": [
+      {
+        "id": "little-rock-ar",
+        "name": "Little Rock",
+        "x": 47.8,
+        "y": 50.15
+      }
+    ]
   },
   "CA": {
     "bbox": {
