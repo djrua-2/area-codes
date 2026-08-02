@@ -199,6 +199,15 @@
                 "title": "You Don't Want Drama"
               }
             ]
+          },
+          {
+            "name": "Cities Aviv",
+            "note": "Memphis experimental rapper blending lo-fi noise textures with rap.",
+            "tracks": [
+              {
+                "title": "URL IRL"
+              }
+            ]
           }
         ]
       }
@@ -251,6 +260,15 @@
               },
               {
                 "title": "How Do U Want It"
+              }
+            ]
+          },
+          {
+            "name": "Clyde Carson",
+            "note": "Oakland rapper and member of The Team, key to the hyphy movement.",
+            "tracks": [
+              {
+                "title": "Slow Down (feat. The Team)"
               }
             ]
           }
@@ -419,6 +437,24 @@
                 "title": "Flying Trapeze Act"
               }
             ]
+          },
+          {
+            "name": "Clear Soul Forces",
+            "note": "Detroit collective known for dense, boom-bap-rooted lyricism.",
+            "tracks": [
+              {
+                "title": "Beats, Rhymes & Life"
+              }
+            ]
+          },
+          {
+            "name": "Cochise",
+            "note": "Detroit rapper known for a hazy, genre-blurring rage-adjacent sound.",
+            "tracks": [
+              {
+                "title": "POCKET ROCKET"
+              }
+            ]
           }
         ]
       }
@@ -450,6 +486,15 @@
             "tracks": [
               {
                 "title": "Mase in '97 (feat. Lil Yachty)"
+              }
+            ]
+          },
+          {
+            "name": "City Girls",
+            "note": "Miami duo known for brash, uncensored, hyper-confident bars.",
+            "tracks": [
+              {
+                "title": "Act Up"
               }
             ]
           }
@@ -602,6 +647,15 @@
             "tracks": [
               {
                 "title": "Comin' Thru"
+              }
+            ]
+          },
+          {
+            "name": "clipping.",
+            "note": "LA experimental group (Daveed Diggs, William Hutson, Jonathan Snipes) blending noise and industrial sounds with rap.",
+            "tracks": [
+              {
+                "title": "96 Neve Campbell (feat. Cam & China)"
               }
             ]
           }
@@ -824,6 +878,15 @@
               },
               {
                 "title": "The Jackie (feat. Lil Tjay)"
+              }
+            ]
+          },
+          {
+            "name": "Consequence",
+            "note": "Queens rapper and A Tribe Called Quest affiliate known for sharp punchline writing.",
+            "tracks": [
+              {
+                "title": "Disperse (feat. GLC & Really Doe)"
               }
             ]
           }
@@ -1419,6 +1482,15 @@
             "tracks": [
               {
                 "title": "Glam (feat. Macie Stewart & Chance The Rapper)"
+              }
+            ]
+          },
+          {
+            "name": "Common",
+            "note": "Chicago lyricist whose decades-long catalog helped define conscious rap.",
+            "tracks": [
+              {
+                "title": "Chapter 13 (Rich Man vs. Poor Man)"
               }
             ]
           }
@@ -2427,6 +2499,104 @@
               },
               {
                 "title": "Orange Dreamer"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "nutley-nj-region",
+    "name": "Nutley, NJ",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "nutley-nj",
+        "name": "Nutley, NJ",
+        "state": "NJ",
+        "artists": [
+          {
+            "name": "Clams Casino",
+            "note": "New Jersey producer whose cloud-rap production style shaped a huge swath of 2010s rap.",
+            "tracks": [
+              {
+                "title": "32 Levels (feat. Lil B & Joe Newman)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "virginia-beach-va-region",
+    "name": "Virginia Beach, VA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "virginia-beach-va",
+        "name": "Virginia Beach, VA",
+        "state": "VA",
+        "artists": [
+          {
+            "name": "Clipse",
+            "note": "Virginia Beach duo (Pusha T & Malice) whose minimalist Neptunes-produced coke-rap defined an era.",
+            "tracks": [
+              {
+                "title": "Grindin'"
+              },
+              {
+                "title": "M.T.B.T.T.F."
+              },
+              {
+                "title": "P.O.V."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "boston-ma-region",
+    "name": "Boston, MA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "boston-ma",
+        "name": "Boston, MA",
+        "state": "MA",
+        "artists": [
+          {
+            "name": "Coi Leray",
+            "note": "Massachusetts rapper known for high-energy, hook-driven pop-rap.",
+            "tracks": [
+              {
+                "title": "No More Parties (Remix) [feat. Lil Durk]"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "seattle-wa-region",
+    "name": "Seattle, WA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "seattle-wa",
+        "name": "Seattle, WA",
+        "state": "WA",
+        "artists": [
+          {
+            "name": "Common Market",
+            "note": "Seattle duo (Sabzi & RA Scion) known for thoughtful, jazz-inflected boom-bap.",
+            "tracks": [
+              {
+                "title": "Back Home (The Return)"
               }
             ]
           }
