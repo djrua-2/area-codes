@@ -469,6 +469,15 @@
                 "title": "2 For 1"
               }
             ]
+          },
+          {
+            "name": "Koopsta Knicca",
+            "note": "Three 6 Mafia member central to the dark, horror-tinged Memphis sound.",
+            "tracks": [
+              {
+                "title": "Smoking on a J."
+              }
+            ]
           }
         ]
       }
@@ -1408,6 +1417,24 @@
                 "title": "Be Real (feat. Dej Loaf)"
               }
             ]
+          },
+          {
+            "name": "Knxwledge",
+            "note": "LA-based producer known for warm, sample-chopped lo-fi instrumentals.",
+            "tracks": [
+              {
+                "title": "Kometostai.Aintreallynootherwaytoputitro"
+              }
+            ]
+          },
+          {
+            "name": "Krondon",
+            "note": "Strong Arm Steady member central to LA's underground rap scene.",
+            "tracks": [
+              {
+                "title": "Mary's Son"
+              }
+            ]
           }
         ]
       }
@@ -1702,6 +1729,27 @@
                 "title": "Bamboo"
               }
             ]
+          },
+          {
+            "name": "Kool G Rap",
+            "note": "Queens lyricist whose intricate, multisyllabic rhyme schemes influenced generations of MCs.",
+            "tracks": [
+              {
+                "title": "ILL Street Blues"
+              },
+              {
+                "title": "Poison"
+              }
+            ]
+          },
+          {
+            "name": "Large Professor",
+            "note": "Queens producer-rapper (Main Source) whose sample-based production shaped golden-era New York rap.",
+            "tracks": [
+              {
+                "title": "Havin' Fun"
+              }
+            ]
           }
         ]
       }
@@ -1947,6 +1995,24 @@
             "tracks": [
               {
                 "title": "Brokeland"
+              }
+            ]
+          },
+          {
+            "name": "KOOL A.D",
+            "note": "Das Racist member known for absurdist, culturally sharp lyricism.",
+            "tracks": [
+              {
+                "title": "Hickory (feat. Talib Kweli & Boots Riley)"
+              }
+            ]
+          },
+          {
+            "name": "Kota the Friend",
+            "note": "Brooklyn rapper known for laid-back, self-produced, journal-like songwriting.",
+            "tracks": [
+              {
+                "title": "Alkaline"
               }
             ]
           }
@@ -2314,6 +2380,15 @@
             "tracks": [
               {
                 "title": "Delivert"
+              }
+            ]
+          },
+          {
+            "name": "KRS-One",
+            "note": "Bronx rapper and Boogie Down Productions founder, a foundational voice in socially conscious hip-hop.",
+            "tracks": [
+              {
+                "title": "Sound of da Police"
               }
             ]
           }
@@ -5300,6 +5375,98 @@
             "tracks": [
               {
                 "title": "2 Phones"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "raleigh-nc-region",
+    "name": "Raleigh, NC",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "raleigh-nc",
+        "name": "Raleigh, NC",
+        "state": "NC",
+        "artists": [
+          {
+            "name": "Kooley High",
+            "note": "Raleigh collective known for soulful, boom-bap-rooted North Carolina rap.",
+            "tracks": [
+              {
+                "title": "All Day (feat. Charlie Smarts)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "evanston-il-region",
+    "name": "Evanston, IL",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "evanston-il",
+        "name": "Evanston, IL",
+        "state": "IL",
+        "artists": [
+          {
+            "name": "Kweku Collins",
+            "note": "Evanston rapper known for genre-blurring, introspective songwriting.",
+            "tracks": [
+              {
+                "title": "Holla If Ya Hear Me"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ventura-ca-region",
+    "name": "Ventura, CA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "ventura-ca",
+        "name": "Ventura, CA",
+        "state": "CA",
+        "artists": [
+          {
+            "name": "KYLE",
+            "note": "Ventura rapper known for upbeat, playful pop-rap.",
+            "tracks": [
+              {
+                "title": "Don't Wanna Fall in Love"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tucson-az-region",
+    "name": "Tucson, AZ",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "tucson-az",
+        "name": "Tucson, AZ",
+        "state": "AZ",
+        "artists": [
+          {
+            "name": "Lando Chill",
+            "note": "Tucson rapper known for introspective, jazz-inflected storytelling.",
+            "tracks": [
+              {
+                "title": "Early in the Morning"
               }
             ]
           }
