@@ -1257,6 +1257,18 @@
         "name": "Anaheim",
         "x": 62.27,
         "y": 83.61
+      },
+      {
+        "id": "fairfield-ca",
+        "name": "Fairfield",
+        "x": 25.07,
+        "y": 40.47
+      },
+      {
+        "id": "santa-clara-ca",
+        "name": "Santa Clara",
+        "x": 28.27,
+        "y": 50.4
       }
     ]
   },
@@ -6920,6 +6932,18 @@
         "name": "Rochester",
         "x": 29.66,
         "y": 42.22
+      },
+      {
+        "id": "ithaca-ny",
+        "name": "Ithaca",
+        "x": 42.55,
+        "y": 57.11
+      },
+      {
+        "id": "newburgh-ny",
+        "name": "Newburgh",
+        "x": 73.22,
+        "y": 76.51
       }
     ]
   },
