@@ -550,6 +550,15 @@
                 "title": "La La Land"
               }
             ]
+          },
+          {
+            "name": "BUSDRIVER",
+            "note": "LA underground rapper known for rapid-fire, experimental wordplay tied to the Project Blowed collective.",
+            "tracks": [
+              {
+                "title": "Colonize the Moon (feat. Pegasus Warning)"
+              }
+            ]
           }
         ]
       }
@@ -863,6 +872,15 @@
                 "title": "Good Love (feat. Jay Prince)"
               }
             ]
+          },
+          {
+            "name": "Busta Rhymes",
+            "note": "Flatbush-raised MC known for a booming voice and famously rapid-fire flow.",
+            "tracks": [
+              {
+                "title": "Break Ya Neck"
+              }
+            ]
           }
         ]
       }
@@ -1050,6 +1068,27 @@
                 "title": "I'm Not a Player"
               }
             ]
+          },
+          {
+            "name": "Camp Lo",
+            "note": "Bronx duo known for a slick, jazzy '70s-inspired sound and dense slang.",
+            "tracks": [
+              {
+                "title": "Coolie High"
+              }
+            ]
+          },
+          {
+            "name": "Cardi B",
+            "note": "Bronx rapper who went from viral internet personality to one of the biggest names in mainstream rap.",
+            "tracks": [
+              {
+                "title": "Be Careful"
+              },
+              {
+                "title": "I Like It"
+              }
+            ]
           }
         ]
       }
@@ -1140,6 +1179,15 @@
             "tracks": [
               {
                 "title": "Bad Boy For Life"
+              }
+            ]
+          },
+          {
+            "name": "Cam'ron",
+            "note": "Harlem rapper known for flashy Dipset-era style and a distinctive nasal flow.",
+            "tracks": [
+              {
+                "title": "Down and Out (feat. Kanye West & Syleena Johnson)"
               }
             ]
           }
@@ -1236,6 +1284,24 @@
             "tracks": [
               {
                 "title": "Higher (feat. Chance the Rapper & Blue Hawaii)"
+              }
+            ]
+          },
+          {
+            "name": "Calboy",
+            "note": "Chicago rapper known for a melodic, hook-driven street-rap style.",
+            "tracks": [
+              {
+                "title": "This & That"
+              }
+            ]
+          },
+          {
+            "name": "Calez",
+            "note": "Chicago rapper affiliated with the Free Nation collective.",
+            "tracks": [
+              {
+                "title": "First Amendment (feat. Mick Jenkins)"
               }
             ]
           }
@@ -1957,6 +2023,121 @@
             "tracks": [
               {
                 "title": "Finesse (Remix) [feat. Cardi B]"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "compton-ca-region",
+    "name": "Compton, CA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "compton-ca",
+        "name": "Compton, CA",
+        "state": "CA",
+        "artists": [
+          {
+            "name": "Buddy",
+            "note": "Compton rapper known for laid-back, West Coast-rooted melodic rap.",
+            "tracks": [
+              {
+                "title": "A Lite"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "baltimore-md-region",
+    "name": "Baltimore, MD",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "baltimore-md",
+        "name": "Baltimore, MD",
+        "state": "MD",
+        "artists": [
+          {
+            "name": "Butch Dawson",
+            "note": "Baltimore underground rapper known for raw, club-adjacent production.",
+            "tracks": [
+              {
+                "title": "Why Bother (feat. Pink Siifu)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "richmond-va-region",
+    "name": "Richmond, VA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "richmond-va",
+        "name": "Richmond, VA",
+        "state": "VA",
+        "artists": [
+          {
+            "name": "Butcher Brown",
+            "note": "Richmond jazz-funk collective blending live instrumentation with hip-hop.",
+            "tracks": [
+              {
+                "title": "Git Along"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mount-vernon-ny-region",
+    "name": "Mount Vernon, NY",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "mount-vernon-ny",
+        "name": "Mount Vernon, NY",
+        "state": "NY",
+        "artists": [
+          {
+            "name": "C.L. Smooth & Pete Rock",
+            "note": "Mount Vernon duo whose soulful sample-based production became a blueprint for '90s boom-bap.",
+            "tracks": [
+              {
+                "title": "Straighten It Out"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "berkeley-ca-region",
+    "name": "Berkeley, CA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "berkeley-ca",
+        "name": "Berkeley, CA",
+        "state": "CA",
+        "artists": [
+          {
+            "name": "Caleborate",
+            "note": "Bay Area rapper known for smooth, introspective flows.",
+            "tracks": [
+              {
+                "title": "Get The Green"
               }
             ]
           }
