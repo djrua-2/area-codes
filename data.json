@@ -125,6 +125,15 @@
                 "title": "Fell in the Sun"
               }
             ]
+          },
+          {
+            "name": "Cee-Lo",
+            "note": "Goodie Mob member whose booming voice bridges rap, soul, and pop.",
+            "tracks": [
+              {
+                "title": "I'll Be Around (Club Mix) [feat. Timbaland]"
+              }
+            ]
           }
         ]
       }
@@ -416,6 +425,15 @@
                 "spotifyId": "3EgvmOhP3NQUHY7d6PDOUg"
               }
             ]
+          },
+          {
+            "name": "Carnage",
+            "note": "Miami-based producer known for aggressive trap and EDM-adjacent beats.",
+            "tracks": [
+              {
+                "title": "Mase in '97 (feat. Lil Yachty)"
+              }
+            ]
           }
         ]
       },
@@ -559,6 +577,15 @@
                 "title": "Colonize the Moon (feat. Pegasus Warning)"
               }
             ]
+          },
+          {
+            "name": "Chali 2na",
+            "note": "Deep-voiced Jurassic 5 member central to LA's underground rap scene.",
+            "tracks": [
+              {
+                "title": "Comin' Thru"
+              }
+            ]
           }
         ]
       }
@@ -667,6 +694,15 @@
             "tracks": [
               {
                 "title": "locked in"
+              }
+            ]
+          },
+          {
+            "name": "Casey Veggies",
+            "note": "Inglewood rapper known for a laid-back West Coast flow.",
+            "tracks": [
+              {
+                "title": "Life Changes (feat. Phil Beaudreau)"
               }
             ]
           }
@@ -881,6 +917,15 @@
                 "title": "Break Ya Neck"
               }
             ]
+          },
+          {
+            "name": "Casanova",
+            "note": "Brooklyn street rapper known for a gruff, aggressive delivery.",
+            "tracks": [
+              {
+                "title": "Block Me"
+              }
+            ]
           }
         ]
       }
@@ -1087,6 +1132,15 @@
               },
               {
                 "title": "I Like It"
+              }
+            ]
+          },
+          {
+            "name": "Chelsea Reject",
+            "note": "Bronx rapper known for sharp, socially aware lyricism.",
+            "tracks": [
+              {
+                "title": "Planet Namek (feat. T'nah)"
               }
             ]
           }
@@ -1304,6 +1358,15 @@
                 "title": "First Amendment (feat. Mick Jenkins)"
               }
             ]
+          },
+          {
+            "name": "Chance the Rapper",
+            "note": "Independent Chicago rapper whose mixtape-driven rise reshaped the industry's relationship with streaming.",
+            "tracks": [
+              {
+                "title": "Acid Rain"
+              }
+            ]
           }
         ]
       }
@@ -1464,6 +1527,15 @@
                 "title": "BLACK PARADE"
               }
             ]
+          },
+          {
+            "name": "Chamillionaire",
+            "note": "Houston rapper best known for the Grammy-winning \"Ridin'.\"",
+            "tracks": [
+              {
+                "title": "Hip Hop Police (feat. Slick Rick)"
+              }
+            ]
           }
         ]
       }
@@ -1563,6 +1635,15 @@
             "tracks": [
               {
                 "title": "ROXANNE"
+              }
+            ]
+          },
+          {
+            "name": "Chaz French",
+            "note": "DC rapper known for smooth, introspective storytelling.",
+            "tracks": [
+              {
+                "title": "Ready (feat. GoldLink)"
               }
             ]
           }
@@ -1835,6 +1916,15 @@
                 "title": "Bob and Weave"
               }
             ]
+          },
+          {
+            "name": "Cash Kidd",
+            "note": "Flint street rapper known for sharp, punchline-driven bars.",
+            "tracks": [
+              {
+                "title": "Privileges"
+              }
+            ]
           }
         ]
       }
@@ -2048,6 +2138,15 @@
                 "title": "A Lite"
               }
             ]
+          },
+          {
+            "name": "Channel Tres",
+            "note": "Compton artist blending house music with rap and deep-voiced vocals.",
+            "tracks": [
+              {
+                "title": "Black Moses (feat. JPEGMAFIA)"
+              }
+            ]
           }
         ]
       }
@@ -2138,6 +2237,29 @@
             "tracks": [
               {
                 "title": "Get The Green"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "san-jose-ca-region",
+    "name": "San Jose, CA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "san-jose-ca",
+        "name": "San Jose, CA",
+        "state": "CA",
+        "artists": [
+          {
+            "name": "Charizma & Peanut Butter Wolf",
+            "note": "Bay Area duo whose brief catalog became a cult classic of West Coast rap.",
+            "tracks": [
+              {
+                "title": "Methods"
               }
             ]
           }
