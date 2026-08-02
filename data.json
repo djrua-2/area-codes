@@ -134,6 +134,24 @@
                 "title": "I'll Be Around (Club Mix) [feat. Timbaland]"
               }
             ]
+          },
+          {
+            "name": "Childish Gambino",
+            "note": "Donald Glover's music project, rooted in his Stone Mountain, Atlanta upbringing.",
+            "tracks": [
+              {
+                "title": "3005"
+              }
+            ]
+          },
+          {
+            "name": "Childish Major",
+            "note": "Atlanta producer-rapper known for warm, soulful melodic production.",
+            "tracks": [
+              {
+                "title": "Feelings Hurt"
+              }
+            ]
           }
         ]
       }
@@ -958,6 +976,15 @@
                 "title": "1st of Tha Month"
               }
             ]
+          },
+          {
+            "name": "Chip tha Ripper",
+            "note": "Cleveland rapper (later Cleveland's own) known for a laid-back, soulful style.",
+            "tracks": [
+              {
+                "title": "Feel Good"
+              }
+            ]
           }
         ]
       }
@@ -1367,6 +1394,33 @@
                 "title": "Acid Rain"
               }
             ]
+          },
+          {
+            "name": "Chief Keef",
+            "note": "Chicago rapper whose aggressive, ad-lib-heavy style launched the drill genre nationally.",
+            "tracks": [
+              {
+                "title": "Banded Up (feat. Tierra Whack)"
+              }
+            ]
+          },
+          {
+            "name": "Chris Crack",
+            "note": "Prolific Chicago underground rapper known for dry humor and lo-fi soul samples.",
+            "tracks": [
+              {
+                "title": "20/20 (No Glasses)"
+              }
+            ]
+          },
+          {
+            "name": "Chuck Inglish",
+            "note": "The Cool Kids member and producer known for a stripped-down, drum-machine-driven sound.",
+            "tracks": [
+              {
+                "title": "Glam (feat. Macie Stewart & Chance The Rapper)"
+              }
+            ]
           }
         ]
       }
@@ -1536,6 +1590,15 @@
                 "title": "Hip Hop Police (feat. Slick Rick)"
               }
             ]
+          },
+          {
+            "name": "Chingo Bling",
+            "note": "Houston rapper known for a comedic, Tejano-inflected take on Southern rap.",
+            "tracks": [
+              {
+                "title": "Stupid, Dumb & Hyphy"
+              }
+            ]
           }
         ]
       }
@@ -1676,6 +1739,15 @@
             "tracks": [
               {
                 "title": "Making a Murderer (feat. Styles P)"
+              }
+            ]
+          },
+          {
+            "name": "Chiddy Bang",
+            "note": "Philadelphia duo known for blending rap with indie and electronic samples.",
+            "tracks": [
+              {
+                "title": "Baby Roulette"
               }
             ]
           }
@@ -2260,6 +2332,101 @@
             "tracks": [
               {
                 "title": "Methods"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "montgomery-al-region",
+    "name": "Montgomery, AL",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "montgomery-al",
+        "name": "Montgomery, AL",
+        "state": "AL",
+        "artists": [
+          {
+            "name": "CHIKA",
+            "note": "Montgomery rapper known for sharp technical skill and unfiltered social commentary.",
+            "tracks": [
+              {
+                "title": "PLAIN JANE"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "new-brunswick-nj-region",
+    "name": "New Brunswick, NJ",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "new-brunswick-nj",
+        "name": "New Brunswick, NJ",
+        "state": "NJ",
+        "artists": [
+          {
+            "name": "Chino XL",
+            "note": "New Jersey lyricist revered for dense, punchline-heavy wordplay.",
+            "tracks": [
+              {
+                "title": "Wordsmith"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ann-arbor-mi-region",
+    "name": "Ann Arbor, MI",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "ann-arbor-mi",
+        "name": "Ann Arbor, MI",
+        "state": "MI",
+        "artists": [
+          {
+            "name": "Chris Orrick",
+            "note": "Michigan underground rapper (formerly recording as Red Pill) known for wry, everyday storytelling.",
+            "tracks": [
+              {
+                "title": "Drown"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sacramento-ca-region",
+    "name": "Sacramento, CA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "sacramento-ca",
+        "name": "Sacramento, CA",
+        "state": "CA",
+        "artists": [
+          {
+            "name": "Chuuwee",
+            "note": "Sacramento rapper known for a laid-back, West Coast-rooted flow.",
+            "tracks": [
+              {
+                "title": "Cool Fire"
+              },
+              {
+                "title": "Orange Dreamer"
               }
             ]
           }
