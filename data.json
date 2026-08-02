@@ -461,6 +461,15 @@
                 "title": "HUNNIDDOLLA"
               }
             ]
+          },
+          {
+            "name": "Mike WiLL Made-It",
+            "note": "Marietta producer behind a huge swath of 2010s trap hits.",
+            "tracks": [
+              {
+                "title": "On the Come Up (feat. Big Sean)"
+              }
+            ]
           }
         ]
       }
@@ -560,6 +569,27 @@
             "tracks": [
               {
                 "title": "Smoking on a J."
+              }
+            ]
+          },
+          {
+            "name": "MJG",
+            "note": "8Ball & MJG member foundational to Memphis's slow, bass-heavy Southern rap sound.",
+            "tracks": [
+              {
+                "title": "Slippin'"
+              }
+            ]
+          },
+          {
+            "name": "Moneybagg Yo",
+            "note": "Memphis rapper known for melodic, confessional street trap.",
+            "tracks": [
+              {
+                "title": "Ocean Spray"
+              },
+              {
+                "title": "Hard for the Next"
               }
             ]
           }
@@ -725,6 +755,21 @@
             "tracks": [
               {
                 "title": "U Can't Touch This"
+              }
+            ]
+          },
+          {
+            "name": "Mistah F.A.B",
+            "note": "Oakland rapper central to the hyphy movement's rise.",
+            "tracks": [
+              {
+                "title": "N.E.W Oakland (feat. G-Stack & Bavgate)"
+              },
+              {
+                "title": "Super Sic Wit It (feat. Turf Talk & E-40)"
+              },
+              {
+                "title": "Ghost Ride It"
               }
             ]
           }
@@ -2348,6 +2393,15 @@
                 "title": "Dear Summer (feat. JAY-Z)"
               }
             ]
+          },
+          {
+            "name": "Mos Def",
+            "note": "Brooklyn rapper (later Yasiin Bey) known for jazz-inflected, socially conscious lyricism.",
+            "tracks": [
+              {
+                "title": "Close Edge"
+              }
+            ]
           }
         ]
       }
@@ -3296,6 +3350,15 @@
                 "title": "Alchemy"
               }
             ]
+          },
+          {
+            "name": "Montana of 300",
+            "note": "Chicago rapper known for dense wordplay and rapid-fire freestyle skill.",
+            "tracks": [
+              {
+                "title": "Busta Rhymes"
+              }
+            ]
           }
         ]
       }
@@ -3456,6 +3519,15 @@
             "tracks": [
               {
                 "title": "Affiliations (feat. ALLBLACK, TLG Dooda, EBK Trey B & EBK Lil Sleaze)"
+              }
+            ]
+          },
+          {
+            "name": "Mike Sherm",
+            "note": "Bay Area rapper known for aggressive, street-rooted delivery.",
+            "tracks": [
+              {
+                "title": "Big Sherm"
               }
             ]
           }
@@ -3637,6 +3709,15 @@
             "tracks": [
               {
                 "title": "B.I.T.C.H."
+              }
+            ]
+          },
+          {
+            "name": "Mike Jones",
+            "note": "Houston rapper known for the chopped-and-screwed-era hit \"Still Tippin'.\"",
+            "tracks": [
+              {
+                "title": "Still Tippin' (feat. Slim Thug and Paul Wall)"
               }
             ]
           }
@@ -5589,6 +5670,15 @@
                 "title": "Same Old Kid"
               }
             ]
+          },
+          {
+            "name": "Miles Bonny",
+            "note": "Kansas City artist blending neo-soul with hip-hop production.",
+            "tracks": [
+              {
+                "title": "Yes I Do"
+              }
+            ]
           }
         ]
       }
@@ -5809,6 +5899,15 @@
                 "title": "Be You (feat. Curren$y)"
               }
             ]
+          },
+          {
+            "name": "Milo",
+            "note": "Milwaukee-rooted rapper (later recording as R.A.P. Ferreira) known for dense, literary wordplay.",
+            "tracks": [
+              {
+                "title": "Folk-Metaphysics"
+              }
+            ]
           }
         ]
       }
@@ -5857,6 +5956,15 @@
               },
               {
                 "title": "Creepin'"
+              }
+            ]
+          },
+          {
+            "name": "monte booker",
+            "note": "St. Louis producer known for glitchy, kaleidoscopic beats.",
+            "tracks": [
+              {
+                "title": "Kolors (feat. Smino)"
               }
             ]
           }
@@ -6330,6 +6438,29 @@
               },
               {
                 "title": "Girls That Dance"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "portsmouth-va-region",
+    "name": "Portsmouth, VA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "portsmouth-va",
+        "name": "Portsmouth, VA",
+        "state": "VA",
+        "artists": [
+          {
+            "name": "Missy Elliott",
+            "note": "Portsmouth artist whose futuristic production and inventive flows reshaped hip-hop and R&B alike.",
+            "tracks": [
+              {
+                "title": "WTF (Where They From) [feat. Pharrell Williams]"
               }
             ]
           }
