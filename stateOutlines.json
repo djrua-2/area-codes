@@ -1170,6 +1170,12 @@
         "name": "Berkeley",
         "x": 22.97,
         "y": 44.17
+      },
+      {
+        "id": "san-jose-ca",
+        "name": "San Jose",
+        "x": 26.42,
+        "y": 49.39
       }
     ]
   },
