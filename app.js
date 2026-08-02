@@ -1304,7 +1304,7 @@ async function submitRelinkSpotify() {
   const batches = [];
   for (let i = 0; i < items.length; i += RELINK_BATCH_SIZE) batches.push(items.slice(i, i + RELINK_BATCH_SIZE));
 
-  let relinkedTotal = 0, attemptedTotal = 0;
+  let relinkedTotal = 0, attemptedTotal = 0, errorTotal = 0, firstDiagnostic = null;
 
   for (let i = 0; i < batches.length; i++) {
     statusEl.className = "form-status";
@@ -1319,6 +1319,8 @@ async function submitRelinkSpotify() {
       const result = await res.json();
       relinkedTotal += result.relinkedCount || 0;
       attemptedTotal += result.attemptedCount || 0;
+      errorTotal += result.errorCount || 0;
+      if (!firstDiagnostic && result.diagnostic) firstDiagnostic = result.diagnostic;
     } catch (err) {
       statusEl.className = "form-status is-error";
       statusEl.textContent = `Stopped at batch ${i + 1} of ${batches.length} — ${relinkedTotal} track(s) relinked before this failed (${err.message}). Those are already saved; reload this page and run it again to pick up where it left off.`;
@@ -1327,8 +1329,18 @@ async function submitRelinkSpotify() {
     }
   }
 
-  statusEl.className = "form-status";
-  statusEl.textContent = `Done — relinked ${relinkedTotal} of ${items.length} track(s) (${items.length - relinkedTotal} had no confident Spotify match). Live on the site shortly. Reload this page to see the current remaining count.`;
+  // A track can land in "no match" for two very different reasons: the
+  // search genuinely ran and found nothing, or every search request itself
+  // failed (bad/expired token, rate limit) and got miscounted as "no match"
+  // — which is exactly what made a real outage look like an innocuous 0%
+  // hit rate before. Surface the distinction instead of hiding it.
+  if (errorTotal > 0) {
+    statusEl.className = "form-status is-error";
+    statusEl.textContent = `Done — relinked ${relinkedTotal} of ${items.length} track(s). ${errorTotal} search(es) failed outright rather than finding no match (not a real "no match" — these will be retried if you run this again). First error: ${firstDiagnostic}`;
+  } else {
+    statusEl.className = "form-status";
+    statusEl.textContent = `Done — relinked ${relinkedTotal} of ${items.length} track(s) (${items.length - relinkedTotal} had no confident Spotify match). Live on the site shortly. Reload this page to see the current remaining count.`;
+  }
 }
 
 function renderRelinkSpotifyForm() {
