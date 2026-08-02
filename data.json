@@ -470,6 +470,18 @@
                 "title": "On the Come Up (feat. Big Sean)"
               }
             ]
+          },
+          {
+            "name": "Offset",
+            "note": "Migos member known for a sharp, percussive triplet flow.",
+            "tracks": [
+              {
+                "title": "Folgers"
+              },
+              {
+                "title": "WORTH IT"
+              }
+            ]
           }
         ]
       }
@@ -1753,6 +1765,33 @@
                 "title": "Double Up (feat. Belly & DOM KENNEDY) [Bonus Track]"
               }
             ]
+          },
+          {
+            "name": "NxWorries",
+            "note": "Anderson .Paak and Knxwledge's funk-soul duo.",
+            "tracks": [
+              {
+                "title": "Another Time"
+              }
+            ]
+          },
+          {
+            "name": "Odd Future",
+            "note": "LA collective whose shock-value, DIY ethos reshaped underground rap's relationship with the internet.",
+            "tracks": [
+              {
+                "title": "Oldie"
+              }
+            ]
+          },
+          {
+            "name": "OhGeesy",
+            "note": "Shoreline Mafia member known for hazy, smoked-out LA street rap.",
+            "tracks": [
+              {
+                "title": "Get Fly (feat. DaBaby)"
+              }
+            ]
           }
         ]
       }
@@ -2517,6 +2556,15 @@
             "tracks": [
               {
                 "title": "Higher Self"
+              }
+            ]
+          },
+          {
+            "name": "Ol' Dirty Bastard",
+            "note": "Wu-Tang Clan's wildcard, known for an unpredictable, off-kilter delivery.",
+            "tracks": [
+              {
+                "title": "Brooklyn Zoo"
               }
             ]
           }
@@ -3485,6 +3533,15 @@
                 "title": "Wheelz Fall off - 05 'Til"
               }
             ]
+          },
+          {
+            "name": "Noname",
+            "note": "Chicago rapper-poet known for warm, jazz-inflected, deeply literary songwriting.",
+            "tracks": [
+              {
+                "title": "Ace (feat. Smino & Saba)"
+              }
+            ]
           }
         ]
       }
@@ -3846,6 +3903,15 @@
                 "title": "Still Tippin' (feat. Slim Thug and Paul Wall)"
               }
             ]
+          },
+          {
+            "name": "OG Ron C",
+            "note": "Houston DJ steeped in the city's chopped-and-screwed tradition.",
+            "tracks": [
+              {
+                "title": "Back End (feat. Don Toliver)"
+              }
+            ]
           }
         ]
       }
@@ -3881,6 +3947,15 @@
                 "title": "Mornin Dew"
               }
             ]
+          },
+          {
+            "name": "Ohmega Watts",
+            "note": "Portland producer-rapper known for soulful, sample-driven boom-bap.",
+            "tracks": [
+              {
+                "title": "Model Citizen"
+              }
+            ]
           }
         ]
       }
@@ -3913,6 +3988,15 @@
                 "title": "Answers"
               }
             ]
+          },
+          {
+            "name": "Oh No",
+            "note": "Madlib's brother, known for dense, sample-heavy underground production.",
+            "tracks": [
+              {
+                "title": "Big Whips"
+              }
+            ]
           }
         ]
       }
@@ -3934,6 +4018,15 @@
             "tracks": [
               {
                 "title": "Lindsey Lohan"
+              }
+            ]
+          },
+          {
+            "name": "O.T. Genasis",
+            "note": "Long Beach rapper known for high-energy, chant-along hooks.",
+            "tracks": [
+              {
+                "title": "Everybody Mad"
               }
             ]
           }
@@ -4023,6 +4116,15 @@
               },
               {
                 "title": "Red"
+              }
+            ]
+          },
+          {
+            "name": "Oddisee",
+            "note": "DMV producer-rapper known for soulful, socially aware boom-bap.",
+            "tracks": [
+              {
+                "title": "Counter-Clockwise"
               }
             ]
           }
@@ -6752,6 +6854,29 @@
             "tracks": [
               {
                 "title": "Overtime"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "norfolk-va-region",
+    "name": "Norfolk, VA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "norfolk-va",
+        "name": "Norfolk, VA",
+        "state": "VA",
+        "artists": [
+          {
+            "name": "Nottz",
+            "note": "Norfolk producer known for gritty, soul-sampled boom-bap.",
+            "tracks": [
+              {
+                "title": "I Still Love You (feat. Mayer Hawthorne)"
               }
             ]
           }
