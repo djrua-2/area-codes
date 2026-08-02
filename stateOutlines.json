@@ -7261,6 +7261,12 @@
         "name": "Columbus",
         "x": 42.84,
         "y": 56.23
+      },
+      {
+        "id": "youngstown-oh",
+        "name": "Youngstown",
+        "x": 93.42,
+        "y": 26.5
       }
     ]
   },
