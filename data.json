@@ -1948,6 +1948,24 @@
                 "title": "#Asapfreedumwillyum$"
               }
             ]
+          },
+          {
+            "name": "Ray J",
+            "note": "LA singer-rapper known for smooth R&B-leaning hip-hop crossovers.",
+            "tracks": [
+              {
+                "title": "Sexy Can I (feat. Yung Berg)"
+              }
+            ]
+          },
+          {
+            "name": "Remble",
+            "note": "LA rapper known for a laid-back, melodic West Coast style.",
+            "tracks": [
+              {
+                "title": "Gordon R Freestyle"
+              }
+            ]
           }
         ]
       }
@@ -2051,6 +2069,24 @@
             "tracks": [
               {
                 "title": "89 Earthquake"
+              }
+            ]
+          },
+          {
+            "name": "Rappin' 4-Tay",
+            "note": "San Francisco rapper known for smooth, storytelling-driven West Coast rap.",
+            "tracks": [
+              {
+                "title": "Playaz Club"
+              }
+            ]
+          },
+          {
+            "name": "RBL Posse",
+            "note": "San Francisco group foundational to the Bay Area's mid-'90s street-rap scene.",
+            "tracks": [
+              {
+                "title": "Don't Give Me No Bammer Weed"
               }
             ]
           }
@@ -2771,6 +2807,15 @@
                 "title": "King to a God"
               }
             ]
+          },
+          {
+            "name": "Reflection Eternal",
+            "note": "Talib Kweli and Hi-Tek's soulful, socially conscious duo.",
+            "tracks": [
+              {
+                "title": "Love Language (feat. Les Nubians)"
+              }
+            ]
           }
         ]
       }
@@ -2956,6 +3001,15 @@
             "tracks": [
               {
                 "title": "ABCs of New York"
+              }
+            ]
+          },
+          {
+            "name": "RATKING",
+            "note": "New York group blending noisy, industrial production with rap.",
+            "tracks": [
+              {
+                "title": "Eat"
               }
             ]
           }
@@ -3880,6 +3934,15 @@
                 "title": "Bring the Noise"
               }
             ]
+          },
+          {
+            "name": "Ransom",
+            "note": "Long Island lyricist known for gritty, Griselda-adjacent street rap.",
+            "tracks": [
+              {
+                "title": "Soul Killa"
+              }
+            ]
           }
         ]
       }
@@ -4410,6 +4473,15 @@
             "tracks": [
               {
                 "title": "Counter-Clockwise"
+              }
+            ]
+          },
+          {
+            "name": "redveil",
+            "note": "DMV teenage rapper-producer known for dense, self-produced underground rap.",
+            "tracks": [
+              {
+                "title": "morphine (da ways)"
               }
             ]
           }
@@ -5888,6 +5960,15 @@
                 "title": "Da Rockwilder"
               }
             ]
+          },
+          {
+            "name": "Raekwon",
+            "note": "Wu-Tang Clan member known for vivid, mafioso-style street storytelling.",
+            "tracks": [
+              {
+                "title": "Ice Cream (feat. Ghostface Killah, Method Man & Cappadonna)"
+              }
+            ]
           }
         ]
       }
@@ -6064,6 +6145,15 @@
             "tracks": [
               {
                 "title": "We Gonna Make It (feat. Styles of the Lox)"
+              }
+            ]
+          },
+          {
+            "name": "Retch",
+            "note": "Yonkers rapper known for a raw, gritty underground street style.",
+            "tracks": [
+              {
+                "title": "Since My Dog Died"
               }
             ]
           }
@@ -7082,6 +7172,15 @@
                 "title": "#RICHAXXHAITIAN"
               }
             ]
+          },
+          {
+            "name": "Redman",
+            "note": "Newark rapper known for a raw, high-energy, comedic delivery.",
+            "tracks": [
+              {
+                "title": "Let's Get Dirty (I Can't Get In da Club) [feat. DJ Kool]"
+              }
+            ]
           }
         ]
       }
@@ -7417,6 +7516,29 @@
               },
               {
                 "title": "Bedtime Stories (feat. The Weeknd) [From SR3MM]"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "snow-hill-nc-region",
+    "name": "Snow Hill, NC",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "snow-hill-nc",
+        "name": "Snow Hill, NC",
+        "state": "NC",
+        "artists": [
+          {
+            "name": "Rapsody",
+            "note": "North Carolina lyricist known for dense, socially conscious wordplay.",
+            "tracks": [
+              {
+                "title": "Good Good Love (feat. BJ the Chicago Kid)"
               }
             ]
           }
