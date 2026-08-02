@@ -1678,6 +1678,45 @@
                 "title": "King"
               }
             ]
+          },
+          {
+            "name": "Murs",
+            "note": "LA underground rapper tied to the Living Legends collective.",
+            "tracks": [
+              {
+                "title": "Animal Style"
+              }
+            ]
+          },
+          {
+            "name": "Mustard",
+            "note": "LA producer whose minimal, bass-heavy \"ratchet\" sound defined a huge swath of 2010s West Coast rap.",
+            "tracks": [
+              {
+                "title": "Baguettes in the Face (feat. NAV, Playboi Carti & A Boogie wit da Hoodie)"
+              },
+              {
+                "title": "Ballin'"
+              },
+              {
+                "title": "Whole Lotta Lovin'"
+              },
+              {
+                "title": "Don't Hurt Me"
+              },
+              {
+                "title": "On GOD (feat. A$AP Ferg & A$AP Rocky)"
+              }
+            ]
+          },
+          {
+            "name": "N.A.S.A.",
+            "note": "LA production duo known for genre-blending, star-studded collaborations.",
+            "tracks": [
+              {
+                "title": "Gifted (feat. Kanye West, Santigold & Lykke Li)"
+              }
+            ]
           }
         ]
       }
@@ -2056,6 +2095,15 @@
                 "title": "Dragon vs. Wolf (feat. Action Bronson)"
               }
             ]
+          },
+          {
+            "name": "N.O.R.E.",
+            "note": "Queens rapper (Capone-N-Noreaga) known for a booming, ad-lib-heavy delivery.",
+            "tracks": [
+              {
+                "title": "Nothin'"
+              }
+            ]
           }
         ]
       }
@@ -2400,6 +2448,15 @@
             "tracks": [
               {
                 "title": "Close Edge"
+              }
+            ]
+          },
+          {
+            "name": "Mr. Muthafuckin' eXquire",
+            "note": "Brooklyn rapper known for gruff, unfiltered underground rap.",
+            "tracks": [
+              {
+                "title": "Fckboy"
               }
             ]
           }
@@ -3743,6 +3800,18 @@
                 "title": "Campfire (feat. Injury Reserve)"
               }
             ]
+          },
+          {
+            "name": "Myke Bogan",
+            "note": "Portland rapper known for a confident, party-ready delivery.",
+            "tracks": [
+              {
+                "title": "Winding Roads"
+              },
+              {
+                "title": "Mornin Dew"
+              }
+            ]
           }
         ]
       }
@@ -4213,6 +4282,15 @@
                 "title": "Bitter"
               }
             ]
+          },
+          {
+            "name": "Mystikal",
+            "note": "New Orleans rapper known for an explosive, drill-sergeant delivery.",
+            "tracks": [
+              {
+                "title": "If It Ain't Live, It Ain't Me"
+              }
+            ]
           }
         ]
       }
@@ -4668,6 +4746,15 @@
                 "title": "Savior"
               }
             ]
+          },
+          {
+            "name": "N.W.A",
+            "note": "Compton group whose blunt, confrontational storytelling launched gangsta rap into the mainstream.",
+            "tracks": [
+              {
+                "title": "Chin Check"
+              }
+            ]
           }
         ]
       }
@@ -4956,6 +5043,15 @@
                 "title": "Roses"
               }
             ]
+          },
+          {
+            "name": "Mozzy",
+            "note": "Sacramento rapper known for gritty, confessional street storytelling.",
+            "tracks": [
+              {
+                "title": "Chill Phillipe"
+              }
+            ]
           }
         ]
       }
@@ -5015,6 +5111,27 @@
             "tracks": [
               {
                 "title": "Nevaland"
+              }
+            ]
+          },
+          {
+            "name": "N.E.R.D",
+            "note": "Pharrell Williams's genre-blurring rock-funk-rap project.",
+            "tracks": [
+              {
+                "title": "Deep Down Body Thurst"
+              },
+              {
+                "title": "Rollinem 7's"
+              },
+              {
+                "title": "1000"
+              },
+              {
+                "title": "Lemon"
+              },
+              {
+                "title": "Voilà"
               }
             ]
           }
@@ -5097,6 +5214,15 @@
             "tracks": [
               {
                 "title": "Downtown (feat. Melle Mel, Grandmaster Caz, Kool Moe Dee & Eric Nally)"
+              }
+            ]
+          },
+          {
+            "name": "Nacho Picasso",
+            "note": "Seattle rapper known for a dark, drug-culture-steeped underground style.",
+            "tracks": [
+              {
+                "title": "Ghost"
               }
             ]
           }
