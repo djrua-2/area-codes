@@ -617,6 +617,15 @@
                 "title": "Whoomp! There It Is (Edited)"
               }
             ]
+          },
+          {
+            "name": "TM88",
+            "note": "808 Mafia producer behind a huge swath of 2010s Southern trap hits.",
+            "tracks": [
+              {
+                "title": "Been Thru a Lot"
+              }
+            ]
           }
         ]
       }
@@ -1007,6 +1016,15 @@
             "tracks": [
               {
                 "title": "The Guillotine"
+              }
+            ]
+          },
+          {
+            "name": "The Team",
+            "note": "Oakland group central to the Bay Area's hyphy movement.",
+            "tracks": [
+              {
+                "title": "Hyphy Juice"
               }
             ]
           }
@@ -2335,6 +2353,33 @@
                 "title": "Otha Fish"
               }
             ]
+          },
+          {
+            "name": "THEY.",
+            "note": "LA duo blending alternative R&B with hip-hop production.",
+            "tracks": [
+              {
+                "title": "Back It Up"
+              }
+            ]
+          },
+          {
+            "name": "Tiny Meat Gang",
+            "note": "LA comedy-rap duo formed by two YouTube creators.",
+            "tracks": [
+              {
+                "title": "Walk Man"
+              }
+            ]
+          },
+          {
+            "name": "TiRon & Ayomari",
+            "note": "LA duo known for soulful, live-instrumentation-driven rap.",
+            "tracks": [
+              {
+                "title": "All We Are"
+              }
+            ]
           }
         ]
       }
@@ -3288,6 +3333,24 @@
             "tracks": [
               {
                 "title": "Big Poppa (2005 Remaster)"
+              }
+            ]
+          },
+          {
+            "name": "The Underachievers",
+            "note": "Beast Coast duo known for psychedelic, third-eye-focused lyricism.",
+            "tracks": [
+              {
+                "title": "Amorphous (feat. Portugal. The Man)"
+              }
+            ]
+          },
+          {
+            "name": "Theophilus London",
+            "note": "Brooklyn artist blending rap, funk, and new wave into a stylish, genre-blurring sound.",
+            "tracks": [
+              {
+                "title": "Can't Stop (feat. Kanye West)"
               }
             ]
           }
@@ -4878,6 +4941,15 @@
                 "title": "International Players Anthem"
               }
             ]
+          },
+          {
+            "name": "Tisakorean",
+            "note": "Houston rapper known for high-energy, dance-craze-driven tracks.",
+            "tracks": [
+              {
+                "title": "Werkkk"
+              }
+            ]
           }
         ]
       }
@@ -5318,6 +5390,15 @@
               },
               {
                 "title": "You Got Me (feat. Erykah Badu & Eve)"
+              }
+            ]
+          },
+          {
+            "name": "Tierra Whack",
+            "note": "Philadelphia rapper known for surreal, rapid-shifting conceptual songwriting.",
+            "tracks": [
+              {
+                "title": "Bugs Life"
               }
             ]
           }
@@ -8259,6 +8340,18 @@
                 "title": "I Still Love You (feat. Mayer Hawthorne)"
               }
             ]
+          },
+          {
+            "name": "Timbaland",
+            "note": "Norfolk producer whose futuristic, percussive beats reshaped hip-hop and pop production.",
+            "tracks": [
+              {
+                "title": "The Way I Are (feat. Keri Hilson & D.O.E.)"
+              },
+              {
+                "title": "All Y'all (feat. Tweet)"
+              }
+            ]
           }
         ]
       }
@@ -8746,6 +8839,52 @@
             "tracks": [
               {
                 "title": "Johnny Dang"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "englewood-nj-region",
+    "name": "Englewood, NJ",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "englewood-nj",
+        "name": "Englewood, NJ",
+        "state": "NJ",
+        "artists": [
+          {
+            "name": "The Sugarhill Gang",
+            "note": "New Jersey group behind \"Rapper's Delight,\" widely considered hip-hop's first mainstream hit record.",
+            "tracks": [
+              {
+                "title": "Rapper's Delight"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "winston-salem-nc-region",
+    "name": "Winston-Salem, NC",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "winston-salem-nc",
+        "name": "Winston-Salem, NC",
+        "state": "NC",
+        "artists": [
+          {
+            "name": "TiaCorine",
+            "note": "Winston-Salem rapper known for playful, high-energy, genre-blending bars.",
+            "tracks": [
+              {
+                "title": "Olive (feat. Zelooperz)"
               }
             ]
           }
