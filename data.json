@@ -592,6 +592,21 @@
                 "title": "Hard for the Next"
               }
             ]
+          },
+          {
+            "name": "NLE Choppa",
+            "note": "Memphis rapper known for aggressive, high-energy street anthems.",
+            "tracks": [
+              {
+                "title": "Camelot"
+              },
+              {
+                "title": "PISTOL PACCIN"
+              },
+              {
+                "title": "Stick By My Side"
+              }
+            ]
           }
         ]
       }
@@ -1717,6 +1732,27 @@
                 "title": "Gifted (feat. Kanye West, Santigold & Lykke Li)"
               }
             ]
+          },
+          {
+            "name": "Niontay",
+            "note": "LA rapper known for a hazy, understated underground style.",
+            "tracks": [
+              {
+                "title": "06' Micheal Redd (feat. RACECARSTUNTMAN)"
+              },
+              {
+                "title": "Real hiphop (feat. Earl Sweatshirt, El Cousteau, & MIKE)"
+              }
+            ]
+          },
+          {
+            "name": "Nipsey Hussle",
+            "note": "Crenshaw rapper known for entrepreneurial hustle-rap and deep community roots.",
+            "tracks": [
+              {
+                "title": "Double Up (feat. Belly & DOM KENNEDY) [Bonus Track]"
+              }
+            ]
           }
         ]
       }
@@ -2104,6 +2140,21 @@
                 "title": "Nothin'"
               }
             ]
+          },
+          {
+            "name": "Nicki Minaj",
+            "note": "South Jamaica rapper whose flamboyant, character-driven style made her one of rap's biggest stars.",
+            "tracks": [
+              {
+                "title": "Anaconda"
+              },
+              {
+                "title": "Best I Ever Had (Remix)"
+              },
+              {
+                "title": "Black Barbies"
+              }
+            ]
           }
         ]
       }
@@ -2457,6 +2508,15 @@
             "tracks": [
               {
                 "title": "Fckboy"
+              }
+            ]
+          },
+          {
+            "name": "Navy Blue",
+            "note": "Brooklyn rapper-producer known for hushed, meditative underground rap.",
+            "tracks": [
+              {
+                "title": "Higher Self"
               }
             ]
           }
@@ -3414,6 +3474,15 @@
             "tracks": [
               {
                 "title": "Busta Rhymes"
+              }
+            ]
+          },
+          {
+            "name": "Naledge",
+            "note": "Chicago rapper and Kidz in the Hall member.",
+            "tracks": [
+              {
+                "title": "Wheelz Fall off - 05 'Til"
               }
             ]
           }
@@ -4802,6 +4871,15 @@
                 "title": "God Money War"
               }
             ]
+          },
+          {
+            "name": "Naeem",
+            "note": "Baltimore artist (formerly Spank Rock) known for genre-blending club-rap production.",
+            "tracks": [
+              {
+                "title": "Simulation (feat. Swamp Dogg & Justin Vernon)"
+              }
+            ]
           }
         ]
       }
@@ -4823,6 +4901,15 @@
             "tracks": [
               {
                 "title": "Git Along"
+              }
+            ]
+          },
+          {
+            "name": "Nickelus F",
+            "note": "Richmond rapper known for gritty, introspective street storytelling.",
+            "tracks": [
+              {
+                "title": "Wide Awoke"
               }
             ]
           }
@@ -6093,6 +6180,15 @@
                 "title": "Kolors (feat. Smino)"
               }
             ]
+          },
+          {
+            "name": "Nelly",
+            "note": "St. Louis rapper whose melodic, radio-ready hits helped put the Midwest on hip-hop's map.",
+            "tracks": [
+              {
+                "title": "Country Grammar (Hot Shit)"
+              }
+            ]
           }
         ]
       }
@@ -6587,6 +6683,75 @@
             "tracks": [
               {
                 "title": "WTF (Where They From) [feat. Pharrell Williams]"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bowling-green-ky-region",
+    "name": "Bowling Green, KY",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "bowling-green-ky",
+        "name": "Bowling Green, KY",
+        "state": "KY",
+        "artists": [
+          {
+            "name": "Nappy Roots",
+            "note": "Kentucky group known for blending Southern rap with folk and country textures.",
+            "tracks": [
+              {
+                "title": "Awnaw (All Hooks Up Version)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gladwin-mi-region",
+    "name": "Gladwin, MI",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "gladwin-mi",
+        "name": "Gladwin, MI",
+        "state": "MI",
+        "artists": [
+          {
+            "name": "NF",
+            "note": "Michigan rapper known for intense, emotionally raw confessional rap.",
+            "tracks": [
+              {
+                "title": "Let You Down"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "birmingham-al-region",
+    "name": "Birmingham, AL",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "birmingham-al",
+        "name": "Birmingham, AL",
+        "state": "AL",
+        "artists": [
+          {
+            "name": "NoCap",
+            "note": "Birmingham rapper known for melodic, emotionally raw street narratives.",
+            "tracks": [
+              {
+                "title": "Overtime"
               }
             ]
           }
