@@ -506,6 +506,15 @@
                 "title": "@ MEH"
               }
             ]
+          },
+          {
+            "name": "Quavo",
+            "note": "Migos member known for a smooth, ad-lib-heavy triplet flow.",
+            "tracks": [
+              {
+                "title": "SWING (feat. Normani & Davido)"
+              }
+            ]
           }
         ]
       }
@@ -1119,6 +1128,18 @@
               },
               {
                 "title": "Plug Come Down (feat. 3D Hook King)"
+              }
+            ]
+          },
+          {
+            "name": "Quelle Chris",
+            "note": "Detroit rapper-producer known for dry humor and dense, offbeat wordplay.",
+            "tracks": [
+              {
+                "title": "Buddies (feat. Aye Pee)"
+              },
+              {
+                "title": "Graphic Bleed Outs (feat. Melanie Charles & Merrill Garbus)"
               }
             ]
           }
@@ -2145,6 +2166,15 @@
               },
               {
                 "title": "Sunflower (Spider-Man: Into the Spider-Verse)"
+              }
+            ]
+          },
+          {
+            "name": "Quin NFN",
+            "note": "Dallas rapper known for melodic, hazy street rap.",
+            "tracks": [
+              {
+                "title": "Sewed Up (feat. Lil 2z)"
               }
             ]
           }
@@ -3332,6 +3362,15 @@
                 "title": "Give Dem Hoes Up"
               }
             ]
+          },
+          {
+            "name": "Puff Daddy & The Family",
+            "note": "Diddy's Bad Boy Records collective, central to '90s shiny-suit-era New York rap.",
+            "tracks": [
+              {
+                "title": "Young G's (feat. The Notorious B.I.G. & Jay-Z)"
+              }
+            ]
           }
         ]
       }
@@ -3832,6 +3871,15 @@
                 "title": "Deep Fried Frenz"
               }
             ]
+          },
+          {
+            "name": "Public Enemy",
+            "note": "Long Island group whose politically charged, sonically dense records reshaped hip-hop's ambitions.",
+            "tracks": [
+              {
+                "title": "Bring the Noise"
+              }
+            ]
           }
         ]
       }
@@ -4175,6 +4223,15 @@
                 "title": "Model Citizen"
               }
             ]
+          },
+          {
+            "name": "quickly, quickly",
+            "note": "Portland producer-artist blending lo-fi rap with dreamy indie textures.",
+            "tracks": [
+              {
+                "title": "Getsomerest/Sleepwell"
+              }
+            ]
           }
         ]
       }
@@ -4214,6 +4271,15 @@
             "tracks": [
               {
                 "title": "Big Whips"
+              }
+            ]
+          },
+          {
+            "name": "Quasimoto",
+            "note": "Madlib's pitched-up alter-ego, foundational to the Stones Throw sound.",
+            "tracks": [
+              {
+                "title": "Am I Confused?"
               }
             ]
           }
@@ -4575,6 +4641,15 @@
             "tracks": [
               {
                 "title": "Good Life"
+              }
+            ]
+          },
+          {
+            "name": "Psymun",
+            "note": "Minneapolis producer known for atmospheric, genre-blurring beats.",
+            "tracks": [
+              {
+                "title": "Dead Albatross (feat. Chester Watson)"
               }
             ]
           }
@@ -5599,6 +5674,18 @@
                 "title": "That Girl"
               }
             ]
+          },
+          {
+            "name": "Pusha T",
+            "note": "Clipse member known for minimalist, coke-rap storytelling.",
+            "tracks": [
+              {
+                "title": "Call My Bluff"
+              },
+              {
+                "title": "New God Flow"
+              }
+            ]
           }
         ]
       }
@@ -6517,6 +6604,15 @@
                 "title": "Folk-Metaphysics"
               }
             ]
+          },
+          {
+            "name": "R.A.P. Ferreira",
+            "note": "Milwaukee-rooted rapper (formerly Milo) known for dense, literary wordplay.",
+            "tracks": [
+              {
+                "title": "LEAVING HELL"
+              }
+            ]
           }
         ]
       }
@@ -7272,6 +7368,55 @@
             "tracks": [
               {
                 "title": "Just Servin' Justice"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "savannah-ga-region",
+    "name": "Savannah, GA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "savannah-ga",
+        "name": "Savannah, GA",
+        "state": "GA",
+        "artists": [
+          {
+            "name": "Quando Rondo",
+            "note": "Savannah rapper known for melodic, emotionally raw street narratives.",
+            "tracks": [
+              {
+                "title": "Lost Ones"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tupelo-ms-region",
+    "name": "Tupelo, MS",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "tupelo-ms",
+        "name": "Tupelo, MS",
+        "state": "MS",
+        "artists": [
+          {
+            "name": "Rae Sremmurd",
+            "note": "Mississippi duo whose bouncy, ad-lib-heavy hooks became inescapable across mid-2010s rap radio.",
+            "tracks": [
+              {
+                "title": "Black Beatles (feat. Gucci Mane)"
+              },
+              {
+                "title": "Bedtime Stories (feat. The Weeknd) [From SR3MM]"
               }
             ]
           }
