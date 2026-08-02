@@ -152,6 +152,12 @@
         "name": "Mobile",
         "x": 14.75,
         "y": 87.64
+      },
+      {
+        "id": "birmingham-al",
+        "name": "Birmingham",
+        "x": 46.84,
+        "y": 32.54
       }
     ]
   },
@@ -3521,6 +3527,12 @@
         "name": "Louisville",
         "x": 49.19,
         "y": 33.86
+      },
+      {
+        "id": "bowling-green-ky",
+        "name": "Bowling Green",
+        "x": 40.69,
+        "y": 78.66
       }
     ]
   },
@@ -4862,6 +4874,12 @@
         "name": "Ann Arbor",
         "x": 68.26,
         "y": 82.95
+      },
+      {
+        "id": "gladwin-mi",
+        "name": "Gladwin",
+        "x": 54.85,
+        "y": 44.47
       }
     ]
   },
