@@ -629,6 +629,12 @@
         "name": "Tempe",
         "x": 49.82,
         "y": 62.13
+      },
+      {
+        "id": "tucson-az",
+        "name": "Tucson",
+        "x": 65.3,
+        "y": 81.75
       }
     ]
   },
@@ -1233,6 +1239,12 @@
         "name": "San Diego",
         "x": 69.02,
         "y": 94.53
+      },
+      {
+        "id": "ventura-ca",
+        "name": "Ventura",
+        "x": 51.76,
+        "y": 77.64
       }
     ]
   },
@@ -2704,6 +2716,12 @@
         "name": "Chicago",
         "x": 93.34,
         "y": 14.33
+      },
+      {
+        "id": "evanston-il",
+        "name": "Evanston",
+        "x": 91.95,
+        "y": 11.46
       }
     ]
   },
@@ -7099,6 +7117,12 @@
         "name": "Durham",
         "x": 62.01,
         "y": 23.71
+      },
+      {
+        "id": "raleigh-nc",
+        "name": "Raleigh",
+        "x": 64.83,
+        "y": 31.01
       }
     ]
   },
