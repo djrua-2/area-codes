@@ -191,6 +191,15 @@
                 "title": "NOSTYLIST"
               }
             ]
+          },
+          {
+            "name": "DJ Drama",
+            "note": "Atlanta-based mixtape DJ whose \"Gangsta Grillz\" series shaped 2000s mixtape culture.",
+            "tracks": [
+              {
+                "title": "Camera (feat. 1st FKI, Lil Uzi Vert, Mac Miller & Post Malone)"
+              }
+            ]
           }
         ]
       }
@@ -245,6 +254,15 @@
             "tracks": [
               {
                 "title": "URL IRL"
+              }
+            ]
+          },
+          {
+            "name": "Dj Smokey",
+            "note": "Part of the Memphis phonk revival, reviving the city's dark, chopped-and-screwed '90s sound.",
+            "tracks": [
+              {
+                "title": "Ridin Thru (Red Eyez)"
               }
             ]
           }
@@ -584,6 +602,27 @@
                 "title": "DIET_"
               }
             ]
+          },
+          {
+            "name": "DJ Khaled",
+            "note": "Miami DJ-producer known for star-studded posse cuts and larger-than-life hype-man persona.",
+            "tracks": [
+              {
+                "title": "All I Do Is Win (feat. T-Pain, Ludacris, Snoop Dogg & Rick Ross)"
+              }
+            ]
+          },
+          {
+            "name": "DJ Scheme",
+            "note": "South Florida producer-DJ central to the underground SoundCloud rap scene.",
+            "tracks": [
+              {
+                "title": "How You Feel? (Freestyle) [feat. Lil Yachty & Ski Mask the Slump God]"
+              },
+              {
+                "title": "Soda (feat. Take A Daytrip)"
+              }
+            ]
           }
         ]
       },
@@ -770,6 +809,15 @@
             "tracks": [
               {
                 "title": "When It Rains (feat. Aloe Blacc)"
+              }
+            ]
+          },
+          {
+            "name": "Dilated Peoples",
+            "note": "LA underground group central to the West Coast's turntablist-driven boom-bap scene.",
+            "tracks": [
+              {
+                "title": "You Can't Hide, You Can't Run"
               }
             ]
           }
@@ -1164,6 +1212,15 @@
             "tracks": [
               {
                 "title": "Panda"
+              }
+            ]
+          },
+          {
+            "name": "Digable Planets",
+            "note": "Brooklyn-formed trio known for jazz-sampling, beat-poetry-inflected rap.",
+            "tracks": [
+              {
+                "title": "It's Good To Be Here (Live)"
               }
             ]
           }
@@ -1875,6 +1932,15 @@
                 "title": "Doubie Ashtray"
               }
             ]
+          },
+          {
+            "name": "DJ Double Cup",
+            "note": "Houston DJ steeped in the city's screw music tradition.",
+            "tracks": [
+              {
+                "title": "Its Secured"
+              }
+            ]
           }
         ]
       }
@@ -1997,6 +2063,15 @@
                 "title": "Master Plan"
               }
             ]
+          },
+          {
+            "name": "DJ Kool",
+            "note": "DC go-go-rooted DJ known for the party staple \"Let Me Clear My Throat.\"",
+            "tracks": [
+              {
+                "title": "Let Me Clear My Throat (Old School Reunion Remix '96)"
+              }
+            ]
           }
         ]
       }
@@ -2036,6 +2111,15 @@
             "tracks": [
               {
                 "title": "Baby Roulette"
+              }
+            ]
+          },
+          {
+            "name": "DJ Jazzy Jeff & The Fresh Prince",
+            "note": "Philadelphia duo whose playful, radio-friendly style brought rap into the mainstream.",
+            "tracks": [
+              {
+                "title": "Summertime"
               }
             ]
           }
@@ -2194,6 +2278,18 @@
               },
               {
                 "title": "family ties"
+              }
+            ]
+          },
+          {
+            "name": "Dizzy Wright",
+            "note": "Las Vegas rapper known for a laid-back, introspective West Coast style.",
+            "tracks": [
+              {
+                "title": "Killem With Kindness"
+              },
+              {
+                "title": "Roll Up"
               }
             ]
           }
@@ -2676,6 +2772,15 @@
                 "title": "Methods"
               }
             ]
+          },
+          {
+            "name": "DJ Shadow",
+            "note": "Bay Area producer whose sample-collage instrumentals redefined what hip-hop production could sound like.",
+            "tracks": [
+              {
+                "title": "Horror Show (feat. Danny Brown)"
+              }
+            ]
           }
         ]
       }
@@ -2830,6 +2935,15 @@
               },
               {
                 "title": "P.O.V."
+              }
+            ]
+          },
+          {
+            "name": "Divine Council",
+            "note": "Virginia Beach collective known for hazy, atmospheric trap production.",
+            "tracks": [
+              {
+                "title": "Nevaland"
               }
             ]
           }
