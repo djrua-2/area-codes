@@ -5563,7 +5563,14 @@
         3.81
       ]
     ],
-    "cities": []
+    "cities": [
+      {
+        "id": "kansas-city-mo",
+        "name": "Kansas City",
+        "x": 20.29,
+        "y": 34.08
+      }
+    ]
   },
   "MT": {
     "bbox": {
@@ -6297,6 +6304,18 @@
         "name": "Paterson",
         "x": 81.27,
         "y": 21.04
+      },
+      {
+        "id": "south-orange-nj",
+        "name": "South Orange",
+        "x": 76.15,
+        "y": 27.67
+      },
+      {
+        "id": "plainfield-nj",
+        "name": "Plainfield",
+        "x": 67.29,
+        "y": 32.65
       }
     ]
   },
@@ -7006,6 +7025,12 @@
         "name": "Fayetteville",
         "x": 62.26,
         "y": 55.57
+      },
+      {
+        "id": "durham-nc",
+        "name": "Durham",
+        "x": 62.01,
+        "y": 23.71
       }
     ]
   },
