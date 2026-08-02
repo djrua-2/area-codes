@@ -653,6 +653,15 @@
                 "title": "All Gold Everything"
               }
             ]
+          },
+          {
+            "name": "Waka Flocka Flame",
+            "note": "Atlanta rapper known for a booming, high-energy, crowd-anthem-driven trap style.",
+            "tracks": [
+              {
+                "title": "Grove St. Party (feat. Kebo Gotti)"
+              }
+            ]
           }
         ]
       }
@@ -1385,6 +1394,24 @@
                 "title": "Gorgeous (Remix) [feat. City Girls]"
               }
             ]
+          },
+          {
+            "name": "Ugly Heroes",
+            "note": "Detroit-rooted collective (Apollo Brown, Verbal Kent, Red Pill) known for soulful boom-bap.",
+            "tracks": [
+              {
+                "title": "Long Drive Home"
+              }
+            ]
+          },
+          {
+            "name": "Waajeed",
+            "note": "Slum Village-affiliated producer known for soulful Detroit production.",
+            "tracks": [
+              {
+                "title": "Get Live"
+              }
+            ]
           }
         ]
       }
@@ -1566,6 +1593,24 @@
             "tracks": [
               {
                 "title": "I'm a Thug"
+              }
+            ]
+          },
+          {
+            "name": "Uncle Luke",
+            "note": "Foundational to Miami bass — booming 808s and electro-influenced uptempo production built specifically for sound systems and dancing.",
+            "tracks": [
+              {
+                "title": "Scarred (feat. Trick Daddy)"
+              }
+            ]
+          },
+          {
+            "name": "Vanilla Ice",
+            "note": "Miami-raised rapper best known for the crossover hit \"Ice Ice Baby.\"",
+            "tracks": [
+              {
+                "title": "Ice Ice Baby"
               }
             ]
           }
@@ -2941,6 +2986,15 @@
                 "title": "Se Acabo (feat. Method Man) [Remix]"
               }
             ]
+          },
+          {
+            "name": "Uncommon Nasa",
+            "note": "Queens producer-rapper known for dense, dystopian underground rap.",
+            "tracks": [
+              {
+                "title": "Speak Your Truth"
+              }
+            ]
           }
         ]
       }
@@ -3631,6 +3685,15 @@
             "tracks": [
               {
                 "title": "American Dream"
+              }
+            ]
+          },
+          {
+            "name": "V Don",
+            "note": "Griselda-affiliated producer known for gritty, sample-driven street beats.",
+            "tracks": [
+              {
+                "title": "Get Lifted (feat. A$AP Ant & Trae tha Truth)"
               }
             ]
           }
@@ -4616,6 +4679,24 @@
                 "title": "Slow Jamz"
               }
             ]
+          },
+          {
+            "name": "Valee",
+            "note": "Chicago rapper known for a minimalist, deadpan flow.",
+            "tracks": [
+              {
+                "title": "Womp Womp (feat. Jeremih)"
+              }
+            ]
+          },
+          {
+            "name": "VIC MENSA",
+            "note": "Chicago rapper known for politically charged, genre-blending rap.",
+            "tracks": [
+              {
+                "title": "Almost There (feat. Mr Hudson)"
+              }
+            ]
           }
         ]
       }
@@ -4730,6 +4811,15 @@
             "tracks": [
               {
                 "title": "Power"
+              }
+            ]
+          },
+          {
+            "name": "Viktor Vaughn",
+            "note": "One of MF DOOM's masked alter-egos, rooted in his Long Island underground catalog.",
+            "tracks": [
+              {
+                "title": "Can I Watch? (feat. Apani B as Nikki)"
               }
             ]
           }
@@ -5247,6 +5337,15 @@
                 "title": "Young, Wild & Free (feat. Bruno Mars)"
               }
             ]
+          },
+          {
+            "name": "Vince Staples",
+            "note": "Long Beach rapper known for sharp, deadpan wit over minimalist, unconventional production.",
+            "tracks": [
+              {
+                "title": "3230"
+              }
+            ]
           }
         ]
       }
@@ -5373,6 +5472,15 @@
             "tracks": [
               {
                 "title": "White Girl"
+              }
+            ]
+          },
+          {
+            "name": "Wale",
+            "note": "DC rapper who helped popularize the city's go-go-influenced sound on a national stage.",
+            "tracks": [
+              {
+                "title": "90210"
               }
             ]
           }
