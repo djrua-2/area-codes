@@ -1110,6 +1110,30 @@
         "name": "Oakland",
         "x": 22.99,
         "y": 44.82
+      },
+      {
+        "id": "palmdale-ca",
+        "name": "Palmdale",
+        "x": 60.42,
+        "y": 76.33
+      },
+      {
+        "id": "vallejo-ca",
+        "name": "Vallejo",
+        "x": 23.12,
+        "y": 41.89
+      },
+      {
+        "id": "oxnard-ca",
+        "name": "Oxnard",
+        "x": 50.84,
+        "y": 80.06
+      },
+      {
+        "id": "long-beach-ca",
+        "name": "Long Beach",
+        "x": 59.75,
+        "y": 84.25
       }
     ]
   },
@@ -4912,7 +4936,14 @@
         45.86
       ]
     ],
-    "cities": []
+    "cities": [
+      {
+        "id": "saint-paul-mn",
+        "name": "Saint Paul",
+        "x": 54,
+        "y": 73.5
+      }
+    ]
   },
   "MS": {
     "bbox": {
@@ -6401,6 +6432,12 @@
         "name": "Queensbridge, Queens",
         "x": 74.04,
         "y": 91.97
+      },
+      {
+        "id": "long-island-ny",
+        "name": "Long Island",
+        "x": 84.23,
+        "y": 89.93
       }
     ]
   },
@@ -7357,7 +7394,14 @@
         5.6
       ]
     ],
-    "cities": []
+    "cities": [
+      {
+        "id": "portland-or",
+        "name": "Portland",
+        "x": 25.21,
+        "y": 19.77
+      }
+    ]
   },
   "PA": {
     "bbox": {
@@ -8390,7 +8434,14 @@
         3.7
       ]
     ],
-    "cities": []
+    "cities": [
+      {
+        "id": "houston-tx",
+        "name": "Houston",
+        "x": 83.3,
+        "y": 62.52
+      }
+    ]
   },
   "UT": {
     "bbox": {
