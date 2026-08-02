@@ -3479,6 +3479,12 @@
         "name": "Lexington",
         "x": 64.88,
         "y": 41.24
+      },
+      {
+        "id": "louisville-ky",
+        "name": "Louisville",
+        "x": 49.19,
+        "y": 33.86
       }
     ]
   },
@@ -5588,6 +5594,12 @@
         "name": "Kansas City",
         "x": 20.29,
         "y": 34.08
+      },
+      {
+        "id": "st-louis-mo",
+        "name": "St. Louis",
+        "x": 81.55,
+        "y": 43.6
       }
     ]
   },
@@ -10183,7 +10195,14 @@
         11.77
       ]
     ],
-    "cities": []
+    "cities": [
+      {
+        "id": "milwaukee-wi",
+        "name": "Milwaukee",
+        "x": 82.4,
+        "y": 84.99
+      }
+    ]
   },
   "WY": {
     "bbox": {
