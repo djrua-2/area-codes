@@ -662,6 +662,15 @@
                 "title": "Grove St. Party (feat. Kebo Gotti)"
               }
             ]
+          },
+          {
+            "name": "YGTUT",
+            "note": "Atlanta rapper associated with T.I.'s Grand Hustle-adjacent scene.",
+            "tracks": [
+              {
+                "title": "Big Poppa"
+              }
+            ]
           }
         ]
       }
@@ -836,6 +845,15 @@
               },
               {
                 "title": "Slob On My Nob"
+              }
+            ]
+          },
+          {
+            "name": "Xavier Wulf",
+            "note": "Memphis rapper reviving the city's dark, chopped-and-screwed horrorcore tradition.",
+            "tracks": [
+              {
+                "title": "First Light"
               }
             ]
           }
@@ -3741,6 +3759,15 @@
                 "title": "Dame Aquí (feat. Princess Nokia)"
               }
             ]
+          },
+          {
+            "name": "Wreckx-n-Effect",
+            "note": "New York group (Teddy Riley-produced) best known for the new jack swing-era hit \"Rump Shaker.\"",
+            "tracks": [
+              {
+                "title": "Rump Shaker"
+              }
+            ]
           }
         ]
       }
@@ -5297,6 +5324,15 @@
                 "title": "Getsomerest/Sleepwell"
               }
             ]
+          },
+          {
+            "name": "Yeat",
+            "note": "Portland-raised rapper known for a warped, ad-lib-heavy rage-rap sound.",
+            "tracks": [
+              {
+                "title": "Breathe"
+              }
+            ]
           }
         ]
       }
@@ -6285,6 +6321,15 @@
                 "title": "Shake Dat Ass (Twerk Song)"
               }
             ]
+          },
+          {
+            "name": "YNW Melly",
+            "note": "Florida rapper known for melodic, emotionally raw street narratives.",
+            "tracks": [
+              {
+                "title": "Florida Water (feat. J. Green)"
+              }
+            ]
           }
         ]
       }
@@ -6493,6 +6538,15 @@
             "tracks": [
               {
                 "title": "F**k 'Em All (feat. Mozzy & DJ Quik)"
+              }
+            ]
+          },
+          {
+            "name": "YG",
+            "note": "Compton rapper known for a minimalist, ratchet-adjacent West Coast style.",
+            "tracks": [
+              {
+                "title": "BIG BANK (feat. 2 Chainz, Big Sean & Nicki Minaj)"
               }
             ]
           }
@@ -7227,6 +7281,15 @@
             "tracks": [
               {
                 "title": "Ice Cream (feat. Ghostface Killah, Method Man & Cappadonna)"
+              }
+            ]
+          },
+          {
+            "name": "Wu-Tang Clan",
+            "note": "Staten Island collective whose raw, martial-arts-inflected sound reshaped hip-hop's underground.",
+            "tracks": [
+              {
+                "title": "Bring Da Ruckus"
               }
             ]
           }
@@ -8094,6 +8157,15 @@
                 "title": "Amphetamine"
               }
             ]
+          },
+          {
+            "name": "Wilma Vritra",
+            "note": "Duo pairing St. Louis rapper Chester Watson with producer Pyramid Vritra.",
+            "tracks": [
+              {
+                "title": "Find an Hour"
+              }
+            ]
           }
         ]
       }
@@ -8593,6 +8665,15 @@
             "tracks": [
               {
                 "title": "100 Grandkids"
+              }
+            ]
+          },
+          {
+            "name": "Wiz Khalifa",
+            "note": "Pittsburgh rapper known for a laid-back, weed-culture-steeped mainstream sound.",
+            "tracks": [
+              {
+                "title": "Alright (feat. Trippie Redd & Preme)"
               }
             ]
           }
@@ -9394,6 +9475,55 @@
             "tracks": [
               {
                 "title": "Choppin' Blades"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "plantation-fl-region",
+    "name": "Plantation, FL",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "plantation-fl",
+        "name": "Plantation, FL",
+        "state": "FL",
+        "artists": [
+          {
+            "name": "XXXTENTACION",
+            "note": "South Florida artist whose raw, genre-blurring emo-rap made him a defining voice of his generation before his death.",
+            "tracks": [
+              {
+                "title": "Depression & Obsession"
+              },
+              {
+                "title": "F**k Love"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "saginaw-mi-region",
+    "name": "Saginaw, MI",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "saginaw-mi",
+        "name": "Saginaw, MI",
+        "state": "MI",
+        "artists": [
+          {
+            "name": "YN Jay",
+            "note": "Saginaw rapper known for a bouncy, comedic Michigan street-rap style.",
+            "tracks": [
+              {
+                "title": "11:35 in Miami"
               }
             ]
           }
