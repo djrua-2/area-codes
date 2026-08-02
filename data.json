@@ -71,6 +71,27 @@
                 "title": "No Heart"
               }
             ]
+          },
+          {
+            "name": "2 Chainz",
+            "note": "Ad-lib-heavy, hook-driven Atlanta trap veteran whose delivery became one of the most imitated in the genre.",
+            "tracks": [
+              {
+                "title": "4 AM (feat. Travis Scott)"
+              }
+            ]
+          },
+          {
+            "name": "21 Savage",
+            "note": "Deadpan, menacing delivery that became a blueprint for modern Atlanta trap.",
+            "tracks": [
+              {
+                "title": "a lot"
+              },
+              {
+                "title": "No Heart"
+              }
+            ]
           }
         ]
       }
@@ -163,6 +184,18 @@
                 "title": "How Do U Want It"
               }
             ]
+          },
+          {
+            "name": "2Pac",
+            "note": "One of rap's most influential voices, came up in the Bay Area before becoming a defining West Coast figure.",
+            "tracks": [
+              {
+                "title": "2 of Amerikaz Most Wanted (feat. Snoop Dogg & Snoop Doggy Dogg)"
+              },
+              {
+                "title": "How Do U Want It"
+              }
+            ]
           }
         ]
       }
@@ -237,6 +270,18 @@
               {
                 "title": "Ain't It Funny",
                 "spotifyId": "7ItFoQDmQIh3MAPsxiP6Vt"
+              }
+            ]
+          },
+          {
+            "name": "42 Dugg",
+            "note": "Raspy, rapid-fire Detroit street rapper known for his distinctive slurred cadence.",
+            "tracks": [
+              {
+                "title": "Thump Shit"
+              },
+              {
+                "title": "4 Da Gang"
               }
             ]
           },
@@ -377,6 +422,21 @@
                 "title": "Sweet Lady"
               }
             ]
+          },
+          {
+            "name": "03 Greedo",
+            "note": "West Coast street rapper from Watts known for a melodic, gravel-toned delivery over dark synth-driven beats.",
+            "tracks": [
+              {
+                "title": "Substance"
+              },
+              {
+                "title": "Disco Shit (feat. Freddie Gibbs)"
+              },
+              {
+                "title": "Sweet Lady"
+              }
+            ]
           }
         ]
       }
@@ -392,6 +452,15 @@
         "name": "North Bergen, NJ",
         "state": "NJ",
         "artists": [
+          {
+            "name": "070 Shake",
+            "note": "Genre-blurring, half-sung delivery that helped define a moodier, more atmospheric strain of East Coast rap.",
+            "tracks": [
+              {
+                "title": "Glitter"
+              }
+            ]
+          },
           {
             "name": "070 Shake",
             "note": "Genre-blurring, half-sung delivery that helped define a moodier, more atmospheric strain of East Coast rap.",
@@ -423,6 +492,15 @@
                 "title": "She Got It (feat. T-Pain & Tay Dizm)"
               }
             ]
+          },
+          {
+            "name": "2 Pistols",
+            "note": "Mid-2000s Southern rap voice known for the strip-club anthem \"She Got It.\"",
+            "tracks": [
+              {
+                "title": "She Got It (feat. T-Pain & Tay Dizm)"
+              }
+            ]
           }
         ]
       }
@@ -438,6 +516,15 @@
         "name": "San Francisco, CA",
         "state": "CA",
         "artists": [
+          {
+            "name": "24kGoldn",
+            "note": "Genre-crossing Bay Area artist blending pop-rap hooks with rock and hip-hop production.",
+            "tracks": [
+              {
+                "title": "Mood (feat. iann dior)"
+              }
+            ]
+          },
           {
             "name": "24kGoldn",
             "note": "Genre-crossing Bay Area artist blending pop-rap hooks with rock and hip-hop production.",
@@ -469,6 +556,15 @@
                 "title": "locked in"
               }
             ]
+          },
+          {
+            "name": "310babii",
+            "note": "Named for the LA area code, part of a new wave of melodic West Coast rap.",
+            "tracks": [
+              {
+                "title": "locked in"
+              }
+            ]
           }
         ]
       }
@@ -484,6 +580,15 @@
         "name": "Dallas, TX",
         "state": "TX",
         "artists": [
+          {
+            "name": "4batz",
+            "note": "Genre-bending Dallas artist blending R&B melody with rap cadence.",
+            "tracks": [
+              {
+                "title": "roll da dice"
+              }
+            ]
+          },
           {
             "name": "4batz",
             "note": "Genre-bending Dallas artist blending R&B melody with rap cadence.",
@@ -515,6 +620,15 @@
                 "title": "21 Questions (feat. Nate Dogg)"
               }
             ]
+          },
+          {
+            "name": "50 Cent",
+            "note": "South Jamaica, Queens street rapper turned era-defining mainstream hitmaker.",
+            "tracks": [
+              {
+                "title": "21 Questions (feat. Nate Dogg)"
+              }
+            ]
           }
         ]
       }
@@ -530,6 +644,15 @@
         "name": "Nashville, TN",
         "state": "TN",
         "artists": [
+          {
+            "name": "6 Dogs",
+            "note": "Part of Nashville's SoundCloud-era rap scene.",
+            "tracks": [
+              {
+                "title": "Buttcheeks"
+              }
+            ]
+          },
           {
             "name": "6 Dogs",
             "note": "Part of Nashville's SoundCloud-era rap scene.",
@@ -561,6 +684,15 @@
                 "title": "CHOCOLATÉ"
               }
             ]
+          },
+          {
+            "name": "6ix9ine",
+            "note": "Bushwick rapper known for a chaotic, high-energy delivery and rainbow-haired persona.",
+            "tracks": [
+              {
+                "title": "CHOCOLATÉ"
+              }
+            ]
           }
         ]
       }
@@ -584,6 +716,15 @@
                 "title": "Cleveland Shuffle (Radio Mix)"
               }
             ]
+          },
+          {
+            "name": "71 NORTH",
+            "note": "Cleveland rap named for the interstate that runs through the city.",
+            "tracks": [
+              {
+                "title": "Cleveland Shuffle (Radio Mix)"
+              }
+            ]
           }
         ]
       }
@@ -599,6 +740,15 @@
         "name": "New York, NY",
         "state": "NY",
         "artists": [
+          {
+            "name": "88-Keys",
+            "note": "Harlem producer-rapper closely tied to the 2000s New York backpack-rap and Kanye West circles.",
+            "tracks": [
+              {
+                "title": "Stay Up! (Viagra) [feat. Kanye West]"
+              }
+            ]
+          },
           {
             "name": "88-Keys",
             "note": "Harlem producer-rapper closely tied to the 2000s New York backpack-rap and Kanye West circles.",
