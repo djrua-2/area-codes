@@ -152,6 +152,18 @@
                 "title": "Feelings Hurt"
               }
             ]
+          },
+          {
+            "name": "Crime Mob",
+            "note": "Atlanta crunk group best known for the anthem \"Knuck If You Buck.\"",
+            "tracks": [
+              {
+                "title": "Knuck If You Buck"
+              },
+              {
+                "title": "Rock Yo Hips (Featuring Lil Scrappy)"
+              }
+            ]
           }
         ]
       }
@@ -542,6 +554,15 @@
                 "spotifyId": "1Ec3l2aWb4DWDTkWiIDiD6"
               }
             ]
+          },
+          {
+            "name": "CYNE",
+            "note": "Florida underground group known for dense wordplay over jazzy, layered production.",
+            "tracks": [
+              {
+                "title": "Arrow of God"
+              }
+            ]
           }
         ]
       }
@@ -656,6 +677,15 @@
             "tracks": [
               {
                 "title": "96 Neve Campbell (feat. Cam & China)"
+              }
+            ]
+          },
+          {
+            "name": "Cypress Hill",
+            "note": "South Gate group that fused Latino identity, stoner culture, and rap into a singular sound.",
+            "tracks": [
+              {
+                "title": "Hand On the Pump"
               }
             ]
           }
@@ -775,6 +805,15 @@
             "tracks": [
               {
                 "title": "Life Changes (feat. Phil Beaudreau)"
+              }
+            ]
+          },
+          {
+            "name": "Cozz",
+            "note": "Dreamville rapper known for a smooth, West Coast-rooted flow.",
+            "tracks": [
+              {
+                "title": "Dreams"
               }
             ]
           }
@@ -1233,6 +1272,15 @@
                 "title": "Planet Namek (feat. T'nah)"
               }
             ]
+          },
+          {
+            "name": "Cool Calm Pete",
+            "note": "Bronx rapper known for a laid-back, soulful indie-rap style.",
+            "tracks": [
+              {
+                "title": "Two a.M."
+              }
+            ]
           }
         ]
       }
@@ -1491,6 +1539,15 @@
             "tracks": [
               {
                 "title": "Chapter 13 (Rich Man vs. Poor Man)"
+              }
+            ]
+          },
+          {
+            "name": "cupcakKe",
+            "note": "Chicago rapper known for explicit, high-energy, rapid-fire bars.",
+            "tracks": [
+              {
+                "title": "Discounts"
               }
             ]
           }
@@ -1930,6 +1987,21 @@
                 "title": "Stuntin' Like My Daddy (Radio Edit)"
               }
             ]
+          },
+          {
+            "name": "Curren$y",
+            "note": "New Orleans rapper known for a laid-back, weed-culture-steeped catalog of tapes.",
+            "tracks": [
+              {
+                "title": "100 Spokes"
+              },
+              {
+                "title": "The Count (feat. Wiz Khalifa)"
+              },
+              {
+                "title": "Location Remote"
+              }
+            ]
           }
         ]
       }
@@ -2032,6 +2104,15 @@
               },
               {
                 "title": "Legend"
+              }
+            ]
+          },
+          {
+            "name": "Conway the Machine",
+            "note": "Griselda co-founder known for gritty street narratives delivered in a distinctive slurred cadence.",
+            "tracks": [
+              {
+                "title": "Scatter Brain (feat. Ludacris & JID)"
               }
             ]
           }
@@ -2289,6 +2370,18 @@
             "tracks": [
               {
                 "title": "Black Moses (feat. JPEGMAFIA)"
+              }
+            ]
+          },
+          {
+            "name": "Coolio",
+            "note": "Compton rapper best known for the era-defining hit \"Gangsta's Paradise.\"",
+            "tracks": [
+              {
+                "title": "1, 2, 3, 4 (Sumpin' New) [2023 Remaster]"
+              },
+              {
+                "title": "A STAR IS BORN (feat. MC Shan)"
               }
             ]
           }
@@ -2597,6 +2690,78 @@
             "tracks": [
               {
                 "title": "Back Home (The Return)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "suitland-md-region",
+    "name": "Suitland, MD",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "suitland-md",
+        "name": "Suitland, MD",
+        "state": "MD",
+        "artists": [
+          {
+            "name": "Cordae",
+            "note": "DMV-raised rapper known for dense, technically sharp lyricism.",
+            "tracks": [
+              {
+                "title": "Bad Idea (feat. Chance the Rapper)"
+              },
+              {
+                "title": "Kung Fu"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "lexington-ky-region",
+    "name": "Lexington, KY",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "lexington-ky",
+        "name": "Lexington, KY",
+        "state": "KY",
+        "artists": [
+          {
+            "name": "Cunninlynguists",
+            "note": "Kentucky underground group known for dense, soulful storytelling.",
+            "tracks": [
+              {
+                "title": "Guide You Through Shadows (feat. Ra Scion & Substantial)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "staten-island-ny-region",
+    "name": "Staten Island, NY",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "staten-island-ny",
+        "name": "Staten Island, NY",
+        "state": "NY",
+        "artists": [
+          {
+            "name": "CZARFACE",
+            "note": "Wu-Tang's Inspectah Deck teamed with 7L & Esoteric for this comic-book-themed project.",
+            "tracks": [
+              {
+                "title": "Machine, Man & Monster (feat. Conway the Machine)"
               }
             ]
           }
