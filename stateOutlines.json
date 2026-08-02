@@ -1207,6 +1207,12 @@
         "name": "Fresno",
         "x": 45.39,
         "y": 55.23
+      },
+      {
+        "id": "pittsburg-ca",
+        "name": "Pittsburg",
+        "x": 26.46,
+        "y": 42.65
       }
     ]
   },
@@ -3788,6 +3794,12 @@
         "name": "New Orleans",
         "x": 76.61,
         "y": 74.43
+      },
+      {
+        "id": "shreveport-la",
+        "name": "Shreveport",
+        "x": 9.09,
+        "y": 15.37
       }
     ]
   },
@@ -7324,6 +7336,12 @@
         "name": "Youngstown",
         "x": 93.42,
         "y": 26.5
+      },
+      {
+        "id": "cincinnati-oh",
+        "name": "Cincinnati",
+        "x": 10.28,
+        "y": 78.66
       }
     ]
   },
