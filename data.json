@@ -380,6 +380,18 @@
                 "title": "Everyday Was (feat. Mel)"
               }
             ]
+          },
+          {
+            "name": "Boldy James",
+            "note": "Detroit rapper known for a flat, matter-of-fact delivery over gritty street narratives.",
+            "tracks": [
+              {
+                "title": "Carruth"
+              },
+              {
+                "title": "Flying Trapeze Act"
+              }
+            ]
           }
         ]
       }
@@ -518,6 +530,24 @@
               },
               {
                 "title": "The Lost Angels Anthem (feat. Kezia)"
+              }
+            ]
+          },
+          {
+            "name": "Blueface",
+            "note": "Pacoima rapper known for an off-beat, sing-song flow that became a viral trademark.",
+            "tracks": [
+              {
+                "title": "Thotiana"
+              }
+            ]
+          },
+          {
+            "name": "Bryce Vine",
+            "note": "LA-based pop-rap artist known for hook-heavy, genre-blending singles.",
+            "tracks": [
+              {
+                "title": "La La Land"
               }
             ]
           }
@@ -815,6 +845,24 @@
                 "title": "Astronomy (8th Light) [feat. Weldon Irvine]"
               }
             ]
+          },
+          {
+            "name": "Bobby Shmurda",
+            "note": "East Flatbush rapper whose \"Hot N*gga\" and Shmoney Dance sparked a viral Brooklyn rap moment.",
+            "tracks": [
+              {
+                "title": "Bobby Bitch"
+              }
+            ]
+          },
+          {
+            "name": "Brasstracks",
+            "note": "Brooklyn horn-driven production duo blending rap, jazz, and soul.",
+            "tracks": [
+              {
+                "title": "Good Love (feat. Jay Prince)"
+              }
+            ]
           }
         ]
       }
@@ -836,6 +884,15 @@
             "tracks": [
               {
                 "title": "Cleveland Shuffle (Radio Mix)"
+              }
+            ]
+          },
+          {
+            "name": "Bone Thugs-n-Harmony",
+            "note": "Cleveland group that pioneered a fast, melodic, harmonized rap style.",
+            "tracks": [
+              {
+                "title": "1st of Tha Month"
               }
             ]
           }
@@ -1170,6 +1227,15 @@
             "tracks": [
               {
                 "title": "Games"
+              }
+            ]
+          },
+          {
+            "name": "Brian Fresco",
+            "note": "Chicago rapper affiliated with Chance the Rapper's Save Money crew.",
+            "tracks": [
+              {
+                "title": "Higher (feat. Chance the Rapper & Blue Hawaii)"
               }
             ]
           }
@@ -1514,6 +1580,15 @@
                 "title": "Sound Is Vibration"
               }
             ]
+          },
+          {
+            "name": "Brother Ali",
+            "note": "Rhymesayers mainstay known for socially conscious lyricism and a booming voice.",
+            "tracks": [
+              {
+                "title": "Forest Whitiker"
+              }
+            ]
           }
         ]
       }
@@ -1787,6 +1862,101 @@
             "tracks": [
               {
                 "title": "You Stressin'"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fort-pierce-fl-region",
+    "name": "Fort Pierce, FL",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "fort-pierce-fl",
+        "name": "Fort Pierce, FL",
+        "state": "FL",
+        "artists": [
+          {
+            "name": "Bossman Dlow",
+            "note": "South Florida rapper known for an energetic, party-starting street sound.",
+            "tracks": [
+              {
+                "title": "Shake Dat Ass (Twerk Song)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "columbus-oh-region",
+    "name": "Columbus, OH",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "columbus-oh",
+        "name": "Columbus, OH",
+        "state": "OH",
+        "artists": [
+          {
+            "name": "Bow Wow",
+            "note": "Columbus-raised rapper who broke through as a teenage star under Jermaine Dupri's wing.",
+            "tracks": [
+              {
+                "title": "Outta My System (feat. T-Pain & Johntá Austin)"
+              },
+              {
+                "title": "Girlfriend"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "san-marcos-tx-region",
+    "name": "San Marcos, TX",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "san-marcos-tx",
+        "name": "San Marcos, TX",
+        "state": "TX",
+        "artists": [
+          {
+            "name": "BROCKHAMPTON",
+            "note": "Self-described \"boy band\" collective formed in Texas before relocating to LA.",
+            "tracks": [
+              {
+                "title": "1998 TRUMAN"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "honolulu-hi-region",
+    "name": "Honolulu, HI",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "honolulu-hi",
+        "name": "Honolulu, HI",
+        "state": "HI",
+        "artists": [
+          {
+            "name": "Bruno Mars",
+            "note": "Honolulu-raised multi-genre star whose catalog spans pop, funk, and R&B.",
+            "tracks": [
+              {
+                "title": "Finesse (Remix) [feat. Cardi B]"
               }
             ]
           }
