@@ -350,6 +350,15 @@
                 "title": "1Hunnid (feat. Fetty Wap)"
               }
             ]
+          },
+          {
+            "name": "Kenny Mason",
+            "note": "Atlanta rapper known for a genre-blurring blend of rap, punk, and grunge.",
+            "tracks": [
+              {
+                "title": "4Real"
+              }
+            ]
           }
         ]
       }
@@ -1345,6 +1354,24 @@
                 "title": "On the Lookout (feat. Kombo & Wild Child (Lootpack))"
               }
             ]
+          },
+          {
+            "name": "Kenny Beats",
+            "note": "LA-based producer known across genres, from underground rap to viral internet hits.",
+            "tracks": [
+              {
+                "title": "Hold My Head"
+              }
+            ]
+          },
+          {
+            "name": "Kenny Segal",
+            "note": "LA producer known for dense, texture-rich underground rap production.",
+            "tracks": [
+              {
+                "title": "napping under the Echo Tree"
+              }
+            ]
           }
         ]
       }
@@ -2202,6 +2229,15 @@
                 "title": "How High?"
               }
             ]
+          },
+          {
+            "name": "Kemba",
+            "note": "Bronx rapper known for dense, socially aware lyricism.",
+            "tracks": [
+              {
+                "title": "Delivert"
+              }
+            ]
           }
         ]
       }
@@ -2328,6 +2364,15 @@
             "tracks": [
               {
                 "title": "Dance with the Devil"
+              }
+            ]
+          },
+          {
+            "name": "Kelis",
+            "note": "Harlem singer whose genre-blending catalog frequently crosses into hip-hop production.",
+            "tracks": [
+              {
+                "title": "Bossy (feat. Too $hort)"
               }
             ]
           }
@@ -2625,6 +2670,27 @@
               },
               {
                 "title": "New God Flow.1"
+              }
+            ]
+          },
+          {
+            "name": "Katie Got Bandz",
+            "note": "Chicago drill rapper known for a hard-edged, street-rooted style.",
+            "tracks": [
+              {
+                "title": "Katie Got Bandz"
+              }
+            ]
+          },
+          {
+            "name": "Kembe X",
+            "note": "Chicago rapper tied to the city's Save Money/Savemoney rap scene.",
+            "tracks": [
+              {
+                "title": "Cold Summer"
+              },
+              {
+                "title": "The Basement"
               }
             ]
           }
@@ -3137,6 +3203,15 @@
             "tracks": [
               {
                 "title": "Stevie (feat. Anna Wise)"
+              }
+            ]
+          },
+          {
+            "name": "Kevin Hart",
+            "note": "Philadelphia comedian whose \"Chocolate Droppa\" alter ego dabbles in hip-hop.",
+            "tracks": [
+              {
+                "title": "Push It On Me"
               }
             ]
           }
@@ -3744,6 +3819,24 @@
             "tracks": [
               {
                 "title": "Boyz-n-the-Hood"
+              }
+            ]
+          },
+          {
+            "name": "Kendrick Lamar",
+            "note": "Compton lyricist widely regarded as one of the most technically gifted and socially conscious MCs of his generation.",
+            "tracks": [
+              {
+                "title": "A.D.H.D"
+              },
+              {
+                "title": "Silent Hill"
+              },
+              {
+                "title": "We Cry Together"
+              },
+              {
+                "title": "Savior"
               }
             ]
           }
@@ -5024,6 +5117,75 @@
               },
               {
                 "title": "In the Air"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "new-rochelle-ny-region",
+    "name": "New Rochelle, NY",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "new-rochelle-ny",
+        "name": "New Rochelle, NY",
+        "state": "NY",
+        "artists": [
+          {
+            "name": "Kent Jones",
+            "note": "New Rochelle rapper best known for the viral hit \"Don't Mind.\"",
+            "tracks": [
+              {
+                "title": "Don't Mind"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "corpus-christi-tx-region",
+    "name": "Corpus Christi, TX",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "corpus-christi-tx",
+        "name": "Corpus Christi, TX",
+        "state": "TX",
+        "artists": [
+          {
+            "name": "Kevin Abstract",
+            "note": "BROCKHAMPTON's frontman, known for candid, genre-blurring songwriting.",
+            "tracks": [
+              {
+                "title": "Empty"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "baton-rouge-la-region",
+    "name": "Baton Rouge, LA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "baton-rouge-la",
+        "name": "Baton Rouge, LA",
+        "state": "LA",
+        "artists": [
+          {
+            "name": "Kevin Gates",
+            "note": "Baton Rouge rapper known for raw, confessional street storytelling.",
+            "tracks": [
+              {
+                "title": "2 Phones"
               }
             ]
           }
