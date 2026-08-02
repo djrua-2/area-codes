@@ -3982,29 +3982,6 @@
     ]
   },
   {
-    "id": "honolulu-hi-region",
-    "name": "Honolulu, HI",
-    "blurb": "",
-    "cities": [
-      {
-        "id": "honolulu-hi",
-        "name": "Honolulu, HI",
-        "state": "HI",
-        "artists": [
-          {
-            "name": "Bruno Mars",
-            "note": "Honolulu-raised multi-genre star whose catalog spans pop, funk, and R&B.",
-            "tracks": [
-              {
-                "title": "Finesse (Remix) [feat. Cardi B]"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
     "id": "compton-ca-region",
     "name": "Compton, CA",
     "blurb": "",
