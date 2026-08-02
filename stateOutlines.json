@@ -1891,6 +1891,12 @@
         "name": "St. Petersburg",
         "x": 64.59,
         "y": 54.58
+      },
+      {
+        "id": "pompano-beach-fl",
+        "name": "Pompano Beach",
+        "x": 95.16,
+        "y": 78.71
       }
     ]
   },
