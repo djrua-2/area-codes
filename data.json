@@ -200,6 +200,15 @@
                 "title": "Camera (feat. 1st FKI, Lil Uzi Vert, Mac Miller & Post Malone)"
               }
             ]
+          },
+          {
+            "name": "Doe Boy",
+            "note": "Atlanta-based street rapper signed to Future's Freebandz imprint.",
+            "tracks": [
+              {
+                "title": "Get In Dere (feat. 42 Dugg & Babyface Ray )"
+              }
+            ]
           }
         ]
       }
@@ -818,6 +827,42 @@
             "tracks": [
               {
                 "title": "You Can't Hide, You Can't Run"
+              }
+            ]
+          },
+          {
+            "name": "DOM KENNEDY",
+            "note": "South LA rapper known for a laid-back, sun-soaked West Coast sound.",
+            "tracks": [
+              {
+                "title": "When I Come Around"
+              }
+            ]
+          },
+          {
+            "name": "Domo Genesis",
+            "note": "Odd Future member known for a smoky, weed-culture-steeped rap style.",
+            "tracks": [
+              {
+                "title": "Awkward Groove"
+              }
+            ]
+          },
+          {
+            "name": "DUCKWRTH",
+            "note": "LA artist blending funk, punk, and rap into a genre-defying sound.",
+            "tracks": [
+              {
+                "title": "Bernal Heights"
+              }
+            ]
+          },
+          {
+            "name": "Dumbfoundead",
+            "note": "Koreatown rapper known for sharp battle-rap roots and identity-driven lyricism.",
+            "tracks": [
+              {
+                "title": "Cell Phone (feat. Breezy Lovejoy & Wax)"
               }
             ]
           }
@@ -1458,6 +1503,15 @@
                 "title": "Two a.M."
               }
             ]
+          },
+          {
+            "name": "Dr. Octagon",
+            "note": "Kool Keith's surreal alter-ego project, rooted in the Bronx underground scene.",
+            "tracks": [
+              {
+                "title": "Blue Flowers"
+              }
+            ]
           }
         ]
       }
@@ -1745,6 +1799,15 @@
                 "title": "Discounts"
               }
             ]
+          },
+          {
+            "name": "Donnie Trumpet",
+            "note": "Chicago trumpeter and member of Chance the Rapper's Social Experiment.",
+            "tracks": [
+              {
+                "title": "Callie (feat. Vic Mensa)"
+              }
+            ]
           }
         ]
       }
@@ -1939,6 +2002,15 @@
             "tracks": [
               {
                 "title": "Its Secured"
+              }
+            ]
+          },
+          {
+            "name": "Don Toliver",
+            "note": "Houston singer-rapper known for a psychedelic, melodic take on trap.",
+            "tracks": [
+              {
+                "title": "After Party"
               }
             ]
           }
@@ -2657,6 +2729,18 @@
                 "title": "A STAR IS BORN (feat. MC Shan)"
               }
             ]
+          },
+          {
+            "name": "Dr. Dre",
+            "note": "Compton producer whose G-funk sound defined West Coast rap for a generation.",
+            "tracks": [
+              {
+                "title": "F**k Wit Dre Day (And Everybody's Celebratin')"
+              },
+              {
+                "title": "Nuthin' But A \"G\" Thang"
+              }
+            ]
           }
         ]
       }
@@ -3154,6 +3238,90 @@
             "tracks": [
               {
                 "title": "Buddy (feat. Jungle Brothers, A Tribe Called Quest, Queen Latifah & Monie Love) [Native Tongue Decision]"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "yonkers-ny-region",
+    "name": "Yonkers, NY",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "yonkers-ny",
+        "name": "Yonkers, NY",
+        "state": "NY",
+        "artists": [
+          {
+            "name": "DMX",
+            "note": "Yonkers rapper known for a raw, gravel-voiced intensity and confessional lyrics.",
+            "tracks": [
+              {
+                "title": "I Miss You (feat. Faith Evans)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tampa-fl-region",
+    "name": "Tampa, FL",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "tampa-fl",
+        "name": "Tampa, FL",
+        "state": "FL",
+        "artists": [
+          {
+            "name": "Doechii",
+            "note": "Tampa rapper known for genre-blurring, high-concept releases.",
+            "tracks": [
+              {
+                "title": "DENIAL IS A RIVER"
+              },
+              {
+                "title": "Alter Ego"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fayetteville-nc-region",
+    "name": "Fayetteville, NC",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "fayetteville-nc",
+        "name": "Fayetteville, NC",
+        "state": "NC",
+        "artists": [
+          {
+            "name": "Dreamville",
+            "note": "J. Cole's North Carolina-rooted label and artist collective.",
+            "tracks": [
+              {
+                "title": "BUSSIT"
+              },
+              {
+                "title": "Oh Wow...Swerve (feat. Zoink Gang, KEY! & Maxo Kream)"
+              },
+              {
+                "title": "Sacrifices (feat. Smino & Saba)"
+              },
+              {
+                "title": "Wells Fargo (feat. Buddy & Guapdad 4000) [Interlude]"
+              },
+              {
+                "title": "Revenge (feat. Ari Lennox, EARTHGANG, Childish Major & REASON)"
               }
             ]
           }
