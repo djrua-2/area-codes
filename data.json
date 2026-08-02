@@ -113,6 +113,15 @@
                 "title": "No Heart"
               }
             ]
+          },
+          {
+            "name": "Anycia",
+            "note": "Rising Atlanta voice known for a laid-back, deadpan flow.",
+            "tracks": [
+              {
+                "title": "ANYCIA"
+              }
+            ]
           }
         ]
       }
@@ -359,6 +368,15 @@
                 "title": "4 Da Gang"
               }
             ]
+          },
+          {
+            "name": "Amir Obe",
+            "note": "Detroit singer-rapper known for moody, R&B-inflected songwriting.",
+            "tracks": [
+              {
+                "title": "Before the Vomit"
+              }
+            ]
           }
         ]
       }
@@ -515,6 +533,15 @@
                 "title": "Sweet Lady"
               }
             ]
+          },
+          {
+            "name": "Alemeda",
+            "note": "LA underground artist known for a raw, lo-fi rap-adjacent sound.",
+            "tracks": [
+              {
+                "title": "Gonna Bleach My Eyebrows"
+              }
+            ]
           }
         ]
       }
@@ -636,6 +663,15 @@
             "tracks": [
               {
                 "title": "Mood (feat. iann dior)"
+              }
+            ]
+          },
+          {
+            "name": "Andre Nickatina",
+            "note": "Bay Area legend known for a laid-back, poetic street-rap style.",
+            "tracks": [
+              {
+                "title": "4am - Bay Bridge Music"
               }
             ]
           }
@@ -985,6 +1021,18 @@
                 "title": "Stay Up! (Viagra) [feat. Kanye West]"
               }
             ]
+          },
+          {
+            "name": "Andy Mineo",
+            "note": "New York-based Christian hip-hop artist on the Reach Records roster.",
+            "tracks": [
+              {
+                "title": "Working On It (feat. Chandler Moore)"
+              },
+              {
+                "title": "DANCE (You See It)"
+              }
+            ]
           }
         ]
       }
@@ -1309,6 +1357,208 @@
             "tracks": [
               {
                 "title": "Bomber & a Fly Chick"
+              }
+            ]
+          },
+          {
+            "name": "Alex Wiley",
+            "note": "Chicago rapper affiliated with the Village collective (Vic Mensa, Chance the Rapper's orbit).",
+            "tracks": [
+              {
+                "title": "Games"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "long-island-ny-region",
+    "name": "Long Island, NY",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "long-island-ny",
+        "name": "Long Island, NY",
+        "state": "NY",
+        "artists": [
+          {
+            "name": "Aesop Rock",
+            "note": "Dense, abstract wordplay pioneer of the underground/indie rap scene.",
+            "tracks": [
+              {
+                "title": "Daylight"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "palmdale-ca-region",
+    "name": "Palmdale, CA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "palmdale-ca",
+        "name": "Palmdale, CA",
+        "state": "CA",
+        "artists": [
+          {
+            "name": "Afroman",
+            "note": "Laid-back, comedic rap best known for the stoner anthem \"Because I Got High.\"",
+            "tracks": [
+              {
+                "title": "Because I Got High"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "vallejo-ca-region",
+    "name": "Vallejo, CA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "vallejo-ca",
+        "name": "Vallejo, CA",
+        "state": "CA",
+        "artists": [
+          {
+            "name": "AG Club",
+            "note": "Bay Area collective blending punk energy with rap.",
+            "tracks": [
+              {
+                "title": "A Bitch Curious (feat. Sam Truth)"
+              }
+            ]
+          },
+          {
+            "name": "ALLBLACK",
+            "note": "Bay Area rapper known for laid-back, hustler-narrative street rap.",
+            "tracks": [
+              {
+                "title": "2 Minute Drills"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "saint-paul-mn-region",
+    "name": "Saint Paul, MN",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "saint-paul-mn",
+        "name": "Saint Paul, MN",
+        "state": "MN",
+        "artists": [
+          {
+            "name": "Allan Kingdom",
+            "note": "Twin Cities rapper who gained wider attention via a Kanye West collaboration.",
+            "tracks": [
+              {
+                "title": "Wavey (feat. Spooky Black)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "houston-tx-region",
+    "name": "Houston, TX",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "houston-tx",
+        "name": "Houston, TX",
+        "state": "TX",
+        "artists": [
+          {
+            "name": "Ameer Vann",
+            "note": "Former BROCKHAMPTON member known for gritty, confessional street-rap verses.",
+            "tracks": [
+              {
+                "title": "High Tolerance"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "portland-or-region",
+    "name": "Portland, OR",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "portland-or",
+        "name": "Portland, OR",
+        "state": "OR",
+        "artists": [
+          {
+            "name": "Aminé",
+            "note": "Portland's biggest rap export, known for colorful, hook-driven pop-rap.",
+            "tracks": [
+              {
+                "title": "Campfire (feat. Injury Reserve)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "oxnard-ca-region",
+    "name": "Oxnard, CA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "oxnard-ca",
+        "name": "Oxnard, CA",
+        "state": "CA",
+        "artists": [
+          {
+            "name": "Anderson .Paak",
+            "note": "Drummer-singer-rapper whose funk-and-soul-drenched sound is inseparable from his Southern California roots.",
+            "tracks": [
+              {
+                "title": "6 Summers"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "long-beach-ca-region",
+    "name": "Long Beach, CA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "long-beach-ca",
+        "name": "Long Beach, CA",
+        "state": "CA",
+        "artists": [
+          {
+            "name": "Antwon",
+            "note": "Shock-rap/noise-adjacent artist known for a confrontational, lo-fi style.",
+            "tracks": [
+              {
+                "title": "Lindsey Lohan"
               }
             ]
           }
