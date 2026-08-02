@@ -164,6 +164,24 @@
                 "title": "Rock Yo Hips (Featuring Lil Scrappy)"
               }
             ]
+          },
+          {
+            "name": "D4L",
+            "note": "Atlanta group best known for the snap-music hit \"Laffy Taffy.\"",
+            "tracks": [
+              {
+                "title": "Laffy Taffy (Explicit)"
+              }
+            ]
+          },
+          {
+            "name": "Daye Jack",
+            "note": "Atlanta-raised rapper known for genre-blending, socially conscious rap.",
+            "tracks": [
+              {
+                "title": "Easy"
+              }
+            ]
           }
         ]
       }
@@ -467,6 +485,15 @@
                 "title": "POCKET ROCKET"
               }
             ]
+          },
+          {
+            "name": "D12",
+            "note": "Detroit collective built around Eminem and Proof, known for dark humor and rapid-fire verses.",
+            "tracks": [
+              {
+                "title": "My Band"
+              }
+            ]
           }
         ]
       }
@@ -686,6 +713,15 @@
             "tracks": [
               {
                 "title": "Hand On the Pump"
+              }
+            ]
+          },
+          {
+            "name": "Dag Savage",
+            "note": "LA underground duo pairing producer Exile with rapper Blu.",
+            "tracks": [
+              {
+                "title": "When It Rains (feat. Aloe Blacc)"
               }
             ]
           }
@@ -926,6 +962,15 @@
             "tracks": [
               {
                 "title": "Disperse (feat. GLC & Really Doe)"
+              }
+            ]
+          },
+          {
+            "name": "Das Racist",
+            "note": "Queens duo known for absurdist, culturally sharp lyricism wrapped in internet-era humor.",
+            "tracks": [
+              {
+                "title": "All Tan Everything"
               }
             ]
           }
@@ -1380,6 +1425,15 @@
             "tracks": [
               {
                 "title": "Down and Out (feat. Kanye West & Syleena Johnson)"
+              }
+            ]
+          },
+          {
+            "name": "DD Osama",
+            "note": "Harlem drill artist central to a new generation of New York street rap.",
+            "tracks": [
+              {
+                "title": "Let's Do It (feat. NLE Choppa & Dee Play4Keeps)"
               }
             ]
           }
@@ -1838,6 +1892,18 @@
                 "title": "Ready (feat. GoldLink)"
               }
             ]
+          },
+          {
+            "name": "Damu The Fudgemunk",
+            "note": "DC producer known for dusty, sample-driven boom-bap.",
+            "tracks": [
+              {
+                "title": "It Drinks It Pours (2004)"
+              },
+              {
+                "title": "Master Plan"
+              }
+            ]
           }
         ]
       }
@@ -2220,6 +2286,15 @@
             "tracks": [
               {
                 "title": "Honest Expression (feat. Senim Silla & One Be Lo)"
+              }
+            ]
+          },
+          {
+            "name": "DDG",
+            "note": "Michigan rapper who transitioned from YouTube fame into a full music career.",
+            "tracks": [
+              {
+                "title": "I'm Geekin (feat. Luh Tyler)"
               }
             ]
           }
@@ -2762,6 +2837,98 @@
             "tracks": [
               {
                 "title": "Machine, Man & Monster (feat. Conway the Machine)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "richmond-ca-region",
+    "name": "Richmond, CA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "richmond-ca",
+        "name": "Richmond, CA",
+        "state": "CA",
+        "artists": [
+          {
+            "name": "D-Lo",
+            "note": "Bay Area rapper tied to the hyphy-adjacent \"Yes Indeed\" sound.",
+            "tracks": [
+              {
+                "title": "No Hoe"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "charlotte-nc-region",
+    "name": "Charlotte, NC",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "charlotte-nc",
+        "name": "Charlotte, NC",
+        "state": "NC",
+        "artists": [
+          {
+            "name": "DaBaby",
+            "note": "Charlotte rapper known for a rapid, percussive flow and high-energy hooks.",
+            "tracks": [
+              {
+                "title": "21"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "jackson-ms-region",
+    "name": "Jackson, MS",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "jackson-ms",
+        "name": "Jackson, MS",
+        "state": "MS",
+        "artists": [
+          {
+            "name": "David Banner",
+            "note": "Mississippi rapper-producer known for booming, bass-heavy Southern production.",
+            "tracks": [
+              {
+                "title": "Like a Pimp (feat. Lil' Flip)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "amityville-ny-region",
+    "name": "Amityville, NY",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "amityville-ny",
+        "name": "Amityville, NY",
+        "state": "NY",
+        "artists": [
+          {
+            "name": "De La Soul",
+            "note": "Long Island trio whose playful, sample-collage style helped define the Native Tongues movement.",
+            "tracks": [
+              {
+                "title": "Buddy (feat. Jungle Brothers, A Tribe Called Quest, Queen Latifah & Monie Love) [Native Tongue Decision]"
               }
             ]
           }
