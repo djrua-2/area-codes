@@ -3687,7 +3687,14 @@
         3.7
       ]
     ],
-    "cities": []
+    "cities": [
+      {
+        "id": "new-orleans-la",
+        "name": "New Orleans",
+        "x": 76.61,
+        "y": 74.43
+      }
+    ]
   },
   "ME": {
     "bbox": {
@@ -4979,6 +4986,12 @@
         "name": "Saint Paul",
         "x": 54,
         "y": 73.5
+      },
+      {
+        "id": "minneapolis-mn",
+        "name": "Minneapolis",
+        "x": 51.91,
+        "y": 73.06
       }
     ]
   },
@@ -7625,7 +7638,20 @@
         4.3
       ]
     ],
-    "cities": []
+    "cities": [
+      {
+        "id": "philadelphia-pa",
+        "name": "Philadelphia",
+        "x": 88.87,
+        "y": 87.92
+      },
+      {
+        "id": "morrisville-pa",
+        "name": "Morrisville",
+        "x": 95.04,
+        "y": 78.63
+      }
+    ]
   },
   "RI": {
     "bbox": {
