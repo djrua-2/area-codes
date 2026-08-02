@@ -524,6 +524,24 @@
                 "title": "Flex (Ooh, Ooh, Ooh)"
               }
             ]
+          },
+          {
+            "name": "Rocko",
+            "note": "Atlanta rapper known for gritty, street-rooted trap.",
+            "tracks": [
+              {
+                "title": "U.O.E.N.O. (Remix) [feat. Future & A$AP Rocky]"
+              }
+            ]
+          },
+          {
+            "name": "Rome Fortune",
+            "note": "Atlanta rapper known for hazy, experimental trap production.",
+            "tracks": [
+              {
+                "title": "Sunset In Benzes"
+              }
+            ]
           }
         ]
       }
@@ -1151,6 +1169,15 @@
                 "title": "Graphic Bleed Outs (feat. Melanie Charles & Merrill Garbus)"
               }
             ]
+          },
+          {
+            "name": "Royce Da 5'9\"",
+            "note": "Detroit lyricist known for dense, technically sharp wordplay.",
+            "tracks": [
+              {
+                "title": "Boom"
+              }
+            ]
           }
         ]
       }
@@ -1287,6 +1314,15 @@
             "tracks": [
               {
                 "title": "3 Kings (feat. Dr. Dre & JAY-Z)"
+              }
+            ]
+          },
+          {
+            "name": "RONNY J",
+            "note": "Miami producer central to the SoundCloud-era rage and trap sound.",
+            "tracks": [
+              {
+                "title": "Costa Rica (feat. Ski Mask the Slump God)"
               }
             ]
           }
@@ -1993,6 +2029,15 @@
                 "title": "Chill Bill (feat. J. Davi$ & Spooks)"
               }
             ]
+          },
+          {
+            "name": "Rodney O & Joe Cooley",
+            "note": "LA duo known for early West Coast electro-rap.",
+            "tracks": [
+              {
+                "title": "Everlasting Bass"
+              }
+            ]
           }
         ]
       }
@@ -2441,6 +2486,15 @@
             "tracks": [
               {
                 "title": "Fall Threw (feat. Young Thug & Gunna)"
+              }
+            ]
+          },
+          {
+            "name": "Run-DMC",
+            "note": "Hollis trio that brought hip-hop into the mainstream and helped define its early sound.",
+            "tracks": [
+              {
+                "title": "Beats to the Rhyme"
               }
             ]
           }
@@ -3890,6 +3944,15 @@
                 "title": "All Girls Cheat (feat. Mario)"
               }
             ]
+          },
+          {
+            "name": "Saba",
+            "note": "Chicago rapper known for warm, jazz-inflected, emotionally resonant songwriting.",
+            "tracks": [
+              {
+                "title": "BUSY/SIRENS (feat. theMIND)"
+              }
+            ]
           }
         ]
       }
@@ -3995,6 +4058,15 @@
             "tracks": [
               {
                 "title": "Soul Killa"
+              }
+            ]
+          },
+          {
+            "name": "Roc Marciano",
+            "note": "Long Island rapper known for minimalist, mafioso-style underground rap.",
+            "tracks": [
+              {
+                "title": "Power"
               }
             ]
           }
@@ -5422,6 +5494,15 @@
             "tracks": [
               {
                 "title": "Chin Check"
+              }
+            ]
+          },
+          {
+            "name": "Roddy Ricch",
+            "note": "Compton rapper known for a melodic, genre-blurring take on West Coast rap.",
+            "tracks": [
+              {
+                "title": "Die Young"
               }
             ]
           }
@@ -7653,6 +7734,78 @@
             "tracks": [
               {
                 "title": "Good Good Love (feat. BJ the Chicago Kid)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "st-petersburg-fl-region",
+    "name": "St. Petersburg, FL",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "st-petersburg-fl",
+        "name": "St. Petersburg, FL",
+        "state": "FL",
+        "artists": [
+          {
+            "name": "Rod Wave",
+            "note": "St. Petersburg singer-rapper known for raw, emotionally direct street soul.",
+            "tracks": [
+              {
+                "title": "Green Light"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "secaucus-nj-region",
+    "name": "Secaucus, NJ",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "secaucus-nj",
+        "name": "Secaucus, NJ",
+        "state": "NJ",
+        "artists": [
+          {
+            "name": "Russ",
+            "note": "New Jersey rapper-producer known for a smooth, self-made, self-produced catalog.",
+            "tracks": [
+              {
+                "title": "ALL TO YOU (feat. Kiana Ledé)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rochester-ny-region",
+    "name": "Rochester, NY",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "rochester-ny",
+        "name": "Rochester, NY",
+        "state": "NY",
+        "artists": [
+          {
+            "name": "RXKNephew",
+            "note": "Rochester rapper known for a prolific, stream-of-consciousness style.",
+            "tracks": [
+              {
+                "title": "American Tterroristt"
+              },
+              {
+                "title": "Dub 4 U"
               }
             ]
           }
