@@ -358,6 +358,15 @@
                 "title": "Sweet Lady"
               }
             ]
+          },
+          {
+            "name": "Alemeda",
+            "note": "LA underground artist known for a raw, lo-fi rap-adjacent sound.",
+            "tracks": [
+              {
+                "title": "Gonna Bleach My Eyebrows"
+              }
+            ]
           }
         ]
       }
@@ -509,6 +518,21 @@
               },
               {
                 "title": "Bonita Applebum (Sir Piers and Si Ashton's Curious House Mix)"
+              }
+            ]
+          },
+          {
+            "name": "Action Bronson",
+            "note": "Flushing-born rapper known for dense food/pop-culture wordplay over soulful, sample-heavy beats.",
+            "tracks": [
+              {
+                "title": "Actin Crazy"
+              },
+              {
+                "title": "Cocoa Butter (feat. Nina Sky)"
+              },
+              {
+                "title": "Descendant of the Stars"
               }
             ]
           }
@@ -726,6 +750,194 @@
               },
               {
                 "title": "Lost and Found Freestyle 2019"
+              }
+            ]
+          },
+          {
+            "name": "A$AP Twelvyy",
+            "note": "A$AP Mob affiliate from Harlem.",
+            "tracks": [
+              {
+                "title": "Strapped"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "carson-ca-region",
+    "name": "Carson, CA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "carson-ca",
+        "name": "Carson, CA",
+        "state": "CA",
+        "artists": [
+          {
+            "name": "Ab-Soul",
+            "note": "TDE member known for dense, wordplay-heavy lyricism.",
+            "tracks": [
+              {
+                "title": "D.R.U.G.S."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "austin-tx-region",
+    "name": "Austin, TX",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "austin-tx",
+        "name": "Austin, TX",
+        "state": "TX",
+        "artists": [
+          {
+            "name": "Abhi The Nomad",
+            "note": "Austin-based artist blending alt-rap with indie pop sensibilities.",
+            "tracks": [
+              {
+                "title": "Floors (feat. Foster Cazz)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "chicago-il-region",
+    "name": "Chicago, IL",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "chicago-il",
+        "name": "Chicago, IL",
+        "state": "IL",
+        "artists": [
+          {
+            "name": "Abstract Mindstate",
+            "note": "Chicago duo known for soulful, boom-bap-rooted production.",
+            "tracks": [
+              {
+                "title": "The Brenda Song (feat. Kanye West)"
+              }
+            ]
+          },
+          {
+            "name": "Add-2",
+            "note": "Chicago lyricist known for dense, socially conscious wordplay.",
+            "tracks": [
+              {
+                "title": "Bomber & a Fly Chick"
+              }
+            ]
+          },
+          {
+            "name": "Alex Wiley",
+            "note": "Chicago rapper affiliated with the Village collective (Vic Mensa, Chance the Rapper's orbit).",
+            "tracks": [
+              {
+                "title": "Games"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "long-island-ny-region",
+    "name": "Long Island, NY",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "long-island-ny",
+        "name": "Long Island, NY",
+        "state": "NY",
+        "artists": [
+          {
+            "name": "Aesop Rock",
+            "note": "Dense, abstract wordplay pioneer of the underground/indie rap scene.",
+            "tracks": [
+              {
+                "title": "Daylight"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "palmdale-ca-region",
+    "name": "Palmdale, CA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "palmdale-ca",
+        "name": "Palmdale, CA",
+        "state": "CA",
+        "artists": [
+          {
+            "name": "Afroman",
+            "note": "Laid-back, comedic rap best known for the stoner anthem \"Because I Got High.\"",
+            "tracks": [
+              {
+                "title": "Because I Got High"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "vallejo-ca-region",
+    "name": "Vallejo, CA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "vallejo-ca",
+        "name": "Vallejo, CA",
+        "state": "CA",
+        "artists": [
+          {
+            "name": "AG Club",
+            "note": "Bay Area collective blending punk energy with rap.",
+            "tracks": [
+              {
+                "title": "A Bitch Curious (feat. Sam Truth)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "saint-paul-mn-region",
+    "name": "Saint Paul, MN",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "saint-paul-mn",
+        "name": "Saint Paul, MN",
+        "state": "MN",
+        "artists": [
+          {
+            "name": "Allan Kingdom",
+            "note": "Twin Cities rapper who gained wider attention via a Kanye West collaboration.",
+            "tracks": [
+              {
+                "title": "Wavey (feat. Spooky Black)"
               }
             ]
           }
