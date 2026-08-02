@@ -122,6 +122,24 @@
                 "title": "ANYCIA"
               }
             ]
+          },
+          {
+            "name": "Arrested Development",
+            "note": "Atlanta-formed collective known for blending rap with Southern folk, gospel, and soul influences.",
+            "tracks": [
+              {
+                "title": "People Everyday"
+              }
+            ]
+          },
+          {
+            "name": "B.o.B",
+            "note": "Decatur rapper known for genre-blending pop-rap hits in the early 2010s.",
+            "tracks": [
+              {
+                "title": "HeadBand (feat. 2 Chainz)"
+              }
+            ]
           }
         ]
       }
@@ -375,6 +393,18 @@
             "tracks": [
               {
                 "title": "Before the Vomit"
+              }
+            ]
+          },
+          {
+            "name": "Apollo Brown",
+            "note": "Detroit producer known for soulful, sample-driven boom-bap.",
+            "tracks": [
+              {
+                "title": "I Can Do No Wrong"
+              },
+              {
+                "title": "H20 (feat. Pharoahe Monch, Rakaa Iriscience & inDJnous)"
               }
             ]
           }
@@ -939,6 +969,15 @@
                 "title": "CHOCOLATÉ"
               }
             ]
+          },
+          {
+            "name": "AZ",
+            "note": "East New York lyricist best known for his verse on Nas's \"Life's a Bitch\" and Firm-era work.",
+            "tracks": [
+              {
+                "title": "Bulletproof"
+              }
+            ]
           }
         ]
       }
@@ -1031,6 +1070,15 @@
               },
               {
                 "title": "DANCE (You See It)"
+              }
+            ]
+          },
+          {
+            "name": "Armand Hammer",
+            "note": "Abstract, politically dense underground rap duo rooted in the NYC underground scene.",
+            "tracks": [
+              {
+                "title": "Doves (feat. billy woods, E L U C I D & Benjamin Booker)"
               }
             ]
           }
@@ -1127,6 +1175,18 @@
             "tracks": [
               {
                 "title": "Demons and Angels (feat. Juice WRLD)"
+              }
+            ]
+          },
+          {
+            "name": "B-Lovee",
+            "note": "Bronx drill artist known for a melodic, sung-rap hybrid style.",
+            "tracks": [
+              {
+                "title": "IYKYK"
+              },
+              {
+                "title": "My Everything (Part III)"
               }
             ]
           }
@@ -1243,6 +1303,15 @@
             "tracks": [
               {
                 "title": "Strapped"
+              }
+            ]
+          },
+          {
+            "name": "Azealia Banks",
+            "note": "Harlem rapper who broke out with the club-rap hit \"212.\"",
+            "tracks": [
+              {
+                "title": "212 (feat. Lazy Jay)"
               }
             ]
           }
@@ -1389,6 +1458,15 @@
             "tracks": [
               {
                 "title": "Daylight"
+              }
+            ]
+          },
+          {
+            "name": "Ashanti",
+            "note": "Glen Cove-raised R&B singer who defined a huge swath of early-2000s hip-hop soul.",
+            "tracks": [
+              {
+                "title": "Foolish"
               }
             ]
           }
@@ -1559,6 +1637,142 @@
             "tracks": [
               {
                 "title": "Lindsey Lohan"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "washington-dc-region",
+    "name": "Washington, DC",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "washington-dc",
+        "name": "Washington, DC",
+        "state": "DC",
+        "artists": [
+          {
+            "name": "Ari Lennox",
+            "note": "Dreamville R&B singer known for a warm, conversational vocal style.",
+            "tracks": [
+              {
+                "title": "Backseat (feat. Cozz)"
+              }
+            ]
+          },
+          {
+            "name": "Arizona Zervas",
+            "note": "DC-area rapper who broke through with the viral hit \"ROXANNE.\"",
+            "tracks": [
+              {
+                "title": "ROXANNE"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "philadelphia-pa-region",
+    "name": "Philadelphia, PA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "philadelphia-pa",
+        "name": "Philadelphia, PA",
+        "state": "PA",
+        "artists": [
+          {
+            "name": "Armani White",
+            "note": "Philly rapper known for high-energy, hook-driven street anthems.",
+            "tracks": [
+              {
+                "title": "BILLIE EILISH."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "morrisville-pa-region",
+    "name": "Morrisville, PA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "morrisville-pa",
+        "name": "Morrisville, PA",
+        "state": "PA",
+        "artists": [
+          {
+            "name": "Asher Roth",
+            "note": "Philadelphia-area rapper best known for the breakout hit \"I Love College.\"",
+            "tracks": [
+              {
+                "title": "Charlie Chaplin (feat. Phil Ade, GLC & Thurz)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "minneapolis-mn-region",
+    "name": "Minneapolis, MN",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "minneapolis-mn",
+        "name": "Minneapolis, MN",
+        "state": "MN",
+        "artists": [
+          {
+            "name": "Atmosphere",
+            "note": "Minneapolis duo (Slug & Ant) foundational to the independent/underground rap movement of the 2000s.",
+            "tracks": [
+              {
+                "title": "Painting"
+              },
+              {
+                "title": "Sound Is Vibration"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "new-orleans-la-region",
+    "name": "New Orleans, LA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "new-orleans-la",
+        "name": "New Orleans, LA",
+        "state": "LA",
+        "artists": [
+          {
+            "name": "Baby",
+            "note": "Cash Money Records co-founder whose ad-libs and hustler persona shaped 2000s Southern rap.",
+            "tracks": [
+              {
+                "title": "What Happened To That Boy (feat. Clipse)"
+              }
+            ]
+          },
+          {
+            "name": "Baby Boy Da Prince",
+            "note": "New Orleans rapper best known for the regional hit \"The Way I Live.\"",
+            "tracks": [
+              {
+                "title": "The Way I Live (feat. Lil Boosie)"
               }
             ]
           }
