@@ -1110,30 +1110,6 @@
         "name": "Oakland",
         "x": 22.99,
         "y": 44.82
-      },
-      {
-        "id": "palmdale-ca",
-        "name": "Palmdale",
-        "x": 60.42,
-        "y": 76.33
-      },
-      {
-        "id": "vallejo-ca",
-        "name": "Vallejo",
-        "x": 23.12,
-        "y": 41.89
-      },
-      {
-        "id": "oxnard-ca",
-        "name": "Oxnard",
-        "x": 50.84,
-        "y": 80.06
-      },
-      {
-        "id": "long-beach-ca",
-        "name": "Long Beach",
-        "x": 59.75,
-        "y": 84.25
       }
     ]
   },
@@ -1689,12 +1665,6 @@
         "name": "Gainesville",
         "x": 68.36,
         "y": 24.97
-      },
-      {
-        "id": "orlando",
-        "name": "Orlando",
-        "x": 79.88,
-        "y": 42.44
       }
     ]
   },
@@ -3650,14 +3620,7 @@
         3.7
       ]
     ],
-    "cities": [
-      {
-        "id": "new-orleans-la",
-        "name": "New Orleans",
-        "x": 76.61,
-        "y": 74.43
-      }
-    ]
+    "cities": []
   },
   "ME": {
     "bbox": {
@@ -4943,20 +4906,7 @@
         45.86
       ]
     ],
-    "cities": [
-      {
-        "id": "saint-paul-mn",
-        "name": "Saint Paul",
-        "x": 54,
-        "y": 73.5
-      },
-      {
-        "id": "minneapolis-mn",
-        "name": "Minneapolis",
-        "x": 51.91,
-        "y": 73.06
-      }
-    ]
+    "cities": []
   },
   "MS": {
     "bbox": {
@@ -6445,12 +6395,6 @@
         "name": "Queensbridge, Queens",
         "x": 74.04,
         "y": 91.97
-      },
-      {
-        "id": "long-island-ny",
-        "name": "Long Island",
-        "x": 84.23,
-        "y": 89.93
       }
     ]
   },
@@ -7407,14 +7351,7 @@
         5.6
       ]
     ],
-    "cities": [
-      {
-        "id": "portland-or",
-        "name": "Portland",
-        "x": 25.21,
-        "y": 19.77
-      }
-    ]
+    "cities": []
   },
   "PA": {
     "bbox": {
@@ -7557,20 +7494,7 @@
         4.3
       ]
     ],
-    "cities": [
-      {
-        "id": "philadelphia-pa",
-        "name": "Philadelphia",
-        "x": 88.87,
-        "y": 87.92
-      },
-      {
-        "id": "morrisville-pa",
-        "name": "Morrisville",
-        "x": 95.04,
-        "y": 78.63
-      }
-    ]
+    "cities": []
   },
   "RI": {
     "bbox": {
@@ -8460,14 +8384,7 @@
         3.7
       ]
     ],
-    "cities": [
-      {
-        "id": "houston-tx",
-        "name": "Houston",
-        "x": 83.3,
-        "y": 62.52
-      }
-    ]
+    "cities": []
   },
   "UT": {
     "bbox": {
@@ -9851,13 +9768,6 @@
         3.7
       ]
     ],
-    "cities": [
-      {
-        "id": "washington-dc",
-        "name": "Washington",
-        "x": 39.75,
-        "y": 48.84
-      }
-    ]
+    "cities": []
   }
 }
