@@ -140,7 +140,14 @@
         3.7
       ]
     ],
-    "cities": []
+    "cities": [
+      {
+        "id": "montgomery-al",
+        "name": "Montgomery",
+        "x": 59.59,
+        "y": 54.8
+      }
+    ]
   },
   "AK": {
     "bbox": {
@@ -1176,6 +1183,12 @@
         "name": "San Jose",
         "x": 26.42,
         "y": 49.39
+      },
+      {
+        "id": "sacramento-ca",
+        "name": "Sacramento",
+        "x": 29.99,
+        "y": 37.23
       }
     ]
   },
@@ -4706,6 +4719,12 @@
         "name": "Pontiac",
         "x": 77.87,
         "y": 74.82
+      },
+      {
+        "id": "ann-arbor-mi",
+        "name": "Ann Arbor",
+        "x": 68.26,
+        "y": 82.95
       }
     ]
   },
@@ -6196,6 +6215,12 @@
         "name": "North Bergen",
         "x": 90.18,
         "y": 25.45
+      },
+      {
+        "id": "new-brunswick-nj",
+        "name": "New Brunswick",
+        "x": 66.1,
+        "y": 37.6
       }
     ]
   },
