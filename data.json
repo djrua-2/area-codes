@@ -626,6 +626,15 @@
                 "title": "Been Thru a Lot"
               }
             ]
+          },
+          {
+            "name": "Travis Porter",
+            "note": "College Park trio known for high-energy, dance-club-ready trap.",
+            "tracks": [
+              {
+                "title": "Ayy Ladies (feat. Tyga)"
+              }
+            ]
           }
         ]
       }
@@ -1025,6 +1034,15 @@
             "tracks": [
               {
                 "title": "Hyphy Juice"
+              }
+            ]
+          },
+          {
+            "name": "Too $hort",
+            "note": "Oakland rapper whose pimped-out, slang-driven style helped found the Bay Area's independent rap scene.",
+            "tracks": [
+              {
+                "title": "Blow the Whistle"
               }
             ]
           }
@@ -2380,6 +2398,15 @@
                 "title": "All We Are"
               }
             ]
+          },
+          {
+            "name": "TQ",
+            "note": "LA singer-rapper known for smooth, R&B-leaning hip-hop.",
+            "tracks": [
+              {
+                "title": "Kill Jill"
+              }
+            ]
           }
         ]
       }
@@ -3351,6 +3378,15 @@
             "tracks": [
               {
                 "title": "Can't Stop (feat. Kanye West)"
+              }
+            ]
+          },
+          {
+            "name": "Torae",
+            "note": "Brooklyn lyricist known for sharp, boom-bap-rooted storytelling.",
+            "tracks": [
+              {
+                "title": "Saturday Night"
               }
             ]
           }
@@ -4490,6 +4526,36 @@
                 "title": "Black Mags"
               }
             ]
+          },
+          {
+            "name": "tobi lou",
+            "note": "Chicago artist known for playful, genre-blending pop-rap.",
+            "tracks": [
+              {
+                "title": "Birthday Boy (feat. Zack Villere)"
+              },
+              {
+                "title": "Hit & Run (feat. Chief Keef, Saba & internetboy)"
+              }
+            ]
+          },
+          {
+            "name": "Towkio",
+            "note": "Chicago rapper affiliated with the Savemoney collective.",
+            "tracks": [
+              {
+                "title": "Drift"
+              }
+            ]
+          },
+          {
+            "name": "Trademark Da Skydiver",
+            "note": "Chicago rapper (Kids These Days) known for live-band-backed rap.",
+            "tracks": [
+              {
+                "title": "Keep It 100"
+              }
+            ]
           }
         ]
       }
@@ -4948,6 +5014,30 @@
             "tracks": [
               {
                 "title": "Werkkk"
+              }
+            ]
+          },
+          {
+            "name": "Tobe Nwigwe",
+            "note": "Houston artist known for rhythmic, percussive delivery and tight-knit family-run visuals.",
+            "tracks": [
+              {
+                "title": "HËÂT RŌČK"
+              }
+            ]
+          },
+          {
+            "name": "Travis Scott",
+            "note": "Houston rapper-producer whose psychedelic, arena-scale trap sound reshaped mainstream hip-hop.",
+            "tracks": [
+              {
+                "title": "3500 (feat. Future & 2 Chainz)"
+              },
+              {
+                "title": "BEEP BEEP"
+              },
+              {
+                "title": "SICKO MODE (Skrillex Remix)"
               }
             ]
           }
@@ -8588,6 +8678,15 @@
                 "title": "Dub 4 U"
               }
             ]
+          },
+          {
+            "name": "Toohda Band$",
+            "note": "Rochester rapper known for a laid-back, melodic street-rap style.",
+            "tracks": [
+              {
+                "title": "U A Lie"
+              }
+            ]
           }
         ]
       }
@@ -8885,6 +8984,52 @@
             "tracks": [
               {
                 "title": "Olive (feat. Zelooperz)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fairfax-va-region",
+    "name": "Fairfax, VA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "fairfax-va",
+        "name": "Fairfax, VA",
+        "state": "VA",
+        "artists": [
+          {
+            "name": "Tommy Richman",
+            "note": "Virginia artist known for genre-blurring, funk-inflected songwriting.",
+            "tracks": [
+              {
+                "title": "ACTIN UP"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "montclair-nj-region",
+    "name": "Montclair, NJ",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "montclair-nj",
+        "name": "Montclair, NJ",
+        "state": "NJ",
+        "artists": [
+          {
+            "name": "Topaz Jones",
+            "note": "New Jersey artist blending soul, funk, and rap into a warm, personal sound.",
+            "tracks": [
+              {
+                "title": "Birds & Bees"
               }
             ]
           }
