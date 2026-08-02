@@ -1128,6 +1128,24 @@
         "name": "Inglewood",
         "x": 58.29,
         "y": 82.42
+      },
+      {
+        "id": "carson-ca",
+        "name": "Carson",
+        "x": 59.21,
+        "y": 83.64
+      },
+      {
+        "id": "palmdale-ca",
+        "name": "Palmdale",
+        "x": 60.42,
+        "y": 76.33
+      },
+      {
+        "id": "vallejo-ca",
+        "name": "Vallejo",
+        "x": 23.12,
+        "y": 41.89
       }
     ]
   },
@@ -2555,7 +2573,14 @@
         3.7
       ]
     ],
-    "cities": []
+    "cities": [
+      {
+        "id": "chicago-il",
+        "name": "Chicago",
+        "x": 93.34,
+        "y": 14.33
+      }
+    ]
   },
   "IN": {
     "bbox": {
@@ -4936,7 +4961,14 @@
         45.86
       ]
     ],
-    "cities": []
+    "cities": [
+      {
+        "id": "saint-paul-mn",
+        "name": "Saint Paul",
+        "x": 54,
+        "y": 73.5
+      }
+    ]
   },
   "MS": {
     "bbox": {
@@ -6462,6 +6494,12 @@
         "name": "Harlem",
         "x": 74,
         "y": 90.83
+      },
+      {
+        "id": "long-island-ny",
+        "name": "Long Island",
+        "x": 84.23,
+        "y": 89.93
       }
     ]
   },
@@ -8470,6 +8508,12 @@
         "name": "Dallas",
         "x": 73.21,
         "y": 36.2
+      },
+      {
+        "id": "austin-tx",
+        "name": "Austin",
+        "x": 66.53,
+        "y": 58.06
       }
     ]
   },
