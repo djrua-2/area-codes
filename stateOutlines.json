@@ -7367,6 +7367,12 @@
         "name": "Cincinnati",
         "x": 10.28,
         "y": 78.66
+      },
+      {
+        "id": "springfield-oh",
+        "name": "Springfield",
+        "x": 25.41,
+        "y": 57.25
       }
     ]
   },
