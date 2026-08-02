@@ -109,6 +109,15 @@
                 "spotifyId": "5iJSu0R2v63oyFlH5x8GjD"
               }
             ]
+          },
+          {
+            "name": "8Ball & MJG",
+            "note": "Foundational Memphis duo whose slow, bass-heavy style helped define Southern rap.",
+            "tracks": [
+              {
+                "title": "You Don't Want Drama"
+              }
+            ]
           }
         ]
       }
@@ -487,6 +496,21 @@
                 "title": "21 Questions (feat. Nate Dogg)"
               }
             ]
+          },
+          {
+            "name": "A Tribe Called Quest",
+            "note": "Jazz-sampling pioneers whose Queens roots shaped the sound of golden-era New York hip-hop.",
+            "tracks": [
+              {
+                "title": "Award Tour (feat. Trugoy the Dove)"
+              },
+              {
+                "title": "I Left My Wallet in El Segundo (Vampire Mix)"
+              },
+              {
+                "title": "Bonita Applebum (Sir Piers and Si Ashton's Curious House Mix)"
+              }
+            ]
           }
         ]
       }
@@ -508,6 +532,200 @@
             "tracks": [
               {
                 "title": "Buttcheeks"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "brooklyn-ny-region",
+    "name": "Brooklyn, NY",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "brooklyn-ny",
+        "name": "Brooklyn, NY",
+        "state": "NY",
+        "artists": [
+          {
+            "name": "6ix9ine",
+            "note": "Bushwick rapper known for a chaotic, high-energy delivery and rainbow-haired persona.",
+            "tracks": [
+              {
+                "title": "CHOCOLATÉ"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cleveland-oh-region",
+    "name": "Cleveland, OH",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "cleveland-oh",
+        "name": "Cleveland, OH",
+        "state": "OH",
+        "artists": [
+          {
+            "name": "71 NORTH",
+            "note": "Cleveland rap named for the interstate that runs through the city.",
+            "tracks": [
+              {
+                "title": "Cleveland Shuffle (Radio Mix)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "new-york-ny-region",
+    "name": "New York, NY",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "new-york-ny",
+        "name": "New York, NY",
+        "state": "NY",
+        "artists": [
+          {
+            "name": "88-Keys",
+            "note": "Harlem producer-rapper closely tied to the 2000s New York backpack-rap and Kanye West circles.",
+            "tracks": [
+              {
+                "title": "Stay Up! (Viagra) [feat. Kanye West]"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "burlington-vt-region",
+    "name": "Burlington, VT",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "burlington-vt",
+        "name": "Burlington, VT",
+        "state": "VT",
+        "artists": [
+          {
+            "name": "99 Neighbors",
+            "note": "Unusual rap hub — a Vermont collective blending rap with indie and rock influences.",
+            "tracks": [
+              {
+                "title": "Facts"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fort-lauderdale-fl-region",
+    "name": "Fort Lauderdale, FL",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "fort-lauderdale-fl",
+        "name": "Fort Lauderdale, FL",
+        "state": "FL",
+        "artists": [
+          {
+            "name": "9lokknine",
+            "note": "Part of South Florida's aggressive, high-energy underground rap scene.",
+            "tracks": [
+              {
+                "title": "Crayola"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bronx-ny-region",
+    "name": "Bronx, NY",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "bronx-ny",
+        "name": "Bronx, NY",
+        "state": "NY",
+        "artists": [
+          {
+            "name": "A Boogie wit da Hoodie",
+            "note": "Melodic Bronx rapper who helped popularize a sung-rap hybrid style.",
+            "tracks": [
+              {
+                "title": "Demons and Angels (feat. Juice WRLD)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "harlem-ny-region",
+    "name": "Harlem, NY",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "harlem-ny",
+        "name": "Harlem, NY",
+        "state": "NY",
+        "artists": [
+          {
+            "name": "A$AP ANT",
+            "note": "Member of the Harlem-born A$AP Mob collective.",
+            "tracks": [
+              {
+                "title": "Pudge Rodriguez"
+              }
+            ]
+          },
+          {
+            "name": "A$AP Ferg",
+            "note": "A$AP Mob member known for a chaotic, high-energy delivery and Harlem street style.",
+            "tracks": [
+              {
+                "title": "Beautiful People (feat. Chuck D & Mama Ferg)"
+              },
+              {
+                "title": "WAM"
+              }
+            ]
+          },
+          {
+            "name": "A$AP Mob",
+            "note": "Harlem collective that helped bring a fashion-forward, cloud-rap-adjacent sound to mainstream rap.",
+            "tracks": [
+              {
+                "title": "Put That on My Set (feat. A$AP Rocky & Skepta)"
+              }
+            ]
+          },
+          {
+            "name": "A$AP Rocky",
+            "note": "Harlem's biggest 2010s rap export, blending Southern-influenced production with high fashion sensibility.",
+            "tracks": [
+              {
+                "title": "1 Train (feat. Kendrick Lamar, Joey Bada$$, Yelawolf, Danny Brown, Action Bronson & Big K.R.I.T.)"
+              },
+              {
+                "title": "Lost and Found Freestyle 2019"
               }
             ]
           }
