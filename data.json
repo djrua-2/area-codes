@@ -671,6 +671,27 @@
                 "title": "Big Poppa"
               }
             ]
+          },
+          {
+            "name": "Young Dro",
+            "note": "Atlanta rapper known for a colorful, ad-lib-heavy trap style.",
+            "tracks": [
+              {
+                "title": "Ain't I (Remix)"
+              }
+            ]
+          },
+          {
+            "name": "Young Nudy",
+            "note": "Atlanta rapper known for hazy, murky trap production and a laid-back delivery.",
+            "tracks": [
+              {
+                "title": "Blue Cheese Salad"
+              },
+              {
+                "title": "Dispatch (feat. DaBaby)"
+              }
+            ]
           }
         ]
       }
@@ -854,6 +875,24 @@
             "tracks": [
               {
                 "title": "First Light"
+              }
+            ]
+          },
+          {
+            "name": "Yo Gotti",
+            "note": "Memphis rapper known for gritty, hustler-narrative street rap.",
+            "tracks": [
+              {
+                "title": "Down in the DM"
+              }
+            ]
+          },
+          {
+            "name": "Young Dolph",
+            "note": "Memphis rapper known for an independent, self-made hustler persona.",
+            "tracks": [
+              {
+                "title": "Get Away"
               }
             ]
           }
@@ -3072,6 +3111,15 @@
                 "title": "Hot Spot"
               }
             ]
+          },
+          {
+            "name": "Young Buck",
+            "note": "Nashville rapper and G-Unit member known for gritty Southern street rap.",
+            "tracks": [
+              {
+                "title": "Shorty Wanna Ride"
+              }
+            ]
           }
         ]
       }
@@ -3534,6 +3582,15 @@
             "tracks": [
               {
                 "title": "Friends"
+              }
+            ]
+          },
+          {
+            "name": "Young M.A",
+            "note": "East Flatbush rapper known for a confident, punchline-driven street style.",
+            "tracks": [
+              {
+                "title": "Ooouuu"
               }
             ]
           }
@@ -5983,6 +6040,24 @@
                 "title": "chirpin'"
               }
             ]
+          },
+          {
+            "name": "Young Money",
+            "note": "Lil Wayne's New Orleans-rooted label and artist collective.",
+            "tracks": [
+              {
+                "title": "Ms. Parker"
+              }
+            ]
+          },
+          {
+            "name": "Young Roddy",
+            "note": "New Orleans rapper and Curren$y affiliate known for laid-back, weed-culture-steeped rap.",
+            "tracks": [
+              {
+                "title": "Trapologist (feat. Nesby Phips)"
+              }
+            ]
           }
         ]
       }
@@ -6726,6 +6801,15 @@
             "tracks": [
               {
                 "title": "I'm Shinin'"
+              }
+            ]
+          },
+          {
+            "name": "Young L",
+            "note": "The Pack member central to the Bay Area's hyphy movement.",
+            "tracks": [
+              {
+                "title": "Automated Oceans (feat. Sea of Bees)"
               }
             ]
           }
@@ -8456,6 +8540,15 @@
                 "title": "Independent (feat. Boosie Badazz & Lil' Phat)"
               }
             ]
+          },
+          {
+            "name": "Young Bleed",
+            "note": "Baton Rouge rapper foundational to Louisiana's regional rap scene.",
+            "tracks": [
+              {
+                "title": "How Ya Do Dat (feat. C-Loc & Master P)"
+              }
+            ]
           }
         ]
       }
@@ -9524,6 +9617,29 @@
             "tracks": [
               {
                 "title": "11:35 in Miami"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stockton-ca-region",
+    "name": "Stockton, CA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "stockton-ca",
+        "name": "Stockton, CA",
+        "state": "CA",
+        "artists": [
+          {
+            "name": "Young Slo-Be",
+            "note": "Stockton rapper known for melodic, confessional street storytelling.",
+            "tracks": [
+              {
+                "title": "I Love You"
               }
             ]
           }
