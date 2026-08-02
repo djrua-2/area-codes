@@ -284,6 +284,12 @@ main#app {
 .retro-badge-link:active {
   border-color: #00008b #99b3ff #99b3ff #00008b;
 }
+/* a:visited (element+pseudo-class) otherwise outranks the single-class
+   .retro-badge-link rule above once the link has been visited, silently
+   swapping the white label for the browser's default visited-purple. */
+.retro-badge-link:visited {
+  color: #ffffff;
+}
 
 /* "100% human-curated" — gold award-seal badge */
 .retro-badge-seal {
@@ -420,7 +426,7 @@ main#app {
 
 /* ---- state-level map ---- */
 .state-map-wrap { margin-bottom: 2rem; }
-.state-map-svg { display: block; margin: 0 auto; width: 100%; max-width: 480px; height: auto; transform-origin: center center; }
+.state-map-svg { display: block; margin: 0 auto; width: 100%; max-width: 460px; height: auto; transform-origin: center center; }
 .state-outline {
   fill: none;
   stroke: #000000;
@@ -437,10 +443,19 @@ main#app {
 }
 .city-marker { cursor: pointer; }
 
+/* Constrained to the same width as the svg it wraps (rather than the full
+   content column) and outlined, so the pannable/zoomable hit-region — which
+   captures wheel scroll to zoom instead of scrolling the page — has a
+   visible edge. Previously this box was invisible and as wide as the page,
+   so scrolling anywhere near the map (even in the blank margin beside it)
+   zoomed the map instead of scrolling the page. */
 .state-map-viewport {
   overflow: hidden;
   touch-action: none;
   cursor: grab;
+  width: min(460px, 94%);
+  margin: 0 auto;
+  border: 2px solid #000000;
 }
 .state-map-viewport.is-panning { cursor: grabbing; }
 
@@ -474,7 +489,7 @@ main#app {
 
 .rapper-list { display: grid; gap: 1.25rem; }
 .city-block {
-  border: 1px solid var(--ink-faint);
+  border: 1px solid #000000;
   border-radius: 0;
   padding: 0.9rem 1.1rem;
 }
@@ -507,7 +522,7 @@ h1.page-title {
 
 .artist-list { display: grid; gap: 1rem; }
 .artist-card {
-  border: 1px solid var(--ink-faint);
+  border: 1px solid #000000;
   border-radius: 0;
   padding: 0.9rem 1.1rem;
 }
@@ -613,7 +628,7 @@ h1.page-title {
 .form-status.is-error { color: var(--ink); }
 .snippet-box {
   background: transparent;
-  border: 1px solid var(--ink-faint);
+  border: 1px solid #000000;
   color: var(--ink-faded);
   padding: 0.75rem;
   font-family: "Courier New", monospace;
@@ -632,7 +647,7 @@ h1.page-title {
   font-size: 0.9rem;
 }
 .bulk-table th, .bulk-table td {
-  border: 1px solid var(--ink-faint);
+  border: 1px solid #000000;
   padding: 0.4rem 0.6rem;
   text-align: left;
 }

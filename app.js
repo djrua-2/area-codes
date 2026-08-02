@@ -419,8 +419,10 @@ function renderStateMap(abbrev, entries) {
     return `
       <a class="city-marker" href="#/city/${match.region.id}/${match.city.id}" data-cx="${cx.toFixed(2)}">
         <circle cx="${cx.toFixed(2)}" cy="${cy.toFixed(2)}" r="2.4" class="city-marker-hitarea" />
-        <use href="#pushpin-icon" x="${(cx - 1.5).toFixed(2)}" y="${(cy - 3).toFixed(2)}" width="3" height="3.6" />
-        <text x="${(cx + 3.2).toFixed(2)}" y="${(cy + 1.2).toFixed(2)}" font-size="4.2" text-anchor="start">${escapeHtml(c.name)}</text>
+        <g class="marker-visual" data-cx="${cx.toFixed(2)}" data-cy="${cy.toFixed(2)}">
+          <use href="#pushpin-icon" x="${(cx - 1.5).toFixed(2)}" y="${(cy - 3).toFixed(2)}" width="3" height="3.6" />
+          <text x="${(cx + 3.2).toFixed(2)}" y="${(cy + 1.2).toFixed(2)}" font-size="4.2" text-anchor="start">${escapeHtml(c.name)}</text>
+        </g>
       </a>
     `;
   }).join("");
@@ -455,6 +457,17 @@ function applyMapZoom() {
   if (!svg) return;
   const { scale, x, y } = mapZoomState;
   svg.style.transform = `scale(${scale}) translate(${x}px, ${y}px)`;
+  // Counter-scale each pin+label back down by the inverse of the map's
+  // zoom, pivoted on its own point via an explicit SVG transform (not CSS
+  // transform-origin, whose unit/reference-box handling for SVG children
+  // is inconsistent across browsers). Positions still spread apart with
+  // the zoom — only the rendered size of the pin/text stays fixed — which
+  // is what actually relieves label overlap instead of just magnifying it.
+  const invScale = 1 / scale;
+  svg.querySelectorAll(".marker-visual").forEach(g => {
+    const mx = g.dataset.cx, my = g.dataset.cy;
+    g.setAttribute("transform", `translate(${mx} ${my}) scale(${invScale}) translate(${-mx} ${-my})`);
+  });
 }
 
 function resetMapZoom() {
