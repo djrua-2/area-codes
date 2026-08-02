@@ -415,6 +415,15 @@
                 "title": "911 (Clap for Em)"
               }
             ]
+          },
+          {
+            "name": "Juicy J",
+            "note": "Three 6 Mafia member whose dark, horror-tinged production shaped modern trap.",
+            "tracks": [
+              {
+                "title": "Act"
+              }
+            ]
           }
         ]
       }
@@ -878,6 +887,15 @@
                 "title": "GDFR (feat. Sage the Gemini & LooKas)"
               }
             ]
+          },
+          {
+            "name": "JT",
+            "note": "City Girls member known for brash, uncensored bars.",
+            "tracks": [
+              {
+                "title": "OKAY"
+              }
+            ]
           }
         ]
       },
@@ -1277,6 +1295,24 @@
             "tracks": [
               {
                 "title": "LoveSick (Super Nintendo)"
+              }
+            ]
+          },
+          {
+            "name": "Jonwayne",
+            "note": "LA producer-rapper known for dry humor and dense, jazz-inflected beats.",
+            "tracks": [
+              {
+                "title": "Afraid of Us (feat. Zeroh)"
+              }
+            ]
+          },
+          {
+            "name": "Jurassic 5",
+            "note": "LA group central to the West Coast's turntablist-driven underground scene.",
+            "tracks": [
+              {
+                "title": "Contact"
               }
             ]
           }
@@ -1791,6 +1827,24 @@
             "tracks": [
               {
                 "title": "BABYLON (feat. Chronixx)"
+              }
+            ]
+          },
+          {
+            "name": "Junglepussy",
+            "note": "Brooklyn rapper known for blunt, unapologetic feminist lyricism.",
+            "tracks": [
+              {
+                "title": "Arugula"
+              }
+            ]
+          },
+          {
+            "name": "Junior M.A.F.I.A.",
+            "note": "Brooklyn crew launched by The Notorious B.I.G., early home to Lil' Kim.",
+            "tracks": [
+              {
+                "title": "Get Money"
               }
             ]
           }
@@ -2484,6 +2538,24 @@
             "tracks": [
               {
                 "title": "2012"
+              }
+            ]
+          },
+          {
+            "name": "Juice WRLD",
+            "note": "Chicago rapper known for melodic, emotionally raw freestyled songwriting.",
+            "tracks": [
+              {
+                "title": "All Girls Are the Same"
+              },
+              {
+                "title": "Reminds Me of You"
+              },
+              {
+                "title": "Smile"
+              },
+              {
+                "title": "Girl Of My Dreams"
               }
             ]
           }
@@ -3613,6 +3685,21 @@
                 "title": "Why Bother (feat. Pink Siifu)"
               }
             ]
+          },
+          {
+            "name": "JPEGMAFIA",
+            "note": "Baltimore-based artist known for abrasive, genre-shredding experimental rap.",
+            "tracks": [
+              {
+                "title": "1488"
+              },
+              {
+                "title": "BALD REMIX"
+              },
+              {
+                "title": "I Might Vote 4 Donald Trump"
+              }
+            ]
           }
         ]
       }
@@ -4650,6 +4737,15 @@
                 "title": "Remember"
               }
             ]
+          },
+          {
+            "name": "Juiceboxxx",
+            "note": "Milwaukee artist blending punk energy with rap and electronic music.",
+            "tracks": [
+              {
+                "title": "Like a Renegade"
+              }
+            ]
           }
         ]
       }
@@ -4749,6 +4845,75 @@
             "tracks": [
               {
                 "title": "Sin City"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "oklahoma-city-ok-region",
+    "name": "Oklahoma City, OK",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "oklahoma-city-ok",
+        "name": "Oklahoma City, OK",
+        "state": "OK",
+        "artists": [
+          {
+            "name": "Josh Sallee",
+            "note": "Oklahoma City rapper known for laid-back, melodic storytelling.",
+            "tracks": [
+              {
+                "title": "Sheesh"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "worcester-ma-region",
+    "name": "Worcester, MA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "worcester-ma",
+        "name": "Worcester, MA",
+        "state": "MA",
+        "artists": [
+          {
+            "name": "Joyner Lucas",
+            "note": "Worcester rapper known for dense, rapid-fire, socially charged verses.",
+            "tracks": [
+              {
+                "title": "10 Bands (feat. Timbaland)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "orlando-fl-region",
+    "name": "Orlando, FL",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "orlando-fl",
+        "name": "Orlando, FL",
+        "state": "FL",
+        "artists": [
+          {
+            "name": "Just Juice",
+            "note": "Orlando rapper tied to the Nu Age Syndicate collective.",
+            "tracks": [
+              {
+                "title": "Amsterdam"
               }
             ]
           }
