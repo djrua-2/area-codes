@@ -635,6 +635,24 @@
                 "title": "Ayy Ladies (feat. Tyga)"
               }
             ]
+          },
+          {
+            "name": "Trillville",
+            "note": "Atlanta crunk group best known for the hit \"Some Cut.\"",
+            "tracks": [
+              {
+                "title": "Some Cut"
+              }
+            ]
+          },
+          {
+            "name": "Trinidad James",
+            "note": "Atlanta rapper best known for the viral hit \"All Gold Everything.\"",
+            "tracks": [
+              {
+                "title": "All Gold Everything"
+              }
+            ]
           }
         ]
       }
@@ -1541,6 +1559,15 @@
                 "title": "The Birthday Jam"
               }
             ]
+          },
+          {
+            "name": "Trick Daddy",
+            "note": "Miami rapper known for gritty, street-rooted Southern rap.",
+            "tracks": [
+              {
+                "title": "I'm a Thug"
+              }
+            ]
           }
         ]
       },
@@ -2405,6 +2432,18 @@
             "tracks": [
               {
                 "title": "Kill Jill"
+              }
+            ]
+          },
+          {
+            "name": "Tyler, The Creator",
+            "note": "Odd Future founder whose genre-defying evolution reshaped what a rap album could sound like.",
+            "tracks": [
+              {
+                "title": "2SEATER (feat. Aaron Shaw, Samantha Nelson, and Austin Feinstein)"
+              },
+              {
+                "title": "Potato Salad"
               }
             ]
           }
@@ -4556,6 +4595,27 @@
                 "title": "Keep It 100"
               }
             ]
+          },
+          {
+            "name": "Tree",
+            "note": "Chicago producer-rapper known for his self-coined \"soul trap\" sound.",
+            "tracks": [
+              {
+                "title": "Grace (feat. Lennon)"
+              }
+            ]
+          },
+          {
+            "name": "Twista",
+            "note": "Chicago rapper known for one of the fastest rap flows ever recorded.",
+            "tracks": [
+              {
+                "title": "Overnight Celebrity"
+              },
+              {
+                "title": "Slow Jamz"
+              }
+            ]
           }
         ]
       }
@@ -6225,6 +6285,15 @@
                 "title": "El Chapo (Bonus Track)"
               }
             ]
+          },
+          {
+            "name": "Tyga",
+            "note": "Compton rapper known for hook-driven, radio-ready mainstream rap.",
+            "tracks": [
+              {
+                "title": "1 of 1"
+              }
+            ]
           }
         ]
       }
@@ -6434,6 +6503,15 @@
             "tracks": [
               {
                 "title": "Horror Show (feat. Danny Brown)"
+              }
+            ]
+          },
+          {
+            "name": "Traxamillion",
+            "note": "Bay Area producer central to the hyphy movement's sound.",
+            "tracks": [
+              {
+                "title": "The Sideshow (feat. Too $hort & Mistah F.A.B.)"
               }
             ]
           }
@@ -7974,6 +8052,15 @@
                 "title": "Best Me"
               }
             ]
+          },
+          {
+            "name": "Tyla Yaweh",
+            "note": "Orlando artist known for melodic, genre-blending rap-rock hybrids.",
+            "tracks": [
+              {
+                "title": "I Think I Luv Her (feat. YG)"
+              }
+            ]
           }
         ]
       }
@@ -8067,6 +8154,15 @@
             "tracks": [
               {
                 "title": "2 Phones"
+              }
+            ]
+          },
+          {
+            "name": "Trill Family",
+            "note": "Boosie and Webbie's Baton Rouge-rooted label and artist collective.",
+            "tracks": [
+              {
+                "title": "Wipe Me Down (feat. Webbie, FOXX & Boosie Badazz) [Remix]"
               }
             ]
           }
@@ -9030,6 +9126,55 @@
             "tracks": [
               {
                 "title": "Birds & Bees"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "canton-oh-region",
+    "name": "Canton, OH",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "canton-oh",
+        "name": "Canton, OH",
+        "state": "OH",
+        "artists": [
+          {
+            "name": "Trippie Redd",
+            "note": "Canton rapper known for melodic, genre-blurring emo-rap.",
+            "tracks": [
+              {
+                "title": "!"
+              },
+              {
+                "title": "Miss The Rage"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "port-arthur-tx-region",
+    "name": "Port Arthur, TX",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "port-arthur-tx",
+        "name": "Port Arthur, TX",
+        "state": "TX",
+        "artists": [
+          {
+            "name": "UGK",
+            "note": "Port Arthur duo (Pimp C & Bun B) foundational to Southern rap's rise.",
+            "tracks": [
+              {
+                "title": "Choppin' Blades"
               }
             ]
           }
