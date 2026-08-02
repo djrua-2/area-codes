@@ -290,6 +290,27 @@
                 "title": "Like Baby"
               }
             ]
+          },
+          {
+            "name": "Jarren Benton",
+            "note": "Funk Volume affiliate known for aggressive, dark-humored lyricism.",
+            "tracks": [
+              {
+                "title": "Cadillacs & Chevys"
+              }
+            ]
+          },
+          {
+            "name": "Jeezy",
+            "note": "Atlanta rapper whose gritty, ad-lib-heavy trap catalog helped define the genre's mid-2000s sound.",
+            "tracks": [
+              {
+                "title": "American Dream (feat. J. Cole & Kendrick Lamar)"
+              },
+              {
+                "title": "I Got Money (feat. T.I.)"
+              }
+            ]
           }
         ]
       }
@@ -1162,6 +1183,45 @@
                 "title": "Supersonic"
               }
             ]
+          },
+          {
+            "name": "Jaden",
+            "note": "LA artist known for genre-blending, introspective releases.",
+            "tracks": [
+              {
+                "title": "Chateau (feat. A$AP Rocky)"
+              }
+            ]
+          },
+          {
+            "name": "Jay Rock",
+            "note": "Watts rapper and TDE's first signee, known for gritty street storytelling.",
+            "tracks": [
+              {
+                "title": "Broke +-"
+              }
+            ]
+          },
+          {
+            "name": "Jay Worthy",
+            "note": "LA rapper known for laid-back, smoked-out West Coast production.",
+            "tracks": [
+              {
+                "title": "Wait On You"
+              }
+            ]
+          },
+          {
+            "name": "Jeremiah Jae",
+            "note": "LA rapper-producer known for dense, experimental production.",
+            "tracks": [
+              {
+                "title": "Survival (feat. Oliver the 2nd)"
+              },
+              {
+                "title": "All I Need (feat. Gift of Gab)"
+              }
+            ]
           }
         ]
       }
@@ -1653,6 +1713,18 @@
             "tracks": [
               {
                 "title": "Them That's Not"
+              }
+            ]
+          },
+          {
+            "name": "JAY-Z",
+            "note": "Marcy Projects rapper turned mogul, one of the most influential MCs in hip-hop history.",
+            "tracks": [
+              {
+                "title": "4:44"
+              },
+              {
+                "title": "New Day"
               }
             ]
           }
@@ -2321,6 +2393,24 @@
                 "title": "In The A (feat. 21 Savage)"
               }
             ]
+          },
+          {
+            "name": "Jdot Breezy",
+            "note": "Chicago drill artist known for aggressive, high-energy delivery.",
+            "tracks": [
+              {
+                "title": "Bananas"
+              }
+            ]
+          },
+          {
+            "name": "Jean Deaux",
+            "note": "Chicago singer-rapper known for soulful, genre-blending songwriting.",
+            "tracks": [
+              {
+                "title": "Moody! (feat. Saba)"
+              }
+            ]
           }
         ]
       }
@@ -2954,6 +3044,15 @@
               },
               {
                 "title": "Location Remote"
+              }
+            ]
+          },
+          {
+            "name": "Jay Electronica",
+            "note": "New Orleans rapper known for dense, spiritually charged lyricism and a mythic, sparse release history.",
+            "tracks": [
+              {
+                "title": "A.P.I.D.T.A."
               }
             ]
           }
@@ -3873,6 +3972,15 @@
                 "title": "No Hoe"
               }
             ]
+          },
+          {
+            "name": "Jay Ant",
+            "note": "HBK Gang member central to the Bay Area's mid-2010s rap scene.",
+            "tracks": [
+              {
+                "title": "On My Mind (feat. Mike-Dash-E)"
+              }
+            ]
           }
         ]
       }
@@ -4484,6 +4592,29 @@
             "tracks": [
               {
                 "title": "CODY BANKS"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "san-diego-ca-region",
+    "name": "San Diego, CA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "san-diego-ca",
+        "name": "San Diego, CA",
+        "state": "CA",
+        "artists": [
+          {
+            "name": "Jelani Aryeh",
+            "note": "San Diego artist blending indie, soul, and rap influences.",
+            "tracks": [
+              {
+                "title": "Spectrum"
               }
             ]
           }
