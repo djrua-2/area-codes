@@ -434,6 +434,15 @@
                 "title": "Coffin"
               }
             ]
+          },
+          {
+            "name": "London On Da Track",
+            "note": "Atlanta producer behind a huge swath of 2010s Southern trap hits.",
+            "tracks": [
+              {
+                "title": "Throw Fits (feat. City Girls & Juvenile)"
+              }
+            ]
           }
         ]
       }
@@ -1864,6 +1873,24 @@
                 "title": "Did It Again"
               }
             ]
+          },
+          {
+            "name": "LL COOL J",
+            "note": "Hollis rapper and one of hip-hop's first bona fide superstars.",
+            "tracks": [
+              {
+                "title": "I Need Love"
+              }
+            ]
+          },
+          {
+            "name": "Lloyd Banks",
+            "note": "South Jamaica rapper and G-Unit member known for sharp punchline writing.",
+            "tracks": [
+              {
+                "title": "Karma"
+              }
+            ]
           }
         ]
       }
@@ -2136,6 +2163,24 @@
             "tracks": [
               {
                 "title": "Girl Blunt"
+              }
+            ]
+          },
+          {
+            "name": "Lil' Kim",
+            "note": "Brooklyn rapper and Junior M.A.F.I.A. member known for a bold, fashion-forward persona.",
+            "tracks": [
+              {
+                "title": "Crush On You"
+              }
+            ]
+          },
+          {
+            "name": "Lola Brooke",
+            "note": "Brooklyn rapper known for a gritty, high-energy delivery.",
+            "tracks": [
+              {
+                "title": "Just Relax"
               }
             ]
           }
@@ -2661,6 +2706,15 @@
             "tracks": [
               {
                 "title": "Bossy (feat. Too $hort)"
+              }
+            ]
+          },
+          {
+            "name": "Loon",
+            "note": "Bad Boy Records rapper known for a smooth, melodic delivery.",
+            "tracks": [
+              {
+                "title": "Got Me F'd Up"
               }
             ]
           }
@@ -3288,6 +3342,15 @@
                 "title": "On My Vibe (Feat. Travi$ Scott) [Prod. By Travi$ Scott]"
               }
             ]
+          },
+          {
+            "name": "Lil' Flip",
+            "note": "Houston rapper known for laid-back, chopped-and-screwed-adjacent Southern rap.",
+            "tracks": [
+              {
+                "title": "Sunshine"
+              }
+            ]
           }
         ]
       }
@@ -3332,6 +3395,15 @@
             "tracks": [
               {
                 "title": "6 Summers"
+              }
+            ]
+          },
+          {
+            "name": "Lootpack",
+            "note": "Madlib's early group, foundational to the Stones Throw underground sound.",
+            "tracks": [
+              {
+                "title": "Answers"
               }
             ]
           }
@@ -3551,6 +3623,15 @@
               },
               {
                 "title": "Watch This (ARIZONATEARS Pluggnb Remix)"
+              }
+            ]
+          },
+          {
+            "name": "Lo Village",
+            "note": "Philadelphia collective blending rap with alternative and R&B textures.",
+            "tracks": [
+              {
+                "title": "Lil Mama"
               }
             ]
           }
@@ -5181,6 +5262,15 @@
                 "title": "North Cack (feat. Joshua Gunn & Kane Smego)"
               }
             ]
+          },
+          {
+            "name": "Little Brother",
+            "note": "Durham duo known for soulful, thoughtful boom-bap rooted in classic hip-hop values.",
+            "tracks": [
+              {
+                "title": "I See Now"
+              }
+            ]
           }
         ]
       }
@@ -5390,6 +5480,18 @@
             "tracks": [
               {
                 "title": "Spectrum"
+              }
+            ]
+          },
+          {
+            "name": "LNDN DRGS",
+            "note": "San Diego collective known for smoked-out, laid-back West Coast rap.",
+            "tracks": [
+              {
+                "title": "Burnout"
+              },
+              {
+                "title": "Fade / Summertime (feat. Mitchy Slick)"
               }
             ]
           }
@@ -5678,6 +5780,29 @@
             "tracks": [
               {
                 "title": "Early in the Morning"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gaithersburg-md-region",
+    "name": "Gaithersburg, MD",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "gaithersburg-md",
+        "name": "Gaithersburg, MD",
+        "state": "MD",
+        "artists": [
+          {
+            "name": "Logic",
+            "note": "DMV-area rapper known for dense, technically ambitious lyricism.",
+            "tracks": [
+              {
+                "title": "1-800-273-8255 (feat. Alessia Cara & Khalid)"
               }
             ]
           }
