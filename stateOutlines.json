@@ -2089,6 +2089,12 @@
         "name": "Atlanta",
         "x": 27.6,
         "y": 28.67
+      },
+      {
+        "id": "savannah-ga",
+        "name": "Savannah",
+        "x": 92.24,
+        "y": 61.96
       }
     ]
   },
@@ -5448,6 +5454,12 @@
         "name": "Jackson",
         "x": 41.75,
         "y": 55.55
+      },
+      {
+        "id": "tupelo-ms",
+        "name": "Tupelo",
+        "x": 80.47,
+        "y": 17.9
       }
     ]
   },
