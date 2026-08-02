@@ -1220,6 +1220,12 @@
         "name": "Pittsburg",
         "x": 26.46,
         "y": 42.65
+      },
+      {
+        "id": "san-diego-ca",
+        "name": "San Diego",
+        "x": 69.02,
+        "y": 94.53
       }
     ]
   },
