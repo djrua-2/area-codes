@@ -448,6 +448,15 @@
                 "title": "Guala (feat. THIRTYRACK)"
               }
             ]
+          },
+          {
+            "name": "Hieroglyphics",
+            "note": "Oakland crew (Del, Souls of Mischief, and others) central to the Bay Area's independent rap scene.",
+            "tracks": [
+              {
+                "title": "Classic"
+              }
+            ]
           }
         ]
       }
@@ -1039,6 +1048,24 @@
                 "title": "Truth Be Told"
               }
             ]
+          },
+          {
+            "name": "Hopsin",
+            "note": "Panorama City rapper known for technically dense, aggressive horrorcore-adjacent rap.",
+            "tracks": [
+              {
+                "title": "Ill Mind of Hopsin 5"
+              }
+            ]
+          },
+          {
+            "name": "House of Pain",
+            "note": "LA group best known for the crossover anthem \"Jump Around.\"",
+            "tracks": [
+              {
+                "title": "Jump Around"
+              }
+            ]
           }
         ]
       }
@@ -1313,6 +1340,24 @@
             "tracks": [
               {
                 "title": "Moonflower"
+              }
+            ]
+          },
+          {
+            "name": "Heems",
+            "note": "Das Racist member known for culturally sharp, internet-era humor.",
+            "tracks": [
+              {
+                "title": "Home (feat. Dev Hynes)"
+              }
+            ]
+          },
+          {
+            "name": "Homeboy Sandman",
+            "note": "Queens underground rapper known for dense, playful wordplay.",
+            "tracks": [
+              {
+                "title": "Bamboo"
               }
             ]
           }
@@ -2203,6 +2248,15 @@
                 "title": "Don't Sweat the Technique"
               }
             ]
+          },
+          {
+            "name": "Hoodie Allen",
+            "note": "Long Island rapper known for upbeat, pop-leaning independent rap.",
+            "tracks": [
+              {
+                "title": "Cake Boy"
+              }
+            ]
           }
         ]
       }
@@ -2597,6 +2651,15 @@
             "tracks": [
               {
                 "title": "Summertime"
+              }
+            ]
+          },
+          {
+            "name": "Has-Lo",
+            "note": "Philadelphia underground rapper known for introspective, boom-bap-rooted lyricism.",
+            "tracks": [
+              {
+                "title": "Got My Mind"
               }
             ]
           }
@@ -3392,6 +3455,15 @@
                 "title": "Guillotine"
               }
             ]
+          },
+          {
+            "name": "Hobo Johnson",
+            "note": "Sacramento artist blending spoken-word intensity with rap and indie rock.",
+            "tracks": [
+              {
+                "title": "Dear Labels"
+              }
+            ]
           }
         ]
       }
@@ -3660,6 +3732,15 @@
             "tracks": [
               {
                 "title": "Psalm 62"
+              }
+            ]
+          },
+          {
+            "name": "iann dior",
+            "note": "Genre-blurring artist known for melodic, Auto-Tuned rap-rock hybrids.",
+            "tracks": [
+              {
+                "title": "gone girl (feat. Trippie Redd)"
               }
             ]
           }
@@ -4038,6 +4119,75 @@
             "tracks": [
               {
                 "title": "North Cack (feat. Joshua Gunn & Kane Smego)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "cincinnati-oh-region",
+    "name": "Cincinnati, OH",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "cincinnati-oh",
+        "name": "Cincinnati, OH",
+        "state": "OH",
+        "artists": [
+          {
+            "name": "Hi-Tek",
+            "note": "Cincinnati producer known for soulful, boom-bap-rooted beats.",
+            "tracks": [
+              {
+                "title": "Music for Life"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "shreveport-la-region",
+    "name": "Shreveport, LA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "shreveport-la",
+        "name": "Shreveport, LA",
+        "state": "LA",
+        "artists": [
+          {
+            "name": "Hurricane Chris",
+            "note": "Shreveport rapper known for the regional hit \"A Bay Bay.\"",
+            "tracks": [
+              {
+                "title": "A Bay Bay (Single Version)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pittsburg-ca-region",
+    "name": "Pittsburg, CA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "pittsburg-ca",
+        "name": "Pittsburg, CA",
+        "state": "CA",
+        "artists": [
+          {
+            "name": "Husalah",
+            "note": "Bay Area rapper and member of The Mob Figaz.",
+            "tracks": [
+              {
+                "title": "Cuttin It Up (feat. B-Luv)"
               }
             ]
           }
