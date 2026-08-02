@@ -559,7 +559,7 @@ function trackRowHtml(i, title, spotifyId) {
   return `
     <div class="track-input-row" data-track-row="${i}">
       <input type="text" class="retro-field" placeholder="Song title" data-track-title value="${escapeAttr(title || "")}">
-      <input type="text" class="retro-field" placeholder="Spotify link or ID" data-track-spotify value="${escapeAttr(spotifyId || "")}">
+      <input type="text" class="retro-field" placeholder="Spotify link or ID (leave blank to auto-search)" data-track-spotify value="${escapeAttr(spotifyId || "")}">
       <button type="button" class="retro-btn" onclick="this.closest('[data-track-row]').remove()">&times;</button>
     </div>
   `;
@@ -599,7 +599,7 @@ function renderAddForm() {
       </div>
       <div>
         <label>Songs</label>
-        <p style="margin:0 0 0.5rem;"><a href="https://open.spotify.com/search" target="_blank" rel="noopener">Search Spotify ↗</a> for the song, then paste its link below.</p>
+        <p style="margin:0 0 0.5rem;">Leave the Spotify field blank to auto-search by title, or <a href="https://open.spotify.com/search" target="_blank" rel="noopener">search Spotify ↗</a> yourself and paste a link.</p>
         <div id="track-rows"></div>
         <button type="button" class="add-track-btn retro-btn" onclick="addTrackRow()">+ Add a song</button>
       </div>
@@ -652,7 +652,7 @@ function renderEditForm(regionId, cityId, artistIndex) {
       </div>
       <div>
         <label>Songs</label>
-        <p style="margin:0 0 0.5rem;"><a href="https://open.spotify.com/search" target="_blank" rel="noopener">Search Spotify ↗</a> for the song, then paste its link below.</p>
+        <p style="margin:0 0 0.5rem;">Leave the Spotify field blank to auto-search by title, or <a href="https://open.spotify.com/search" target="_blank" rel="noopener">search Spotify ↗</a> yourself and paste a link.</p>
         <div id="track-rows"></div>
         <button type="button" class="add-track-btn retro-btn" onclick="addTrackRow()">+ Add a song</button>
       </div>
@@ -676,12 +676,7 @@ async function handleEditSubmit(evt, originalRegionId, originalCityId, originalA
   statusEl.className = "form-status";
   statusEl.textContent = "Saving…";
 
-  const tracks = Array.from(document.querySelectorAll("[data-track-row]")).map(row => {
-    const title = row.querySelector("[data-track-title]").value.trim();
-    const spotifyRaw = row.querySelector("[data-track-spotify]").value.trim();
-    const spotifyId = spotifyRaw ? extractSpotifyId(spotifyRaw) : "";
-    return title ? (spotifyId ? { title, spotifyId } : { title }) : null;
-  }).filter(Boolean);
+  const tracks = Array.from(document.querySelectorAll("[data-track-row]")).map(buildTrackFromRow).filter(Boolean);
 
   const payload = {
     action: "edit",
@@ -722,18 +717,37 @@ function extractSpotifyId(value) {
   return "";
 }
 
+// Builds a track object from a track-input-row, or null if no title was
+// entered. Spotify link is optional — an empty field means the Worker will
+// auto-search for it on save.
+function buildTrackFromRow(row) {
+  const title = row.querySelector("[data-track-title]").value.trim();
+  if (!title) return null;
+  const spotifyRaw = row.querySelector("[data-track-spotify]").value.trim();
+  const spotifyId = spotifyRaw ? extractSpotifyId(spotifyRaw) : "";
+  const track = { title };
+  if (spotifyId) track.spotifyId = spotifyId;
+  return track;
+}
+
 // ---- bulk upload: CSV (no dependency) or XLSX (lazy-loaded parser) ----
-const BULK_MAX_ROWS = 25;
-const BULK_TEMPLATE_HEADERS = ["artist_name", "state", "city", "note", "track1_title", "track1_spotify", "track2_title", "track2_spotify"];
+// One CSV row = one song. Rows sharing the same artist_name + city + state
+// get grouped into a single artist entry with multiple tracks (see
+// groupRowsIntoEntries below). Spotify links aren't part of the template —
+// the Worker auto-searches for each track that doesn't already have one.
+const BULK_MAX_ROWS = 2000; // total song-rows allowed in one file — a sanity ceiling, not a technical limit (batching below has no real cap); headroom above the user's actual 1,682-row library export
+const BULK_BATCH_SIZE = 15; // artist-entries submitted per Worker request — stays under the free Workers plan's 50-subrequest cap even when every entry needs a new-city geocode plus a Spotify search
+const BULK_TEMPLATE_HEADERS = ["artist_name", "state", "city", "note", "song_title"];
 
 function downloadBulkTemplate() {
   const csv = BULK_TEMPLATE_HEADERS.join(",") + "\n" +
-    'Example Artist,GA,"Savannah, GA",One-line note about their style,Example Song,https://open.spotify.com/track/...\n';
+    'Example Artist,GA,"Savannah, GA",One-line note about their style,Example Song One\n' +
+    'Example Artist,GA,"Savannah, GA",One-line note about their style,Example Song Two\n';
   const blob = new Blob([csv], { type: "text/csv" });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = "area-codes-artists-template.csv";
+  a.download = "area-codes-songs-template.csv";
   a.click();
   URL.revokeObjectURL(url);
 }
@@ -791,26 +805,32 @@ function getField(row, ...keys) {
   return "";
 }
 
-function normalizeBulkRow(row) {
-  const artistName = getField(row, "artist_name", "artist");
-  const state = getField(row, "state").toUpperCase();
-  const cityName = getField(row, "city", "city_name");
-  const note = getField(row, "note");
+function normalizeSongRow(row) {
+  return {
+    artistName: getField(row, "artist_name", "artist"),
+    state: getField(row, "state").toUpperCase(),
+    cityName: getField(row, "city", "city_name"),
+    note: getField(row, "note"),
+    songTitle: getField(row, "song_title", "title", "track_title"),
+  };
+}
 
-  const trackNums = new Set();
-  Object.keys(row).forEach(k => {
-    const m = k.trim().toLowerCase().match(/^track(\d+)_title$/);
-    if (m) trackNums.add(parseInt(m[1], 10));
+// Merges song-rows sharing the same artist + city + state into one entry
+// per artist, each with a tracks array — the shape handleBulkAdd expects.
+function groupRowsIntoEntries(rows) {
+  const order = [];
+  const byKey = new Map();
+  rows.forEach(r => {
+    const key = `${r.artistName.toLowerCase()}|${r.cityName.toLowerCase()}|${r.state}`;
+    let entry = byKey.get(key);
+    if (!entry) {
+      entry = { artistName: r.artistName, state: r.state, cityName: r.cityName, note: r.note, tracks: [] };
+      byKey.set(key, entry);
+      order.push(entry);
+    }
+    entry.tracks.push({ title: r.songTitle });
   });
-  const tracks = Array.from(trackNums).sort((a, b) => a - b).map(n => {
-    const title = getField(row, `track${n}_title`);
-    if (!title) return null;
-    const spotifyRaw = getField(row, `track${n}_spotify`);
-    const spotifyId = spotifyRaw ? extractSpotifyId(spotifyRaw) : "";
-    return spotifyId ? { title, spotifyId } : { title };
-  }).filter(Boolean);
-
-  return { artistName, state, cityName, note, tracks };
+  return order;
 }
 
 let bulkParsedEntries = [];
@@ -846,71 +866,113 @@ async function handleBulkFile(evt) {
       throw new Error(`That file has ${rawRows.length} rows — max is ${BULK_MAX_ROWS} per upload. Split it into smaller files.`);
     }
 
-    const entries = rawRows.map(normalizeBulkRow);
-    bulkParsedEntries = entries;
-
-    const rowsHtml = entries.map((e, i) => {
+    const normalized = rawRows.map((row, i) => ({ ...normalizeSongRow(row), rowNum: i + 2 }));
+    const validRows = [], invalidRows = [];
+    normalized.forEach(r => {
       const problems = [];
-      if (!e.artistName) problems.push("missing artist name");
-      if (!e.state) problems.push("missing state");
-      if (!e.cityName) problems.push("missing city");
-      if (!e.note) problems.push("missing note");
-      const ok = problems.length === 0;
-      return `
-        <tr class="${ok ? "" : "bulk-row-error"}">
-          <td>${i + 1}</td>
-          <td>${escapeHtml(e.artistName || "—")}</td>
-          <td>${escapeHtml(e.cityName || "—")}${e.state && !e.cityName.toLowerCase().includes(e.state.toLowerCase()) ? ", " + escapeHtml(e.state) : ""}</td>
-          <td>${e.tracks.length}</td>
-          <td>${ok ? "Ready" : "Fix: " + escapeHtml(problems.join(", "))}</td>
-        </tr>
-      `;
-    }).join("");
+      if (!r.artistName) problems.push("missing artist name");
+      if (!r.state) problems.push("missing state");
+      if (!r.cityName) problems.push("missing city");
+      if (!r.note) problems.push("missing note");
+      if (!r.songTitle) problems.push("missing song title");
+      if (problems.length) invalidRows.push({ ...r, problems });
+      else validRows.push(r);
+    });
 
-    const readyCount = entries.filter(e => e.artistName && e.state && e.cityName && e.note).length;
+    const entries = groupRowsIntoEntries(validRows);
+    bulkParsedEntries = entries;
+    const totalSongs = entries.reduce((n, e) => n + e.tracks.length, 0);
+
+    const entryRowsHtml = entries.map((e, i) => `
+      <tr>
+        <td>${i + 1}</td>
+        <td>${escapeHtml(e.artistName)}</td>
+        <td>${escapeHtml(e.cityName)}, ${escapeHtml(e.state)}</td>
+        <td>${e.tracks.length}</td>
+        <td>Ready</td>
+      </tr>
+    `).join("");
+
+    const invalidRowsHtml = invalidRows.map(r => `
+      <tr class="bulk-row-error">
+        <td>row ${r.rowNum}</td>
+        <td>${escapeHtml(r.artistName || "—")}</td>
+        <td>${escapeHtml(r.songTitle || "—")}</td>
+        <td>${escapeHtml(r.problems.join(", "))}</td>
+      </tr>
+    `).join("");
 
     previewEl.innerHTML = `
       <table class="bulk-table">
         <thead><tr><th>#</th><th>Artist</th><th>City</th><th>Songs</th><th>Status</th></tr></thead>
-        <tbody>${rowsHtml}</tbody>
+        <tbody>${entryRowsHtml || `<tr><td colspan="5">No valid rows.</td></tr>`}</tbody>
       </table>
+      ${invalidRows.length ? `
+        <p class="page-subtitle" style="margin-top:1rem;">${invalidRows.length} row(s) skipped — fix and re-upload if you want them included:</p>
+        <table class="bulk-table">
+          <thead><tr><th>Row</th><th>Artist</th><th>Song</th><th>Problem</th></tr></thead>
+          <tbody>${invalidRowsHtml}</tbody>
+        </table>
+      ` : ""}
     `;
-    statusEl.textContent = `${readyCount} of ${entries.length} row(s) ready to submit.`;
-    submitBtn.disabled = readyCount === 0;
+    statusEl.textContent = `${entries.length} artist(s), ${totalSongs} song(s) ready to submit` + (invalidRows.length ? `, ${invalidRows.length} row(s) skipped.` : ".");
+    submitBtn.disabled = entries.length === 0;
   } catch (err) {
     statusEl.className = "form-status is-error";
     statusEl.textContent = "Couldn't read that file — " + err.message;
   }
 }
 
+function chunk(arr, size) {
+  const out = [];
+  for (let i = 0; i < arr.length; i += size) out.push(arr.slice(i, i + size));
+  return out;
+}
+
+// Submits grouped artist entries in sequential batches of BULK_BATCH_SIZE —
+// never in parallel, so each batch's read-modify-write of data.json always
+// sees the previous batch's committed state. On a batch failure, whatever
+// already landed stays live; the rest can be re-uploaded as a smaller file.
 async function submitBulk() {
   const statusEl = document.getElementById("bulk-status");
   const submitBtn = document.getElementById("bulk-submit-btn");
-  const readyEntries = bulkParsedEntries.filter(e => e.artistName && e.state && e.cityName && e.note);
-  if (!readyEntries.length) return;
+  const entries = bulkParsedEntries;
+  if (!entries.length) return;
 
   submitBtn.disabled = true;
-  statusEl.className = "form-status";
-  statusEl.textContent = `Submitting ${readyEntries.length} artist(s)… this can take a little while if several are in brand-new cities.`;
+  const batches = chunk(entries, BULK_BATCH_SIZE);
+  let doneArtists = 0, addedCount = 0, pinsAdded = 0;
+  const failures = [];
 
-  try {
-    const res = await fetch(AREA_CODES_CONFIG.ADD_ARTIST_ENDPOINT, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ action: "bulk_add", password: storedPassword(), entries: readyEntries })
-    });
-    if (!res.ok) throw new Error(await res.text());
-    const result = await res.json();
-    const okCount = result.results.filter(r => r.ok).length;
-    const failed = result.results.filter(r => !r.ok);
-    let msg = `Added ${okCount} of ${result.results.length}. ${result.pinsAdded || 0} new map pin(s) placed.`;
-    if (failed.length) msg += " Failed: " + failed.map(f => `row ${f.row} (${f.error})`).join("; ");
-    statusEl.textContent = msg + " Live on the site shortly.";
-  } catch (err) {
-    statusEl.className = "form-status is-error";
-    statusEl.textContent = "Couldn't submit — " + err.message;
-    submitBtn.disabled = false;
+  for (let i = 0; i < batches.length; i++) {
+    const batch = batches[i];
+    statusEl.className = "form-status";
+    statusEl.textContent = `Batch ${i + 1} of ${batches.length} — ${doneArtists} of ${entries.length} artists submitted so far…`;
+
+    try {
+      const res = await fetch(AREA_CODES_CONFIG.ADD_ARTIST_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "bulk_add", password: storedPassword(), entries: batch })
+      });
+      if (!res.ok) throw new Error(await res.text());
+      const result = await res.json();
+      addedCount += result.results.filter(r => r.ok).length;
+      pinsAdded += result.pinsAdded || 0;
+      result.results.filter(r => !r.ok).forEach(r => failures.push(r));
+      doneArtists += batch.length;
+    } catch (err) {
+      statusEl.className = "form-status is-error";
+      statusEl.textContent = `Stopped at batch ${i + 1} of ${batches.length} — ${addedCount} of ${entries.length} artist(s) were added before this failed (${err.message}). Those are already live; re-upload the rest as a new file.`;
+      submitBtn.disabled = false;
+      return;
+    }
   }
+
+  let msg = `Added ${addedCount} of ${entries.length} artist(s), ${pinsAdded} new map pin(s) placed.`;
+  if (failures.length) msg += ` ${failures.length} failed: ` + failures.slice(0, 5).map(f => `${f.artist} (${f.error})`).join("; ") + (failures.length > 5 ? "…" : "");
+  statusEl.className = "form-status";
+  statusEl.textContent = msg + " Live on the site shortly.";
 }
 
 function renderBulkForm() {
@@ -918,15 +980,16 @@ function renderBulkForm() {
   app.innerHTML = `
     <p class="crumbs"><a href="#/add">Add an Artist</a> / Bulk Upload</p>
     <h1 class="page-title">Bulk Upload Artists</h1>
-    <p class="page-subtitle">Upload a CSV or XLSX file — up to ${BULK_MAX_ROWS} artists at a time. Each becomes exactly what the single-artist form would create.</p>
+    <p class="page-subtitle">Upload a CSV or XLSX file — up to ${BULK_MAX_ROWS} songs at a time, one row per song. Repeat the same artist_name/state/city/note on every row for that artist's songs and they'll be grouped into a single artist entry automatically.</p>
     <p><button type="button" class="retro-btn" onclick="downloadBulkTemplate()">Download CSV template</button></p>
-    <p class="page-subtitle">Columns: <code>artist_name, state, city, note, track1_title, track1_spotify, track2_title, track2_spotify</code> (add more track columns the same way for more songs; state is the 2-letter abbreviation; spotify columns accept a full link or just the ID).</p>
+    <p class="page-subtitle">Columns: <code>artist_name, state, city, note, song_title</code> (state is the 2-letter abbreviation). No Spotify column needed — the site searches Spotify automatically for each song.</p>
     <p><input type="file" class="retro-field" accept=".csv,.xlsx" onchange="handleBulkFile(event)"></p>
     <div id="bulk-preview"></div>
     <p class="form-actions">
       <button type="button" id="bulk-submit-btn" class="retro-btn" disabled onclick="submitBulk()">Submit All</button>
       <span id="bulk-status" class="form-status"></span>
     </p>
+    <p class="page-subtitle">Large files submit automatically in batches of ${BULK_BATCH_SIZE} artists — a full-size upload can take a while (each new city needs a geocode lookup, each song a Spotify search). Keep this tab open until it finishes.</p>
   `;
 }
 
@@ -942,12 +1005,7 @@ async function handleAddSubmit(evt) {
   statusEl.className = "form-status";
   statusEl.textContent = "Submitting…";
 
-  const tracks = Array.from(document.querySelectorAll("[data-track-row]")).map(row => {
-    const title = row.querySelector("[data-track-title]").value.trim();
-    const spotifyRaw = row.querySelector("[data-track-spotify]").value.trim();
-    const spotifyId = spotifyRaw ? extractSpotifyId(spotifyRaw) : "";
-    return title ? (spotifyId ? { title, spotifyId } : { title }) : null;
-  }).filter(Boolean);
+  const tracks = Array.from(document.querySelectorAll("[data-track-row]")).map(buildTrackFromRow).filter(Boolean);
 
   const payload = {
     password: storedPassword(),

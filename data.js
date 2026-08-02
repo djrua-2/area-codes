@@ -37,8 +37,9 @@
     Open the song on open.spotify.com, copy the link — it looks like
     https://open.spotify.com/track/6xhblLundMJAiG9jF7nlxs — and use just the
     part after the last slash (6xhblLundMJAiG9jF7nlxs) as spotifyId. If you
-    don't have one yet, you can omit the field and the title will just show
-    as plain (non-clickable) text.
+    don't have one yet, you can omit the field — the add-artist Worker will
+    auto-search Spotify for it, and if that comes up empty the title just
+    shows as plain (non-clickable) text.
 
   HOW TO ADD A WHOLE NEW CITY
     Copy an entire { ... } city block, paste it into the region's "cities"
