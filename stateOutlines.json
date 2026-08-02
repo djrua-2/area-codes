@@ -1689,6 +1689,12 @@
         "name": "Jacksonville",
         "x": 76.48,
         "y": 14.36
+      },
+      {
+        "id": "fort-lauderdale-fl",
+        "name": "Fort Lauderdale",
+        "x": 94.93,
+        "y": 80.53
       }
     ]
   },
@@ -6432,6 +6438,30 @@
         "name": "Queens",
         "x": 75.42,
         "y": 92.79
+      },
+      {
+        "id": "brooklyn-ny",
+        "name": "Brooklyn",
+        "x": 73.95,
+        "y": 94.05
+      },
+      {
+        "id": "new-york-ny",
+        "name": "New York",
+        "x": 73.27,
+        "y": 92.8
+      },
+      {
+        "id": "bronx-ny",
+        "name": "Bronx",
+        "x": 74.81,
+        "y": 90.03
+      },
+      {
+        "id": "harlem-ny",
+        "name": "Harlem",
+        "x": 74,
+        "y": 90.83
       }
     ]
   },
@@ -6962,7 +6992,14 @@
         3.7
       ]
     ],
-    "cities": []
+    "cities": [
+      {
+        "id": "cleveland-oh",
+        "name": "Cleveland",
+        "x": 70.99,
+        "y": 16.19
+      }
+    ]
   },
   "OK": {
     "bbox": {
@@ -8616,7 +8653,14 @@
         3.7
       ]
     ],
-    "cities": []
+    "cities": [
+      {
+        "id": "burlington-vt",
+        "name": "Burlington",
+        "x": 14.37,
+        "y": 25.47
+      }
+    ]
   },
   "VA": {
     "bbox": {
