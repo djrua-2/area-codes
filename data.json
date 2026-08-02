@@ -209,6 +209,24 @@
                 "title": "Get In Dere (feat. 42 Dugg & Babyface Ray )"
               }
             ]
+          },
+          {
+            "name": "EARTHGANG",
+            "note": "Dreamville duo known for eclectic, genre-blurring production.",
+            "tracks": [
+              {
+                "title": "Artificial"
+              }
+            ]
+          },
+          {
+            "name": "Ethereal",
+            "note": "Awful Records affiliate known for hazy, experimental trap production.",
+            "tracks": [
+              {
+                "title": "4 The People (feat. Playboi Carti)"
+              }
+            ]
           }
         ]
       }
@@ -557,6 +575,24 @@
                 "title": "Me U & Hennessy (feat. Lil Wayne)"
               }
             ]
+          },
+          {
+            "name": "Eminem",
+            "note": "Detroit rapper whose rapid-fire technical skill made him one of the best-selling artists of all time.",
+            "tracks": [
+              {
+                "title": "Till I Collapse (feat. Nate Dogg)"
+              },
+              {
+                "title": "Stan (Live At 43rd Grammy Awards)"
+              },
+              {
+                "title": "You Don't Know"
+              },
+              {
+                "title": "Crack a Bottle (feat. Dr. Dre & 50 Cent)"
+              }
+            ]
           }
         ]
       }
@@ -865,6 +901,15 @@
                 "title": "Cell Phone (feat. Breezy Lovejoy & Wax)"
               }
             ]
+          },
+          {
+            "name": "Earl Sweatshirt",
+            "note": "Odd Future member known for dense, introspective wordplay over minimal, jazz-inflected beats.",
+            "tracks": [
+              {
+                "title": "AM // Radio (feat. Wiki)"
+              }
+            ]
           }
         ]
       }
@@ -1026,6 +1071,15 @@
               },
               {
                 "title": "Boy"
+              }
+            ]
+          },
+          {
+            "name": "Erica Banks",
+            "note": "Dallas rapper known for viral, high-energy dance-rap hits.",
+            "tracks": [
+              {
+                "title": "Buss It"
               }
             ]
           }
@@ -1266,6 +1320,15 @@
             "tracks": [
               {
                 "title": "It's Good To Be Here (Live)"
+              }
+            ]
+          },
+          {
+            "name": "Dyme-A-Duzin",
+            "note": "Brooklyn rapper affiliated with the Pro Era collective.",
+            "tracks": [
+              {
+                "title": "Swank Sinatra (feat. Joey Bada$$, Capital Steez & CJ Fly)"
               }
             ]
           }
@@ -1849,6 +1912,15 @@
                 "title": "Just a Friend"
               }
             ]
+          },
+          {
+            "name": "Eric B. & Rakim",
+            "note": "Wyandanch duo whose intricate rhyme schemes redefined MC technique in the late '80s.",
+            "tracks": [
+              {
+                "title": "Don't Sweat the Technique"
+              }
+            ]
           }
         ]
       }
@@ -1902,6 +1974,24 @@
             "tracks": [
               {
                 "title": "2 Minute Drills"
+              }
+            ]
+          },
+          {
+            "name": "EBK Jaaybo",
+            "note": "Part of Vallejo's EBK collective, rooted in the Bay Area street-rap scene.",
+            "tracks": [
+              {
+                "title": "Boogieman"
+              }
+            ]
+          },
+          {
+            "name": "EBK Young Joc",
+            "note": "Part of Vallejo's EBK collective, rooted in the Bay Area street-rap scene.",
+            "tracks": [
+              {
+                "title": "Affiliations (feat. ALLBLACK, TLG Dooda, EBK Trey B & EBK Lil Sleaze)"
               }
             ]
           }
@@ -2259,6 +2349,15 @@
             "tracks": [
               {
                 "title": "All We Got"
+              }
+            ]
+          },
+          {
+            "name": "Dwynell Roland",
+            "note": "Twin Cities rapper known for melodic, soulful production.",
+            "tracks": [
+              {
+                "title": "Good Life"
               }
             ]
           }
@@ -2739,6 +2838,15 @@
               },
               {
                 "title": "Nuthin' But A \"G\" Thang"
+              }
+            ]
+          },
+          {
+            "name": "Eazy-E",
+            "note": "N.W.A co-founder whose Compton roots helped launch gangsta rap into the mainstream.",
+            "tracks": [
+              {
+                "title": "Boyz-n-the-Hood"
               }
             ]
           }
@@ -3322,6 +3430,29 @@
               },
               {
                 "title": "Revenge (feat. Ari Lennox, EARTHGANG, Childish Major & REASON)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "youngstown-oh-region",
+    "name": "Youngstown, OH",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "youngstown-oh",
+        "name": "Youngstown, OH",
+        "state": "OH",
+        "artists": [
+          {
+            "name": "Eem Triplin",
+            "note": "Youngstown rapper known for a soulful, sample-heavy sound.",
+            "tracks": [
+              {
+                "title": "AWKWARD FREESTYLE"
               }
             ]
           }
