@@ -2149,14 +2149,7 @@
         96.3
       ]
     ],
-    "cities": [
-      {
-        "id": "honolulu-hi",
-        "name": "Honolulu",
-        "x": -128.71,
-        "y": -69
-      }
-    ]
+    "cities": []
   },
   "ID": {
     "bbox": {
