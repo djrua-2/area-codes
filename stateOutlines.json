@@ -4644,6 +4644,12 @@
         "name": "Detroit",
         "x": 83.02,
         "y": 81.81
+      },
+      {
+        "id": "ypsilanti-mi",
+        "name": "Ypsilanti",
+        "x": 71.13,
+        "y": 83.87
       }
     ]
   },
@@ -5852,7 +5858,14 @@
         3.7
       ]
     ],
-    "cities": []
+    "cities": [
+      {
+        "id": "las-vegas-nv",
+        "name": "Las Vegas",
+        "x": 79.12,
+        "y": 80.87
+      }
+    ]
   },
   "NH": {
     "bbox": {
@@ -6525,6 +6538,12 @@
         "name": "Long Island",
         "x": 84.23,
         "y": 89.93
+      },
+      {
+        "id": "buffalo-ny",
+        "name": "Buffalo",
+        "x": 14.39,
+        "y": 47.82
       }
     ]
   },
@@ -8215,6 +8234,12 @@
         "name": "Nashville",
         "x": 41.65,
         "y": 31.87
+      },
+      {
+        "id": "chattanooga-tn",
+        "name": "Chattanooga",
+        "x": 57.36,
+        "y": 92.96
       }
     ]
   },
