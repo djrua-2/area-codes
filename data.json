@@ -281,6 +281,15 @@
                 "title": "Tuesday (feat. Drake)"
               }
             ]
+          },
+          {
+            "name": "Jacquees",
+            "note": "Atlanta-based R&B singer known for smooth, melodic vocals over hip-hop-leaning production.",
+            "tracks": [
+              {
+                "title": "Like Baby"
+              }
+            ]
           }
         ]
       }
@@ -473,6 +482,15 @@
             "tracks": [
               {
                 "title": "Classic"
+              }
+            ]
+          },
+          {
+            "name": "J. Stalin",
+            "note": "Oakland rapper known for prolific output within the Bay Area's independent scene.",
+            "tracks": [
+              {
+                "title": "Everyday My Birthday"
               }
             ]
           }
@@ -1135,6 +1153,15 @@
                 "title": "DICKIES SUIT"
               }
             ]
+          },
+          {
+            "name": "J.J. Fad",
+            "note": "Early female rap trio out of Rialto, foundational to West Coast hip-hop's commercial rise.",
+            "tracks": [
+              {
+                "title": "Supersonic"
+              }
+            ]
           }
         ]
       }
@@ -1617,6 +1644,15 @@
             "tracks": [
               {
                 "title": "Above the Clouds"
+              }
+            ]
+          },
+          {
+            "name": "J-Live",
+            "note": "Brooklyn underground rapper known for dense, literate wordplay.",
+            "tracks": [
+              {
+                "title": "Them That's Not"
               }
             ]
           }
@@ -2547,6 +2583,21 @@
                 "title": "Damn It Feels Good to Be a Gangsta"
               }
             ]
+          },
+          {
+            "name": "JACKBOYS",
+            "note": "Travis Scott's Houston-rooted label collective.",
+            "tracks": [
+              {
+                "title": "GANG GANG"
+              },
+              {
+                "title": "WHAT TO DO? (feat. Don Toliver)"
+              },
+              {
+                "title": "GATTI"
+              }
+            ]
           }
         ]
       }
@@ -2990,6 +3041,15 @@
             "tracks": [
               {
                 "title": "Sleeping With the Enemy (feat. Kindora)"
+              }
+            ]
+          },
+          {
+            "name": "Isaiah Rashad",
+            "note": "TDE member known for a laid-back, soulful Southern flow.",
+            "tracks": [
+              {
+                "title": "4r Da Squaw"
               }
             ]
           }
@@ -3923,6 +3983,15 @@
                 "title": "I Miss You (feat. Faith Evans)"
               }
             ]
+          },
+          {
+            "name": "Jadakiss",
+            "note": "Yonkers rapper and LOX member known for gravelly, punchline-driven verses.",
+            "tracks": [
+              {
+                "title": "We Gonna Make It (feat. Styles of the Lox)"
+              }
+            ]
           }
         ]
       }
@@ -3947,6 +4016,18 @@
               },
               {
                 "title": "Alter Ego"
+              }
+            ]
+          },
+          {
+            "name": "Internet Money",
+            "note": "Florida-founded production collective behind a huge swath of late-2010s hit records.",
+            "tracks": [
+              {
+                "title": "His & Hers (feat. Don Toliver & Lil Uzi Vert)"
+              },
+              {
+                "title": "Lemonade (feat. NAV)"
               }
             ]
           }
@@ -3982,6 +4063,18 @@
               },
               {
                 "title": "Revenge (feat. Ari Lennox, EARTHGANG, Childish Major & REASON)"
+              }
+            ]
+          },
+          {
+            "name": "J. Cole",
+            "note": "North Carolina rapper whose introspective, sample-driven sound built one of rap's most devoted fanbases.",
+            "tracks": [
+              {
+                "title": "1985 (Intro to \"The Fall Off\")"
+              },
+              {
+                "title": "p r i d e . i s . t h e . d e v i l"
               }
             ]
           }
@@ -4322,6 +4415,75 @@
             "tracks": [
               {
                 "title": "2016 Interlude"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "milwaukee-wi-region",
+    "name": "Milwaukee, WI",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "milwaukee-wi",
+        "name": "Milwaukee, WI",
+        "state": "WI",
+        "artists": [
+          {
+            "name": "IshDARR",
+            "note": "Milwaukee rapper known for melodic, introspective songwriting.",
+            "tracks": [
+              {
+                "title": "Remember"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "st-louis-mo-region",
+    "name": "St. Louis, MO",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "st-louis-mo",
+        "name": "St. Louis, MO",
+        "state": "MO",
+        "artists": [
+          {
+            "name": "J-Kwon",
+            "note": "St. Louis rapper best known for the club anthem \"Tipsy.\"",
+            "tracks": [
+              {
+                "title": "Tipsy (Club Mix)"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "louisville-ky-region",
+    "name": "Louisville, KY",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "louisville-ky",
+        "name": "Louisville, KY",
+        "state": "KY",
+        "artists": [
+          {
+            "name": "Jack Harlow",
+            "note": "Louisville rapper known for laid-back charisma and radio-ready hooks.",
+            "tracks": [
+              {
+                "title": "CODY BANKS"
               }
             ]
           }
