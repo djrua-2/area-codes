@@ -1251,6 +1251,12 @@
         "name": "Ventura",
         "x": 51.76,
         "y": 77.64
+      },
+      {
+        "id": "anaheim-ca",
+        "name": "Anaheim",
+        "x": 62.27,
+        "y": 83.61
       }
     ]
   },
@@ -1855,6 +1861,12 @@
         "name": "Tallahassee",
         "x": 44.53,
         "y": 12.6
+      },
+      {
+        "id": "fort-myers-fl",
+        "name": "Fort Myers",
+        "x": 73.87,
+        "y": 72.37
       }
     ]
   },
@@ -7152,6 +7164,12 @@
         "name": "Raleigh",
         "x": 64.83,
         "y": 31.01
+      },
+      {
+        "id": "greenville-nc",
+        "name": "Greenville",
+        "x": 78.46,
+        "y": 36.65
       }
     ]
   },
