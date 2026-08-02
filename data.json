@@ -692,6 +692,42 @@
                 "title": "Dispatch (feat. DaBaby)"
               }
             ]
+          },
+          {
+            "name": "Young Thug",
+            "note": "Atlanta rapper whose warped, genre-defying vocal style reshaped the sound of modern trap.",
+            "tracks": [
+              {
+                "title": "Bad Bad Bad (feat. Lil Baby)"
+              },
+              {
+                "title": "Homie (feat. Meek Mill)"
+              },
+              {
+                "title": "pick up the phone (feat. Quavo)"
+              }
+            ]
+          },
+          {
+            "name": "Yung Bans",
+            "note": "Atlanta rapper known for a melodic, genre-blurring trap style.",
+            "tracks": [
+              {
+                "title": "PRADA ZOMBIE"
+              }
+            ]
+          },
+          {
+            "name": "Zack Fox",
+            "note": "Atlanta comedian-rapper known for absurdist, internet-steeped humor.",
+            "tracks": [
+              {
+                "title": "fafo"
+              },
+              {
+                "title": "Jesus Is the One (I Got Depression)"
+              }
+            ]
           }
         ]
       }
@@ -893,6 +929,15 @@
             "tracks": [
               {
                 "title": "Get Away"
+              }
+            ]
+          },
+          {
+            "name": "ZaeHD & CEO",
+            "note": "Memphis duo known for a melodic, laid-back street-rap style.",
+            "tracks": [
+              {
+                "title": "Hot Boyz"
               }
             ]
           }
@@ -1127,6 +1172,15 @@
             "tracks": [
               {
                 "title": "Blow the Whistle"
+              }
+            ]
+          },
+          {
+            "name": "Zion I",
+            "note": "Oakland duo known for soulful, socially conscious rap.",
+            "tracks": [
+              {
+                "title": "Don't Lose Your Head Original"
               }
             ]
           }
@@ -1467,6 +1521,15 @@
             "tracks": [
               {
                 "title": "Get Live"
+              }
+            ]
+          },
+          {
+            "name": "Zelooperz",
+            "note": "Detroit rapper known for eccentric, high-energy delivery.",
+            "tracks": [
+              {
+                "title": "Battery"
               }
             ]
           }
@@ -2566,6 +2629,24 @@
                 "title": "3 Time Felons"
               }
             ]
+          },
+          {
+            "name": "Yung Jake",
+            "note": "LA artist blending rap with digital and visual art.",
+            "tracks": [
+              {
+                "title": "Datamosh"
+              }
+            ]
+          },
+          {
+            "name": "Zacari",
+            "note": "TDE-affiliated singer known for smooth, melodic hooks.",
+            "tracks": [
+              {
+                "title": "Rainy Day (feat. Isaiah Rashad & Buddy)"
+              }
+            ]
           }
         ]
       }
@@ -3593,6 +3674,15 @@
                 "title": "Ooouuu"
               }
             ]
+          },
+          {
+            "name": "Your Old Droog",
+            "note": "Brooklyn lyricist known for dense, boom-bap-rooted wordplay.",
+            "tracks": [
+              {
+                "title": "G.K.A.C."
+              }
+            ]
           }
         ]
       }
@@ -3823,6 +3913,15 @@
             "tracks": [
               {
                 "title": "Rump Shaker"
+              }
+            ]
+          },
+          {
+            "name": "Zebra Katz",
+            "note": "New York artist known for minimalist, club-ready experimental rap.",
+            "tracks": [
+              {
+                "title": "IN IN IN"
               }
             ]
           }
@@ -8549,6 +8648,15 @@
                 "title": "How Ya Do Dat (feat. C-Loc & Master P)"
               }
             ]
+          },
+          {
+            "name": "YoungBoy Never Broke Again",
+            "note": "Baton Rouge rapper known for prolific output and raw, confessional street storytelling.",
+            "tracks": [
+              {
+                "title": "Came From"
+              }
+            ]
           }
         ]
       }
@@ -9640,6 +9748,35 @@
             "tracks": [
               {
                 "title": "I Love You"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rochester-mn-region",
+    "name": "Rochester, MN",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "rochester-mn",
+        "name": "Rochester, MN",
+        "state": "MN",
+        "artists": [
+          {
+            "name": "Yung Gravy",
+            "note": "Minnesota rapper known for comedic, sample-flipping party rap.",
+            "tracks": [
+              {
+                "title": "1 Thot 2 Thot Red Thot Blue Thot"
+              },
+              {
+                "title": "Whip a Tesla"
+              },
+              {
+                "title": "Always Saucy"
               }
             ]
           }
