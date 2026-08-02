@@ -8035,6 +8035,12 @@
         "name": "Morrisville",
         "x": 95.04,
         "y": 78.63
+      },
+      {
+        "id": "pittsburgh-pa",
+        "name": "Pittsburgh",
+        "x": 11.91,
+        "y": 70.18
       }
     ]
   },
@@ -9441,6 +9447,12 @@
         "name": "Virginia Beach",
         "x": 95.02,
         "y": 86.5
+      },
+      {
+        "id": "newport-news-va",
+        "name": "Newport News",
+        "x": 89.64,
+        "y": 82.45
       }
     ]
   },
