@@ -355,6 +355,41 @@ function handleSearch(query) {
 
 // State-level map: real outline (pre-computed in stateOutlines.js) with each
 // documented city marked at its actual relative position and clickable.
+// The outline/pin coordinates in stateOutlines.json are normalized
+// independently per axis (0-100 for both the longitude spread and the
+// latitude spread), which silently forces every state into a square
+// footprint regardless of its real shape — e.g. Tennessee (wide/short) and
+// New Jersey (narrow/tall) both come out looking square. This computes a
+// corrective per-axis scale from the state's actual bbox (accounting for
+// longitude compression at latitude via cos(lat)) so the true width:height
+// ratio is restored at render time, without needing to touch the
+// pre-computed JSON. Only ever shrinks the smaller axis, never stretches
+// past the original footprint, so the shape still fits the same map area.
+function computeAspectScale(bbox) {
+  const lonRange = bbox.maxLon - bbox.minLon;
+  const latRange = bbox.maxLat - bbox.minLat;
+  const avgLatRad = ((bbox.minLat + bbox.maxLat) / 2) * Math.PI / 180;
+  const trueWidth = lonRange * Math.cos(avgLatRad);
+  const trueHeight = latRange;
+  const ratio = trueWidth / trueHeight;
+  return ratio >= 1 ? { scaleX: 1, scaleY: 1 / ratio } : { scaleX: ratio, scaleY: 1 };
+}
+
+// A small pixel-art push-pin: a shaded red head (crispEdges gives it visibly
+// stepped, jagged circle edges instead of smooth anti-aliasing) plus a
+// metal needle, defined once and reused via <use> for every city.
+const PUSHPIN_SYMBOL = `
+  <symbol id="pushpin-icon" viewBox="0 0 10 12" shape-rendering="crispEdges">
+    <ellipse cx="5" cy="10.6" rx="2" ry="0.8" fill="#000000" opacity="0.25" />
+    <rect x="4.5" y="6" width="1" height="4" fill="#aaaaaa" />
+    <rect x="4.5" y="6" width="0.5" height="4" fill="#dddddd" />
+    <circle cx="5" cy="4" r="4" fill="#b30000" />
+    <path d="M2 5.8 A4 4 0 0 0 8.6 6.2 A4 4 0 0 1 2 5.8 Z" fill="#7a0000" />
+    <circle cx="3.4" cy="2.4" r="1.3" fill="#ff6666" />
+    <circle cx="2.8" cy="1.7" r="0.55" fill="#ffbaba" />
+  </symbol>
+`;
+
 function renderStateMap(abbrev, entries) {
   const geo = STATE_OUTLINES[abbrev];
   if (!geo) return "";
@@ -362,29 +397,105 @@ function renderStateMap(abbrev, entries) {
   const cityLookup = {};
   entries.forEach(({ region, city }) => { cityLookup[city.id] = { region, city }; });
 
-  const points = geo.outline.map(p => p.join(",")).join(" ");
+  const rawXs = geo.outline.map(p => p[0]);
+  const rawYs = geo.outline.map(p => p[1]);
+  const centerX = (Math.min(...rawXs) + Math.max(...rawXs)) / 2;
+  const centerY = (Math.min(...rawYs) + Math.max(...rawYs)) / 2;
+  const { scaleX, scaleY } = computeAspectScale(geo.bbox);
+  const fix = (x, y) => [centerX + (x - centerX) * scaleX, centerY + (y - centerY) * scaleY];
+
+  const points = geo.outline.map(p => fix(p[0], p[1]).map(n => n.toFixed(2)).join(",")).join(" ");
   const markers = geo.cities.map(c => {
     const match = cityLookup[c.id];
     if (!match) return "";
+    const [cx, cy] = fix(c.x, c.y);
     // Start every label to the right of its pin; adjustStateMapLabels()
     // flips it to the left afterward if it would actually run off the map,
-    // measured in real SVG units so it's correct at any screen size.
+    // measured in real SVG units so it's correct at any screen size. The
+    // pin's own needle tip (not its head) marks the exact location, so the
+    // <use> box is offset up-and-left of (cx, cy) rather than centered on
+    // it; a transparent hit-circle keeps the tap target from shrinking
+    // along with the now-smaller visible pin.
     return `
-      <a class="city-marker" href="#/city/${match.region.id}/${match.city.id}">
-        <circle cx="${c.x}" cy="${c.y}" r="2.2" />
-        <text x="${(c.x + 3.2).toFixed(2)}" y="${(c.y + 1.2).toFixed(2)}" font-size="4.2" text-anchor="start">${escapeHtml(c.name)}</text>
+      <a class="city-marker" href="#/city/${match.region.id}/${match.city.id}" data-cx="${cx.toFixed(2)}">
+        <circle cx="${cx.toFixed(2)}" cy="${cy.toFixed(2)}" r="2.4" class="city-marker-hitarea" />
+        <use href="#pushpin-icon" x="${(cx - 1.5).toFixed(2)}" y="${(cy - 3).toFixed(2)}" width="3" height="3.6" />
+        <text x="${(cx + 3.2).toFixed(2)}" y="${(cy + 1.2).toFixed(2)}" font-size="4.2" text-anchor="start">${escapeHtml(c.name)}</text>
       </a>
     `;
   }).join("");
 
   return `
     <div class="state-map-wrap">
-      <svg class="state-map-svg" viewBox="-10 -10 120 120" preserveAspectRatio="xMidYMid meet">
-        <polygon class="state-outline" points="${points}" />
-        ${markers}
-      </svg>
+      <p class="map-zoom-controls">
+        <button type="button" class="retro-btn" onclick="zoomMapBy(0.6)" aria-label="Zoom in">+</button>
+        <button type="button" class="retro-btn" onclick="zoomMapBy(-0.6)" aria-label="Zoom out">&minus;</button>
+        <button type="button" class="retro-btn" onclick="resetMapZoom()">Reset</button>
+        <span class="page-subtitle map-zoom-hint">Scroll or pinch to zoom, drag to pan — useful when city labels overlap.</span>
+      </p>
+      <div class="state-map-viewport">
+        <svg class="state-map-svg" viewBox="-10 -10 120 120" preserveAspectRatio="xMidYMid meet">
+          <defs>${PUSHPIN_SYMBOL}</defs>
+          <polygon class="state-outline" points="${points}" />
+          ${markers}
+        </svg>
+      </div>
     </div>
   `;
+}
+
+// ---- state map zoom/pan: plain CSS transform + pointer events, no library.
+// Lets dense states (many city pins close together) become readable by
+// zooming in rather than fighting label overlap with tinier and tinier text.
+let mapZoomState = { scale: 1, x: 0, y: 0 };
+let mapDrag = null;
+
+function applyMapZoom() {
+  const svg = document.querySelector(".state-map-svg");
+  if (!svg) return;
+  const { scale, x, y } = mapZoomState;
+  svg.style.transform = `scale(${scale}) translate(${x}px, ${y}px)`;
+}
+
+function resetMapZoom() {
+  mapZoomState = { scale: 1, x: 0, y: 0 };
+  applyMapZoom();
+}
+
+function zoomMapBy(delta) {
+  const next = Math.min(4, Math.max(1, mapZoomState.scale + delta));
+  if (next === mapZoomState.scale) return;
+  mapZoomState.scale = next;
+  if (next === 1) { mapZoomState.x = 0; mapZoomState.y = 0; }
+  applyMapZoom();
+}
+
+function initMapPanZoom() {
+  const viewport = document.querySelector(".state-map-viewport");
+  if (!viewport) return;
+  mapZoomState = { scale: 1, x: 0, y: 0 };
+  applyMapZoom();
+
+  viewport.addEventListener("wheel", e => {
+    e.preventDefault();
+    zoomMapBy(e.deltaY < 0 ? 0.4 : -0.4);
+  }, { passive: false });
+
+  viewport.addEventListener("pointerdown", e => {
+    if (mapZoomState.scale <= 1) return;
+    mapDrag = { startX: e.clientX, startY: e.clientY, origX: mapZoomState.x, origY: mapZoomState.y };
+    viewport.classList.add("is-panning");
+  });
+  window.addEventListener("pointermove", e => {
+    if (!mapDrag) return;
+    mapZoomState.x = mapDrag.origX + (e.clientX - mapDrag.startX) / mapZoomState.scale;
+    mapZoomState.y = mapDrag.origY + (e.clientY - mapDrag.startY) / mapZoomState.scale;
+    applyMapZoom();
+  });
+  window.addEventListener("pointerup", () => {
+    mapDrag = null;
+    viewport.classList.remove("is-panning");
+  });
 }
 
 // Runs after the state map is in the DOM. Uses getBBox() (real SVG-unit
@@ -400,9 +511,8 @@ function adjustStateMapLabels() {
 
   svg.querySelectorAll(".city-marker").forEach(marker => {
     const text = marker.querySelector("text");
-    const circle = marker.querySelector("circle");
-    if (!text || !circle) return;
-    const cx = parseFloat(circle.getAttribute("cx"));
+    if (!text) return;
+    const cx = parseFloat(marker.dataset.cx);
     let bbox;
     try { bbox = text.getBBox(); } catch { return; }
 
@@ -452,13 +562,22 @@ function renderState(abbrev) {
     <div class="rapper-list">${blocks}</div>
   `;
   adjustStateMapLabels();
+  initMapPanZoom();
+}
+
+const NEW_TAG_WINDOW_MS = 48 * 60 * 60 * 1000;
+
+function isRecentlyAdded(addedAt) {
+  if (!addedAt) return false;
+  const t = new Date(addedAt).getTime();
+  return !isNaN(t) && Date.now() - t < NEW_TAG_WINDOW_MS;
 }
 
 function renderArtistBlocks(artists, regionId, cityId) {
   const canManage = regionId && cityId && isConfigured() && storedPassword();
   return (artists || []).map((a, i) => `
     <div class="artist-card">
-      <h3>${escapeHtml(a.name)}</h3>
+      <h3>${escapeHtml(a.name)}${isRecentlyAdded(a.addedAt) ? '<span class="new-tag">New</span>' : ""}</h3>
       ${canManage ? `
         <p class="manage-controls">
           <a href="#/edit/${regionId}/${cityId}/${i}">Edit</a> &nbsp;
@@ -1133,6 +1252,92 @@ function renderRemoveBatch() {
   renderRemoveBatchForm();
 }
 
+// ---- hidden admin page: retroactively fill in missing Spotify links ----
+// Not linked from anywhere in the site's normal navigation — reachable only
+// by going directly to #/add/relink-spotify. Scans the already-loaded data
+// for tracks with a title but no spotifyId, then asks the Worker to
+// re-attempt a Spotify search for each one, in batches sized to stay under
+// the free Workers plan's subrequest limit.
+const RELINK_BATCH_SIZE = 35;
+
+function findTracksMissingSpotify() {
+  const items = [];
+  regions.forEach(region => {
+    region.cities.forEach(city => {
+      (city.artists || []).forEach(artist => {
+        (artist.tracks || []).forEach(track => {
+          if (!track.spotifyId) items.push({ artistName: artist.name, trackTitle: track.title });
+        });
+      });
+      (city.neighborhoods || []).forEach(hood => {
+        (hood.artists || []).forEach(artist => {
+          (artist.tracks || []).forEach(track => {
+            if (!track.spotifyId) items.push({ artistName: artist.name, trackTitle: track.title });
+          });
+        });
+      });
+    });
+  });
+  return items;
+}
+
+async function submitRelinkSpotify() {
+  const statusEl = document.getElementById("relink-status");
+  const btn = document.getElementById("relink-submit-btn");
+  const items = findTracksMissingSpotify();
+  if (!items.length) return;
+
+  btn.disabled = true;
+  const batches = [];
+  for (let i = 0; i < items.length; i += RELINK_BATCH_SIZE) batches.push(items.slice(i, i + RELINK_BATCH_SIZE));
+
+  let relinkedTotal = 0, attemptedTotal = 0;
+
+  for (let i = 0; i < batches.length; i++) {
+    statusEl.className = "form-status";
+    statusEl.textContent = `Batch ${i + 1} of ${batches.length} — ${attemptedTotal} of ${items.length} tracks attempted so far…`;
+    try {
+      const res = await fetch(AREA_CODES_CONFIG.ADD_ARTIST_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "relink_spotify", password: storedPassword(), items: batches[i] })
+      });
+      if (!res.ok) throw new Error(await res.text());
+      const result = await res.json();
+      relinkedTotal += result.relinkedCount || 0;
+      attemptedTotal += result.attemptedCount || 0;
+    } catch (err) {
+      statusEl.className = "form-status is-error";
+      statusEl.textContent = `Stopped at batch ${i + 1} of ${batches.length} — ${relinkedTotal} track(s) relinked before this failed (${err.message}). Those are already saved; reload this page and run it again to pick up where it left off.`;
+      btn.disabled = false;
+      return;
+    }
+  }
+
+  statusEl.className = "form-status";
+  statusEl.textContent = `Done — relinked ${relinkedTotal} of ${items.length} track(s) (${items.length - relinkedTotal} had no confident Spotify match). Live on the site shortly. Reload this page to see the current remaining count.`;
+}
+
+function renderRelinkSpotifyForm() {
+  const missing = findTracksMissingSpotify();
+  app.innerHTML = `
+    <p class="crumbs"><a href="#/add">Add an Artist</a> / Relink Spotify</p>
+    <h1 class="page-title">Relink Missing Spotify Links</h1>
+    <p class="page-subtitle">Scans every track currently on the site for ones without a Spotify link, then re-runs the search for just those. Safe to run repeatedly — tracks that already have a link are always skipped.</p>
+    <p class="page-subtitle"><strong>${missing.length} track(s) currently missing a Spotify link.</strong></p>
+    <p class="form-actions">
+      <button type="button" id="relink-submit-btn" class="retro-btn" ${missing.length ? "" : "disabled"} onclick="submitRelinkSpotify()">Relink All</button>
+      <span id="relink-status" class="form-status"></span>
+    </p>
+  `;
+}
+
+function renderRelinkSpotify() {
+  if (!isConfigured()) return renderNotConfigured();
+  if (!storedPassword()) return renderAddGate();
+  renderRelinkSpotifyForm();
+}
+
 function renderBulk() {
   if (!isConfigured()) return renderNotConfigured();
   if (!storedPassword()) return renderAddGate();
@@ -1194,6 +1399,7 @@ function router() {
   if (parts.length === 0) return renderHome();
   if (parts[0] === "add" && parts[1] === "bulk") return renderBulk();
   if (parts[0] === "add" && parts[1] === "remove-batch") return renderRemoveBatch();
+  if (parts[0] === "add" && parts[1] === "relink-spotify") return renderRelinkSpotify();
   if (parts[0] === "add") return renderAdd();
   if (parts[0] === "edit" && parts[1] && parts[2] && parts[3]) return renderEdit(parts[1], parts[2], parts[3]);
   if (parts[0] === "state" && parts[1]) return renderState(parts[1]);
@@ -1204,5 +1410,41 @@ function router() {
   return renderNotFound();
 }
 
+// ---- retro header/footer extras: hit counter + badges. Purely decorative,
+// no network requests — the counter is a real per-browser localStorage
+// tally (not faked), everything else is static markup. Both run once at
+// page load, independent of loadData() since neither needs the artist data.
+function renderHeaderHitCounter() {
+  const el = document.getElementById("header-hitcounter");
+  if (!el) return;
+
+  let count = parseInt(localStorage.getItem("areaCodesHitCount") || "0", 10);
+  if (isNaN(count)) count = 0;
+  count += 1;
+  localStorage.setItem("areaCodesHitCount", String(count));
+  const digits = String(count).padStart(6, "0");
+
+  el.innerHTML = `
+    <span class="hit-counter-label">You are visitor</span>
+    <span class="hit-counter">${escapeHtml(digits)}</span>
+  `;
+}
+
+function renderFooterBadges() {
+  const el = document.getElementById("footer-extras");
+  if (!el) return;
+
+  el.innerHTML = `
+    <div class="retro-badges">
+      <a href="#/add" class="retro-badge-link">Add an artist!</a>
+      <span class="retro-badge retro-badge-seal">100% human-curated</span>
+    </div>
+  `;
+}
+
 window.addEventListener("hashchange", router);
-window.addEventListener("DOMContentLoaded", () => { loadData().then(router); });
+window.addEventListener("DOMContentLoaded", () => {
+  renderHeaderHitCounter();
+  renderFooterBadges();
+  loadData().then(router);
+});

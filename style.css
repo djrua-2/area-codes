@@ -1,5 +1,5 @@
 :root {
-  --bg: #ffffff;
+  --bg: #c0c0c0;
   --ink: #0000ee;
   --ink-faded: #333333;
   --ink-faint: #c7c7c7;
@@ -124,13 +124,58 @@ a:visited { color: #551a8b; }
   border-bottom: 1px solid var(--ink-faint);
 }
 
+.header-top-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+}
+#header-hitcounter {
+  justify-self: start;
+  text-align: left;
+}
+.header-top-spacer {
+  justify-self: end;
+}
+/* Below this width there isn't room for the counter and the logo side by
+   side without the logo overflowing the viewport (grid's auto-sized middle
+   column doesn't shrink to fit leftover space) — fall back to stacking
+   them, same as before the counter moved to the header row. */
+@media (max-width: 480px) {
+  .header-top-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #header-hitcounter {
+    text-align: center;
+    margin-bottom: 0.75rem;
+  }
+  .header-top-spacer {
+    display: none;
+  }
+}
+
+/* Logo: a genuine 88x31 pixel-art button PNG (its own beveled border is
+   baked into the image, so no extra CSS border here), scaled up with
+   image-rendering:pixelated to keep the pixel edges crisp instead of blurry. */
 .logo {
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ink);
-  text-decoration: none;
+  display: inline-block;
+  line-height: 0;
+}
+.logo-img {
+  display: block;
+  /* Fixed px width would be simplest, but .logo is an auto-sized
+     inline-block, so a percentage width here has nothing to resolve
+     against (circular) and silently collapses to the image's native
+     88×31 — no visible upscale, no pixelation. min() with a vw unit
+     sizes off the viewport instead, sidestepping that entirely. */
+  width: min(264px, 70vw);
+  height: auto;
+  aspect-ratio: 88 / 31;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 
 .tagline {
@@ -166,6 +211,86 @@ main#app {
   font-size: 0.85rem;
   padding: 1.5rem 1.25rem 2.5rem;
   border-top: 1px solid var(--ink-faint);
+}
+
+/* ---- retro footer extras: hit counter + badge seals ---- */
+.hit-counter-label {
+  display: block;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.25rem;
+}
+.hit-counter {
+  display: inline-block;
+  background: #000000;
+  color: #33ff33;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  padding: 0.3rem 0.5rem;
+  font-size: 1rem;
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--bevel-sh) var(--bevel-hi) var(--bevel-hi) var(--bevel-sh);
+}
+.retro-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+.retro-badge {
+  display: inline-block;
+  background: #000080;
+  color: #ffffff;
+  box-sizing: border-box;
+  min-width: 88px;
+  min-height: 31px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  padding: 0.3rem 0.6rem;
+  border: 2px solid #000000;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* "Add an artist" — a real raised, pressable 3D button (not another flat
+   badge) so it reads as clearly clickable, deliberately distinct from both
+   the black/green LED counter and the flat gold seal badge. */
+.retro-badge-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ink);
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0.55rem 1.1rem;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #99b3ff #00008b #00008b #99b3ff;
+}
+.retro-badge-link:active {
+  border-color: #00008b #99b3ff #99b3ff #00008b;
+}
+
+/* "100% human-curated" — gold award-seal badge */
+.retro-badge-seal {
+  background: #ffcc00;
+  color: #000000;
+  border-color: #806600;
+  box-shadow: inset 0 0 0 1px #000000;
 }
 
 /* breadcrumb */
@@ -215,7 +340,7 @@ main#app {
   height: 100%;
 }
 .grid-lines line {
-  stroke: var(--ink-faint);
+  stroke: #000000;
   stroke-width: 1;
   vector-effect: non-scaling-stroke;
 }
@@ -246,7 +371,7 @@ main#app {
 }
 
 .is-documented .state-label { color: var(--ink); }
-.is-empty .state-label { color: var(--ink-faint); }
+.is-empty .state-label { color: rgba(0, 0, 0, 0.5); }
 
 @media (max-width: 480px) {
   .state-label { font-size: 2.6vw; }
@@ -295,24 +420,45 @@ main#app {
 
 /* ---- state-level map ---- */
 .state-map-wrap { margin-bottom: 2rem; }
-.state-map-svg { display: block; margin: 0 auto; width: 100%; max-width: 480px; height: auto; }
+.state-map-svg { display: block; margin: 0 auto; width: 100%; max-width: 480px; height: auto; transform-origin: center center; }
 .state-outline {
   fill: none;
-  stroke: var(--ink-faint);
+  stroke: #000000;
   stroke-width: 1;
   vector-effect: non-scaling-stroke;
 }
-.city-marker circle {
-  fill: var(--bg);
-  stroke: var(--ink);
-  stroke-width: 1.5;
-  vector-effect: non-scaling-stroke;
+.city-marker-hitarea {
+  fill: transparent;
+  stroke: none;
 }
 .city-marker text {
   fill: var(--ink);
   font-family: "Times New Roman", Times, serif;
 }
 .city-marker { cursor: pointer; }
+
+.state-map-viewport {
+  overflow: hidden;
+  touch-action: none;
+  cursor: grab;
+}
+.state-map-viewport.is-panning { cursor: grabbing; }
+
+.map-zoom-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 0 0.5rem;
+}
+.map-zoom-controls .retro-btn {
+  min-width: 2.1rem;
+  padding: 0.25rem 0.6rem;
+}
+.map-zoom-hint {
+  margin: 0;
+  font-size: 0.8rem;
+}
 
 /* city / rapper lists */
 .city-list { display: grid; gap: 0.75rem; }
@@ -371,6 +517,25 @@ h1.page-title {
   font-size: 1.2rem;
   text-transform: uppercase;
   color: var(--ink-faded);
+}
+.new-tag {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.05rem 0.4rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  vertical-align: middle;
+  background: #cc0000;
+  color: #ffffff;
+  border: 1px solid #000000;
+  animation: retro-blink 1s steps(1, start) infinite;
+}
+@keyframes retro-blink {
+  50% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .new-tag { animation: none; }
 }
 .artist-card p {
   margin: 0 0 0.6rem;

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Area Codes — Rap Music by Region</title>
 <meta name="description" content="An interactive map of rap music across the USA — artists, beats, and the regional sound of hip-hop from city to city.">
-<link rel="stylesheet" href="style.css?v=7">
+<link rel="stylesheet" href="style.css?v=15">
 </head>
 <body>
 
@@ -20,20 +20,23 @@
 </div>
 
 <header class="site-header">
-  <a href="#/" class="logo">AREA CODES</a>
+  <div class="header-top-row">
+    <div id="header-hitcounter"></div>
+    <a href="#/" class="logo"><img src="logo.png?v=1" width="88" height="31" alt="Area Codes" class="logo-img"></a>
+    <div class="header-top-spacer" aria-hidden="true"></div>
+  </div>
   <p class="tagline">rap music, mapped by sound &amp; place</p>
 </header>
 
 <main id="app"></main>
 
 <footer class="site-footer">
-  <p>A work-in-progress guide to regional hip-hop sound. Corrections and additions welcome — this is a living document.</p>
-  <p><a href="#/add">Add an artist</a></p>
+  <div id="footer-extras"></div>
 </footer>
 
 <script src="states.js?v=6"></script>
 <script src="config.js?v=6"></script>
-<script src="app.js?v=10"></script>
+<script src="app.js?v=15"></script>
 <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
 </body>
 </html>
