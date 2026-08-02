@@ -569,6 +569,36 @@
                 "title": "Watch Me (Whip / Nae Nae)"
               }
             ]
+          },
+          {
+            "name": "Soulja Boy Tell 'Em",
+            "note": "Atlanta rapper whose viral, internet-driven rise with \"Crank That\" reshaped how rap hits could break.",
+            "tracks": [
+              {
+                "title": "Crank That (Soulja Boy)"
+              }
+            ]
+          },
+          {
+            "name": "Southside",
+            "note": "808 Mafia producer behind a huge swath of 2010s Southern trap hits.",
+            "tracks": [
+              {
+                "title": "Gunna Swag"
+              }
+            ]
+          },
+          {
+            "name": "Spillage Village",
+            "note": "Atlanta collective uniting EARTHGANG, JID, and other Dreamville-adjacent artists.",
+            "tracks": [
+              {
+                "title": "Can't Call It (feat. J. Cole, Bas, EARTHGANG & J.I.D)"
+              },
+              {
+                "title": "End of Daze (feat. Jurdan Bryant, Mereba & Hollywood JB)"
+              }
+            ]
           }
         ]
       }
@@ -920,6 +950,15 @@
             "tracks": [
               {
                 "title": "Paymeagrip"
+              }
+            ]
+          },
+          {
+            "name": "Souls of Mischief",
+            "note": "Oakland group (Hieroglyphics) best known for the classic \"93 'Til Infinity.\"",
+            "tracks": [
+              {
+                "title": "93 'Til Infinity"
               }
             ]
           }
@@ -2146,6 +2185,24 @@
                 "title": "I Wish"
               }
             ]
+          },
+          {
+            "name": "Social House",
+            "note": "LA duo known for laid-back, melodic pop-rap.",
+            "tracks": [
+              {
+                "title": "Magic in the Hamptons (feat. Lil Yachty)"
+              }
+            ]
+          },
+          {
+            "name": "Sound Providers",
+            "note": "LA production duo known for soulful, sample-driven boom-bap.",
+            "tracks": [
+              {
+                "title": "The Field"
+              }
+            ]
           }
         ]
       }
@@ -2199,6 +2256,15 @@
             "tracks": [
               {
                 "title": "Smile (Living My Best Life) [feat. Snoop Dogg & Ball Greezy]"
+              }
+            ]
+          },
+          {
+            "name": "Spinabenz",
+            "note": "Jacksonville rapper and ATK member known for a raw, street-rooted delivery.",
+            "tracks": [
+              {
+                "title": "Who I Smoke (feat. Whoppa Wit Da Choppa)"
               }
             ]
           }
@@ -3695,6 +3761,15 @@
                 "title": "Mo Bamba"
               }
             ]
+          },
+          {
+            "name": "Smoke DZA",
+            "note": "Harlem rapper known for laid-back, weed-culture-steeped storytelling.",
+            "tracks": [
+              {
+                "title": "Legends in the Making (Ashtray Pt. 2) [feat. Wiz Khalifa & Curren$y]"
+              }
+            ]
           }
         ]
       }
@@ -4340,6 +4415,15 @@
                 "title": "Big Sherm"
               }
             ]
+          },
+          {
+            "name": "SOB X RBE",
+            "note": "Bay Area group known for aggressive, rapid-fire street rap.",
+            "tracks": [
+              {
+                "title": "Calvin Cambridge"
+              }
+            ]
           }
         ]
       }
@@ -4708,6 +4792,18 @@
             "tracks": [
               {
                 "title": "Everybody Mad"
+              }
+            ]
+          },
+          {
+            "name": "Snoop Dogg",
+            "note": "Long Beach rapper whose laid-back, drawling flow made him one of West Coast rap's most enduring icons.",
+            "tracks": [
+              {
+                "title": "Ain't No Fun (If the Homies Can't Have None) [feat. Nate Dogg, Warren G & Kurupt]"
+              },
+              {
+                "title": "Young, Wild & Free (feat. Bruno Mars)"
               }
             ]
           }
@@ -6285,6 +6381,15 @@
             "tracks": [
               {
                 "title": "Baby Got Back"
+              }
+            ]
+          },
+          {
+            "name": "Sol",
+            "note": "Seattle rapper known for soulful, introspective independent rap.",
+            "tracks": [
+              {
+                "title": "100 Songs"
               }
             ]
           }
@@ -8214,6 +8319,29 @@
             "tracks": [
               {
                 "title": "Drill Time"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "pompano-beach-fl-region",
+    "name": "Pompano Beach, FL",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "pompano-beach-fl",
+        "name": "Pompano Beach, FL",
+        "state": "FL",
+        "artists": [
+          {
+            "name": "Sniper Gang",
+            "note": "Kodak Black's South Florida-rooted label and artist collective.",
+            "tracks": [
+              {
+                "title": "In The Field (feat. Kodak Black, Nuely & Yo Baby)"
               }
             ]
           }
