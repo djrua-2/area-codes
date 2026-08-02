@@ -560,6 +560,15 @@
                 "title": "Dey Know"
               }
             ]
+          },
+          {
+            "name": "Silentó",
+            "note": "Atlanta artist best known for the viral dance anthem \"Watch Me (Whip / Nae Nae).\"",
+            "tracks": [
+              {
+                "title": "Watch Me (Whip / Nae Nae)"
+              }
+            ]
           }
         ]
       }
@@ -1212,6 +1221,15 @@
             "tracks": [
               {
                 "title": "Payday"
+              }
+            ]
+          },
+          {
+            "name": "Slum Village",
+            "note": "Detroit trio (J Dilla's early group) foundational to the city's soulful production style.",
+            "tracks": [
+              {
+                "title": "Fall In Love"
               }
             ]
           }
@@ -2119,6 +2137,15 @@
                 "title": "Wake Me up in Traffic (feat. 03 Greedo & Drakeo the Ruler)"
               }
             ]
+          },
+          {
+            "name": "Skee-Lo",
+            "note": "LA rapper best known for the hit \"I Wish.\"",
+            "tracks": [
+              {
+                "title": "I Wish"
+              }
+            ]
           }
         ]
       }
@@ -2996,6 +3023,24 @@
                 "title": "Reflex"
               }
             ]
+          },
+          {
+            "name": "Skyzoo",
+            "note": "Brooklyn lyricist known for dense, soulful storytelling.",
+            "tracks": [
+              {
+                "title": "Recipe For Desire (Bonus Track)"
+              }
+            ]
+          },
+          {
+            "name": "Sleepy Hallow",
+            "note": "Flatbush drill artist known for a melodic, laid-back delivery.",
+            "tracks": [
+              {
+                "title": "2055"
+              }
+            ]
           }
         ]
       }
@@ -3192,6 +3237,15 @@
                 "title": "Eat"
               }
             ]
+          },
+          {
+            "name": "Skizzy Mars",
+            "note": "New York rapper known for melodic, radio-friendly independent rap.",
+            "tracks": [
+              {
+                "title": "American Dream"
+              }
+            ]
           }
         ]
       }
@@ -3245,6 +3299,15 @@
             "tracks": [
               {
                 "title": "Kali Yuga (feat. Clams Casino)"
+              }
+            ]
+          },
+          {
+            "name": "Ski Mask the Slump God",
+            "note": "South Florida rapper known for a chaotic, high-energy SoundCloud-era style.",
+            "tracks": [
+              {
+                "title": "Faucet Failure"
               }
             ]
           }
@@ -3430,6 +3493,15 @@
             "tracks": [
               {
                 "title": "Once Upon a Time"
+              }
+            ]
+          },
+          {
+            "name": "Slick Rick",
+            "note": "Bronx storyteller whose vivid, character-driven narratives reshaped rap lyricism.",
+            "tracks": [
+              {
+                "title": "Children's Story"
               }
             ]
           }
@@ -4492,6 +4564,15 @@
             "tracks": [
               {
                 "title": "4 Million"
+              }
+            ]
+          },
+          {
+            "name": "Slim Thug",
+            "note": "Houston rapper known for a slow, drawling delivery rooted in the city's screw tradition.",
+            "tracks": [
+              {
+                "title": "Caddy Music (feat. Devin the Dude)"
               }
             ]
           }
@@ -6197,6 +6278,15 @@
                 "title": "30 Clip Extension"
               }
             ]
+          },
+          {
+            "name": "Sir Mix-A-Lot",
+            "note": "Seattle rapper best known for the iconic hit \"Baby Got Back.\"",
+            "tracks": [
+              {
+                "title": "Baby Got Back"
+              }
+            ]
           }
         ]
       }
@@ -7135,6 +7225,15 @@
             "tracks": [
               {
                 "title": "Country Grammar (Hot Shit)"
+              }
+            ]
+          },
+          {
+            "name": "Smino",
+            "note": "St. Louis rapper known for genre-blurring, melodically acrobatic songwriting.",
+            "tracks": [
+              {
+                "title": "Amphetamine"
               }
             ]
           }
@@ -8092,6 +8191,29 @@
             "tracks": [
               {
                 "title": "Buzzin'"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "chillicothe-oh-region",
+    "name": "Chillicothe, OH",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "chillicothe-oh",
+        "name": "Chillicothe, OH",
+        "state": "OH",
+        "artists": [
+          {
+            "name": "Slim Jesus",
+            "note": "Ohio rapper known for the viral drill-adjacent hit \"Drill Time.\"",
+            "tracks": [
+              {
+                "title": "Drill Time"
               }
             ]
           }
