@@ -9453,6 +9453,12 @@
         "name": "Newport News",
         "x": 89.64,
         "y": 82.45
+      },
+      {
+        "id": "portsmouth-va",
+        "name": "Portsmouth",
+        "x": 91.21,
+        "y": 87.06
       }
     ]
   },
