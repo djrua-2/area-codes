@@ -3422,7 +3422,14 @@
         15.57
       ]
     ],
-    "cities": []
+    "cities": [
+      {
+        "id": "lexington-ky",
+        "name": "Lexington",
+        "x": 64.88,
+        "y": 41.24
+      }
+    ]
   },
   "LA": {
     "bbox": {
@@ -4276,6 +4283,12 @@
         "name": "Baltimore",
         "x": 63.7,
         "y": 25.74
+      },
+      {
+        "id": "suitland-md",
+        "name": "Suitland",
+        "x": 57.14,
+        "y": 48.25
       }
     ]
   },
@@ -6657,6 +6670,12 @@
         "name": "Mount Vernon",
         "x": 75.29,
         "y": 88.67
+      },
+      {
+        "id": "staten-island-ny",
+        "name": "Staten Island",
+        "x": 71.54,
+        "y": 95.48
       }
     ]
   },
