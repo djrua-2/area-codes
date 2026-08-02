@@ -311,6 +311,36 @@
                 "title": "I Got Money (feat. T.I.)"
               }
             ]
+          },
+          {
+            "name": "Jermaine Dupri",
+            "note": "Atlanta producer-mogul central to the city's rise as a hip-hop hub.",
+            "tracks": [
+              {
+                "title": "Intro / Turn It Out (feat. Nas)"
+              }
+            ]
+          },
+          {
+            "name": "JID",
+            "note": "East Atlanta rapper known for dense, technically acrobatic flows.",
+            "tracks": [
+              {
+                "title": "151 Rum"
+              },
+              {
+                "title": "Off Deez"
+              },
+              {
+                "title": "Dance Now"
+              },
+              {
+                "title": "Sk8"
+              },
+              {
+                "title": "Community"
+              }
+            ]
           }
         ]
       }
@@ -1222,6 +1252,33 @@
                 "title": "All I Need (feat. Gift of Gab)"
               }
             ]
+          },
+          {
+            "name": "Jinsang",
+            "note": "LA-based lo-fi hip-hop producer known for warm, jazzy instrumentals.",
+            "tracks": [
+              {
+                "title": "A Thousand Times"
+              }
+            ]
+          },
+          {
+            "name": "John Givez",
+            "note": "LA-based Christian hip-hop artist known for introspective songwriting.",
+            "tracks": [
+              {
+                "title": "Westside Blues"
+              }
+            ]
+          },
+          {
+            "name": "Johnny Polygon",
+            "note": "LA rapper known for eclectic, genre-blending production.",
+            "tracks": [
+              {
+                "title": "LoveSick (Super Nintendo)"
+              }
+            ]
           }
         ]
       }
@@ -1725,6 +1782,15 @@
               },
               {
                 "title": "New Day"
+              }
+            ]
+          },
+          {
+            "name": "Joey Bada$$",
+            "note": "Brooklyn rapper and Pro Era founder who helped revive '90s-rooted boom-bap for a new generation.",
+            "tracks": [
+              {
+                "title": "BABYLON (feat. Chronixx)"
               }
             ]
           }
@@ -2411,6 +2477,15 @@
                 "title": "Moody! (feat. Saba)"
               }
             ]
+          },
+          {
+            "name": "Joey Purp",
+            "note": "Chicago rapper and Savemoney collective member.",
+            "tracks": [
+              {
+                "title": "2012"
+              }
+            ]
           }
         ]
       }
@@ -2905,6 +2980,24 @@
                 "title": "Got My Mind"
               }
             ]
+          },
+          {
+            "name": "Joey Trap",
+            "note": "Philadelphia rapper known for playful, high-energy bars.",
+            "tracks": [
+              {
+                "title": "Tables"
+              }
+            ]
+          },
+          {
+            "name": "Jon Bap",
+            "note": "Philadelphia artist blending soul, jazz, and rap into a genre-fluid sound.",
+            "tracks": [
+              {
+                "title": "Stevie (feat. Anna Wise)"
+              }
+            ]
           }
         ]
       }
@@ -3222,6 +3315,15 @@
             "tracks": [
               {
                 "title": "Privileges"
+              }
+            ]
+          },
+          {
+            "name": "Jon Connor",
+            "note": "Flint lyricist known for dense, technically sharp storytelling.",
+            "tracks": [
+              {
+                "title": "In My Sleep (feat. Tito Lopez & Chelsea Blare)"
               }
             ]
           }
@@ -4571,6 +4673,15 @@
                 "title": "Tipsy (Club Mix)"
               }
             ]
+          },
+          {
+            "name": "Jibbs",
+            "note": "St. Louis rapper best known for the hit \"Chain Hang Low.\"",
+            "tracks": [
+              {
+                "title": "Chain Hang Low"
+              }
+            ]
           }
         ]
       }
@@ -4615,6 +4726,29 @@
             "tracks": [
               {
                 "title": "Spectrum"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "springfield-oh-region",
+    "name": "Springfield, OH",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "springfield-oh",
+        "name": "Springfield, OH",
+        "state": "OH",
+        "artists": [
+          {
+            "name": "John Legend",
+            "note": "Springfield-raised singer-songwriter whose catalog frequently intersects with hip-hop.",
+            "tracks": [
+              {
+                "title": "Sin City"
               }
             ]
           }
