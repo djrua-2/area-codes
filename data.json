@@ -2491,6 +2491,24 @@
                 "title": "Potato Salad"
               }
             ]
+          },
+          {
+            "name": "Warm Brew",
+            "note": "LA trio known for laid-back, smoked-out West Coast rap.",
+            "tracks": [
+              {
+                "title": "I Swear (feat. Buddy)"
+              }
+            ]
+          },
+          {
+            "name": "Westside Connection",
+            "note": "LA supergroup (Ice Cube, WC, Mack 10) known for hard-edged West Coast rap.",
+            "tracks": [
+              {
+                "title": "3 Time Felons"
+              }
+            ]
           }
         ]
       }
@@ -2630,6 +2648,15 @@
             "tracks": [
               {
                 "title": "Don't Give Me No Bammer Weed"
+              }
+            ]
+          },
+          {
+            "name": "Watsky",
+            "note": "San Francisco rapper known for rapid-fire, spoken-word-rooted delivery.",
+            "tracks": [
+              {
+                "title": "Dedicated to Christina Li"
               }
             ]
           }
@@ -3482,6 +3509,15 @@
                 "title": "Saturday Night"
               }
             ]
+          },
+          {
+            "name": "Whodini",
+            "note": "Brooklyn duo foundational to early hip-hop's crossover into R&B-inflected pop.",
+            "tracks": [
+              {
+                "title": "Friends"
+              }
+            ]
           }
         ]
       }
@@ -3696,6 +3732,15 @@
                 "title": "Get Lifted (feat. A$AP Ant & Trae tha Truth)"
               }
             ]
+          },
+          {
+            "name": "Wiki",
+            "note": "New York rapper (formerly of Ratking) known for dense, rapid-fire wordplay.",
+            "tracks": [
+              {
+                "title": "Dame Aquí (feat. Princess Nokia)"
+              }
+            ]
           }
         ]
       }
@@ -3758,6 +3803,15 @@
             "tracks": [
               {
                 "title": "Faucet Failure"
+              }
+            ]
+          },
+          {
+            "name": "wifisfuneral",
+            "note": "South Florida rapper known for aggressive, emotionally raw underground rap.",
+            "tracks": [
+              {
+                "title": "Juveniles (feat. YBN Nahmir)"
               }
             ]
           }
@@ -5346,6 +5400,15 @@
                 "title": "3230"
               }
             ]
+          },
+          {
+            "name": "Warren G",
+            "note": "Long Beach producer-rapper central to the G-funk era.",
+            "tracks": [
+              {
+                "title": "Regulate (feat. Nate Dogg)"
+              }
+            ]
           }
         ]
       }
@@ -5657,6 +5720,15 @@
             "tracks": [
               {
                 "title": "Bugs Life"
+              }
+            ]
+          },
+          {
+            "name": "Will Smith",
+            "note": "Philadelphia rapper turned actor whose family-friendly hits made him a mainstream crossover star.",
+            "tracks": [
+              {
+                "title": "Gettin' Jiggy Wit It"
               }
             ]
           }
@@ -6007,6 +6079,18 @@
             "tracks": [
               {
                 "title": "Scatter Brain (feat. Ludacris & JID)"
+              }
+            ]
+          },
+          {
+            "name": "Westside Gunn",
+            "note": "Griselda co-founder known for a raw, fashion-obsessed take on gritty street rap.",
+            "tracks": [
+              {
+                "title": "Bash money (feat. Lil Wayne)"
+              },
+              {
+                "title": "2 Stings"
               }
             ]
           }
@@ -6400,6 +6484,15 @@
             "tracks": [
               {
                 "title": "1 of 1"
+              }
+            ]
+          },
+          {
+            "name": "WESTSIDE BOOGIE",
+            "note": "Compton rapper known for introspective, soulful West Coast storytelling.",
+            "tracks": [
+              {
+                "title": "F**k 'Em All (feat. Mozzy & DJ Quik)"
               }
             ]
           }
@@ -7915,6 +8008,15 @@
                 "title": "Bookoo Bread Co"
               }
             ]
+          },
+          {
+            "name": "WebsterX",
+            "note": "Milwaukee rapper known for atmospheric, emotionally raw songwriting.",
+            "tracks": [
+              {
+                "title": "doomsday (feat. Siren)"
+              }
+            ]
           }
         ]
       }
@@ -8271,6 +8373,15 @@
             "tracks": [
               {
                 "title": "Wipe Me Down (feat. Webbie, FOXX & Boosie Badazz) [Remix]"
+              }
+            ]
+          },
+          {
+            "name": "Webbie",
+            "note": "Baton Rouge rapper known for raw, gravel-voiced Southern street rap.",
+            "tracks": [
+              {
+                "title": "Independent (feat. Boosie Badazz & Lil' Phat)"
               }
             ]
           }
