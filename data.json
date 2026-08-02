@@ -227,6 +227,24 @@
                 "title": "4 The People (feat. Playboi Carti)"
               }
             ]
+          },
+          {
+            "name": "F.L.Y. - Fast Life Yungstaz",
+            "note": "Atlanta duo best known for the viral hit \"Swag Surfin'.\"",
+            "tracks": [
+              {
+                "title": "Swag Surfin'"
+              }
+            ]
+          },
+          {
+            "name": "Father",
+            "note": "Awful Records founder known for deadpan, minimalist Atlanta rap.",
+            "tracks": [
+              {
+                "title": "Everybody in the Club Gettin Shot"
+              }
+            ]
           }
         ]
       }
@@ -371,6 +389,15 @@
             "tracks": [
               {
                 "title": "3030"
+              }
+            ]
+          },
+          {
+            "name": "Federation",
+            "note": "Bay Area group central to the hyphy movement's rise.",
+            "tracks": [
+              {
+                "title": "18 Dummy (Main Version)"
               }
             ]
           }
@@ -1331,6 +1358,24 @@
                 "title": "Swank Sinatra (feat. Joey Bada$$, Capital Steez & CJ Fly)"
               }
             ]
+          },
+          {
+            "name": "Fabolous",
+            "note": "Brooklyn rapper known for smooth, punchline-driven flows across two decades.",
+            "tracks": [
+              {
+                "title": "Into You (feat. Tamia) [Main Mix]"
+              }
+            ]
+          },
+          {
+            "name": "Fat Boys",
+            "note": "Brooklyn trio known for beatboxing and comedic, larger-than-life old-school rap.",
+            "tracks": [
+              {
+                "title": "Wipeout (feat. The Beach Boys)"
+              }
+            ]
           }
         ]
       }
@@ -1435,6 +1480,15 @@
               },
               {
                 "title": "FaceTime (feat. Samuel T. Herring)"
+              }
+            ]
+          },
+          {
+            "name": "evilgiane",
+            "note": "Surf Gang producer known for gritty, sample-chopped New York rap production.",
+            "tracks": [
+              {
+                "title": "BASIC (feat. Anycia & Robb Bank$)"
               }
             ]
           }
@@ -1573,6 +1627,33 @@
             "tracks": [
               {
                 "title": "Blue Flowers"
+              }
+            ]
+          },
+          {
+            "name": "Fantastic Freaks",
+            "note": "Early Bronx hip-hop crew from the genre's foundational old-school era.",
+            "tracks": [
+              {
+                "title": "Fantastic Freaks At the Dixie"
+              }
+            ]
+          },
+          {
+            "name": "Fat Joe",
+            "note": "Bronx rapper whose decades-spanning career made him a fixture of New York hip-hop.",
+            "tracks": [
+              {
+                "title": "Deep Cover"
+              },
+              {
+                "title": "New York"
+              },
+              {
+                "title": "All the Way Up (feat. Infared)"
+              },
+              {
+                "title": "All the Way Up (feat. French Montana & Infared) [Remix]"
               }
             ]
           }
@@ -1871,6 +1952,15 @@
                 "title": "Callie (feat. Vic Mensa)"
               }
             ]
+          },
+          {
+            "name": "Famous Dex",
+            "note": "Chicago rapper known for a chaotic, ad-lib-heavy mumble-rap style.",
+            "tracks": [
+              {
+                "title": "Hoes Mad"
+              }
+            ]
           }
         ]
       }
@@ -2101,6 +2191,18 @@
             "tracks": [
               {
                 "title": "After Party"
+              }
+            ]
+          },
+          {
+            "name": "Fat Tony",
+            "note": "Houston rapper known for an eclectic, genre-blending underground style.",
+            "tracks": [
+              {
+                "title": "Bkny (feat. Old Money)"
+              },
+              {
+                "title": "Cool Whip"
               }
             ]
           }
@@ -3453,6 +3555,38 @@
             "tracks": [
               {
                 "title": "AWKWARD FREESTYLE"
+              }
+            ]
+          },
+          {
+            "name": "Felly",
+            "note": "Ohio artist blending rap with jam-band and indie influences.",
+            "tracks": [
+              {
+                "title": "Another Beautiful Day"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fresno-ca-region",
+    "name": "Fresno, CA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "fresno-ca",
+        "name": "Fresno, CA",
+        "state": "CA",
+        "artists": [
+          {
+            "name": "Fashawn",
+            "note": "Fresno rapper known for vivid, personal storytelling over soulful production.",
+            "tracks": [
+              {
+                "title": "Boy Meets World"
               }
             ]
           }
