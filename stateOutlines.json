@@ -1275,6 +1275,12 @@
         "name": "Malibu",
         "x": 55.26,
         "y": 81.65
+      },
+      {
+        "id": "stockton-ca",
+        "name": "Stockton",
+        "x": 31.82,
+        "y": 43.32
       }
     ]
   },
