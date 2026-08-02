@@ -623,7 +623,14 @@
         3.79
       ]
     ],
-    "cities": []
+    "cities": [
+      {
+        "id": "tempe-az",
+        "name": "Tempe",
+        "x": 49.82,
+        "y": 62.13
+      }
+    ]
   },
   "AR": {
     "bbox": {
