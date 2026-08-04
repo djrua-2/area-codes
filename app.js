@@ -64,7 +64,7 @@ function applyThemeObject(themeObj) {
   // partial) would silently keep whatever was last live-previewed instead
   // of actually reverting, since setProperty only ever adds/overwrites and
   // never removes on its own.
-  THEMEABLE_VARS.concat(THEMEABLE_VARS_ADVANCED).forEach(t => root.removeProperty(t.key));
+  ALL_THEMEABLE_VARS.forEach(t => root.removeProperty(t.key));
   Object.entries((themeObj && themeObj.vars) || {}).forEach(([key, value]) => {
     if (key.startsWith("--") && typeof value === "string") root.setProperty(key, value);
   });
@@ -769,6 +769,7 @@ function renderAddForm() {
     <h1 class="page-title">Add an Artist</h1>
     <p class="page-subtitle">Goes live for everyone within about a minute of submitting. Adding several at once? <a href="#/add/bulk">Bulk upload a CSV or XLSX ↗</a></p>
     <p class="page-subtitle">Want to change colors or line thickness across the site? <a href="#/add/theme">Theme Editor ↗</a></p>
+    <p class="page-subtitle">Other tools: <a href="#/add/relink-spotify">Relink missing Spotify links</a> · <a href="#/add/remove-batch">Remove a batch of artists</a></p>
     <form class="add-form" onsubmit="handleAddSubmit(event)">
       <div>
         <label for="f-artist">Artist name</label>
@@ -1462,16 +1463,23 @@ const THEMEABLE_VARS = [
   { key: "--line-color", label: "Outline / border color", type: "color", default: "#000000" },
   { key: "--line-width", label: "Outline / border thickness", type: "px", default: "1px" },
 ];
+const THEMEABLE_VARS_MAP = [
+  { key: "--state-empty-color", label: "Undiscovered state name color", type: "color", default: "#606060" },
+  { key: "--map-bg", label: "State map background", type: "color", default: "#c0c0c0" },
+  { key: "--map-border-color", label: "State map outline color", type: "color", default: "#000000" },
+  { key: "--map-fill", label: "State shape fill color", type: "color", default: "#c0c0c0" },
+];
 const THEMEABLE_VARS_ADVANCED = [
   { key: "--ink-faint", label: "Muted accent", type: "color", default: "#c7c7c7" },
   { key: "--bevel-face", label: "Button face", type: "color", default: "#e9e9e9" },
   { key: "--bevel-hi", label: "Button highlight edge", type: "color", default: "#ffffff" },
   { key: "--bevel-sh", label: "Button shadow edge", type: "color", default: "#848484" },
 ];
+const ALL_THEMEABLE_VARS = THEMEABLE_VARS.concat(THEMEABLE_VARS_MAP, THEMEABLE_VARS_ADVANCED);
 
 function defaultThemeVars() {
   const out = {};
-  THEMEABLE_VARS.concat(THEMEABLE_VARS_ADVANCED).forEach(t => { out[t.key] = t.default; });
+  ALL_THEMEABLE_VARS.forEach(t => { out[t.key] = t.default; });
   return out;
 }
 
@@ -1511,6 +1519,7 @@ function renderThemeForm(previewSource) {
   applyThemeObject(source);
 
   const fields = THEMEABLE_VARS.map(t => themeFieldHtml(t, vars)).join("");
+  const mapFields = THEMEABLE_VARS_MAP.map(t => themeFieldHtml(t, vars)).join("");
   const advancedFields = THEMEABLE_VARS_ADVANCED.map(t => themeFieldHtml(t, vars)).join("");
 
   app.innerHTML = `
@@ -1518,6 +1527,8 @@ function renderThemeForm(previewSource) {
     <h1 class="page-title">Theme Editor</h1>
     <p class="page-subtitle">Changes preview instantly right here as you edit. Click Save to publish site-wide — live for every visitor within about a minute, no file edits needed.</p>
     <div class="theme-form">${fields}</div>
+    <h2 class="section-heading">State Map</h2>
+    <div class="theme-form">${mapFields}</div>
     <details class="theme-advanced">
       <summary>Advanced colors</summary>
       <div class="theme-form">${advancedFields}</div>

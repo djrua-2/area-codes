@@ -12,6 +12,14 @@
      shadow color pairs and aren't simple single-color outlines. */
   --line-color: #000000;
   --line-width: 1px;
+  /* State map section. --map-fill defaults to the same value as --map-bg
+     on purpose — the shape blends invisibly into its own box by default
+     (matching the old fixed fill:none look) while still being a real,
+     independently adjustable color underneath. */
+  --state-empty-color: #606060;
+  --map-bg: #c0c0c0;
+  --map-border-color: #000000;
+  --map-fill: #c0c0c0;
   font-family: "Times New Roman", Times, serif;
 }
 
@@ -383,7 +391,7 @@ main#app {
 }
 
 .is-documented .state-label { color: var(--ink); }
-.is-empty .state-label { color: rgba(0, 0, 0, 0.5); }
+.is-empty .state-label { color: var(--state-empty-color); }
 
 @media (max-width: 480px) {
   .state-label { font-size: 2.6vw; }
@@ -434,7 +442,7 @@ main#app {
 .state-map-wrap { margin-bottom: 2rem; }
 .state-map-svg { display: block; margin: 0 auto; width: 100%; max-width: 460px; height: auto; transform-origin: center center; }
 .state-outline {
-  fill: none;
+  fill: var(--map-fill);
   stroke: var(--line-color);
   stroke-width: var(--line-width);
   vector-effect: non-scaling-stroke;
@@ -461,7 +469,8 @@ main#app {
   cursor: grab;
   width: min(460px, 94%);
   margin: 0 auto;
-  border: calc(var(--line-width) * 2) solid var(--line-color);
+  border: calc(var(--line-width) * 2) solid var(--map-border-color);
+  background: var(--map-bg);
 }
 .state-map-viewport.is-panning { cursor: grabbing; }
 
