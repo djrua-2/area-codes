@@ -6,7 +6,7 @@
     "--line-color": "#a8a8a8",
     "--line-width": "0.5px",
     "--state-empty-color": "#dbdbdb",
-    "--map-bg": "#dbdbdb",
+    "--map-bg": "#d6e8f5",
     "--map-border-color": "#000000",
     "--map-fill": "#ffffff",
     "--ink-faint": "#333333",
