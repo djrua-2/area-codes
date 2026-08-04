@@ -3,7 +3,7 @@
     "--bg": "#ffffff",
     "--ink": "#0000ee",
     "--ink-faded": "#333333",
-    "--line-color": "#dbdbdb",
+    "--line-color": "#a8a8a8",
     "--line-width": "0.5px",
     "--state-empty-color": "#dbdbdb",
     "--map-bg": "#dbdbdb",
