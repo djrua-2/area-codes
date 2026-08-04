@@ -22,14 +22,53 @@ let regions = [];
 let STATE_OUTLINES = {};
 let dataLoaded = false;
 
+// Site-wide look overrides (colors, line thickness, arbitrary custom CSS),
+// edited from the password-gated #/add/theme page and persisted to
+// theme.json the same way data.json is — so a change made there is live for
+// every visitor on their next page load, no code/file edits required. Best
+// effort: a missing/failed fetch (e.g. theme.json doesn't exist yet) just
+// leaves the site on its built-in style.css defaults.
+let THEME = { vars: {}, customCss: "" };
+
 async function loadData() {
-  const [regionsRes, outlinesRes] = await Promise.all([
+  const [regionsRes, outlinesRes, themeRes] = await Promise.all([
     fetch("data.json", { cache: "no-store" }),
-    fetch("stateOutlines.json", { cache: "no-store" })
+    fetch("stateOutlines.json", { cache: "no-store" }),
+    fetch("theme.json", { cache: "no-store" }).catch(() => null)
   ]);
   regions = await regionsRes.json();
   STATE_OUTLINES = await outlinesRes.json();
+  if (themeRes && themeRes.ok) {
+    try { THEME = await themeRes.json(); } catch { /* keep defaults */ }
+  }
+  applyThemeObject(THEME);
   dataLoaded = true;
+}
+
+function setCustomCssStyleTag(css) {
+  let styleEl = document.getElementById("theme-custom-css");
+  if (!styleEl) {
+    styleEl = document.createElement("style");
+    styleEl.id = "theme-custom-css";
+    document.head.appendChild(styleEl);
+  }
+  // textContent (not innerHTML) so nothing in here can break out of the
+  // <style> tag, regardless of what's typed into the custom-CSS textarea.
+  styleEl.textContent = css || "";
+}
+
+function applyThemeObject(themeObj) {
+  const root = document.documentElement.style;
+  // Clear every known themeable var first — otherwise a key absent from
+  // themeObj.vars (e.g. after Discard, when the saved theme is empty/
+  // partial) would silently keep whatever was last live-previewed instead
+  // of actually reverting, since setProperty only ever adds/overwrites and
+  // never removes on its own.
+  THEMEABLE_VARS.concat(THEMEABLE_VARS_ADVANCED).forEach(t => root.removeProperty(t.key));
+  Object.entries((themeObj && themeObj.vars) || {}).forEach(([key, value]) => {
+    if (key.startsWith("--") && typeof value === "string") root.setProperty(key, value);
+  });
+  setCustomCssStyleTag(themeObj && themeObj.customCss);
 }
 
 function escapeHtml(str) {
@@ -729,6 +768,7 @@ function renderAddForm() {
   app.innerHTML = `
     <h1 class="page-title">Add an Artist</h1>
     <p class="page-subtitle">Goes live for everyone within about a minute of submitting. Adding several at once? <a href="#/add/bulk">Bulk upload a CSV or XLSX ↗</a></p>
+    <p class="page-subtitle">Want to change colors or line thickness across the site? <a href="#/add/theme">Theme Editor ↗</a></p>
     <form class="add-form" onsubmit="handleAddSubmit(event)">
       <div>
         <label for="f-artist">Artist name</label>
@@ -1410,6 +1450,136 @@ async function handleAddSubmit(evt) {
   }
 }
 
+// ---- theme editor: password-gated, edits site-wide look without touching
+// any code/file. Linked from the Add Artist hub (unlike the rarer/riskier
+// hidden tools above) since this is meant to be reached for quick day-to-
+// day tweaks. Curated color/thickness fields cover the common cases; the
+// custom-CSS textarea is the escape hatch for anything not in that list.
+const THEMEABLE_VARS = [
+  { key: "--bg", label: "Page background", type: "color", default: "#c0c0c0" },
+  { key: "--ink", label: "Link / accent color", type: "color", default: "#0000ee" },
+  { key: "--ink-faded", label: "Body text color", type: "color", default: "#333333" },
+  { key: "--line-color", label: "Outline / border color", type: "color", default: "#000000" },
+  { key: "--line-width", label: "Outline / border thickness", type: "px", default: "1px" },
+];
+const THEMEABLE_VARS_ADVANCED = [
+  { key: "--ink-faint", label: "Muted accent", type: "color", default: "#c7c7c7" },
+  { key: "--bevel-face", label: "Button face", type: "color", default: "#e9e9e9" },
+  { key: "--bevel-hi", label: "Button highlight edge", type: "color", default: "#ffffff" },
+  { key: "--bevel-sh", label: "Button shadow edge", type: "color", default: "#848484" },
+];
+
+function defaultThemeVars() {
+  const out = {};
+  THEMEABLE_VARS.concat(THEMEABLE_VARS_ADVANCED).forEach(t => { out[t.key] = t.default; });
+  return out;
+}
+
+function previewThemeVar(key, type, value) {
+  document.documentElement.style.setProperty(key, type === "px" ? `${value}px` : value);
+}
+
+function previewCustomCss(css) {
+  setCustomCssStyleTag(css);
+}
+
+function themeFieldHtml(t, vars) {
+  const raw = (vars && vars[t.key] !== undefined && vars[t.key] !== "") ? vars[t.key] : t.default;
+  if (t.type === "color") {
+    return `
+      <div class="theme-field">
+        <label for="theme-${t.key}">${escapeHtml(t.label)}</label>
+        <input type="color" id="theme-${t.key}" data-theme-key="${t.key}" data-theme-type="color"
+          value="${escapeAttr(raw)}" oninput="previewThemeVar('${t.key}','color',this.value)">
+      </div>
+    `;
+  }
+  const numeric = String(raw).replace(/px$/, "");
+  return `
+    <div class="theme-field">
+      <label for="theme-${t.key}">${escapeHtml(t.label)} (px)</label>
+      <input type="number" min="0" max="20" step="1" class="retro-field" id="theme-${t.key}" data-theme-key="${t.key}" data-theme-type="px"
+        value="${escapeAttr(numeric)}" oninput="previewThemeVar('${t.key}','px',this.value)">
+    </div>
+  `;
+}
+
+function renderThemeForm(previewSource) {
+  const source = previewSource || THEME;
+  const vars = source.vars || {};
+  const customCss = source.customCss || "";
+  applyThemeObject(source);
+
+  const fields = THEMEABLE_VARS.map(t => themeFieldHtml(t, vars)).join("");
+  const advancedFields = THEMEABLE_VARS_ADVANCED.map(t => themeFieldHtml(t, vars)).join("");
+
+  app.innerHTML = `
+    <p class="crumbs"><a href="#/add">Add an Artist</a> / Theme Editor</p>
+    <h1 class="page-title">Theme Editor</h1>
+    <p class="page-subtitle">Changes preview instantly right here as you edit. Click Save to publish site-wide — live for every visitor within about a minute, no file edits needed.</p>
+    <div class="theme-form">${fields}</div>
+    <details class="theme-advanced">
+      <summary>Advanced colors</summary>
+      <div class="theme-form">${advancedFields}</div>
+    </details>
+    <details class="theme-advanced">
+      <summary>Custom CSS (anything not covered above)</summary>
+      <p class="page-subtitle">Applied site-wide, after everything else. Avoid <code>url()</code>/<code>@import</code> — external resources slow the site down for every visitor (site policy: no unnecessary network requests on the public pages).</p>
+      <textarea class="retro-field theme-css-input" id="theme-custom-css-input" rows="8" placeholder=".artist-card { padding: 1.2rem; }" oninput="previewCustomCss(this.value)">${escapeHtml(customCss)}</textarea>
+    </details>
+    <p class="form-actions">
+      <button type="button" class="retro-btn" onclick="submitThemeUpdate()">Save</button>
+      <button type="button" class="retro-btn" onclick="discardThemeChanges()">Discard changes</button>
+      <button type="button" class="retro-btn" onclick="resetThemeFormToDefaults()">Reset to defaults</button>
+      <span id="theme-status" class="form-status"></span>
+    </p>
+  `;
+}
+
+function collectThemeFormVars() {
+  const vars = {};
+  document.querySelectorAll("[data-theme-key]").forEach(el => {
+    const key = el.dataset.themeKey;
+    vars[key] = el.dataset.themeType === "px" ? `${el.value}px` : el.value;
+  });
+  return vars;
+}
+
+async function submitThemeUpdate() {
+  const statusEl = document.getElementById("theme-status");
+  statusEl.className = "form-status";
+  statusEl.textContent = "Saving…";
+  const vars = collectThemeFormVars();
+  const customCss = document.getElementById("theme-custom-css-input").value;
+  try {
+    const res = await fetch(AREA_CODES_CONFIG.ADD_ARTIST_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ action: "update_theme", password: storedPassword(), vars, customCss })
+    });
+    if (!res.ok) throw new Error(await res.text());
+    THEME = { vars, customCss };
+    statusEl.textContent = "Saved — live for everyone within about a minute.";
+  } catch (err) {
+    statusEl.className = "form-status is-error";
+    statusEl.textContent = "Couldn't save — " + err.message;
+  }
+}
+
+function discardThemeChanges() {
+  renderThemeForm(THEME);
+}
+
+function resetThemeFormToDefaults() {
+  renderThemeForm({ vars: defaultThemeVars(), customCss: "" });
+}
+
+function renderTheme() {
+  if (!isConfigured()) return renderNotConfigured();
+  if (!storedPassword()) return renderAddGate();
+  renderThemeForm();
+}
+
 function renderAdd() {
   if (!isConfigured()) return renderNotConfigured();
   if (storedPassword()) return renderAddForm();
@@ -1425,6 +1595,7 @@ function router() {
   if (parts[0] === "add" && parts[1] === "bulk") return renderBulk();
   if (parts[0] === "add" && parts[1] === "remove-batch") return renderRemoveBatch();
   if (parts[0] === "add" && parts[1] === "relink-spotify") return renderRelinkSpotify();
+  if (parts[0] === "add" && parts[1] === "theme") return renderTheme();
   if (parts[0] === "add") return renderAdd();
   if (parts[0] === "edit" && parts[1] && parts[2] && parts[3]) return renderEdit(parts[1], parts[2], parts[3]);
   if (parts[0] === "state" && parts[1]) return renderState(parts[1]);
