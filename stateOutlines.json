@@ -6540,6 +6540,12 @@
         "name": "Jersey City",
         "x": 88.21,
         "y": 28.68
+      },
+      {
+        "id": "maplewood-nj",
+        "name": "Maplewood",
+        "x": 75.6,
+        "y": 28.31
       }
     ]
   },
@@ -7005,6 +7011,12 @@
         "name": "Newburgh",
         "x": 73.22,
         "y": 76.51
+      },
+      {
+        "id": "the-bronx-ny",
+        "name": "The Bronx",
+        "x": 74.81,
+        "y": 90.03
       }
     ]
   },
@@ -9179,6 +9191,12 @@
         "name": "Port Arthur",
         "x": 93.42,
         "y": 61.54
+      },
+      {
+        "id": "el-paso-tx",
+        "name": "El Paso",
+        "x": 4.81,
+        "y": 45.07
       }
     ]
   },
