@@ -720,11 +720,25 @@ function isRecentlyAdded(addedAt) {
   return !isNaN(t) && Date.now() - t < NEW_TAG_WINDOW_MS;
 }
 
+// Birth year is shown as a small pill under the artist's name, colored by
+// decade (every artist born in the same decade gets the same color) —
+// purely decorative metadata, set in bulk via #/add/birth-years.
+function decadeOf(year) {
+  return Math.floor(year / 10) * 10;
+}
+
+function birthYearTagHtml(a) {
+  if (!a.birthYear) return "";
+  const decade = decadeOf(a.birthYear);
+  return `<span class="birth-year-tag decade-${decade}">${a.birthYear}</span>`;
+}
+
 function renderArtistBlocks(artists, regionId, cityId) {
   const canManage = regionId && cityId && isConfigured() && storedPassword();
   return (artists || []).map((a, i) => `
     <div class="artist-card" data-artist-name="${escapeAttr(a.name)}">
       <h3>${escapeHtml(a.name)}${isRecentlyAdded(a.addedAt) ? '<span class="new-tag">New</span>' : ""}</h3>
+      ${birthYearTagHtml(a)}
       ${canManage ? `
         <p class="manage-controls">
           <a href="#/edit/${regionId}/${cityId}/${i}">Edit</a> &nbsp;
@@ -1443,6 +1457,202 @@ function renderExport() {
   if (!isConfigured()) return renderNotConfigured();
   if (!storedPassword()) return renderAddGate();
   renderExportForm();
+}
+
+// ---- admin page: bulk-import birth years ----
+// Sets a birthYear field on existing artists by exact name match — never
+// creates an artist or touches anything else about them. Pairs with
+// Export Artist List: export, add a birth_year column yourself, reupload
+// here. No external calls per row, so — like Bulk Spotify Links'
+// linkRows — this can use a large batch size.
+const BIRTH_YEAR_MAX_ROWS = 3000;
+const BIRTH_YEAR_BATCH_SIZE = 300;
+const BIRTH_YEAR_MIN = 1900;
+
+function downloadBirthYearTemplate() {
+  const csv = "artist_name,birth_year\n" + "Example Artist,1990\n";
+  const blob = new Blob([csv], { type: "text/csv" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "area-codes-birth-years-template.csv";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function normalizeBirthYearRow(row) {
+  return {
+    artistName: getField(row, "artist_name", "artist"),
+    birthYearRaw: getField(row, "birth_year", "birthyear", "year"),
+  };
+}
+
+function classifyBirthYearRows(rows) {
+  const existingNames = existingArtistNameSet();
+  const validRows = [];
+  const problemRows = [];
+  rows.forEach(r => {
+    if (!r.artistName) {
+      problemRows.push({ ...r, problem: "missing artist name" });
+      return;
+    }
+    if (!r.birthYearRaw) return; // blank birth year — silently skipped, not an error
+    const birthYear = parseInt(r.birthYearRaw, 10);
+    const currentYear = new Date().getFullYear();
+    if (!Number.isInteger(birthYear) || birthYear < BIRTH_YEAR_MIN || birthYear > currentYear) {
+      problemRows.push({ ...r, problem: `"${r.birthYearRaw}" isn't a valid birth year` });
+      return;
+    }
+    if (!existingNames.has(r.artistName.toLowerCase())) {
+      problemRows.push({ ...r, problem: `"${r.artistName}" isn't on the site — this tool only updates existing artists` });
+      return;
+    }
+    validRows.push({ artistName: r.artistName, birthYear, rowNum: r.rowNum });
+  });
+  return { validRows, problemRows };
+}
+
+let birthYearParsedRows = [];
+
+async function handleBirthYearFile(evt) {
+  const file = evt.target.files[0];
+  const statusEl = document.getElementById("birth-year-status");
+  const previewEl = document.getElementById("birth-year-preview");
+  const submitBtn = document.getElementById("birth-year-submit-btn");
+  if (!file) return;
+
+  statusEl.className = "form-status";
+  statusEl.textContent = "Reading file…";
+  previewEl.innerHTML = "";
+  submitBtn.disabled = true;
+  birthYearParsedRows = [];
+
+  try {
+    let rawRows;
+    if (/\.xlsx$/i.test(file.name)) {
+      await loadXLSXLibrary();
+      const buf = await file.arrayBuffer();
+      const wb = window.XLSX.read(buf, { type: "array" });
+      const sheet = wb.Sheets[wb.SheetNames[0]];
+      rawRows = window.XLSX.utils.sheet_to_json(sheet, { defval: "" });
+    } else {
+      const text = await file.text();
+      rawRows = parseCSV(text);
+    }
+
+    if (!rawRows.length) throw new Error("No rows found in that file.");
+    if (rawRows.length > BIRTH_YEAR_MAX_ROWS) {
+      throw new Error(`That file has ${rawRows.length} rows — max is ${BIRTH_YEAR_MAX_ROWS} per upload. Split it into smaller files.`);
+    }
+
+    const normalized = rawRows.map((row, i) => ({ ...normalizeBirthYearRow(row), rowNum: i + 2 }));
+    const { validRows, problemRows } = classifyBirthYearRows(normalized);
+    birthYearParsedRows = validRows;
+
+    const validRowsHtml = validRows.map((r, i) => `
+      <tr>
+        <td>${i + 1}</td>
+        <td>${escapeHtml(r.artistName)}</td>
+        <td>${r.birthYear}</td>
+      </tr>
+    `).join("");
+
+    const problemRowsHtml = problemRows.map(r => `
+      <tr class="bulk-row-error">
+        <td>row ${r.rowNum}</td>
+        <td>${escapeHtml(r.artistName || "—")}</td>
+        <td>${escapeHtml(r.problem)}</td>
+      </tr>
+    `).join("");
+
+    previewEl.innerHTML = `
+      ${validRows.length ? `
+        <p class="section-heading">Ready to update (${validRows.length})</p>
+        <table class="bulk-table">
+          <thead><tr><th>#</th><th>Artist</th><th>Birth year</th></tr></thead>
+          <tbody>${validRowsHtml}</tbody>
+        </table>
+      ` : ""}
+      ${problemRows.length ? `
+        <p class="page-subtitle" style="margin-top:1rem;">${problemRows.length} row(s) skipped — fix and re-upload if you want them included:</p>
+        <table class="bulk-table">
+          <thead><tr><th>Row</th><th>Artist</th><th>Problem</th></tr></thead>
+          <tbody>${problemRowsHtml}</tbody>
+        </table>
+      ` : ""}
+    `;
+    statusEl.textContent = `${validRows.length} artist(s) ready to update` + (problemRows.length ? `, ${problemRows.length} row(s) skipped.` : ".");
+    submitBtn.disabled = validRows.length === 0;
+  } catch (err) {
+    statusEl.className = "form-status is-error";
+    statusEl.textContent = "Couldn't read that file — " + err.message;
+  }
+}
+
+function buildBirthYearBatches(rows) {
+  const batches = [];
+  for (let i = 0; i < rows.length; i += BIRTH_YEAR_BATCH_SIZE) batches.push(rows.slice(i, i + BIRTH_YEAR_BATCH_SIZE));
+  return batches;
+}
+
+async function submitBirthYears() {
+  const statusEl = document.getElementById("birth-year-status");
+  const submitBtn = document.getElementById("birth-year-submit-btn");
+  const rows = birthYearParsedRows;
+  if (!rows.length) return;
+
+  submitBtn.disabled = true;
+  const batches = buildBirthYearBatches(rows);
+  let updatedTotal = 0;
+  const failures = [];
+
+  for (let i = 0; i < batches.length; i++) {
+    statusEl.className = "form-status";
+    statusEl.textContent = `Batch ${i + 1} of ${batches.length} — ${updatedTotal} of ${rows.length} updated so far…`;
+    try {
+      const res = await fetch(AREA_CODES_CONFIG.ADD_ARTIST_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "bulk_set_birth_years", password: storedPassword(), rows: batches[i] })
+      });
+      if (!res.ok) throw new Error(await res.text());
+      const result = await res.json();
+      updatedTotal += result.updatedCount || 0;
+      (result.results || []).filter(r => !r.ok).forEach(r => failures.push(r));
+    } catch (err) {
+      statusEl.className = "form-status is-error";
+      statusEl.textContent = `Stopped at batch ${i + 1} of ${batches.length} — ${updatedTotal} of ${rows.length} updated before this failed (${err.message}). Those are already live; re-upload the rest as a new file.`;
+      submitBtn.disabled = false;
+      return;
+    }
+  }
+
+  let msg = `Updated ${updatedTotal} of ${rows.length} artist(s).`;
+  if (failures.length) msg += ` ${failures.length} failed: ` + failures.slice(0, 5).map(f => `${f.artist} (${f.error})`).join("; ") + (failures.length > 5 ? "…" : "");
+  statusEl.className = "form-status";
+  statusEl.textContent = msg + " Live on the site shortly.";
+}
+
+function renderBirthYearForm() {
+  birthYearParsedRows = [];
+  app.innerHTML = `
+    <p class="crumbs"><a href="#/add">Add an Artist</a> / Import Birth Years</p>
+    <h1 class="page-title">Import Birth Years</h1>
+    <p class="page-subtitle">Upload a CSV or XLSX with <code>artist_name</code> and <code>birth_year</code> columns to set each artist's birth year (shown as a decade-colored tag under their name). Only updates artists already on the site, matched by exact name — it never creates or renames anyone. Leave birth_year blank for a row to skip it quietly. Pairs well with Export Artist List: export, add a birth_year column, reupload here.</p>
+    <p><button type="button" class="retro-btn" onclick="downloadBirthYearTemplate()">Download CSV template</button></p>
+    <p><input type="file" class="retro-field" accept=".csv,.xlsx" onchange="handleBirthYearFile(event)"></p>
+    <div id="birth-year-preview"></div>
+    <p class="form-actions">
+      <button type="button" id="birth-year-submit-btn" class="retro-btn" disabled onclick="submitBirthYears()">Submit All</button>
+      <span id="birth-year-status" class="form-status"></span>
+    </p>
+  `;
+}
+
+function renderBirthYears() {
+  if (!isConfigured()) return renderNotConfigured();
+  if (!storedPassword()) return renderAddGate();
+  renderBirthYearForm();
 }
 
 // ---- hidden admin page: bulk-upload manual Spotify links ----
@@ -2208,6 +2418,7 @@ const ADMIN_HUB_GROUPS = [
       { href: "#/add/bulk", label: "Bulk Upload Artists" },
       { href: "#/add/remove-batch", label: "Remove Artists in Bulk" },
       { href: "#/add/export", label: "Export Artist List" },
+      { href: "#/add/birth-years", label: "Import Birth Years" },
     ],
   },
   {
@@ -2262,6 +2473,7 @@ function router() {
   if (parts[0] === "add" && parts[1] === "bulk") return renderBulk();
   if (parts[0] === "add" && parts[1] === "remove-batch") return renderRemoveBatch();
   if (parts[0] === "add" && parts[1] === "export") return renderExport();
+  if (parts[0] === "add" && parts[1] === "birth-years") return renderBirthYears();
   if (parts[0] === "add" && parts[1] === "relink-spotify") return renderRelinkSpotify();
   if (parts[0] === "add" && parts[1] === "spotify-links") return renderSpotifyLinkUpload();
   if (parts[0] === "add" && parts[1] === "theme") return renderTheme();

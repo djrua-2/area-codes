@@ -620,6 +620,28 @@ h1.page-title {
 @media (prefers-reduced-motion: reduce) {
   .new-tag { animation: none; }
 }
+
+/* Birth year pill, shown below the artist name (see birthYearTagHtml in
+   app.js) — one fixed color per decade, so every artist born in the same
+   decade reads the same at a glance across the whole site. */
+.birth-year-tag {
+  display: inline-block;
+  margin: 0.3rem 0 0.5rem;
+  padding: 0.05rem 0.45rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #ffffff;
+  border: 1px solid #000000;
+}
+.decade-1900, .decade-1910, .decade-1920, .decade-1930, .decade-1940 { background: #5c3a21; }
+.decade-1950 { background: #8b5a2b; }
+.decade-1960 { background: #cc6600; }
+.decade-1970 { background: #ccaa00; color: #000000; }
+.decade-1980 { background: #008000; }
+.decade-1990 { background: #0055cc; }
+.decade-2000 { background: #a300a3; }
+.decade-2010, .decade-2020 { background: #cc0066; }
+
 .artist-card p {
   margin: 0 0 0.6rem;
   color: var(--ink-faded);
