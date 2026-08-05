@@ -19,6 +19,10 @@
   --state-empty-color: #606060;
   --map-bg: #c0c0c0;
   --map-fill: #c0c0c0;
+  /* Separate from --line-color since this specifically controls the
+     country map's gridlines (both the full home map and the cropped
+     region-search map), independent of every other box's outline color. */
+  --country-grid-color: #000000;
   font-family: "Times New Roman", Times, serif;
 }
 
@@ -363,6 +367,15 @@ main#app {
 .search-box::placeholder { color: #767676; }
 
 .search-results { margin-bottom: 2rem; }
+.search-results-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+@media (max-width: 640px) {
+  .search-results-columns { grid-template-columns: 1fr; }
+}
 .search-hit {
   display: block;
   padding: 0.6rem 0.9rem;
@@ -382,11 +395,12 @@ main#app {
   gap: 1px;
   max-width: 320px;
   margin: 0 0 1rem;
-  border: var(--line-width) solid var(--line-color);
+  border: var(--line-width) solid var(--country-grid-color);
   /* Cells sit on top of this background with a 1px gap between them, so
-     the gap itself reads as a black grid line — no separate SVG overlay
-     needed for this small cropped map, unlike the full home map. */
-  background: var(--line-color);
+     the gap itself reads as a grid line — no separate SVG overlay needed
+     for this small cropped map, unlike the full home map. Same color
+     variable as the home map's gridlines, for consistency. */
+  background: var(--country-grid-color);
 }
 .region-state-list {
   list-style: none;
@@ -412,6 +426,14 @@ main#app {
   margin-bottom: 0.5rem;
 }
 .region-card-header input[type="text"] { flex: 1 1 12rem; }
+.region-color-label {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  color: var(--ink-faded);
+  text-transform: uppercase;
+}
 .region-card-header input[type="color"] {
   width: 3rem;
   height: 2.2rem;
@@ -446,9 +468,14 @@ main#app {
   inset: 0;
   width: 100%;
   height: 100%;
+  /* Rendered after (on top of) .state-grid in the DOM — see renderHome —
+     so the lines actually show over each tile's region color instead of
+     being painted underneath and covered up. pointer-events:none lets
+     clicks fall through to the tile links beneath regardless. */
+  pointer-events: none;
 }
 .grid-lines line {
-  stroke: var(--line-color);
+  stroke: var(--country-grid-color);
   stroke-width: var(--line-width);
   vector-effect: non-scaling-stroke;
 }

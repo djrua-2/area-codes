@@ -413,11 +413,11 @@ function renderHome() {
     <div id="search-results"></div>
     <div id="map-wrap" class="map-scroll">
       <div class="map-grid-container">
+        <div id="state-grid" class="state-grid">${tiles}</div>
         <svg class="grid-lines" viewBox="0 0 ${GRID_COLS} ${GRID_ROWS}" preserveAspectRatio="none">
           ${vLines.join("")}
           ${hLines.join("")}
         </svg>
-        <div id="state-grid" class="state-grid">${tiles}</div>
       </div>
     </div>
     <p class="map-key">
@@ -436,11 +436,14 @@ function renderHome() {
 // like on a real map" falls out of that for free, no separate geometry
 // needed) — plus its states listed alphabetically below.
 function renderRegionHit(region) {
+  // Independent from the tile background color — falls back to it only
+  // for regions saved before this field existed.
+  const titleColor = region.titleColor || region.color;
   const memberStates = STATE_GRID.filter(s => region.states.includes(s.abbrev));
   if (!memberStates.length) {
     return `
       <div class="region-hit">
-        <p class="section-heading" style="color:${escapeAttr(region.color)};">${escapeHtml(region.name)}</p>
+        <p class="section-heading" style="color:${escapeAttr(titleColor)};">${escapeHtml(region.name)}</p>
         <p class="page-subtitle">No states assigned to this region yet.</p>
       </div>
     `;
@@ -463,7 +466,7 @@ function renderRegionHit(region) {
 
   return `
     <div class="region-hit">
-      <p class="section-heading" style="color:${escapeAttr(region.color)};">${escapeHtml(region.name)}</p>
+      <p class="section-heading" style="color:${escapeAttr(titleColor)};">${escapeHtml(region.name)}</p>
       <div class="region-map-grid" style="grid-template-columns:repeat(${cols}, 1fr); grid-template-rows:repeat(${rows}, 1fr); aspect-ratio:${cols}/${rows};">
         ${tiles}
       </div>
@@ -511,24 +514,30 @@ function handleSearch(query) {
     return;
   }
 
+  const artistHitsHtml = hits.map(h => {
+    // Link straight to wherever the artist's actual entry lives (the
+    // city or neighborhood page), not the state overview — clicking
+    // scrolls to and points at that entry, via scrollToPendingArtist().
+    const href = h.hood
+      ? `#/neighborhood/${h.region.id}/${h.city.id}/${h.hood.id}`
+      : `#/city/${h.region.id}/${h.city.id}`;
+    const locationLabel = h.hood ? `${h.hood.name}, ${h.city.name}` : h.city.name;
+    return `
+    <a class="search-hit" href="${href}" data-scroll-artist="${escapeAttr(h.artist.name)}">
+      <strong>${escapeHtml(h.artist.name)}</strong> — ${escapeHtml(locationLabel)}
+      <br><span>${escapeHtml(h.artist.note)}</span>
+    </a>
+  `;
+  }).join("");
+
+  // Two equal-width columns — artists/cities on the left, regions on the
+  // right — rather than stacking everything in one list, so a query like
+  // "West" that matches both doesn't bury the region result under a long
+  // scroll of artist hits.
   resultsEl.innerHTML = `
-    <div class="search-results">
-      ${regionHitsHtml}
-      ${hits.map(h => {
-        // Link straight to wherever the artist's actual entry lives (the
-        // city or neighborhood page), not the state overview — clicking
-        // scrolls to and points at that entry, via scrollToPendingArtist().
-        const href = h.hood
-          ? `#/neighborhood/${h.region.id}/${h.city.id}/${h.hood.id}`
-          : `#/city/${h.region.id}/${h.city.id}`;
-        const locationLabel = h.hood ? `${h.hood.name}, ${h.city.name}` : h.city.name;
-        return `
-        <a class="search-hit" href="${href}" data-scroll-artist="${escapeAttr(h.artist.name)}">
-          <strong>${escapeHtml(h.artist.name)}</strong> — ${escapeHtml(locationLabel)}
-          <br><span>${escapeHtml(h.artist.note)}</span>
-        </a>
-      `;
-      }).join("")}
+    <div class="search-results search-results-columns">
+      <div class="search-results-col">${artistHitsHtml}</div>
+      <div class="search-results-col">${regionHitsHtml}</div>
     </div>
   `;
 }
@@ -1751,7 +1760,8 @@ function renderRegionsFormFromDraft() {
     <div class="region-card">
       <div class="region-card-header">
         <input type="text" class="retro-field" value="${escapeAttr(r.name)}" placeholder="Region name" oninput="regionsDraft[${idx}].name = this.value">
-        <input type="color" value="${escapeAttr(r.color)}" oninput="regionsDraft[${idx}].color = this.value">
+        <label class="region-color-label">Tile <input type="color" value="${escapeAttr(r.color)}" oninput="regionsDraft[${idx}].color = this.value"></label>
+        <label class="region-color-label">Title text <input type="color" value="${escapeAttr(r.titleColor || r.color)}" oninput="regionsDraft[${idx}].titleColor = this.value"></label>
         <button type="button" class="retro-btn" onclick="removeRegionDraft(${idx})">Remove region</button>
       </div>
       <p class="page-subtitle">${r.states.length} state(s) assigned</p>
@@ -1769,7 +1779,7 @@ function renderRegionsFormFromDraft() {
   app.innerHTML = `
     <p class="crumbs"><a href="#/add">Add an Artist</a> / Manage Regions</p>
     <h1 class="page-title">Manage Regions</h1>
-    <p class="page-subtitle">Group states into named regions with their own color — shown on the home map, its legend, and searchable by name (e.g. searching "South" shows a cropped map of just that region's states plus an alphabetical list). Each state belongs to at most one region; checking it here unchecks it from any other region automatically.</p>
+    <p class="page-subtitle">Group states into named regions with their own color — shown on the home map, its legend, and searchable by name (e.g. searching "South" shows a cropped map of just that region's states plus an alphabetical list). "Tile" is the map/legend background color; "Title text" is the color of the region's name where it's shown as a heading (search results) — set independently so the title doesn't have to match the tile color. Each state belongs to at most one region; checking it here unchecks it from any other region automatically.</p>
     <div id="regions-list">${regionsHtml || '<p class="page-subtitle">No regions yet — add one below.</p>'}</div>
     <p class="form-actions">
       <button type="button" class="retro-btn" onclick="addRegionDraft()">+ Add region</button>
@@ -1782,7 +1792,7 @@ function renderRegionsFormFromDraft() {
 }
 
 function addRegionDraft() {
-  regionsDraft.push({ name: "", color: "#888888", states: [] });
+  regionsDraft.push({ name: "", color: "#888888", titleColor: "#000000", states: [] });
   renderRegionsFormFromDraft();
 }
 
@@ -1805,7 +1815,7 @@ async function submitRegions() {
   const statusEl = document.getElementById("regions-status");
   statusEl.className = "form-status";
   statusEl.textContent = "Saving…";
-  const cleanRegions = regionsDraft.filter(r => r.name.trim()).map(r => ({ name: r.name.trim(), color: r.color, states: r.states }));
+  const cleanRegions = regionsDraft.filter(r => r.name.trim()).map(r => ({ name: r.name.trim(), color: r.color, titleColor: r.titleColor || "", states: r.states }));
   try {
     const res = await fetch(AREA_CODES_CONFIG.ADD_ARTIST_ENDPOINT, {
       method: "POST",
@@ -1823,7 +1833,7 @@ async function submitRegions() {
 }
 
 function renderRegionsForm() {
-  regionsDraft = (MAP_REGIONS.regions || []).map(r => ({ name: r.name, color: r.color, states: [...r.states] }));
+  regionsDraft = (MAP_REGIONS.regions || []).map(r => ({ name: r.name, color: r.color, titleColor: r.titleColor || "", states: [...r.states] }));
   renderRegionsFormFromDraft();
 }
 
@@ -2422,6 +2432,7 @@ const THEMEABLE_VARS_MAP = [
   { key: "--state-empty-color", label: "Undiscovered state color (name + map key)", type: "color", default: "#606060" },
   { key: "--map-bg", label: "State map background", type: "color", default: "#c0c0c0" },
   { key: "--map-fill", label: "State shape fill color", type: "color", default: "#c0c0c0" },
+  { key: "--country-grid-color", label: "Country map gridline color", type: "color", default: "#000000" },
 ];
 const THEMEABLE_VARS_ADVANCED = [
   { key: "--ink-faint", label: "Muted accent", type: "color", default: "#c7c7c7" },
