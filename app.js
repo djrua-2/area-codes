@@ -989,8 +989,9 @@ const BULK_TEMPLATE_HEADERS = ["artist_name", "song_title", "spotify URI or URL"
 
 function downloadBulkTemplate() {
   const csv = BULK_TEMPLATE_HEADERS.join(",") + "\n" +
-    'Example Artist,Example Song One,,GA,"Savannah, GA",One-line note about their style\n' +
-    'Example Artist,Example Song Two,,GA,"Savannah, GA",One-line note about their style\n';
+    'New Artist Example,New Song One,,GA,"Savannah, GA",One-line note about their style\n' +
+    'New Artist Example,New Song Two,,GA,"Savannah, GA",One-line note about their style\n' +
+    "Existing Artist Example,Song For An Artist Already On The Site,,,,\n";
   const blob = new Blob([csv], { type: "text/csv" });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
@@ -1067,25 +1068,56 @@ function normalizeSongRow(row) {
   };
 }
 
-// Merges song-rows sharing the same artist + city + state into one entry
-// per artist, each with a tracks array — the shape handleBulkAdd expects.
-function groupRowsIntoEntries(rows) {
-  const order = [];
-  const byKey = new Map();
+// Splits normalized song-rows into: linkRows (artist already on the site —
+// just needs song title + optional spotifyId, no city/state/note at all)
+// and newArtistEntries (artist not on the site yet — grouped by artist,
+// using whichever of its rows has state+city+note filled in as that
+// artist's identity; the rest just contribute additional tracks). A new
+// artist with NONE of its rows carrying state+city+note is dropped
+// entirely (reported in skippedArtists) rather than uploaded with missing
+// info. Checked against whatever's already loaded on this page — the
+// Worker re-checks against live data before actually writing anything.
+function classifyBulkRows(rows) {
+  const existingNames = existingArtistNameSet();
+  const linkRows = [];
+  const newArtistRowsByName = new Map();
+  const problemRows = [];
+
   rows.forEach(r => {
-    const key = `${r.artistName.toLowerCase()}|${r.cityName.toLowerCase()}|${r.state}`;
-    let entry = byKey.get(key);
-    if (!entry) {
-      entry = { artistName: r.artistName, state: r.state, cityName: r.cityName, note: r.note, tracks: [] };
-      byKey.set(key, entry);
-      order.push(entry);
+    if (!r.artistName || !r.songTitle) {
+      problemRows.push({ ...r, problem: "missing artist name or song title" });
+      return;
     }
-    entry.tracks.push(r.spotifyId ? { title: r.songTitle, spotifyId: r.spotifyId } : { title: r.songTitle });
+    const nameKey = r.artistName.toLowerCase();
+    if (existingNames.has(nameKey)) {
+      linkRows.push({ artistName: r.artistName, songTitle: r.songTitle, spotifyId: r.spotifyId || "", rowNum: r.rowNum });
+      return;
+    }
+    if (!newArtistRowsByName.has(nameKey)) newArtistRowsByName.set(nameKey, []);
+    newArtistRowsByName.get(nameKey).push(r);
   });
-  return order;
+
+  const newArtistEntries = [];
+  const skippedArtists = [];
+  newArtistRowsByName.forEach(rowsForArtist => {
+    const seed = rowsForArtist.find(r => r.state && r.cityName && r.note);
+    if (!seed) {
+      skippedArtists.push(rowsForArtist[0].artistName);
+      return;
+    }
+    newArtistEntries.push({
+      artistName: seed.artistName,
+      state: seed.state,
+      cityName: seed.cityName,
+      note: seed.note,
+      tracks: rowsForArtist.map(r => r.spotifyId ? { title: r.songTitle, spotifyId: r.spotifyId } : { title: r.songTitle }),
+    });
+  });
+
+  return { linkRows, newArtistEntries, skippedArtists, problemRows };
 }
 
-let bulkParsedEntries = [];
+let bulkParsedRows = { linkRows: [], newArtistEntries: [] };
 
 async function handleBulkFile(evt) {
   const file = evt.target.files[0];
@@ -1098,7 +1130,7 @@ async function handleBulkFile(evt) {
   statusEl.textContent = "Reading file…";
   previewEl.innerHTML = "";
   submitBtn.disabled = true;
-  bulkParsedEntries = [];
+  bulkParsedRows = { linkRows: [], newArtistEntries: [] };
 
   try {
     let rawRows;
@@ -1119,56 +1151,68 @@ async function handleBulkFile(evt) {
     }
 
     const normalized = rawRows.map((row, i) => ({ ...normalizeSongRow(row), rowNum: i + 2 }));
-    const validRows = [], invalidRows = [];
-    normalized.forEach(r => {
-      const problems = [];
-      if (!r.artistName) problems.push("missing artist name");
-      if (!r.state) problems.push("missing state");
-      if (!r.cityName) problems.push("missing city");
-      if (!r.note) problems.push("missing note");
-      if (!r.songTitle) problems.push("missing song title");
-      if (problems.length) invalidRows.push({ ...r, problems });
-      else validRows.push(r);
-    });
+    const { linkRows, newArtistEntries, skippedArtists, problemRows } = classifyBulkRows(normalized);
+    bulkParsedRows = { linkRows, newArtistEntries };
+    const newArtistSongs = newArtistEntries.reduce((n, e) => n + e.tracks.length, 0);
 
-    const entries = groupRowsIntoEntries(validRows);
-    bulkParsedEntries = entries;
-    const totalSongs = entries.reduce((n, e) => n + e.tracks.length, 0);
+    const linkRowsHtml = linkRows.map((r, i) => `
+      <tr>
+        <td>${i + 1}</td>
+        <td>${escapeHtml(r.artistName)}</td>
+        <td>${escapeHtml(r.songTitle)}</td>
+        <td>${r.spotifyId ? "Link/add (link supplied)" : "Link/add (auto-search)"}</td>
+      </tr>
+    `).join("");
 
-    const entryRowsHtml = entries.map((e, i) => `
+    const newArtistRowsHtml = newArtistEntries.map((e, i) => `
       <tr>
         <td>${i + 1}</td>
         <td>${escapeHtml(e.artistName)}</td>
         <td>${escapeHtml(e.cityName)}, ${escapeHtml(e.state)}</td>
         <td>${e.tracks.length}</td>
-        <td>Ready</td>
+        <td>New artist</td>
       </tr>
     `).join("");
 
-    const invalidRowsHtml = invalidRows.map(r => `
+    const problemRowsHtml = problemRows.map(r => `
       <tr class="bulk-row-error">
         <td>row ${r.rowNum}</td>
         <td>${escapeHtml(r.artistName || "—")}</td>
         <td>${escapeHtml(r.songTitle || "—")}</td>
-        <td>${escapeHtml(r.problems.join(", "))}</td>
+        <td>${escapeHtml(r.problem)}</td>
       </tr>
     `).join("");
 
     previewEl.innerHTML = `
-      <table class="bulk-table">
-        <thead><tr><th>#</th><th>Artist</th><th>City</th><th>Songs</th><th>Status</th></tr></thead>
-        <tbody>${entryRowsHtml || `<tr><td colspan="5">No valid rows.</td></tr>`}</tbody>
-      </table>
-      ${invalidRows.length ? `
-        <p class="page-subtitle" style="margin-top:1rem;">${invalidRows.length} row(s) skipped — fix and re-upload if you want them included:</p>
+      ${linkRows.length ? `
+        <p class="section-heading">Existing artists (${linkRows.length} song(s))</p>
+        <table class="bulk-table">
+          <thead><tr><th>#</th><th>Artist</th><th>Song</th><th>Action</th></tr></thead>
+          <tbody>${linkRowsHtml}</tbody>
+        </table>
+      ` : ""}
+      ${newArtistEntries.length ? `
+        <p class="section-heading">New artists to add (${newArtistEntries.length})</p>
+        <table class="bulk-table">
+          <thead><tr><th>#</th><th>Artist</th><th>City</th><th>Songs</th><th>Action</th></tr></thead>
+          <tbody>${newArtistRowsHtml}</tbody>
+        </table>
+      ` : ""}
+      ${skippedArtists.length ? `
+        <p class="page-subtitle" style="margin-top:1rem;">${skippedArtists.length} new artist(s) skipped — not on the site yet, and missing state/city/note on every row, so they won't be uploaded: ${skippedArtists.map(escapeHtml).join(", ")}</p>
+      ` : ""}
+      ${problemRows.length ? `
+        <p class="page-subtitle" style="margin-top:1rem;">${problemRows.length} row(s) skipped — fix and re-upload if you want them included:</p>
         <table class="bulk-table">
           <thead><tr><th>Row</th><th>Artist</th><th>Song</th><th>Problem</th></tr></thead>
-          <tbody>${invalidRowsHtml}</tbody>
+          <tbody>${problemRowsHtml}</tbody>
         </table>
       ` : ""}
     `;
-    statusEl.textContent = `${entries.length} artist(s), ${totalSongs} song(s) ready to submit` + (invalidRows.length ? `, ${invalidRows.length} row(s) skipped.` : ".");
-    submitBtn.disabled = entries.length === 0;
+    statusEl.textContent = `${linkRows.length} song(s) for existing artists, ${newArtistEntries.length} new artist(s) (${newArtistSongs} song(s) total)` +
+      (skippedArtists.length ? `, ${skippedArtists.length} new artist(s) skipped (missing info)` : "") +
+      (problemRows.length ? `, ${problemRows.length} row(s) skipped.` : ".");
+    submitBtn.disabled = linkRows.length === 0 && newArtistEntries.length === 0;
   } catch (err) {
     statusEl.className = "form-status is-error";
     statusEl.textContent = "Couldn't read that file — " + err.message;
@@ -1199,62 +1243,89 @@ function buildBulkBatches(entries) {
   return batches;
 }
 
-// Submits grouped artist entries in sequential batches of BULK_BATCH_SIZE —
-// never in parallel, so each batch's read-modify-write of data.json always
-// sees the previous batch's committed state. On a batch failure, whatever
-// already landed stays live; the rest can be re-uploaded as a smaller file.
+// linkRows never geocode (see BULK_LINK_MAX_ROWS in the Worker) so they get
+// their own, looser batch size than new-artist entries.
+const BULK_LINK_BATCH_SIZE = 30;
+function buildBulkLinkRowBatches(linkRows) {
+  const batches = [];
+  for (let i = 0; i < linkRows.length; i += BULK_LINK_BATCH_SIZE) batches.push(linkRows.slice(i, i + BULK_LINK_BATCH_SIZE));
+  return batches;
+}
+
+// Submits in two phases — all linkRows batches, then all new-artist entry
+// batches — never in parallel, so each batch's read-modify-write of
+// data.json always sees the previous batch's committed state. On a batch
+// failure, whatever already landed stays live; the rest can be
+// re-uploaded as a smaller file.
 async function submitBulk() {
   const statusEl = document.getElementById("bulk-status");
   const submitBtn = document.getElementById("bulk-submit-btn");
-  const entries = bulkParsedEntries;
-  if (!entries.length) return;
+  const { linkRows, newArtistEntries } = bulkParsedRows;
+  if (!linkRows.length && !newArtistEntries.length) return;
 
   submitBtn.disabled = true;
-  const batches = buildBulkBatches(entries);
-  let doneArtists = 0, addedCount = 0, skippedCount = 0, pinsAdded = 0, pinCommitFailures = 0;
+  const linkBatches = buildBulkLinkRowBatches(linkRows);
+  const artistBatches = buildBulkBatches(newArtistEntries);
+  const totalBatches = linkBatches.length + artistBatches.length;
+
+  let linkedTotal = 0, addedTotal = 0, skippedTotal = 0, pinsTotal = 0, pinCommitFailures = 0;
   const failures = [];
+  let batchNum = 0;
 
-  for (let i = 0; i < batches.length; i++) {
-    const batch = batches[i];
-    statusEl.className = "form-status";
-    statusEl.textContent = `Batch ${i + 1} of ${batches.length} — ${doneArtists} of ${entries.length} artists submitted so far…`;
-
-    try {
+  try {
+    for (const batch of linkBatches) {
+      batchNum++;
+      statusEl.className = "form-status";
+      statusEl.textContent = `Batch ${batchNum} of ${totalBatches} — updating songs for existing artists…`;
       const res = await fetch(AREA_CODES_CONFIG.ADD_ARTIST_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ action: "bulk_add", password: storedPassword(), entries: batch })
+        body: JSON.stringify({ action: "bulk_add", password: storedPassword(), entries: [], linkRows: batch })
       });
       if (!res.ok) throw new Error(await res.text());
       const result = await res.json();
-      addedCount += result.addedCount || 0;
-      skippedCount += result.skippedCount || 0;
-      pinsAdded += result.pinsAdded || 0;
-      if (result.pinsCommitFailed) pinCommitFailures++;
-      result.results.filter(r => !r.ok).forEach(r => failures.push(r));
-      doneArtists += batch.length;
-    } catch (err) {
-      statusEl.className = "form-status is-error";
-      statusEl.textContent = `Stopped at batch ${i + 1} of ${batches.length} — ${addedCount} of ${entries.length} artist(s) were added before this failed (${err.message}). Those are already live; re-upload the rest as a new file.`;
-      submitBtn.disabled = false;
-      return;
+      linkedTotal += result.linkedCount || 0;
+      (result.linkResults || []).filter(r => !r.ok).forEach(r => failures.push(r));
     }
+
+    for (const batch of artistBatches) {
+      batchNum++;
+      statusEl.className = "form-status";
+      statusEl.textContent = `Batch ${batchNum} of ${totalBatches} — adding new artists…`;
+      const res = await fetch(AREA_CODES_CONFIG.ADD_ARTIST_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "bulk_add", password: storedPassword(), entries: batch, linkRows: [] })
+      });
+      if (!res.ok) throw new Error(await res.text());
+      const result = await res.json();
+      addedTotal += result.addedCount || 0;
+      skippedTotal += result.skippedCount || 0;
+      pinsTotal += result.pinsAdded || 0;
+      if (result.pinsCommitFailed) pinCommitFailures++;
+      (result.results || []).filter(r => !r.ok).forEach(r => failures.push(r));
+    }
+  } catch (err) {
+    statusEl.className = "form-status is-error";
+    statusEl.textContent = `Stopped at batch ${batchNum} of ${totalBatches} — ${linkedTotal} song(s) updated and ${addedTotal} new artist(s) added before this failed (${err.message}). Those are already live; re-upload the rest as a new file.`;
+    submitBtn.disabled = false;
+    return;
   }
 
-  let msg = `Added ${addedCount} of ${entries.length} artist(s), ${pinsAdded} new map pin(s) placed.`;
-  if (skippedCount) msg += ` ${skippedCount} skipped (already existed).`;
+  let msg = `Updated ${linkedTotal} song(s) for existing artists, added ${addedTotal} new artist(s) (${pinsTotal} new map pin(s)).`;
+  if (skippedTotal) msg += ` ${skippedTotal} skipped (already existed).`;
   if (pinCommitFailures) msg += ` ${pinCommitFailures} batch(es) had geocoded pins that failed to save — those cities are live but pin-less; re-run the upload later to retry them.`;
-  if (failures.length) msg += ` ${failures.length} failed: ` + failures.slice(0, 5).map(f => `${f.artist} (${f.error})`).join("; ") + (failures.length > 5 ? "…" : "");
+  if (failures.length) msg += ` ${failures.length} row(s) failed: ` + failures.slice(0, 5).map(f => `${f.artist} (${f.error})`).join("; ") + (failures.length > 5 ? "…" : "");
   statusEl.className = "form-status";
   statusEl.textContent = msg + " Live on the site shortly.";
 }
 
 function renderBulkForm() {
-  bulkParsedEntries = [];
+  bulkParsedRows = { linkRows: [], newArtistEntries: [] };
   app.innerHTML = `
     <p class="crumbs"><a href="#/add">Add an Artist</a> / Bulk Upload</p>
     <h1 class="page-title">Bulk Upload Artists</h1>
-    <p class="page-subtitle">Upload a CSV or XLSX file — up to ${BULK_MAX_ROWS} songs at a time, one row per song. Repeat the same artist_name/state/city/note on every row for that artist's songs and they'll be grouped into a single artist entry automatically.</p>
+    <p class="page-subtitle">Upload a CSV or XLSX file — up to ${BULK_MAX_ROWS} songs at a time, one row per song. Only <code>artist_name</code> and <code>song_title</code> are always required. If the artist is already on the site, that's all you need — the song gets linked (or added, if it's new) with no city/state/note necessary. If the artist isn't on the site yet, <code>state</code>/<code>city</code>/<code>note</code> are required to create them (repeat the same values on every row for that artist) — a new artist missing any of those on every one of its rows is skipped and not uploaded.</p>
     <p><button type="button" class="retro-btn" onclick="downloadBulkTemplate()">Download CSV template</button></p>
     <p class="page-subtitle">Columns: <code>artist_name, song_title, spotify URI or URL, state, city, note</code> (state is the 2-letter abbreviation). The Spotify column is optional — leave it blank to auto-search, or fill in a URL/URI/ID to skip the search for that song.</p>
     <p><input type="file" class="retro-field" accept=".csv,.xlsx" onchange="handleBulkFile(event)"></p>
