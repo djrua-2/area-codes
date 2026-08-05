@@ -5,14 +5,16 @@
     "--ink-faded": "#333333",
     "--line-color": "#a8a8a8",
     "--line-width": "0.5px",
-    "--state-empty-color": "#dbdbdb",
+    "--state-empty-color": "#d51a1a",
     "--map-bg": "#d6e8f5",
-    "--map-border-color": "#000000",
     "--map-fill": "#ffffff",
     "--ink-faint": "#333333",
     "--bevel-face": "#e9e9e9",
     "--bevel-hi": "#ffffff",
     "--bevel-sh": "#848484"
   },
-  "customCss": ""
+  "customCss": "",
+  "labels": {
+    "addArtistBtn": "Login"
+  }
 }
