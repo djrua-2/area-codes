@@ -98,7 +98,7 @@
     {
       "id": "mountain",
       "name": "Mountain",
-      "color": "#888888",
+      "color": "#f1c9fe",
       "titleColor": "#000000",
       "states": [
         "NV",
