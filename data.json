@@ -9381,15 +9381,6 @@
         "state": "MO",
         "artists": [
           {
-            "name": "Froggy Fresh",
-            "note": "Kansas City-area novelty rapper known for viral comedic tracks.",
-            "tracks": [
-              {
-                "title": "Same Old Kid"
-              }
-            ]
-          },
-          {
             "name": "Miles Bonny",
             "note": "Kansas City artist blending neo-soul with hip-hop production.",
             "tracks": [
@@ -9407,6 +9398,16 @@
               }
             ],
             "birthYear": 1971
+          },
+          {
+            "name": "Froggy Fresh",
+            "note": "Kansas City-area novelty rapper known for viral comedic tracks.",
+            "tracks": [
+              {
+                "title": "The Baddest",
+                "spotifyId": "0wbYf7Dl4S2m1Dl4P464M0"
+              }
+            ]
           }
         ]
       }
