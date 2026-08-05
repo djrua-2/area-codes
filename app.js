@@ -220,10 +220,14 @@ document.addEventListener("click", e => {
   const btn = e.target.closest(".track-toggle");
   if (btn) { playTrack(btn.dataset.spotifyId); return; }
 
-  // Search results navigate via their own href (a normal same-page hash
-  // link) — this just remembers which artist to scroll to and point at
-  // once the destination page renders, via pendingScrollArtist below.
-  const hit = e.target.closest(".search-hit");
+  // Search-result and producer-credit links navigate via their own href (a
+  // normal same-page hash link) — this just remembers which artist to
+  // scroll to and point at once the destination page renders, via
+  // pendingScrollArtist below. Keyed off the data attribute rather than the
+  // ".search-hit" class specifically, so compact producer-credit links
+  // (renderProducerHit) can opt into the same behavior without taking on
+  // .search-hit's card styling.
+  const hit = e.target.closest("[data-scroll-artist]");
   if (hit) { pendingScrollArtist = hit.dataset.scrollArtist || null; return; }
 
   const del = e.target.closest(".delete-artist-link");
@@ -231,7 +235,40 @@ document.addEventListener("click", e => {
     e.preventDefault();
     deleteArtist(del.dataset.regionId, del.dataset.cityId, parseInt(del.dataset.artistIndex, 10), del.dataset.artistName);
   }
+
+  const prodBtn = e.target.closest(".producer-name-link");
+  if (prodBtn) { searchForProducer(prodBtn.dataset.producerName); return; }
 });
+
+// Jumps to the home page and runs a search for a producer's name — used by
+// the "Produced by" dropdown on an artist card (see producersDropdownHtml).
+// Setting location.hash triggers the existing hashchange listener -> router()
+// -> renderHome() asynchronously, so the search can't be applied inline
+// here (the search box doesn't exist yet, and — the bug this avoids —
+// applying it inline then lets that async render fire moments later and
+// silently wipe it back out). Instead this just records what to search for;
+// renderHome() itself calls applyPendingProducerSearch() once its markup
+// (including the search box) actually exists, however it got triggered.
+let pendingProducerSearch = null;
+
+function searchForProducer(name) {
+  pendingProducerSearch = name;
+  // Setting location.hash to its current value doesn't fire hashchange, so
+  // handle that case (already on home) with a direct render instead.
+  if (location.hash === "#/" || location.hash === "") renderHome();
+  else location.hash = "#/";
+}
+
+function applyPendingProducerSearch() {
+  if (!pendingProducerSearch) return;
+  const box = document.querySelector(".search-box");
+  if (!box) return;
+  const name = pendingProducerSearch;
+  pendingProducerSearch = null;
+  box.value = name;
+  handleSearch(name);
+  box.scrollIntoView({ behavior: "smooth" });
+}
 
 // ---- randomize: jump to one random artist's city page ----
 function randomizeArtist() {
@@ -427,6 +464,7 @@ function renderHome() {
       <span class="map-key-note">hover a state to preview artists, click to open its city map</span>
     </p>
   `;
+  applyPendingProducerSearch();
 }
 
 // A region search hit shows a cropped copy of the home map — just that
@@ -498,6 +536,65 @@ function renderRegionHit(region) {
   `;
 }
 
+// Walks every track's producers array once, returning a flat list of
+// credits — used by producer search results (renderProducerHit below).
+function collectProducerCredits() {
+  const credits = [];
+  regions.forEach(region => {
+    region.cities.forEach(city => {
+      city.artists.forEach(artist => {
+        (artist.tracks || []).forEach(track => {
+          (track.producers || []).forEach(p => {
+            credits.push({
+              producerName: p.name,
+              distanceMiles: p.distanceMiles,
+              songTitle: track.title,
+              artistName: artist.name,
+              href: `#/city/${region.id}/${city.id}`,
+            });
+          });
+        });
+      });
+      (city.neighborhoods || []).forEach(hood => {
+        (hood.artists || []).forEach(artist => {
+          (artist.tracks || []).forEach(track => {
+            (track.producers || []).forEach(p => {
+              credits.push({
+                producerName: p.name,
+                distanceMiles: p.distanceMiles,
+                songTitle: track.title,
+                artistName: artist.name,
+                href: `#/neighborhood/${region.id}/${city.id}/${hood.id}`,
+              });
+            });
+          });
+        });
+      });
+    });
+  });
+  return credits;
+}
+
+// A producer search hit lists every song they're credited on, formatted
+// "Song Title – Artist Name", linking to the artist's actual entry — reuses
+// the same [data-scroll-artist] scroll-to behavior as artist search hits
+// (see the delegated click handler), just with compact link styling
+// instead of .search-hit's card styling.
+function renderProducerHit(producerName, credits) {
+  const itemsHtml = credits.map(c => `
+    <li>
+      <a class="producer-credit-link" href="${c.href}" data-scroll-artist="${escapeAttr(c.artistName)}">${escapeHtml(c.songTitle)} – ${escapeHtml(c.artistName)}</a>
+      ${typeof c.distanceMiles === "number" ? `<span class="producer-credit-distance">~${c.distanceMiles} mi</span>` : ""}
+    </li>
+  `).join("");
+  return `
+    <div class="producer-hit">
+      <p class="section-heading">${escapeHtml(producerName)}</p>
+      <ul class="producer-credit-list">${itemsHtml}</ul>
+    </div>
+  `;
+}
+
 function handleSearch(query) {
   const mapWrap = document.getElementById("map-wrap");
   const resultsEl = document.getElementById("search-results");
@@ -532,7 +629,22 @@ function handleSearch(query) {
   const regionHits = (MAP_REGIONS.regions || []).filter(r => r.name.toLowerCase().includes(q));
   const regionHitsHtml = regionHits.map(renderRegionHit).join("");
 
-  if (!hits.length && !regionHits.length) {
+  // Unique producer names (case-insensitive, first-seen casing kept as the
+  // canonical display name) matching the query, each rendered with every
+  // song they're credited on across the whole dataset.
+  const allCredits = collectProducerCredits();
+  const producerCanonicalName = new Map();
+  allCredits.forEach(c => {
+    const lower = c.producerName.trim().toLowerCase();
+    if (!producerCanonicalName.has(lower)) producerCanonicalName.set(lower, c.producerName);
+  });
+  const matchingProducerNames = Array.from(producerCanonicalName.entries()).filter(([lower]) => lower.includes(q));
+  const producerHitsHtml = matchingProducerNames.map(([lower, name]) => {
+    const creditsForThis = allCredits.filter(c => c.producerName.trim().toLowerCase() === lower);
+    return renderProducerHit(name, creditsForThis);
+  }).join("");
+
+  if (!hits.length && !regionHits.length && !matchingProducerNames.length) {
     resultsEl.innerHTML = `<div class="search-results"><p>No match for "${escapeHtml(query)}" — this is a small, hand-curated dataset. Try a state abbreviation instead, or add the artist yourself.</p></div>`;
     return;
   }
@@ -553,13 +665,13 @@ function handleSearch(query) {
   `;
   }).join("");
 
-  // Two equal-width columns — artists/cities on the left, regions on the
-  // right — rather than stacking everything in one list, so a query like
-  // "West" that matches both doesn't bury the region result under a long
-  // scroll of artist hits.
+  // Three equal-width columns — artists/cities, producers, regions — rather
+  // than stacking everything in one list, so a query matching more than one
+  // kind of result doesn't bury one under a long scroll of another.
   resultsEl.innerHTML = `
     <div class="search-results search-results-columns">
       <div class="search-results-col">${artistHitsHtml}</div>
+      <div class="search-results-col">${producerHitsHtml}</div>
       <div class="search-results-col">${regionHitsHtml}</div>
     </div>
   `;
@@ -843,6 +955,43 @@ function birthYearTagHtml(a) {
   return `<span class="birth-year-tag decade-${decade}">${a.birthYear}</span>`;
 }
 
+// Unique producer credits for one artist, aggregated across all their
+// tracks (dedupe by name, case-insensitive, keeping first-seen casing) —
+// a producer's distance should be consistent across an artist's songs
+// (same producer, same artist city), so the first credit found is kept.
+function producersForArtist(artist) {
+  const byNameLower = new Map();
+  (artist.tracks || []).forEach(t => {
+    (t.producers || []).forEach(p => {
+      const key = p.name.trim().toLowerCase();
+      if (!byNameLower.has(key)) byNameLower.set(key, p);
+    });
+  });
+  return Array.from(byNameLower.values());
+}
+
+// Only rendered if the artist has at least one producer credit anywhere in
+// their tracks (same "hide if absent" convention as birthYearTagHtml).
+// Lists producer names only, not their songs — the full "Song Title –
+// Artist Name" list for a producer is what search shows (see
+// renderProducerHit); clicking a name here jumps straight to that search.
+function producersDropdownHtml(artist) {
+  const producers = producersForArtist(artist);
+  if (!producers.length) return "";
+  const itemsHtml = producers.map(p => `
+    <li>
+      <button type="button" class="producer-name-link" data-producer-name="${escapeAttr(p.name)}">${escapeHtml(p.name)}</button>
+      ${typeof p.distanceMiles === "number" ? `<span class="producer-credit-distance">~${p.distanceMiles} mi</span>` : ""}
+    </li>
+  `).join("");
+  return `
+    <details class="producers-dropdown">
+      <summary>Produced by (${producers.length})</summary>
+      <ul class="producer-name-list">${itemsHtml}</ul>
+    </details>
+  `;
+}
+
 function renderArtistBlocks(artists, regionId, cityId) {
   const canManage = regionId && cityId && isConfigured() && storedPassword();
   return (artists || []).map((a, i) => `
@@ -857,6 +1006,7 @@ function renderArtistBlocks(artists, regionId, cityId) {
       ` : ""}
       <p>${escapeHtml(a.note)}</p>
       <ul class="track-list">${renderTrackList(a.tracks)}</ul>
+      ${producersDropdownHtml(a)}
     </div>
   `).join("");
 }
@@ -1522,17 +1672,25 @@ function csvField(value) {
   return /["\n,]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
 }
 
+// One row per song so each artist-song pair carries its own city/state —
+// an artist with no documented tracks yet still gets a single row (blank
+// song_title) so they're not silently dropped from the audit.
 function buildArtistExportRows() {
   const rows = [];
+  const pushArtist = (a, cityName, state) => {
+    if (!a.tracks || !a.tracks.length) {
+      rows.push({ artistName: a.name, songTitle: "", city: cityName, state: state || "" });
+      return;
+    }
+    a.tracks.forEach(t => {
+      rows.push({ artistName: a.name, songTitle: t.title || "", city: cityName, state: state || "" });
+    });
+  };
   regions.forEach(region => {
     region.cities.forEach(city => {
-      (city.artists || []).forEach(a => {
-        rows.push({ artistName: a.name, city: city.name, state: city.state || "" });
-      });
+      (city.artists || []).forEach(a => pushArtist(a, city.name, city.state));
       (city.neighborhoods || []).forEach(hood => {
-        (hood.artists || []).forEach(a => {
-          rows.push({ artistName: a.name, city: hood.name, state: city.state || "" });
-        });
+        (hood.artists || []).forEach(a => pushArtist(a, hood.name, city.state));
       });
     });
   });
@@ -1541,8 +1699,8 @@ function buildArtistExportRows() {
 
 function downloadArtistExport() {
   const rows = buildArtistExportRows();
-  const csv = ["artist_name", "city", "state"].join(",") + "\n" +
-    rows.map(r => [csvField(r.artistName), csvField(r.city), csvField(r.state)].join(",")).join("\n") + "\n";
+  const csv = ["artist_name", "song_title", "city", "state"].join(",") + "\n" +
+    rows.map(r => [csvField(r.artistName), csvField(r.songTitle), csvField(r.city), csvField(r.state)].join(",")).join("\n") + "\n";
   const blob = new Blob([csv], { type: "text/csv" });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
@@ -1557,7 +1715,7 @@ function renderExportForm() {
   app.innerHTML = `
     <p class="crumbs"><a href="#/add">Add an Artist</a> / Export Artist List</p>
     <h1 class="page-title">Export Artist List</h1>
-    <p class="page-subtitle">Downloads a CSV with every artist's exact name, city, and state as currently stored on the site — ${rowCount} artist(s), one row each. The city column is the exact stored value (e.g. "Savannah, GA") — handy for spotting typos or naming inconsistencies (like a duplicate city from two slightly different spellings) outside the site.</p>
+    <p class="page-subtitle">Downloads a CSV with every artist's exact name, each of their song titles, and their city and state as currently stored on the site — one row per artist-song pair (${rowCount} row(s) total; an artist with no documented tracks yet still gets one row with a blank song_title). The city column is the exact stored value (e.g. "Savannah, GA") — handy for spotting typos or naming inconsistencies (like a duplicate city from two slightly different spellings) outside the site.</p>
     <p class="page-subtitle">This is read-only — there's no matching bulk re-import yet. Re-uploading an edited copy through Bulk Upload won't rename anyone or move them to a new city; it'll just be read as ordinary add/link rows.</p>
     <p><button type="button" class="retro-btn" onclick="downloadArtistExport()">Download CSV</button></p>
   `;
@@ -1763,6 +1921,229 @@ function renderBirthYears() {
   if (!isConfigured()) return renderNotConfigured();
   if (!storedPassword()) return renderAddGate();
   renderBirthYearForm();
+}
+
+// ---- admin page: bulk-upload producer credits ----
+// Attaches producer credits (name + city/state + distance from the artist's
+// own city) to specific existing songs. Never creates artists or songs —
+// geocoding and the distance calculation happen server-side (see
+// handleBulkAddProducers in the Worker); this page just validates rows
+// against the already-loaded data and batches them.
+const PRODUCER_MAX_ROWS = 2000;
+// Rows per Worker request — smaller than other bulk tools since each row
+// can cost up to two geocode calls (producer city + artist city); see
+// PRODUCER_BATCH_MAX in the Worker.
+const PRODUCER_BATCH_SIZE = 10;
+
+function downloadProducerTemplate() {
+  const csv = "artist_name,song_title,producer_name,producer_city,producer_state\n" +
+    'Example Artist,Example Song,Example Producer,"Atlanta, GA",GA\n';
+  const blob = new Blob([csv], { type: "text/csv" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "area-codes-producers-template.csv";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function normalizeProducerRow(row) {
+  return {
+    artistName: getField(row, "artist_name", "artist"),
+    songTitle: getField(row, "song_title", "title", "track_title"),
+    producerName: getField(row, "producer_name", "producer"),
+    producerCity: getField(row, "producer_city", "city"),
+    producerState: getField(row, "producer_state", "state").toUpperCase(),
+  };
+}
+
+// Finds an existing artist locally (exact case-insensitive name) — used
+// only to pre-validate a row's song title before it's ever sent to the
+// Worker, which re-validates against live data regardless.
+function findLocalArtistByName(nameLower) {
+  for (const region of regions) {
+    for (const city of region.cities) {
+      for (const a of city.artists || []) {
+        if (a.name.trim().toLowerCase() === nameLower) return a;
+      }
+      for (const hood of city.neighborhoods || []) {
+        for (const a of hood.artists || []) {
+          if (a.name.trim().toLowerCase() === nameLower) return a;
+        }
+      }
+    }
+  }
+  return null;
+}
+
+function classifyProducerRows(rows) {
+  const validRows = [];
+  const problemRows = [];
+  rows.forEach(r => {
+    if (!r.artistName || !r.songTitle || !r.producerName || !r.producerCity || !r.producerState) {
+      problemRows.push({ ...r, problem: "missing a required field" });
+      return;
+    }
+    const artist = findLocalArtistByName(r.artistName.toLowerCase());
+    if (!artist) {
+      problemRows.push({ ...r, problem: `"${r.artistName}" isn't on the site` });
+      return;
+    }
+    const titleLower = r.songTitle.toLowerCase();
+    const hasTrack = (artist.tracks || []).some(t => t.title.trim().toLowerCase() === titleLower);
+    if (!hasTrack) {
+      problemRows.push({ ...r, problem: `"${r.songTitle}" isn't a song listed for ${r.artistName}` });
+      return;
+    }
+    validRows.push(r);
+  });
+  return { validRows, problemRows };
+}
+
+let producerParsedRows = [];
+
+async function handleProducerFile(evt) {
+  const file = evt.target.files[0];
+  const statusEl = document.getElementById("producer-status");
+  const previewEl = document.getElementById("producer-preview");
+  const submitBtn = document.getElementById("producer-submit-btn");
+  if (!file) return;
+
+  statusEl.className = "form-status";
+  statusEl.textContent = "Reading file…";
+  previewEl.innerHTML = "";
+  submitBtn.disabled = true;
+  producerParsedRows = [];
+
+  try {
+    let rawRows;
+    if (/\.xlsx$/i.test(file.name)) {
+      await loadXLSXLibrary();
+      const buf = await file.arrayBuffer();
+      const wb = window.XLSX.read(buf, { type: "array" });
+      const sheet = wb.Sheets[wb.SheetNames[0]];
+      rawRows = window.XLSX.utils.sheet_to_json(sheet, { defval: "" });
+    } else {
+      const text = await file.text();
+      rawRows = parseCSV(text);
+    }
+
+    if (!rawRows.length) throw new Error("No rows found in that file.");
+    if (rawRows.length > PRODUCER_MAX_ROWS) {
+      throw new Error(`That file has ${rawRows.length} rows — max is ${PRODUCER_MAX_ROWS} per upload. Split it into smaller files.`);
+    }
+
+    const normalized = rawRows.map((row, i) => ({ ...normalizeProducerRow(row), rowNum: i + 2 }));
+    const { validRows, problemRows } = classifyProducerRows(normalized);
+    producerParsedRows = validRows;
+
+    const validRowsHtml = validRows.map((r, i) => `
+      <tr>
+        <td>${i + 1}</td>
+        <td>${escapeHtml(r.artistName)}</td>
+        <td>${escapeHtml(r.songTitle)}</td>
+        <td>${escapeHtml(r.producerName)}</td>
+        <td>${escapeHtml(r.producerCity)}, ${escapeHtml(r.producerState)}</td>
+      </tr>
+    `).join("");
+
+    const problemRowsHtml = problemRows.map(r => `
+      <tr class="bulk-row-error">
+        <td>row ${r.rowNum}</td>
+        <td>${escapeHtml(r.artistName || "—")}</td>
+        <td>${escapeHtml(r.songTitle || "—")}</td>
+        <td>${escapeHtml(r.problem)}</td>
+      </tr>
+    `).join("");
+
+    previewEl.innerHTML = `
+      ${validRows.length ? `
+        <p class="section-heading">Ready to upload (${validRows.length})</p>
+        <table class="bulk-table">
+          <thead><tr><th>#</th><th>Artist</th><th>Song</th><th>Producer</th><th>Producer location</th></tr></thead>
+          <tbody>${validRowsHtml}</tbody>
+        </table>
+      ` : ""}
+      ${problemRows.length ? `
+        <p class="page-subtitle" style="margin-top:1rem;">${problemRows.length} row(s) skipped — fix and re-upload if you want them included:</p>
+        <table class="bulk-table">
+          <thead><tr><th>Row</th><th>Artist</th><th>Song</th><th>Problem</th></tr></thead>
+          <tbody>${problemRowsHtml}</tbody>
+        </table>
+      ` : ""}
+    `;
+    statusEl.textContent = `${validRows.length} credit(s) ready to upload` + (problemRows.length ? `, ${problemRows.length} row(s) skipped.` : ".");
+    submitBtn.disabled = validRows.length === 0;
+  } catch (err) {
+    statusEl.className = "form-status is-error";
+    statusEl.textContent = "Couldn't read that file — " + err.message;
+  }
+}
+
+function buildProducerBatches(rows) {
+  const batches = [];
+  for (let i = 0; i < rows.length; i += PRODUCER_BATCH_SIZE) batches.push(rows.slice(i, i + PRODUCER_BATCH_SIZE));
+  return batches;
+}
+
+async function submitProducerBulk() {
+  const statusEl = document.getElementById("producer-status");
+  const submitBtn = document.getElementById("producer-submit-btn");
+  const rows = producerParsedRows;
+  if (!rows.length) return;
+
+  submitBtn.disabled = true;
+  const batches = buildProducerBatches(rows);
+  let updatedTotal = 0;
+  const failures = [];
+
+  for (let i = 0; i < batches.length; i++) {
+    statusEl.className = "form-status";
+    statusEl.textContent = `Batch ${i + 1} of ${batches.length} — ${updatedTotal} of ${rows.length} updated so far… (each row geocodes, so this can take a bit)`;
+    try {
+      const res = await fetch(AREA_CODES_CONFIG.ADD_ARTIST_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "bulk_add_producers", password: storedPassword(), rows: batches[i] })
+      });
+      if (!res.ok) throw new Error(await res.text());
+      const result = await res.json();
+      updatedTotal += result.updatedCount || 0;
+      (result.results || []).filter(r => !r.ok).forEach(r => failures.push(r));
+    } catch (err) {
+      statusEl.className = "form-status is-error";
+      statusEl.textContent = `Stopped at batch ${i + 1} of ${batches.length} — ${updatedTotal} of ${rows.length} updated before this failed (${err.message}). Those are already live; re-upload the rest as a new file.`;
+      submitBtn.disabled = false;
+      return;
+    }
+  }
+
+  let msg = `Updated ${updatedTotal} of ${rows.length} producer credit(s).`;
+  if (failures.length) msg += ` ${failures.length} failed: ` + failures.slice(0, 5).map(f => `${f.artist} (${f.error})`).join("; ") + (failures.length > 5 ? "…" : "");
+  statusEl.className = "form-status";
+  statusEl.textContent = msg + " Live on the site shortly.";
+}
+
+function renderProducerBulkForm() {
+  producerParsedRows = [];
+  app.innerHTML = `
+    <p class="crumbs"><a href="#/add">Add an Artist</a> / Bulk Add Producer Credits</p>
+    <h1 class="page-title">Bulk Add Producer Credits</h1>
+    <p class="page-subtitle">Upload a CSV or XLSX with <code>artist_name</code>, <code>song_title</code>, <code>producer_name</code>, <code>producer_city</code>, and <code>producer_state</code> columns. Each row must match an existing artist and one of their existing songs exactly (by title) — this tool never creates artists or songs. The site geocodes both the producer's city and the artist's own city and stores the distance between them, so this can take a little longer than other bulk tools.</p>
+    <p><button type="button" class="retro-btn" onclick="downloadProducerTemplate()">Download CSV template</button></p>
+    <p><input type="file" class="retro-field" accept=".csv,.xlsx" onchange="handleProducerFile(event)"></p>
+    <div id="producer-preview"></div>
+    <p class="form-actions">
+      <button type="button" id="producer-submit-btn" class="retro-btn" disabled onclick="submitProducerBulk()">Submit All</button>
+      <span id="producer-status" class="form-status"></span>
+    </p>
+  `;
+}
+
+function renderProducerBulk() {
+  if (!isConfigured()) return renderNotConfigured();
+  if (!storedPassword()) return renderAddGate();
+  renderProducerBulkForm();
 }
 
 // ---- admin page: manage map regions ----
@@ -2641,6 +3022,12 @@ const ADMIN_HUB_GROUPS = [
     ],
   },
   {
+    heading: "Producers",
+    buttons: [
+      { href: "#/add/producers", label: "Bulk Add Producer Credits" },
+    ],
+  },
+  {
     heading: "Site",
     buttons: [
       { href: "#/add/theme", label: "Edit Site Theme" },
@@ -2691,6 +3078,7 @@ function router() {
   if (parts[0] === "add" && parts[1] === "spotify-links") return renderSpotifyLinkUpload();
   if (parts[0] === "add" && parts[1] === "theme") return renderTheme();
   if (parts[0] === "add" && parts[1] === "regions") return renderRegions();
+  if (parts[0] === "add" && parts[1] === "producers") return renderProducerBulk();
   if (parts[0] === "add") return renderAdd();
   if (parts[0] === "edit" && parts[1] && parts[2] && parts[3]) return renderEdit(parts[1], parts[2], parts[3]);
   if (parts[0] === "state" && parts[1]) return renderState(parts[1]);

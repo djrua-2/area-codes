@@ -369,9 +369,12 @@ main#app {
 .search-results { margin-bottom: 2rem; }
 .search-results-columns {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 1.5rem;
   align-items: start;
+}
+@media (max-width: 900px) {
+  .search-results-columns { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 640px) {
   .search-results-columns { grid-template-columns: 1fr; }
@@ -427,6 +430,41 @@ main#app {
   gap: 0.3rem;
 }
 .region-state-list a { color: var(--ink); }
+
+/* ---- producer search hit: every song they're credited on ---- */
+.producer-hit { margin-bottom: 1.5rem; }
+.producer-credit-list { list-style: none; margin: 0; padding: 0; }
+.producer-credit-list li { margin-bottom: 0.4rem; }
+.producer-credit-link { color: var(--ink); }
+.producer-credit-distance { color: var(--ink-faded); font-size: 0.85rem; margin-left: 0.4rem; }
+
+/* ---- "Produced by" dropdown on an artist card ---- */
+.producers-dropdown {
+  margin: 0.75rem 0;
+  border: var(--line-width) solid var(--line-color);
+  padding: 0.6rem 0.9rem;
+}
+.producers-dropdown summary {
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: var(--ink-faded);
+}
+.producer-name-list { list-style: none; margin: 0.5rem 0 0; padding: 0; }
+.producer-name-list li { margin-bottom: 0.3rem; }
+/* A <button> styled to read as a link — it triggers searchForProducer()
+   rather than navigating via href, since a producer's full song list only
+   exists as a search result, not a page of its own. */
+.producer-name-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: var(--ink);
+  text-decoration: underline;
+  cursor: pointer;
+}
 
 /* ---- manage regions admin page ---- */
 .region-card {
