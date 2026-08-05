@@ -3242,7 +3242,17 @@
             "note": "LA rapper known for bouncy, hook-driven street rap.",
             "tracks": [
               {
-                "title": "Chill Bill (feat. J. Davi$ & Spooks)"
+                "title": "Chill Bill (feat. J. Davi$ & Spooks)",
+                "producers": [
+                  {
+                    "name": "PurpDogg",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  }
+                ]
               }
             ]
           },
@@ -3269,15 +3279,85 @@
             "note": "TDE member known for gritty, unpredictable South Central storytelling.",
             "tracks": [
               {
-                "title": "5200"
+                "title": "5200",
+                "producers": [
+                  {
+                    "name": "Sounwave",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  },
+                  {
+                    "name": "!llmind",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  }
+                ]
               },
               {
                 "title": "X (with 2 Chainz & Saudi)",
-                "spotifyId": "4LmAnpjlhWTahvRkYR8xJa"
+                "spotifyId": "4LmAnpjlhWTahvRkYR8xJa",
+                "producers": [
+                  {
+                    "name": "Sounwave",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  },
+                  {
+                    "name": "!llmind",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  }
+                ]
               },
               {
                 "title": "THat Part",
-                "spotifyId": "2yJ9GVCLMmzBBfQAnfzlwr"
+                "spotifyId": "2yJ9GVCLMmzBBfQAnfzlwr",
+                "producers": [
+                  {
+                    "name": "Cardo",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  },
+                  {
+                    "name": "Yung Exclusive",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  },
+                  {
+                    "name": "Cubeatz",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  },
+                  {
+                    "name": "Sounwave",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  }
+                ]
               }
             ],
             "birthYear": 1986
@@ -3296,7 +3376,17 @@
             "note": "LA collective known for hazy, smoked-out street rap.",
             "tracks": [
               {
-                "title": "Wake Me up in Traffic (feat. 03 Greedo & Drakeo the Ruler)"
+                "title": "Wake Me up in Traffic (feat. 03 Greedo & Drakeo the Ruler)",
+                "producers": [
+                  {
+                    "name": "BeatBoy",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  }
+                ]
               }
             ]
           },
