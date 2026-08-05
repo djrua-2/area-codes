@@ -393,7 +393,19 @@ main#app {
 .region-map-grid {
   display: grid;
   gap: 1px;
-  max-width: 320px;
+  /* Cell size is fixed (set inline per region — see REGION_MAP_CELL_SIZE
+     in app.js), not derived from a container width divided by column
+     count, so every region's squares render at the same size regardless
+     of how many columns that particular region spans. A region wide
+     enough to overflow its column just scrolls horizontally rather than
+     shrinking its squares to fit. width:max-content keeps the container
+     itself shrunk to exactly that fixed grid size too — without it, a
+     block-level grid defaults to filling the full available width,
+     leaving blank space (showing the container's own line-color
+     background) past the last real column. */
+  width: max-content;
+  max-width: 100%;
+  overflow-x: auto;
   margin: 0 0 1rem;
   border: var(--line-width) solid var(--country-grid-color);
   /* Cells sit on top of this background with a 1px gap between them, so
@@ -402,6 +414,10 @@ main#app {
      variable as the home map's gridlines, for consistency. */
   background: var(--country-grid-color);
 }
+/* A non-member state inside the region's bounding box — filled with the
+   same background used for a state's own map page (not the grid-line
+   color), so it reads as "no data here" rather than a solid black hole. */
+.region-map-gap { background-color: var(--map-bg); }
 .region-state-list {
   list-style: none;
   margin: 0;
