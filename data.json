@@ -2123,7 +2123,25 @@
             "note": "West Coast street rapper from Watts known for a melodic, gravel-toned delivery over dark synth-driven beats.",
             "tracks": [
               {
-                "title": "Substance"
+                "title": "Substance",
+                "producers": [
+                  {
+                    "name": "Fizzle",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  },
+                  {
+                    "name": "Beat Boy",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  }
+                ]
               },
               {
                 "title": "Disco Shit (feat. Freddie Gibbs)"
@@ -2156,7 +2174,17 @@
             "note": "LA group that evolved from alt-hip-hop roots into global pop-rap hitmakers.",
             "tracks": [
               {
-                "title": "Don't Phunk With My Heart"
+                "title": "Don't Phunk With My Heart",
+                "producers": [
+                  {
+                    "name": "will.i.am",
+                    "city": "Los Angeles",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  }
+                ]
               }
             ]
           },
@@ -2180,7 +2208,17 @@
             "note": "Pacoima rapper known for an off-beat, sing-song flow that became a viral trademark.",
             "tracks": [
               {
-                "title": "Thotiana"
+                "title": "Thotiana",
+                "producers": [
+                  {
+                    "name": "Scum Beatz",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  }
+                ]
               }
             ],
             "birthYear": 1997
@@ -2190,7 +2228,25 @@
             "note": "LA-based pop-rap artist known for hook-heavy, genre-blending singles.",
             "tracks": [
               {
-                "title": "La La Land"
+                "title": "La La Land",
+                "producers": [
+                  {
+                    "name": "Simon Says",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  },
+                  {
+                    "name": "Sir Nolan",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  }
+                ]
               }
             ]
           },
@@ -2258,7 +2314,17 @@
             "note": "South Gate group that fused Latino identity, stoner culture, and rap into a singular sound.",
             "tracks": [
               {
-                "title": "Hand On the Pump"
+                "title": "Hand On the Pump",
+                "producers": [
+                  {
+                    "name": "DJ Muggs",
+                    "city": "Queens",
+                    "state": "NY",
+                    "lat": 40.7135078,
+                    "lon": -73.8283132,
+                    "distanceMiles": 2455
+                  }
+                ]
               }
             ]
           },
@@ -2276,7 +2342,17 @@
             "note": "LA underground group central to the West Coast's turntablist-driven boom-bap scene.",
             "tracks": [
               {
-                "title": "You Can't Hide, You Can't Run"
+                "title": "You Can't Hide, You Can't Run",
+                "producers": [
+                  {
+                    "name": "Evidence",
+                    "city": "Venice, Los Angeles",
+                    "state": "CA",
+                    "lat": 33.995044,
+                    "lon": -118.4668875,
+                    "distanceMiles": 13
+                  }
+                ]
               }
             ]
           },
@@ -2285,7 +2361,17 @@
             "note": "South LA rapper known for a laid-back, sun-soaked West Coast sound.",
             "tracks": [
               {
-                "title": "When I Come Around"
+                "title": "When I Come Around",
+                "producers": [
+                  {
+                    "name": "J.LBS",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  }
+                ]
               }
             ]
           },
@@ -2303,7 +2389,17 @@
             "note": "LA artist blending funk, punk, and rap into a genre-defying sound.",
             "tracks": [
               {
-                "title": "Bernal Heights"
+                "title": "Bernal Heights",
+                "producers": [
+                  {
+                    "name": "Spencer Stevens",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  }
+                ]
               }
             ]
           },
