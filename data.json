@@ -3030,6 +3030,28 @@
               }
             ],
             "addedAt": "2026-08-05T01:06:00.011Z"
+          },
+          {
+            "name": "Doja Cat",
+            "note": "Genre-blending pop-rap hitmaker known for viral energy and sharp, playful bars out of LA.",
+            "tracks": [
+              {
+                "title": "Like That (feat. Gucci Mane)",
+                "spotifyId": "4EivmOT13NMpNSfTKn9p4s"
+              }
+            ],
+            "addedAt": "2026-08-05T01:06:03.833Z"
+          },
+          {
+            "name": "Miguel",
+            "note": "Genre-blurring R&B artist whose rock-tinged, sensual sound grew out of LA's San Pedro neighborhood.",
+            "tracks": [
+              {
+                "title": "Sky Walker (feat. Travis Scott)",
+                "spotifyId": "5WoaF1B5XIEnWfmb5NZikf"
+              }
+            ],
+            "addedAt": "2026-08-05T01:06:03.833Z"
           }
         ]
       }
@@ -4184,6 +4206,17 @@
                 "title": "G.K.A.C."
               }
             ]
+          },
+          {
+            "name": "Dana Dane",
+            "note": "Old-school storytelling rapper known for his British-accented flow on 1980s Brooklyn hip-hop classics.",
+            "tracks": [
+              {
+                "title": "Cinderfella Dana Dane",
+                "spotifyId": "3A70aETyMt4sffFu9Del9s"
+              }
+            ],
+            "addedAt": "2026-08-05T01:06:03.833Z"
           }
         ]
       }
@@ -4978,6 +5011,17 @@
                 "title": "Legends in the Making (Ashtray Pt. 2) [feat. Wiz Khalifa & Curren$y]"
               }
             ]
+          },
+          {
+            "name": "Teyana Taylor",
+            "note": "Harlem-raised R&B artist and choreographer known for her sharp, soulful sound and G.O.O.D. Music ties.",
+            "tracks": [
+              {
+                "title": "Hurry",
+                "spotifyId": "6NqbN00vLmWfrQSx2wjD4z"
+              }
+            ],
+            "addedAt": "2026-08-05T01:06:03.833Z"
           }
         ]
       }
@@ -5582,6 +5626,32 @@
                 "title": "Almost There (feat. Mr Hudson)"
               }
             ]
+          },
+          {
+            "name": "R. Kelly",
+            "note": "R&B hitmaker whose hook-driven production shaped Chicago's sound across the '90s and 2000s.",
+            "tracks": [
+              {
+                "title": "I'm a Flirt Remix (feat. T.I. & T-Pain)",
+                "spotifyId": "6w1DBbA8akxHPiBQ6nAyJq"
+              }
+            ],
+            "addedAt": "2026-08-05T01:06:03.833Z"
+          },
+          {
+            "name": "Jeremih",
+            "note": "Smooth, melodic R&B hitmaker whose hook-writing shaped a generation of Chicago's rap-adjacent sound.",
+            "tracks": [
+              {
+                "title": "Planes",
+                "spotifyId": "75rDNLl8v6qVYHXGzfHv4c"
+              },
+              {
+                "title": "Down On Me",
+                "spotifyId": "0x3TibRgnSqzkcwrqBd4iX"
+              }
+            ],
+            "addedAt": "2026-08-05T01:06:03.833Z"
           }
         ]
       }
@@ -7038,6 +7108,17 @@
                 "title": "Trapologist (feat. Nesby Phips)"
               }
             ]
+          },
+          {
+            "name": "Frank Ocean",
+            "note": "Genre-bending, deeply introspective R&B/rap songwriting shaped by his New Orleans roots and Odd Future ties.",
+            "tracks": [
+              {
+                "title": "Biking",
+                "spotifyId": "2q0VexHJirnUPnEOhr2DxK"
+              }
+            ],
+            "addedAt": "2026-08-05T01:06:03.833Z"
           }
         ]
       }
@@ -7768,6 +7849,17 @@
                 "title": "FDP"
               }
             ]
+          },
+          {
+            "name": "6LACK",
+            "note": "Melodic, moody R&B-rap that helped define Baltimore's introspective sound alongside the LVRN crew.",
+            "tracks": [
+              {
+                "title": "Pretty Little Fears (feat. J. Cole)",
+                "spotifyId": "4at3d5QWnlibMVN75ECDrp"
+              }
+            ],
+            "addedAt": "2026-08-05T01:06:03.833Z"
           }
         ]
       }
@@ -9957,6 +10049,17 @@
                 "spotifyId": "5BlLqiaTwttKiqzLhBrN1v"
               }
             ]
+          },
+          {
+            "name": "Wyclef Jean",
+            "note": "Fugees co-founder whose genre-blending, Haitian-influenced sound put New Jersey hip-hop on the map.",
+            "tracks": [
+              {
+                "title": "Sweetest Girl (Dollar Bill) (feat. Akon, Lil' Wayne & Niia)",
+                "spotifyId": "4VSx9uyg0sZpdnygVar6pE"
+              }
+            ],
+            "addedAt": "2026-08-05T01:06:03.833Z"
           }
         ]
       }
@@ -11001,6 +11104,81 @@
               }
             ],
             "addedAt": "2026-08-05T01:06:00.011Z"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "the-bronx-ny-region",
+    "name": "The Bronx, NY",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "the-bronx-ny",
+        "name": "The Bronx, NY",
+        "state": "NY",
+        "artists": [
+          {
+            "name": "Lord Finesse",
+            "note": "Boom-bap technician and D.I.T.C. crew member whose sharp wordplay shaped golden-era Bronx hip-hop.",
+            "tracks": [
+              {
+                "title": "Hip 2 Da Game",
+                "spotifyId": "30eW6IlBK3wCwcB8TsPXua"
+              }
+            ],
+            "addedAt": "2026-08-05T01:06:03.833Z"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "el-paso-tx-region",
+    "name": "El Paso, TX",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "el-paso-tx",
+        "name": "El Paso, TX",
+        "state": "TX",
+        "artists": [
+          {
+            "name": "Khalid",
+            "note": "Warm, melodic R&B voice who put El Paso on the map for a new generation of genre-blurring artists.",
+            "tracks": [
+              {
+                "title": "Right Back (feat. A Boogie Wit Da Hoodie)",
+                "spotifyId": "6PYnUsNEpYC7A4BS2sjw3L"
+              }
+            ],
+            "addedAt": "2026-08-05T01:06:03.833Z"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "maplewood-nj-region",
+    "name": "Maplewood, NJ",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "maplewood-nj",
+        "name": "Maplewood, NJ",
+        "state": "NJ",
+        "artists": [
+          {
+            "name": "SZA",
+            "note": "Hazy, genre-blurring R&B songwriting that made her one of New Jersey's biggest musical exports.",
+            "tracks": [
+              {
+                "title": "Doves In The Wind (feat. Kendrick Lamar)",
+                "spotifyId": "593W4qZOwwdqF6YnimJjL6"
+              }
+            ],
+            "addedAt": "2026-08-05T01:06:03.833Z"
           }
         ]
       }
