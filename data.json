@@ -9687,15 +9687,6 @@
             ]
           },
           {
-            "name": "Latrell James",
-            "note": "Milwaukee rapper known for smooth, soulful songwriting.",
-            "tracks": [
-              {
-                "title": "Tracphone"
-              }
-            ]
-          },
-          {
             "name": "Mark Battles",
             "note": "Milwaukee rapper known for melodic, introspective songwriting.",
             "tracks": [
@@ -9738,6 +9729,16 @@
             "tracks": [
               {
                 "title": "doomsday (feat. Siren)"
+              }
+            ]
+          },
+          {
+            "name": "Latrell James",
+            "note": "Milwaukee rapper known for smooth, soulful songwriting.",
+            "tracks": [
+              {
+                "title": "Tracphone",
+                "spotifyId": "5dMHeQAGLqNBNv6zegpmZy"
               }
             ]
           }
