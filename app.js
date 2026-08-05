@@ -434,7 +434,10 @@ function renderHome() {
 // already laid out to approximate real US geography, so states that are
 // neighbors in reality are neighbors in the grid too — "borders touching
 // like on a real map" falls out of that for free, no separate geometry
-// needed) — plus its states listed alphabetically below.
+// needed) — plus its states listed alphabetically below. Fixed square size
+// (not derived from the container width) so every region's squares are
+// the same size, regardless of how many rows/columns that region spans.
+const REGION_MAP_CELL_SIZE = "3rem";
 function renderRegionHit(region) {
   // Independent from the tile background color — falls back to it only
   // for regions saved before this field existed.
@@ -455,11 +458,31 @@ function renderRegionHit(region) {
   const cols = maxCol - minCol + 1;
   const rows = maxRow - minRow + 1;
 
-  const tiles = memberStates.map(s => `
-    <a class="state-cell is-documented" style="grid-column:${s.col - minCol + 1}; grid-row:${s.row - minRow + 1}; background-color:${escapeAttr(region.color)};" href="#/state/${s.abbrev}" title="${escapeHtml(s.name)}">
-      <span class="state-label">${s.abbrev}</span>
-    </a>
-  `).join("");
+  // Every position in the bounding box gets a cell — a colored, clickable
+  // one for member states, a plain "gap" placeholder (state-map background
+  // color, not a hole) for everything else — so squares are a fixed size
+  // (REGION_MAP_CELL_SIZE, same constant every time) instead of stretching
+  // to fill the container, which previously made a wide region's squares
+  // smaller than a narrow region's. Fixed size = same square size for
+  // every region, always.
+  const memberByPos = {};
+  memberStates.forEach(s => { memberByPos[`${s.col},${s.row}`] = s; });
+  const cellTiles = [];
+  for (let row = minRow; row <= maxRow; row++) {
+    for (let col = minCol; col <= maxCol; col++) {
+      const gridPos = `grid-column:${col - minCol + 1}; grid-row:${row - minRow + 1};`;
+      const s = memberByPos[`${col},${row}`];
+      if (s) {
+        cellTiles.push(`
+          <a class="state-cell is-documented" style="${gridPos} background-color:${escapeAttr(region.color)};" href="#/state/${s.abbrev}" title="${escapeHtml(s.name)}">
+            <span class="state-label">${s.abbrev}</span>
+          </a>
+        `);
+      } else {
+        cellTiles.push(`<span class="region-map-gap" style="${gridPos}"></span>`);
+      }
+    }
+  }
 
   const alphabetical = memberStates.slice().sort((a, b) => a.name.localeCompare(b.name))
     .map(s => `<li><a href="#/state/${s.abbrev}">${escapeHtml(s.name)}</a></li>`).join("");
@@ -467,8 +490,8 @@ function renderRegionHit(region) {
   return `
     <div class="region-hit">
       <p class="section-heading" style="color:${escapeAttr(titleColor)};">${escapeHtml(region.name)}</p>
-      <div class="region-map-grid" style="grid-template-columns:repeat(${cols}, 1fr); grid-template-rows:repeat(${rows}, 1fr); aspect-ratio:${cols}/${rows};">
-        ${tiles}
+      <div class="region-map-grid" style="grid-template-columns:repeat(${cols}, ${REGION_MAP_CELL_SIZE}); grid-template-rows:repeat(${rows}, ${REGION_MAP_CELL_SIZE});">
+        ${cellTiles.join("")}
       </div>
       <ul class="region-state-list">${alphabetical}</ul>
     </div>
