@@ -2911,23 +2911,103 @@
             "tracks": [
               {
                 "title": "Baguettes in the Face (feat. NAV, Playboi Carti & A Boogie wit da Hoodie)",
-                "spotifyId": "2zjGJ0dChMR0KxBZS15aqo"
+                "spotifyId": "2zjGJ0dChMR0KxBZS15aqo",
+                "producers": [
+                  {
+                    "name": "Mustard",
+                    "city": "Los Angeles",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  },
+                  {
+                    "name": "Larry Jayy",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  },
+                  {
+                    "name": "Geronimo",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  }
+                ]
               },
               {
-                "title": "Ballin'"
+                "title": "Ballin'",
+                "producers": [
+                  {
+                    "name": "Mustard",
+                    "city": "Los Angeles",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  },
+                  {
+                    "name": "Justus West",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  },
+                  {
+                    "name": "Gylttryp",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  }
+                ]
               },
               {
                 "title": "Whole Lotta Lovin'"
               },
               {
-                "title": "Don't Hurt Me"
+                "title": "Don't Hurt Me",
+                "producers": [
+                  {
+                    "name": "Mustard",
+                    "city": "Los Angeles",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  }
+                ]
               },
               {
                 "title": "On GOD (feat. A$AP Ferg & A$AP Rocky)"
               },
               {
                 "title": "Perfect Ten (feat. Nipsey Hussle)",
-                "spotifyId": "6GQ82BpN60dzztUWzYojc7"
+                "spotifyId": "6GQ82BpN60dzztUWzYojc7",
+                "producers": [
+                  {
+                    "name": "Mustard",
+                    "city": "Los Angeles",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  },
+                  {
+                    "name": "1500 or Nothin'",
+                    "city": "Inglewood",
+                    "state": "CA",
+                    "lat": 33.9562003,
+                    "lon": -118.353132,
+                    "distanceMiles": 9
+                  }
+                ]
               },
               {
                 "title": "On GOD (with YG & Tyga feat. A$AP Ferg & A$AP Rocky)",
@@ -3395,6 +3475,14 @@
                     "lat": 33.7358518,
                     "lon": -118.2922934,
                     "distanceMiles": 22
+                  },
+                  {
+                    "name": "Happy Perez",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
                   }
                 ]
               }
