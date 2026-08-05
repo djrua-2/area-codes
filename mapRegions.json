@@ -3,37 +3,92 @@
     {
       "id": "northeast-new-england",
       "name": "Northeast / New England",
-      "color": "#add8e6",
+      "color": "#e5f9ff",
       "titleColor": "#000000",
-      "states": ["CT", "ME", "MA", "NH", "RI", "VT", "NJ", "NY", "PA"]
+      "states": [
+        "CT",
+        "ME",
+        "MA",
+        "NH",
+        "RI",
+        "VT",
+        "NJ",
+        "PA"
+      ]
     },
     {
       "id": "south",
       "name": "South",
-      "color": "#ffff99",
+      "color": "#fdffe5",
       "titleColor": "#000000",
-      "states": ["DE", "FL", "GA", "MD", "NC", "SC", "VA", "WV", "DC", "AL", "KY", "MS", "TN", "LA", "AR"]
+      "states": [
+        "DE",
+        "FL",
+        "GA",
+        "MD",
+        "NC",
+        "SC",
+        "VA",
+        "WV",
+        "DC",
+        "AL",
+        "KY",
+        "MS",
+        "TN",
+        "LA",
+        "AR"
+      ]
     },
     {
       "id": "midwest",
       "name": "Midwest",
-      "color": "#d9b3ff",
+      "color": "#f7e5ff",
       "titleColor": "#000000",
-      "states": ["IL", "IN", "MI", "OH", "WI", "IA", "KS", "MN", "MO", "NE", "ND", "SD"]
+      "states": [
+        "IL",
+        "IN",
+        "MI",
+        "OH",
+        "WI",
+        "IA",
+        "KS",
+        "MN",
+        "MO",
+        "NE",
+        "ND",
+        "SD"
+      ]
     },
     {
       "id": "southwest",
       "name": "Southwest",
-      "color": "#ffb3b3",
+      "color": "#ffe5e5",
       "titleColor": "#000000",
-      "states": ["AZ", "NM", "TX", "OK", "NV", "UT", "CO", "MT", "WY"]
+      "states": [
+        "AZ",
+        "NM",
+        "TX",
+        "OK",
+        "NV",
+        "UT",
+        "CO",
+        "MT",
+        "WY"
+      ]
     },
     {
       "id": "west-coast-pacific-northwest",
       "name": "West Coast / Pacific Northwest",
-      "color": "#b3e6b3",
+      "color": "#e5ffea",
       "titleColor": "#000000",
-      "states": ["CA", "OR", "WA", "AK", "HI", "ID"]
+      "states": [
+        "CA",
+        "OR",
+        "WA",
+        "AK",
+        "HI",
+        "ID"
+      ]
     }
   ]
 }
