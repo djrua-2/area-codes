@@ -3636,7 +3636,17 @@
               },
               {
                 "title": "SMUCKERS (feat. Lil Wayne & Kanye West)",
-                "spotifyId": "078C2jXg7XsMgW78Gfx1JA"
+                "spotifyId": "078C2jXg7XsMgW78Gfx1JA",
+                "producers": [
+                  {
+                    "name": "Tyler, The Creator",
+                    "city": "Hawthorne",
+                    "state": "CA",
+                    "lat": 33.9128272,
+                    "lon": -118.3426122,
+                    "distanceMiles": 11
+                  }
+                ]
               }
             ],
             "birthYear": 1991
@@ -3655,7 +3665,17 @@
             "note": "LA supergroup (Ice Cube, WC, Mack 10) known for hard-edged West Coast rap.",
             "tracks": [
               {
-                "title": "3 Time Felons"
+                "title": "3 Time Felons",
+                "producers": [
+                  {
+                    "name": "Bud'da",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  }
+                ]
               }
             ]
           },
