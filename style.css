@@ -557,9 +557,32 @@ h1.page-title {
 
 .artist-list { display: grid; gap: 1rem; }
 .artist-card {
+  position: relative;
   border: var(--line-width) solid var(--line-color);
   border-radius: 0;
   padding: 0.9rem 1.1rem;
+}
+/* Points at an artist card jumped to from a search result, floating just
+   outside its left edge. Offset (-1rem) is kept a little short of the
+   page's own left padding (1.25rem on main#app) so it never clips off
+   the edge of the viewport on narrow/mobile widths. */
+.entry-pointer {
+  position: absolute;
+  left: -0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.3rem;
+  line-height: 1;
+  color: #cc0000;
+  animation: entry-pointer-bounce 0.8s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes entry-pointer-bounce {
+  0%, 100% { transform: translateY(-50%) translateX(0); }
+  50% { transform: translateY(-50%) translateX(-4px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .entry-pointer { animation: none; }
 }
 .artist-card h3 {
   margin: 0 0 0.4rem;

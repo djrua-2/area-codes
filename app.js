@@ -144,6 +144,27 @@ let spotifyIframeAPI = null;
 let spotifyController = null;
 let pendingSpotifyId = null;
 
+// ---- search result -> scroll-to + pointer on the destination page ----
+// Set by the delegated click handler below when a .search-hit link is
+// clicked (before its href navigates), then consumed once by whichever
+// render function draws the destination page (renderCity/renderNeighborhood).
+let pendingScrollArtist = null;
+
+function scrollToPendingArtist() {
+  if (!pendingScrollArtist) return;
+  const target = pendingScrollArtist.toLowerCase();
+  pendingScrollArtist = null;
+  const card = Array.from(document.querySelectorAll(".artist-card"))
+    .find(c => (c.dataset.artistName || "").toLowerCase() === target);
+  if (!card) return;
+  card.scrollIntoView({ behavior: "smooth", block: "center" });
+  const arrow = document.createElement("span");
+  arrow.className = "entry-pointer";
+  arrow.setAttribute("aria-hidden", "true");
+  arrow.textContent = "➤";
+  card.appendChild(arrow);
+}
+
 window.onSpotifyIframeApiReady = function (IFrameAPI) {
   spotifyIframeAPI = IFrameAPI;
   if (pendingSpotifyId) {
@@ -178,6 +199,12 @@ function playTrack(spotifyId) {
 document.addEventListener("click", e => {
   const btn = e.target.closest(".track-toggle");
   if (btn) { playTrack(btn.dataset.spotifyId); return; }
+
+  // Search results navigate via their own href (a normal same-page hash
+  // link) — this just remembers which artist to scroll to and point at
+  // once the destination page renders, via pendingScrollArtist below.
+  const hit = e.target.closest(".search-hit");
+  if (hit) { pendingScrollArtist = hit.dataset.scrollArtist || null; return; }
 
   const del = e.target.closest(".delete-artist-link");
   if (del) {
@@ -379,13 +406,13 @@ function handleSearch(query) {
     region.cities.forEach(city => {
       city.artists.forEach(artist => {
         if (artist.name.toLowerCase().includes(q)) {
-          hits.push({ region, city, artist });
+          hits.push({ region, city, hood: null, artist });
         }
       });
       (city.neighborhoods || []).forEach(hood => {
         (hood.artists || []).forEach(artist => {
           if (artist.name.toLowerCase().includes(q)) {
-            hits.push({ region, city: hood, artist });
+            hits.push({ region, city, hood, artist });
           }
         });
       });
@@ -399,12 +426,21 @@ function handleSearch(query) {
 
   resultsEl.innerHTML = `
     <div class="search-results">
-      ${hits.map(h => `
-        <a class="search-hit" href="#/state/${h.city.state || ""}">
-          <strong>${escapeHtml(h.artist.name)}</strong> — ${escapeHtml(h.city.name)}
+      ${hits.map(h => {
+        // Link straight to wherever the artist's actual entry lives (the
+        // city or neighborhood page), not the state overview — clicking
+        // scrolls to and points at that entry, via scrollToPendingArtist().
+        const href = h.hood
+          ? `#/neighborhood/${h.region.id}/${h.city.id}/${h.hood.id}`
+          : `#/city/${h.region.id}/${h.city.id}`;
+        const locationLabel = h.hood ? `${h.hood.name}, ${h.city.name}` : h.city.name;
+        return `
+        <a class="search-hit" href="${href}" data-scroll-artist="${escapeAttr(h.artist.name)}">
+          <strong>${escapeHtml(h.artist.name)}</strong> — ${escapeHtml(locationLabel)}
           <br><span>${escapeHtml(h.artist.note)}</span>
         </a>
-      `).join("")}
+      `;
+      }).join("")}
     </div>
   `;
 }
@@ -677,7 +713,7 @@ function isRecentlyAdded(addedAt) {
 function renderArtistBlocks(artists, regionId, cityId) {
   const canManage = regionId && cityId && isConfigured() && storedPassword();
   return (artists || []).map((a, i) => `
-    <div class="artist-card">
+    <div class="artist-card" data-artist-name="${escapeAttr(a.name)}">
       <h3>${escapeHtml(a.name)}${isRecentlyAdded(a.addedAt) ? '<span class="new-tag">New</span>' : ""}</h3>
       ${canManage ? `
         <p class="manage-controls">
@@ -717,6 +753,7 @@ function renderCity(regionId, cityId) {
 
     <div class="artist-list">${renderArtistBlocks(city.artists, region.id, city.id)}</div>
   `;
+  scrollToPendingArtist();
 }
 
 function renderNeighborhood(regionId, cityId, hoodId) {
@@ -736,6 +773,7 @@ function renderNeighborhood(regionId, cityId, hoodId) {
 
     <div class="artist-list">${renderArtistBlocks(hood.artists)}</div>
   `;
+  scrollToPendingArtist();
 }
 
 function renderNotFound() {
