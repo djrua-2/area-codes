@@ -101,7 +101,10 @@
       "color": "#888888",
       "titleColor": "#000000",
       "states": [
-        "NV"
+        "NV",
+        "WY",
+        "MT",
+        "UT"
       ]
     }
   ]
