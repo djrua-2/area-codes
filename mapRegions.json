@@ -94,6 +94,18 @@
         "DE",
         "MD"
       ]
+    },
+    {
+      "id": "mountain",
+      "name": "Mountain",
+      "color": "#fed6ff",
+      "titleColor": "#000000",
+      "states": [
+        "WY",
+        "UT",
+        "NV",
+        "MT"
+      ]
     }
   ]
 }
