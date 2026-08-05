@@ -11,10 +11,7 @@
         "MA",
         "NH",
         "RI",
-        "VT",
-        "NJ",
-        "PA",
-        "NY"
+        "VT"
       ]
     },
     {
@@ -23,15 +20,12 @@
       "color": "#fdffe5",
       "titleColor": "#000000",
       "states": [
-        "DE",
         "FL",
         "GA",
-        "MD",
         "NC",
         "SC",
         "VA",
         "WV",
-        "DC",
         "AL",
         "KY",
         "MS",
@@ -89,6 +83,20 @@
         "AK",
         "HI",
         "ID"
+      ]
+    },
+    {
+      "id": "mid-atlantic",
+      "name": "Mid-Atlantic",
+      "color": "#ffeacc",
+      "titleColor": "#000000",
+      "states": [
+        "DC",
+        "PA",
+        "NJ",
+        "NY",
+        "DE",
+        "MD"
       ]
     }
   ]
