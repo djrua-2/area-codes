@@ -2969,7 +2969,17 @@
                 ]
               },
               {
-                "title": "Whole Lotta Lovin'"
+                "title": "Whole Lotta Lovin'",
+                "producers": [
+                  {
+                    "name": "Mustard",
+                    "city": "Los Angeles",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  }
+                ]
               },
               {
                 "title": "Don't Hurt Me",
@@ -3006,6 +3016,14 @@
                     "lat": 33.9562003,
                     "lon": -118.353132,
                     "distanceMiles": 9
+                  },
+                  {
+                    "name": "Ryan Brown",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
                   }
                 ]
               },
@@ -3021,7 +3039,25 @@
             "note": "LA production duo known for genre-blending, star-studded collaborations.",
             "tracks": [
               {
-                "title": "Gifted (feat. Kanye West, Santigold & Lykke Li)"
+                "title": "Gifted (feat. Kanye West, Santigold & Lykke Li)",
+                "producers": [
+                  {
+                    "name": "Squeak E. Clean (Sam Spiegel)",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  },
+                  {
+                    "name": "DJ Zegon (Ze Gonzales)",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  }
+                ]
               }
             ]
           },
@@ -3042,7 +3078,41 @@
             "note": "Crenshaw rapper known for entrepreneurial hustle-rap and deep community roots.",
             "tracks": [
               {
-                "title": "Double Up (feat. Belly & DOM KENNEDY) [Bonus Track]"
+                "title": "Double Up (feat. Belly & DOM KENNEDY) [Bonus Track]",
+                "producers": [
+                  {
+                    "name": "Teddy Walton",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  },
+                  {
+                    "name": "Axl Folie",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  },
+                  {
+                    "name": "IAMNOBODI",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  },
+                  {
+                    "name": "Larrance Dopson",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  }
+                ]
               }
             ],
             "birthYear": 1985
@@ -3061,7 +3131,17 @@
             "note": "LA collective whose shock-value, DIY ethos reshaped underground rap's relationship with the internet.",
             "tracks": [
               {
-                "title": "Oldie"
+                "title": "Oldie",
+                "producers": [
+                  {
+                    "name": "Tyler, The Creator",
+                    "city": "Hawthorne",
+                    "state": "CA",
+                    "lat": 33.9128272,
+                    "lon": -118.3426122,
+                    "distanceMiles": 11
+                  }
+                ]
               }
             ]
           },
@@ -3133,7 +3213,17 @@
             "note": "LA singer-rapper known for smooth R&B-leaning hip-hop crossovers.",
             "tracks": [
               {
-                "title": "Sexy Can I (feat. Yung Berg)"
+                "title": "Sexy Can I (feat. Yung Berg)",
+                "producers": [
+                  {
+                    "name": "Detail",
+                    "city": "Detroit",
+                    "state": "MI",
+                    "lat": 42.3315509,
+                    "lon": -83.0466403,
+                    "distanceMiles": 1979
+                  }
+                ]
               }
             ],
             "birthYear": 1981
