@@ -815,10 +815,9 @@ function renderAddForm() {
     .map(s => `<option value="${s.abbrev}">${escapeHtml(s.name)}</option>`).join("");
 
   app.innerHTML = `
+    <p class="crumbs"><a href="#/add">Add an Artist</a> / New Artist</p>
     <h1 class="page-title">Add an Artist</h1>
-    <p class="page-subtitle">Goes live for everyone within about a minute of submitting. Adding several at once? <a href="#/add/bulk">Bulk upload a CSV or XLSX ↗</a></p>
-    <p class="page-subtitle">Want to change colors or line thickness across the site? <a href="#/add/theme">Theme Editor ↗</a></p>
-    <p class="page-subtitle">Other tools: <a href="#/add/spotify-links">Bulk upload Spotify links</a> · <a href="#/add/relink-spotify">Relink missing Spotify links</a> · <a href="#/add/remove-batch">Remove a batch of artists</a></p>
+    <p class="page-subtitle">Goes live for everyone within about a minute of submitting.</p>
     <form class="add-form" onsubmit="handleAddSubmit(event)">
       <div>
         <label for="f-artist">Artist name</label>
@@ -972,8 +971,9 @@ function buildTrackFromRow(row) {
 // ---- bulk upload: CSV (no dependency) or XLSX (lazy-loaded parser) ----
 // One CSV row = one song. Rows sharing the same artist_name + city + state
 // get grouped into a single artist entry with multiple tracks (see
-// groupRowsIntoEntries below). Spotify links aren't part of the template —
-// the Worker auto-searches for each track that doesn't already have one.
+// groupRowsIntoEntries below). The Spotify column is optional — leave it
+// blank and the Worker auto-searches; fill it in and that search is
+// skipped entirely for that track.
 const BULK_MAX_ROWS = 2000; // total song-rows allowed in one file — a sanity ceiling, not a technical limit (batching below has no real cap); headroom above the user's actual 1,682-row library export
 // Worst case per entry costs 1 geocode + 1 Spotify search per track; both
 // caps below keep a batch's worst case (all-new cities, no cached Spotify
@@ -983,12 +983,14 @@ const BULK_MAX_ROWS = 2000; // total song-rows allowed in one file — a sanity 
 // wouldn't catch that.
 const BULK_BATCH_SIZE = 12; // artist-entries per Worker request
 const BULK_BATCH_MAX_TRACKS = 20; // total tracks per Worker request
-const BULK_TEMPLATE_HEADERS = ["artist_name", "state", "city", "note", "song_title"];
+// Same header set/order across Bulk Upload, Bulk Spotify Links, and Remove
+// a Batch — one CSV format works with all three tools without relabeling.
+const BULK_TEMPLATE_HEADERS = ["artist_name", "song_title", "spotify URI or URL", "state", "city", "note"];
 
 function downloadBulkTemplate() {
   const csv = BULK_TEMPLATE_HEADERS.join(",") + "\n" +
-    'Example Artist,GA,"Savannah, GA",One-line note about their style,Example Song One\n' +
-    'Example Artist,GA,"Savannah, GA",One-line note about their style,Example Song Two\n';
+    'Example Artist,Example Song One,,GA,"Savannah, GA",One-line note about their style\n' +
+    'Example Artist,Example Song Two,,GA,"Savannah, GA",One-line note about their style\n';
   const blob = new Blob([csv], { type: "text/csv" });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
@@ -1058,6 +1060,10 @@ function normalizeSongRow(row) {
     cityName: getField(row, "city", "city_name"),
     note: getField(row, "note"),
     songTitle: getField(row, "song_title", "title", "track_title"),
+    // extractSpotifyId (defined further down, in the Spotify Links
+    // section) accepts a full URL, a spotify:track: URI, or a bare ID —
+    // whatever's in this optional column. Blank/unmatched just means "".
+    spotifyId: extractSpotifyId(getField(row, "spotify uri or url", "spotify_url", "spotify", "spotify_link", "url")),
   };
 }
 
@@ -1074,7 +1080,7 @@ function groupRowsIntoEntries(rows) {
       byKey.set(key, entry);
       order.push(entry);
     }
-    entry.tracks.push({ title: r.songTitle });
+    entry.tracks.push(r.spotifyId ? { title: r.songTitle, spotifyId: r.spotifyId } : { title: r.songTitle });
   });
   return order;
 }
@@ -1250,7 +1256,7 @@ function renderBulkForm() {
     <h1 class="page-title">Bulk Upload Artists</h1>
     <p class="page-subtitle">Upload a CSV or XLSX file — up to ${BULK_MAX_ROWS} songs at a time, one row per song. Repeat the same artist_name/state/city/note on every row for that artist's songs and they'll be grouped into a single artist entry automatically.</p>
     <p><button type="button" class="retro-btn" onclick="downloadBulkTemplate()">Download CSV template</button></p>
-    <p class="page-subtitle">Columns: <code>artist_name, state, city, note, song_title</code> (state is the 2-letter abbreviation). No Spotify column needed — the site searches Spotify automatically for each song.</p>
+    <p class="page-subtitle">Columns: <code>artist_name, song_title, spotify URI or URL, state, city, note</code> (state is the 2-letter abbreviation). The Spotify column is optional — leave it blank to auto-search, or fill in a URL/URI/ID to skip the search for that song.</p>
     <p><input type="file" class="retro-field" accept=".csv,.xlsx" onchange="handleBulkFile(event)"></p>
     <div id="bulk-preview"></div>
     <p class="form-actions">
@@ -1277,7 +1283,7 @@ const SPOTIFY_LINK_MAX_ROWS = 3000;
 // Spotify search), so this batch can be far larger than the other bulk
 // actions' — it's still one GitHub commit per batch either way.
 const SPOTIFY_LINK_BATCH_SIZE = 200;
-const SPOTIFY_LINK_TEMPLATE_HEADERS = ["artist_name", "song_title", "spotify_url", "state", "city", "note"];
+const SPOTIFY_LINK_TEMPLATE_HEADERS = BULK_TEMPLATE_HEADERS;
 
 function downloadSpotifyLinkTemplate() {
   const csv = SPOTIFY_LINK_TEMPLATE_HEADERS.join(",") + "\n" +
@@ -1296,7 +1302,7 @@ function normalizeSpotifyLinkRow(row) {
   return {
     artistName: getField(row, "artist_name", "artist"),
     songTitle: getField(row, "song_title", "title", "track_title"),
-    spotifyUrl: getField(row, "spotify_url", "spotify", "spotify_link", "url"),
+    spotifyUrl: getField(row, "spotify uri or url", "spotify_url", "spotify", "spotify_link", "url"),
     state: getField(row, "state").toUpperCase(),
     cityName: getField(row, "city", "city_name"),
     note: getField(row, "note"),
@@ -1348,13 +1354,14 @@ function findLoadedArtistByName(nameLower) {
   return null;
 }
 
-// Splits normalized rows into: linkRows (artist already exists — just
-// attach spotifyId to a matching existing track), newArtistEntries (artist
-// doesn't exist yet — grouped by artist+city+state into one entry with
-// multiple tracks, same shape handleBulkAdd/bulk_add uses), and
-// problemRows (couldn't tell what to do with it). Checked against
-// whatever's already loaded on this page — the Worker re-checks against
-// live data before actually writing anything, same as bulk_add.
+// Splits normalized rows into: linkRows (artist already exists — attach
+// spotifyId to a matching existing track, or add the song as a new track
+// if that title isn't there yet), newArtistEntries (artist doesn't exist
+// yet — grouped by artist+city+state into one entry with multiple tracks,
+// same shape handleBulkAdd/bulk_add uses), and problemRows (couldn't tell
+// what to do with it). Checked against whatever's already loaded on this
+// page — the Worker re-checks against live data before actually writing
+// anything, same as bulk_add.
 function classifySpotifyLinkRows(rows) {
   const existingNames = existingArtistNameSet();
   const linkRows = [];
@@ -1377,11 +1384,7 @@ function classifySpotifyLinkRows(rows) {
       const artist = findLoadedArtistByName(nameKey);
       const titleLower = r.songTitle.trim().toLowerCase();
       const hasTrack = artist && (artist.tracks || []).some(t => t.title.trim().toLowerCase() === titleLower);
-      if (!hasTrack) {
-        problemRows.push({ ...r, problem: `No song titled "${r.songTitle}" found for "${r.artistName}" (this tool only links songs that already exist)` });
-        return;
-      }
-      linkRows.push({ artistName: r.artistName, songTitle: r.songTitle, spotifyId, rowNum: r.rowNum });
+      linkRows.push({ artistName: r.artistName, songTitle: r.songTitle, spotifyId, rowNum: r.rowNum, isNewSong: !hasTrack });
       return;
     }
     if (!r.state || !r.cityName || !r.note) {
@@ -1438,13 +1441,14 @@ async function handleSpotifyLinkFile(evt) {
     const { linkRows, newArtistEntries, problemRows } = classifySpotifyLinkRows(normalized);
     spotifyLinkParsed = { linkRows, newArtistEntries };
     const newArtistSongs = newArtistEntries.reduce((n, e) => n + e.tracks.length, 0);
+    const newSongCount = linkRows.filter(r => r.isNewSong).length;
 
     const linkRowsHtml = linkRows.map((r, i) => `
       <tr>
         <td>${i + 1}</td>
         <td>${escapeHtml(r.artistName)}</td>
         <td>${escapeHtml(r.songTitle)}</td>
-        <td>Link to existing artist</td>
+        <td>${r.isNewSong ? "Add new song to existing artist" : "Link existing song"}</td>
       </tr>
     `).join("");
 
@@ -1469,7 +1473,7 @@ async function handleSpotifyLinkFile(evt) {
 
     previewEl.innerHTML = `
       ${linkRows.length ? `
-        <p class="section-heading">Link to existing artists (${linkRows.length})</p>
+        <p class="section-heading">Existing artists (${linkRows.length} song(s) — ${newSongCount} new, ${linkRows.length - newSongCount} linking to an existing song)</p>
         <table class="bulk-table">
           <thead><tr><th>#</th><th>Artist</th><th>Song</th><th>Action</th></tr></thead>
           <tbody>${linkRowsHtml}</tbody>
@@ -1491,7 +1495,7 @@ async function handleSpotifyLinkFile(evt) {
       ` : ""}
     `;
 
-    statusEl.textContent = `${linkRows.length} song(s) to link, ${newArtistEntries.length} new artist(s) (${newArtistSongs} song(s) total)` +
+    statusEl.textContent = `${linkRows.length} song(s) for existing artists (${newSongCount} new), ${newArtistEntries.length} new artist(s) (${newArtistSongs} song(s) total)` +
       (problemRows.length ? `, ${problemRows.length} row(s) skipped.` : ".");
     submitBtn.disabled = linkRows.length === 0 && newArtistEntries.length === 0;
   } catch (err) {
@@ -1565,7 +1569,7 @@ async function submitSpotifyLinkUpload() {
     return;
   }
 
-  let msg = `Linked ${linkedTotal} Spotify track(s), added ${addedTotal} new artist(s) (${pinsTotal} new map pin(s)).`;
+  let msg = `Processed ${linkedTotal} song(s) for existing artists (linked or added), added ${addedTotal} new artist(s) (${pinsTotal} new map pin(s)).`;
   if (skippedTotal) msg += ` ${skippedTotal} skipped (already existed).`;
   if (failures.length) msg += ` ${failures.length} row(s) failed: ` + failures.slice(0, 5).map(f => `${f.artist} (${f.error})`).join("; ") + (failures.length > 5 ? "…" : "");
   statusEl.className = "form-status";
@@ -1577,9 +1581,9 @@ function renderSpotifyLinkForm() {
   app.innerHTML = `
     <p class="crumbs"><a href="#/add">Add an Artist</a> / Spotify Links Upload</p>
     <h1 class="page-title">Bulk Upload Spotify Links</h1>
-    <p class="page-subtitle">Upload a CSV or XLSX with exact artist names, exact song titles, and Spotify URLs. Rows for artists already on the site just get that song linked (no Spotify search — you're providing the exact link). Rows for artists not yet on the site create them, same as Bulk Upload.</p>
+    <p class="page-subtitle">Upload a CSV or XLSX with exact artist names, exact song titles, and Spotify URLs — no Spotify search involved, you're providing the exact link. Rows for artists already on the site get that song added (if it's new) or linked (if it's already there). Rows for artists not yet on the site create them, same as Bulk Upload — pin on the map and all.</p>
     <p><button type="button" class="retro-btn" onclick="downloadSpotifyLinkTemplate()">Download CSV template</button></p>
-    <p class="page-subtitle">Columns: <code>artist_name, song_title, spotify_url, state, city, note</code> — state/city/note only required for artists not already on the site. A Spotify URL, URI, or bare track ID all work. Note: this only links songs that already exist for an existing artist — it can't add a new song to an artist who's already on the site.</p>
+    <p class="page-subtitle">Columns: <code>artist_name, song_title, spotify URI or URL, state, city, note</code> — state/city/note only required for artists not already on the site. A Spotify URL, URI, or bare track ID all work.</p>
     <p><input type="file" class="retro-field" accept=".csv,.xlsx" onchange="handleSpotifyLinkFile(event)"></p>
     <div id="spotify-link-preview"></div>
     <p class="form-actions">
@@ -2015,10 +2019,58 @@ function renderTheme() {
   renderThemeForm();
 }
 
+// Admin landing page (post-login #/add) — a grid of same-height retro
+// buttons grouped by related task, rather than dropping straight into the
+// single-artist form. The form itself moved to #/add/new.
+const ADMIN_HUB_GROUPS = [
+  {
+    heading: "Artists",
+    buttons: [
+      { href: "#/add/new", label: "+ Add an Artist" },
+      { href: "#/add/bulk", label: "Bulk Upload Artists" },
+      { href: "#/add/remove-batch", label: "Remove Artists in Bulk" },
+    ],
+  },
+  {
+    heading: "Spotify Links",
+    buttons: [
+      { href: "#/add/spotify-links", label: "Bulk Upload Spotify Links" },
+      { href: "#/add/relink-spotify", label: "Relink Missing Spotify Links" },
+    ],
+  },
+  {
+    heading: "Site",
+    buttons: [
+      { href: "#/add/theme", label: "Edit Site Theme" },
+    ],
+  },
+];
+
+function renderAddHub() {
+  const groupsHtml = ADMIN_HUB_GROUPS.map(g => `
+    <h2 class="section-heading">${escapeHtml(g.heading)}</h2>
+    <div class="admin-btn-grid">
+      ${g.buttons.map(b => `<a href="${b.href}" class="retro-btn admin-btn">${escapeHtml(b.label)}</a>`).join("")}
+    </div>
+  `).join("");
+
+  app.innerHTML = `
+    <h1 class="page-title">Add an Artist</h1>
+    <p class="page-subtitle">Pick a task.</p>
+    ${groupsHtml}
+  `;
+}
+
 function renderAdd() {
   if (!isConfigured()) return renderNotConfigured();
-  if (storedPassword()) return renderAddForm();
-  return renderAddGate();
+  if (!storedPassword()) return renderAddGate();
+  renderAddHub();
+}
+
+function renderAddNew() {
+  if (!isConfigured()) return renderNotConfigured();
+  if (!storedPassword()) return renderAddGate();
+  renderAddForm();
 }
 
 function router() {
@@ -2027,6 +2079,7 @@ function router() {
   const parts = hash.split("/").filter(Boolean);
 
   if (parts.length === 0) return renderHome();
+  if (parts[0] === "add" && parts[1] === "new") return renderAddNew();
   if (parts[0] === "add" && parts[1] === "bulk") return renderBulk();
   if (parts[0] === "add" && parts[1] === "remove-batch") return renderRemoveBatch();
   if (parts[0] === "add" && parts[1] === "relink-spotify") return renderRelinkSpotify();

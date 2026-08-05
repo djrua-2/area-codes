@@ -18,7 +18,6 @@
      independently adjustable color underneath. */
   --state-empty-color: #606060;
   --map-bg: #c0c0c0;
-  --map-border-color: #000000;
   --map-fill: #c0c0c0;
   font-family: "Times New Roman", Times, serif;
 }
@@ -61,6 +60,28 @@ a:visited { color: #551a8b; }
 }
 .retro-btn:active {
   border-color: var(--bevel-sh) var(--bevel-hi) var(--bevel-hi) var(--bevel-sh);
+}
+
+/* ---- admin hub (post-login #/add landing page) ---- */
+.admin-btn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.9rem;
+  margin: 0 0 1.75rem;
+}
+/* Fixed min-height (rather than just letting the grid stretch to the
+   tallest cell) so a short label like "+ Add an Artist" and a long one
+   like "Relink Missing Spotify Links" render as the same-size button
+   even when a group has only one entry and nothing to stretch against. */
+.admin-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 4.5rem;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  text-decoration: none;
 }
 
 /* persistent player bar — sticky, always the topmost element, survives
@@ -436,11 +457,13 @@ main#app {
   vertical-align: middle;
 }
 .key-swatch.is-documented { background: var(--ink); }
-.key-swatch.is-empty { background: var(--ink-faint); }
+/* Same variable as .is-empty .state-label — one color picker in the theme
+   editor controls both, since they represent the same "undiscovered" idea. */
+.key-swatch.is-empty { background: var(--state-empty-color); }
 
 /* ---- state-level map ---- */
 .state-map-wrap { margin-bottom: 2rem; }
-.state-map-svg { display: block; margin: 0 auto; width: 100%; max-width: 460px; height: auto; transform-origin: center center; }
+.state-map-svg { display: block; margin: 0; width: 100%; max-width: 460px; height: auto; transform-origin: center center; }
 .state-outline {
   fill: var(--map-fill);
   stroke: var(--line-color);
@@ -458,18 +481,15 @@ main#app {
 .city-marker { cursor: pointer; }
 
 /* Constrained to the same width as the svg it wraps (rather than the full
-   content column) and outlined, so the pannable/zoomable hit-region — which
-   captures wheel scroll to zoom instead of scrolling the page — has a
-   visible edge. Previously this box was invisible and as wide as the page,
-   so scrolling anywhere near the map (even in the blank margin beside it)
-   zoomed the map instead of scrolling the page. */
+   content column), left-justified rather than centered. Zoom/pan is
+   double-click and click-drag only (no wheel/scroll listener) so it never
+   fights page scrolling on a touchpad or mobile. */
 .state-map-viewport {
   overflow: hidden;
   touch-action: none;
   cursor: grab;
   width: min(460px, 94%);
-  margin: 0 auto;
-  border: calc(var(--line-width) * 2) solid var(--map-border-color);
+  margin: 0;
   background: var(--map-bg);
 }
 .state-map-viewport.is-panning { cursor: grabbing; }
