@@ -6534,6 +6534,12 @@
         "name": "Montclair",
         "x": 78.52,
         "y": 24.97
+      },
+      {
+        "id": "jersey-city-nj",
+        "name": "Jersey City",
+        "x": 88.21,
+        "y": 28.68
       }
     ]
   },
@@ -9670,6 +9676,12 @@
         "name": "Fairfax",
         "x": 79.24,
         "y": 23.29
+      },
+      {
+        "id": "tappahannock-va",
+        "name": "Tappahannock",
+        "x": 84.54,
+        "y": 52.35
       }
     ]
   },
