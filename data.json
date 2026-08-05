@@ -855,6 +855,17 @@
                 "title": "Treasure (feat. T.I.)"
               }
             ]
+          },
+          {
+            "name": "ABRA",
+            "note": "Dark, synth-driven \"dark pop\" that became a defining voice of Atlanta's experimental Awful Records collective.",
+            "tracks": [
+              {
+                "title": "Unlock It (feat. Playboi Carti)",
+                "spotifyId": "4EoZiih7SmUSDyIw8y011F"
+              }
+            ],
+            "addedAt": "2026-08-05T01:06:00.011Z"
           }
         ]
       }
@@ -1359,6 +1370,17 @@
                 "title": "Don't Lose Your Head Original"
               }
             ]
+          },
+          {
+            "name": "Tony! Toni! Toné!",
+            "note": "Smooth, soulful New Jack Swing-era R&B group who helped define Oakland's sound in the late '80s and '90s.",
+            "tracks": [
+              {
+                "title": "Let's Get Down",
+                "spotifyId": "7qdo6JOOaaY9LadOAhfXq7"
+              }
+            ],
+            "addedAt": "2026-08-05T01:06:00.011Z"
           }
         ]
       }
@@ -2971,6 +2993,43 @@
                 "title": "Rainy Day (feat. Isaiah Rashad & Buddy)"
               }
             ]
+          },
+          {
+            "name": "Slauson Malone 1",
+            "note": "Experimental noise-rap project named for LA's Slauson Avenue, blending free jazz, punk, and hip-hop.",
+            "tracks": [
+              {
+                "title": "Smile #6 (see page 198 and 158)",
+                "spotifyId": "4e4V3HnqACg6CTuiHCTZsp"
+              }
+            ],
+            "addedAt": "2026-08-05T01:06:00.011Z"
+          },
+          {
+            "name": "Terrace Martin",
+            "note": "Jazz-hip-hop multi-instrumentalist and Kendrick Lamar collaborator central to LA's West Coast Get Down scene.",
+            "tracks": [
+              {
+                "title": "Freeze Tag (feat. Phoelix)",
+                "spotifyId": "3t3ZvTvH2juv335N5E1ANK"
+              }
+            ],
+            "addedAt": "2026-08-05T01:06:00.011Z"
+          },
+          {
+            "name": "Ty Dolla $ign",
+            "note": "Prolific singer-rapper-producer whose laid-back, hook-heavy sound has made him one of LA's most in-demand collaborators.",
+            "tracks": [
+              {
+                "title": "Ego Death (feat. Kanye West, FKA twigs & Skrillex)",
+                "spotifyId": "4JB0EAT4BkLShTyTt50FmO"
+              },
+              {
+                "title": "Blasé (feat. Future & Rae Sremmurd) - Louis the Child Remix",
+                "spotifyId": "2NAZcL9tLUkdMMb5v3xFVG"
+              }
+            ],
+            "addedAt": "2026-08-05T01:06:00.011Z"
           }
         ]
       }
@@ -3539,6 +3598,17 @@
                 "title": "Speak Your Truth"
               }
             ]
+          },
+          {
+            "name": "Ja Rule",
+            "note": "Gravel-voiced hitmaker who paired hardcore Queens rap roots with radio-ready R&B hooks in the early 2000s.",
+            "tracks": [
+              {
+                "title": "New York",
+                "spotifyId": "7xXvPyOiFCsB5SSpio5g38"
+              }
+            ],
+            "addedAt": "2026-08-05T01:06:00.011Z"
           }
         ]
       }
@@ -6061,6 +6131,28 @@
                 "spotifyId": "3eekarcy7kvN4yt5ZFzltW"
               }
             ]
+          },
+          {
+            "name": "Solange",
+            "note": "Genre-defying R&B artist whose art-pop sensibility carries forward Houston's rich musical legacy.",
+            "tracks": [
+              {
+                "title": "Mad (feat. Lil Wayne)",
+                "spotifyId": "22DHmfJa31hKpc2Lg0gVBV"
+              }
+            ],
+            "addedAt": "2026-08-05T01:06:00.011Z"
+          },
+          {
+            "name": "DJ Screw",
+            "note": "The originator of chopped and screwed, whose slowed-down remixes defined Houston's entire regional sound.",
+            "tracks": [
+              {
+                "title": "My Mind Went Blank (Screwed)",
+                "spotifyId": "7zfLS7MJmy8zmj1OL7s6bk"
+              }
+            ],
+            "addedAt": "2026-08-05T01:06:00.011Z"
           }
         ]
       }
@@ -6206,6 +6298,21 @@
                 "title": "Am I Confused?"
               }
             ]
+          },
+          {
+            "name": "Madlib",
+            "note": "Prolific, genre-hopping producer whose crate-digging beats made him a cornerstone of underground West Coast hip-hop.",
+            "tracks": [
+              {
+                "title": "Mystic Bounce",
+                "spotifyId": "6e6lDhigjHGm6zQM3C1ezN"
+              },
+              {
+                "title": "Thuggin - Alex Goose Remix",
+                "spotifyId": "5GMa6yIRNJmASg9NCosxSB"
+              }
+            ],
+            "addedAt": "2026-08-05T01:06:00.011Z"
           }
         ]
       }
@@ -9678,6 +9785,17 @@
                 "title": "Came From"
               }
             ]
+          },
+          {
+            "name": "Boosie Badazz",
+            "note": "Raw, street-level Southern rap that made him one of Baton Rouge's most iconic and outspoken voices.",
+            "tracks": [
+              {
+                "title": "Wipe Me Down (feat. Foxx, Webbie & Lil Boosie) - Remix",
+                "spotifyId": "6D1CstH1YvzNN8cPd9ay9Q"
+              }
+            ],
+            "addedAt": "2026-08-05T01:06:00.011Z"
           }
         ]
       }
@@ -10833,6 +10951,56 @@
                 "title": "Always Saucy"
               }
             ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tappahannock-va-region",
+    "name": "Tappahannock, VA",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "tappahannock-va",
+        "name": "Tappahannock, VA",
+        "state": "VA",
+        "artists": [
+          {
+            "name": "Chris Brown",
+            "note": "R&B/pop powerhouse whose dance-driven hits and rap collaborations made him one of the genre's most dominant crossover stars.",
+            "tracks": [
+              {
+                "title": "Go Crazy",
+                "spotifyId": "5E1aFH3QO8NHlocnXIPTYo"
+              }
+            ],
+            "addedAt": "2026-08-05T01:06:00.011Z"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "jersey-city-nj-region",
+    "name": "Jersey City, NJ",
+    "blurb": "",
+    "cities": [
+      {
+        "id": "jersey-city-nj",
+        "name": "Jersey City, NJ",
+        "state": "NJ",
+        "artists": [
+          {
+            "name": "Akon",
+            "note": "Auto-tuned hooks and Afrobeat-pop influence that made him one of the 2000s' most ubiquitous hitmakers.",
+            "tracks": [
+              {
+                "title": "I Wanna Love You",
+                "spotifyId": "4xAk8Lw82G3YoVSOdVAsBx"
+              }
+            ],
+            "addedAt": "2026-08-05T01:06:00.011Z"
           }
         ]
       }
