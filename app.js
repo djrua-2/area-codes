@@ -30,16 +30,26 @@ let dataLoaded = false;
 // leaves the site on its built-in style.css defaults.
 let THEME = { vars: {}, customCss: "", labels: {} };
 
+// Named groupings of states (e.g. "Southeast") for the home map's color
+// coding — edited from #/add/regions, persisted to mapRegions.json the
+// same best-effort way as theme.json. Named MAP_REGIONS (not `regions`)
+// since that name's already taken by the artist data below.
+let MAP_REGIONS = { regions: [] };
+
 async function loadData() {
-  const [regionsRes, outlinesRes, themeRes] = await Promise.all([
+  const [regionsRes, outlinesRes, themeRes, mapRegionsRes] = await Promise.all([
     fetch("data.json", { cache: "no-store" }),
     fetch("stateOutlines.json", { cache: "no-store" }),
-    fetch("theme.json", { cache: "no-store" }).catch(() => null)
+    fetch("theme.json", { cache: "no-store" }).catch(() => null),
+    fetch("mapRegions.json", { cache: "no-store" }).catch(() => null)
   ]);
   regions = await regionsRes.json();
   STATE_OUTLINES = await outlinesRes.json();
   if (themeRes && themeRes.ok) {
     try { THEME = await themeRes.json(); } catch { /* keep defaults */ }
+  }
+  if (mapRegionsRes && mapRegionsRes.ok) {
+    try { MAP_REGIONS = await mapRegionsRes.json(); } catch { /* keep defaults */ }
   }
   applyThemeObject(THEME);
   dataLoaded = true;
@@ -329,11 +339,22 @@ function collectStateArtistNames(entries) {
   return names;
 }
 
-function renderHoverBand(abbrev, entries) {
+// Maps state abbrev -> its region (color + name), if assigned. A state
+// belongs to at most one region (enforced when editing on #/add/regions).
+function stateRegionLookup() {
+  const map = {};
+  (MAP_REGIONS.regions || []).forEach(r => {
+    (r.states || []).forEach(abbrev => { map[abbrev] = r; });
+  });
+  return map;
+}
+
+function renderHoverBand(abbrev, entries, region) {
   const names = collectStateArtistNames(entries);
   const shown = names.slice(0, HOVER_PREVIEW_MAX);
   const extra = names.length - shown.length;
-  const tipHtml = shown.map(escapeHtml).join("<br>") + (extra > 0 ? `<br>+ ${extra} more` : "");
+  const regionLine = region ? `<strong>${escapeHtml(region.name)}</strong><br>` : "";
+  const tipHtml = regionLine + shown.map(escapeHtml).join("<br>") + (extra > 0 ? `<br>+ ${extra} more` : "");
   return `
     <a class="hover-band" href="#/state/${abbrev}">
       <span class="hover-tip">${tipHtml}</span>
@@ -343,23 +364,28 @@ function renderHoverBand(abbrev, entries) {
 
 function renderHome() {
   const stateCities = citiesByState();
+  const regionByState = stateRegionLookup();
 
   const tiles = STATE_GRID.map(s => {
     const entries = stateCities[s.abbrev];
+    const region = regionByState[s.abbrev];
+    const bgStyle = region ? `background-color:${region.color};` : "";
+
     if (!entries || !entries.length) {
+      const title = `${s.name} — not yet documented${region ? ` · ${region.name}` : ""}`;
       return `
         <a
           class="state-cell is-empty"
-          style="grid-column:${s.col}; grid-row:${s.row};"
+          style="grid-column:${s.col}; grid-row:${s.row}; ${bgStyle}"
           href="#/state/${s.abbrev}"
-          title="${escapeHtml(s.name)} — not yet documented"
+          title="${escapeHtml(title)}"
         ><span class="state-label">${s.abbrev}</span></a>
       `;
     }
 
     return `
-      <div class="state-cell is-documented" style="grid-column:${s.col}; grid-row:${s.row};" title="${escapeHtml(s.name)}">
-        ${renderHoverBand(s.abbrev, entries)}
+      <div class="state-cell is-documented" style="grid-column:${s.col}; grid-row:${s.row}; ${bgStyle}" title="${escapeHtml(s.name)}">
+        ${renderHoverBand(s.abbrev, entries, region)}
         <span class="state-label">${s.abbrev}</span>
       </div>
     `;
@@ -370,12 +396,16 @@ function renderHome() {
   const hLines = [];
   for (let i = 0; i <= GRID_ROWS; i++) hLines.push(`<line x1="0" y1="${i}" x2="${GRID_COLS}" y2="${i}" />`);
 
+  const regionKeyHtml = (MAP_REGIONS.regions || []).map(r => `
+    <span class="key-swatch" style="background:${escapeAttr(r.color)};"></span> ${escapeHtml(r.name)} &nbsp;
+  `).join("");
+
   app.innerHTML = `
     <div class="toolbar">
       <input
         type="text"
         class="search-box retro-field"
-        placeholder="Search artists (e.g. Gucci Mane, Detroit)"
+        placeholder="Search artists, cities, or a region (e.g. Gucci Mane, Detroit, South)"
         oninput="handleSearch(this.value)"
       >
       <button class="randomize-btn retro-btn" onclick="randomizeArtist()">&#8635; RANDOM</button>
@@ -393,8 +423,52 @@ function renderHome() {
     <p class="map-key">
       <span class="key-swatch is-documented"></span> documented &nbsp;
       <span class="key-swatch is-empty"></span> not yet mapped &nbsp;
+      ${regionKeyHtml}
       <span class="map-key-note">hover a state to preview artists, click to open its city map</span>
     </p>
+  `;
+}
+
+// A region search hit shows a cropped copy of the home map — just that
+// region's states, at their real relative grid positions (STATE_GRID is
+// already laid out to approximate real US geography, so states that are
+// neighbors in reality are neighbors in the grid too — "borders touching
+// like on a real map" falls out of that for free, no separate geometry
+// needed) — plus its states listed alphabetically below.
+function renderRegionHit(region) {
+  const memberStates = STATE_GRID.filter(s => region.states.includes(s.abbrev));
+  if (!memberStates.length) {
+    return `
+      <div class="region-hit">
+        <p class="section-heading" style="color:${escapeAttr(region.color)};">${escapeHtml(region.name)}</p>
+        <p class="page-subtitle">No states assigned to this region yet.</p>
+      </div>
+    `;
+  }
+  const minCol = Math.min(...memberStates.map(s => s.col));
+  const maxCol = Math.max(...memberStates.map(s => s.col));
+  const minRow = Math.min(...memberStates.map(s => s.row));
+  const maxRow = Math.max(...memberStates.map(s => s.row));
+  const cols = maxCol - minCol + 1;
+  const rows = maxRow - minRow + 1;
+
+  const tiles = memberStates.map(s => `
+    <a class="state-cell is-documented" style="grid-column:${s.col - minCol + 1}; grid-row:${s.row - minRow + 1}; background-color:${escapeAttr(region.color)};" href="#/state/${s.abbrev}" title="${escapeHtml(s.name)}">
+      <span class="state-label">${s.abbrev}</span>
+    </a>
+  `).join("");
+
+  const alphabetical = memberStates.slice().sort((a, b) => a.name.localeCompare(b.name))
+    .map(s => `<li><a href="#/state/${s.abbrev}">${escapeHtml(s.name)}</a></li>`).join("");
+
+  return `
+    <div class="region-hit">
+      <p class="section-heading" style="color:${escapeAttr(region.color)};">${escapeHtml(region.name)}</p>
+      <div class="region-map-grid" style="grid-template-columns:repeat(${cols}, 1fr); grid-template-rows:repeat(${rows}, 1fr); aspect-ratio:${cols}/${rows};">
+        ${tiles}
+      </div>
+      <ul class="region-state-list">${alphabetical}</ul>
+    </div>
   `;
 }
 
@@ -429,13 +503,17 @@ function handleSearch(query) {
     });
   });
 
-  if (!hits.length) {
+  const regionHits = (MAP_REGIONS.regions || []).filter(r => r.name.toLowerCase().includes(q));
+  const regionHitsHtml = regionHits.map(renderRegionHit).join("");
+
+  if (!hits.length && !regionHits.length) {
     resultsEl.innerHTML = `<div class="search-results"><p>No match for "${escapeHtml(query)}" — this is a small, hand-curated dataset. Try a state abbreviation instead, or add the artist yourself.</p></div>`;
     return;
   }
 
   resultsEl.innerHTML = `
     <div class="search-results">
+      ${regionHitsHtml}
       ${hits.map(h => {
         // Link straight to wherever the artist's actual entry lives (the
         // city or neighborhood page), not the state overview — clicking
@@ -1655,6 +1733,106 @@ function renderBirthYears() {
   renderBirthYearForm();
 }
 
+// ---- admin page: manage map regions ----
+// Groups states into named, colored regions shown on the home map, its
+// legend, and searchable by name. Edited as a full draft (regionsDraft)
+// re-rendered from scratch on any structural change (add/remove region,
+// toggle a state) — same pattern as the theme editor's discard/reset.
+// Text/color inputs mutate the draft silently without a full re-render so
+// typing doesn't lose focus; toggling a checkbox does re-render, since
+// that's also how mutual exclusivity (a state can only be in one region)
+// is enforced and needs to show up immediately in every other region's list.
+let regionsDraft = [];
+
+function renderRegionsFormFromDraft() {
+  const allStates = STATE_GRID.slice().sort((a, b) => a.name.localeCompare(b.name));
+
+  const regionsHtml = regionsDraft.map((r, idx) => `
+    <div class="region-card">
+      <div class="region-card-header">
+        <input type="text" class="retro-field" value="${escapeAttr(r.name)}" placeholder="Region name" oninput="regionsDraft[${idx}].name = this.value">
+        <input type="color" value="${escapeAttr(r.color)}" oninput="regionsDraft[${idx}].color = this.value">
+        <button type="button" class="retro-btn" onclick="removeRegionDraft(${idx})">Remove region</button>
+      </div>
+      <p class="page-subtitle">${r.states.length} state(s) assigned</p>
+      <div class="region-state-grid">
+        ${allStates.map(s => `
+          <label class="region-state-checkbox">
+            <input type="checkbox" ${r.states.includes(s.abbrev) ? "checked" : ""} onchange="toggleRegionState(${idx}, '${s.abbrev}', this.checked)">
+            ${escapeHtml(s.abbrev)}
+          </label>
+        `).join("")}
+      </div>
+    </div>
+  `).join("");
+
+  app.innerHTML = `
+    <p class="crumbs"><a href="#/add">Add an Artist</a> / Manage Regions</p>
+    <h1 class="page-title">Manage Regions</h1>
+    <p class="page-subtitle">Group states into named regions with their own color — shown on the home map, its legend, and searchable by name (e.g. searching "South" shows a cropped map of just that region's states plus an alphabetical list). Each state belongs to at most one region; checking it here unchecks it from any other region automatically.</p>
+    <div id="regions-list">${regionsHtml || '<p class="page-subtitle">No regions yet — add one below.</p>'}</div>
+    <p class="form-actions">
+      <button type="button" class="retro-btn" onclick="addRegionDraft()">+ Add region</button>
+    </p>
+    <p class="form-actions">
+      <button type="button" class="retro-btn" onclick="submitRegions()">Save</button>
+      <span id="regions-status" class="form-status"></span>
+    </p>
+  `;
+}
+
+function addRegionDraft() {
+  regionsDraft.push({ name: "", color: "#888888", states: [] });
+  renderRegionsFormFromDraft();
+}
+
+function removeRegionDraft(idx) {
+  regionsDraft.splice(idx, 1);
+  renderRegionsFormFromDraft();
+}
+
+function toggleRegionState(idx, abbrev, checked) {
+  if (checked) {
+    regionsDraft.forEach((r, i) => { if (i !== idx) r.states = r.states.filter(a => a !== abbrev); });
+    if (!regionsDraft[idx].states.includes(abbrev)) regionsDraft[idx].states.push(abbrev);
+  } else {
+    regionsDraft[idx].states = regionsDraft[idx].states.filter(a => a !== abbrev);
+  }
+  renderRegionsFormFromDraft();
+}
+
+async function submitRegions() {
+  const statusEl = document.getElementById("regions-status");
+  statusEl.className = "form-status";
+  statusEl.textContent = "Saving…";
+  const cleanRegions = regionsDraft.filter(r => r.name.trim()).map(r => ({ name: r.name.trim(), color: r.color, states: r.states }));
+  try {
+    const res = await fetch(AREA_CODES_CONFIG.ADD_ARTIST_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ action: "update_regions", password: storedPassword(), regions: cleanRegions })
+    });
+    if (!res.ok) throw new Error(await res.text());
+    const result = await res.json();
+    MAP_REGIONS = { regions: result.regions || cleanRegions };
+    statusEl.textContent = "Saved — live for everyone within about a minute.";
+  } catch (err) {
+    statusEl.className = "form-status is-error";
+    statusEl.textContent = "Couldn't save — " + err.message;
+  }
+}
+
+function renderRegionsForm() {
+  regionsDraft = (MAP_REGIONS.regions || []).map(r => ({ name: r.name, color: r.color, states: [...r.states] }));
+  renderRegionsFormFromDraft();
+}
+
+function renderRegions() {
+  if (!isConfigured()) return renderNotConfigured();
+  if (!storedPassword()) return renderAddGate();
+  renderRegionsForm();
+}
+
 // ---- hidden admin page: bulk-upload manual Spotify links ----
 // Not linked from anywhere in the site's normal navigation — reachable only
 // by going directly to #/add/spotify-links (also linked from the Add
@@ -2432,6 +2610,7 @@ const ADMIN_HUB_GROUPS = [
     heading: "Site",
     buttons: [
       { href: "#/add/theme", label: "Edit Site Theme" },
+      { href: "#/add/regions", label: "Manage Regions" },
     ],
   },
 ];
@@ -2477,6 +2656,7 @@ function router() {
   if (parts[0] === "add" && parts[1] === "relink-spotify") return renderRelinkSpotify();
   if (parts[0] === "add" && parts[1] === "spotify-links") return renderSpotifyLinkUpload();
   if (parts[0] === "add" && parts[1] === "theme") return renderTheme();
+  if (parts[0] === "add" && parts[1] === "regions") return renderRegions();
   if (parts[0] === "add") return renderAdd();
   if (parts[0] === "edit" && parts[1] && parts[2] && parts[3]) return renderEdit(parts[1], parts[2], parts[3]);
   if (parts[0] === "state" && parts[1]) return renderState(parts[1]);

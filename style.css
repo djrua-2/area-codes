@@ -374,6 +374,63 @@ main#app {
 }
 .search-hit span { color: var(--ink-faded); font-size: 0.85rem; }
 
+/* ---- region search hit: cropped copy of the home map for just that
+   region's states, plus an alphabetical list ---- */
+.region-hit { margin-bottom: 1.5rem; }
+.region-map-grid {
+  display: grid;
+  gap: 1px;
+  max-width: 320px;
+  margin: 0 0 1rem;
+  border: var(--line-width) solid var(--line-color);
+  /* Cells sit on top of this background with a 1px gap between them, so
+     the gap itself reads as a black grid line — no separate SVG overlay
+     needed for this small cropped map, unlike the full home map. */
+  background: var(--line-color);
+}
+.region-state-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.3rem;
+}
+.region-state-list a { color: var(--ink); }
+
+/* ---- manage regions admin page ---- */
+.region-card {
+  border: var(--line-width) solid var(--line-color);
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 1.25rem;
+}
+.region-card-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.region-card-header input[type="text"] { flex: 1 1 12rem; }
+.region-card-header input[type="color"] {
+  width: 3rem;
+  height: 2.2rem;
+  padding: 2px;
+  border: var(--line-width) solid var(--line-color);
+  cursor: pointer;
+}
+.region-state-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(4.5rem, 1fr));
+  gap: 0.4rem;
+}
+.region-state-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.9rem;
+}
+
 /* ---- state grid map ---- */
 .map-scroll { margin-bottom: 0.75rem; }
 
