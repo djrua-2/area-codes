@@ -28,7 +28,7 @@ let dataLoaded = false;
 // every visitor on their next page load, no code/file edits required. Best
 // effort: a missing/failed fetch (e.g. theme.json doesn't exist yet) just
 // leaves the site on its built-in style.css defaults.
-let THEME = { vars: {}, customCss: "" };
+let THEME = { vars: {}, customCss: "", labels: {} };
 
 async function loadData() {
   const [regionsRes, outlinesRes, themeRes] = await Promise.all([
@@ -57,6 +57,21 @@ function setCustomCssStyleTag(css) {
   styleEl.textContent = css || "";
 }
 
+// Maps an editable text label's key to the single DOM element it controls.
+// Only one entry today (the footer CTA button) — deliberately a plain
+// lookup rather than a generic templating system, since adding a second
+// editable label later just means one more entry here plus one more row
+// in THEMEABLE_LABELS.
+const LABEL_TARGET_SELECTORS = {
+  addArtistBtn: ".retro-badge-link",
+};
+
+function applyThemeLabel(key, value) {
+  const selector = LABEL_TARGET_SELECTORS[key];
+  const el = selector && document.querySelector(selector);
+  if (el) el.textContent = value;
+}
+
 function applyThemeObject(themeObj) {
   const root = document.documentElement.style;
   // Clear every known themeable var first — otherwise a key absent from
@@ -69,6 +84,8 @@ function applyThemeObject(themeObj) {
     if (key.startsWith("--") && typeof value === "string") root.setProperty(key, value);
   });
   setCustomCssStyleTag(themeObj && themeObj.customCss);
+  const labels = (themeObj && themeObj.labels) || {};
+  THEMEABLE_LABELS.forEach(l => applyThemeLabel(l.key, labels[l.key] || l.default));
 }
 
 function escapeHtml(str) {
@@ -472,7 +489,7 @@ function renderStateMap(abbrev, entries) {
         <button type="button" class="retro-btn" onclick="zoomMapBy(0.6)" aria-label="Zoom in">+</button>
         <button type="button" class="retro-btn" onclick="zoomMapBy(-0.6)" aria-label="Zoom out">&minus;</button>
         <button type="button" class="retro-btn" onclick="resetMapZoom()">Reset</button>
-        <span class="page-subtitle map-zoom-hint">Scroll or pinch to zoom, drag to pan — useful when city labels overlap.</span>
+        <span class="page-subtitle map-zoom-hint">Double-click to zoom in, click and drag to pan — useful when city labels overlap.</span>
       </p>
       <div class="state-map-viewport">
         <svg class="state-map-svg" viewBox="-10 -10 120 120" preserveAspectRatio="xMidYMid meet">
@@ -522,16 +539,48 @@ function zoomMapBy(delta) {
   applyMapZoom();
 }
 
+// Zooms in a step centered on a specific screen point (a double-click)
+// rather than the map's fixed center, so whatever the user double-clicked
+// on stays under the cursor instead of the view jumping. Measures the
+// rendered box before and after the scale change via getBoundingClientRect
+// (real layout, not transform-matrix algebra) and corrects the pan by
+// however far that drifted — simpler to get right than deriving the exact
+// composition of the scale()/translate() transform by hand.
+function zoomAtPoint(clientX, clientY, delta) {
+  const svg = document.querySelector(".state-map-svg");
+  if (!svg) return;
+  const beforeRect = svg.getBoundingClientRect();
+  const fracX = (clientX - beforeRect.left) / beforeRect.width;
+  const fracY = (clientY - beforeRect.top) / beforeRect.height;
+
+  const next = Math.min(4, Math.max(1, mapZoomState.scale + delta));
+  if (next === mapZoomState.scale) return;
+  mapZoomState.scale = next;
+  applyMapZoom();
+
+  const afterRect = svg.getBoundingClientRect();
+  const afterX = afterRect.left + fracX * afterRect.width;
+  const afterY = afterRect.top + fracY * afterRect.height;
+  mapZoomState.x += (clientX - afterX) / next;
+  mapZoomState.y += (clientY - afterY) / next;
+  applyMapZoom();
+}
+
+// Zoom: double-click only (zoomed toward the click point). Pan: click and
+// hold, then drag. Deliberately no wheel/scroll listener — that used to
+// hijack two-finger trackpad scrolling and mobile scroll gestures the
+// moment the pointer crossed the map, which is exactly the "scrolling
+// feels weird" complaint this replaces.
 function initMapPanZoom() {
   const viewport = document.querySelector(".state-map-viewport");
   if (!viewport) return;
   mapZoomState = { scale: 1, x: 0, y: 0 };
   applyMapZoom();
 
-  viewport.addEventListener("wheel", e => {
+  viewport.addEventListener("dblclick", e => {
     e.preventDefault();
-    zoomMapBy(e.deltaY < 0 ? 0.4 : -0.4);
-  }, { passive: false });
+    zoomAtPoint(e.clientX, e.clientY, 0.8);
+  });
 
   viewport.addEventListener("pointerdown", e => {
     if (mapZoomState.scale <= 1) return;
@@ -769,7 +818,7 @@ function renderAddForm() {
     <h1 class="page-title">Add an Artist</h1>
     <p class="page-subtitle">Goes live for everyone within about a minute of submitting. Adding several at once? <a href="#/add/bulk">Bulk upload a CSV or XLSX ↗</a></p>
     <p class="page-subtitle">Want to change colors or line thickness across the site? <a href="#/add/theme">Theme Editor ↗</a></p>
-    <p class="page-subtitle">Other tools: <a href="#/add/relink-spotify">Relink missing Spotify links</a> · <a href="#/add/remove-batch">Remove a batch of artists</a></p>
+    <p class="page-subtitle">Other tools: <a href="#/add/spotify-links">Bulk upload Spotify links</a> · <a href="#/add/relink-spotify">Relink missing Spotify links</a> · <a href="#/add/remove-batch">Remove a batch of artists</a></p>
     <form class="add-form" onsubmit="handleAddSubmit(event)">
       <div>
         <label for="f-artist">Artist name</label>
@@ -1212,6 +1261,340 @@ function renderBulkForm() {
   `;
 }
 
+// ---- hidden admin page: bulk-upload manual Spotify links ----
+// Not linked from anywhere in the site's normal navigation — reachable only
+// by going directly to #/add/spotify-links (also linked from the Add
+// Artist hub's "Other tools" line). Each row supplies an exact artist name,
+// exact song title, and a Spotify URL/URI/bare ID. If the artist is
+// already on the site, that exact song gets the link attached — no
+// Spotify search involved, since the link is given directly. If the
+// artist isn't on the site yet, the row is treated as a new artist and
+// needs state/city/note too, same as the regular Bulk Upload page. A file
+// can freely mix both kinds of rows; which bucket each row falls into is
+// decided against the artist names already loaded on this page.
+const SPOTIFY_LINK_MAX_ROWS = 3000;
+// linkRows cost nothing but in-memory string matching (no geocode, no
+// Spotify search), so this batch can be far larger than the other bulk
+// actions' — it's still one GitHub commit per batch either way.
+const SPOTIFY_LINK_BATCH_SIZE = 200;
+const SPOTIFY_LINK_TEMPLATE_HEADERS = ["artist_name", "song_title", "spotify_url", "state", "city", "note"];
+
+function downloadSpotifyLinkTemplate() {
+  const csv = SPOTIFY_LINK_TEMPLATE_HEADERS.join(",") + "\n" +
+    "Example Artist,Example Song,https://open.spotify.com/track/4uLU6hMCjMI75M1A2tKUQC,,,\n" +
+    'New Artist Example,New Song,https://open.spotify.com/track/0VjIjW4GlUZAMYd2vXMi3b,GA,"Savannah, GA",One-line note about their style\n';
+  const blob = new Blob([csv], { type: "text/csv" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "area-codes-spotify-links-template.csv";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function normalizeSpotifyLinkRow(row) {
+  return {
+    artistName: getField(row, "artist_name", "artist"),
+    songTitle: getField(row, "song_title", "title", "track_title"),
+    spotifyUrl: getField(row, "spotify_url", "spotify", "spotify_link", "url"),
+    state: getField(row, "state").toUpperCase(),
+    cityName: getField(row, "city", "city_name"),
+    note: getField(row, "note"),
+  };
+}
+
+// Accepts a full open.spotify.com URL (with or without query string), a
+// spotify:track: URI, or a bare 22-character track ID.
+function extractSpotifyId(input) {
+  if (!input) return "";
+  const s = String(input).trim();
+  let m = s.match(/open\.spotify\.com\/track\/([A-Za-z0-9]{22})/);
+  if (m) return m[1];
+  m = s.match(/spotify:track:([A-Za-z0-9]{22})/);
+  if (m) return m[1];
+  if (/^[A-Za-z0-9]{22}$/.test(s)) return s;
+  return "";
+}
+
+function existingArtistNameSet() {
+  const names = new Set();
+  regions.forEach(region => {
+    region.cities.forEach(city => {
+      (city.artists || []).forEach(a => names.add(a.name.trim().toLowerCase()));
+      (city.neighborhoods || []).forEach(hood => {
+        (hood.artists || []).forEach(a => names.add(a.name.trim().toLowerCase()));
+      });
+    });
+  });
+  return names;
+}
+
+// Mirrors the Worker's findArtistByName, against whatever's already loaded
+// on this page — lets the upload preview catch "no such song for this
+// artist" immediately instead of only failing at submit time.
+function findLoadedArtistByName(nameLower) {
+  for (const region of regions) {
+    for (const city of region.cities) {
+      for (const artist of city.artists || []) {
+        if (artist.name.trim().toLowerCase() === nameLower) return artist;
+      }
+      for (const hood of city.neighborhoods || []) {
+        for (const artist of hood.artists || []) {
+          if (artist.name.trim().toLowerCase() === nameLower) return artist;
+        }
+      }
+    }
+  }
+  return null;
+}
+
+// Splits normalized rows into: linkRows (artist already exists — just
+// attach spotifyId to a matching existing track), newArtistEntries (artist
+// doesn't exist yet — grouped by artist+city+state into one entry with
+// multiple tracks, same shape handleBulkAdd/bulk_add uses), and
+// problemRows (couldn't tell what to do with it). Checked against
+// whatever's already loaded on this page — the Worker re-checks against
+// live data before actually writing anything, same as bulk_add.
+function classifySpotifyLinkRows(rows) {
+  const existingNames = existingArtistNameSet();
+  const linkRows = [];
+  const newArtistOrder = [];
+  const newArtistByKey = new Map();
+  const problemRows = [];
+
+  rows.forEach(r => {
+    if (!r.artistName || !r.songTitle) {
+      problemRows.push({ ...r, problem: "missing artist name or song title" });
+      return;
+    }
+    const spotifyId = extractSpotifyId(r.spotifyUrl);
+    if (!spotifyId) {
+      problemRows.push({ ...r, problem: "couldn't find a Spotify track ID in that URL" });
+      return;
+    }
+    const nameKey = r.artistName.toLowerCase();
+    if (existingNames.has(nameKey)) {
+      const artist = findLoadedArtistByName(nameKey);
+      const titleLower = r.songTitle.trim().toLowerCase();
+      const hasTrack = artist && (artist.tracks || []).some(t => t.title.trim().toLowerCase() === titleLower);
+      if (!hasTrack) {
+        problemRows.push({ ...r, problem: `No song titled "${r.songTitle}" found for "${r.artistName}" (this tool only links songs that already exist)` });
+        return;
+      }
+      linkRows.push({ artistName: r.artistName, songTitle: r.songTitle, spotifyId, rowNum: r.rowNum });
+      return;
+    }
+    if (!r.state || !r.cityName || !r.note) {
+      problemRows.push({ ...r, problem: `"${r.artistName}" isn't on the site yet — new artists need state, city, and note filled in` });
+      return;
+    }
+    const key = `${nameKey}|${r.cityName.toLowerCase()}|${r.state}`;
+    let entry = newArtistByKey.get(key);
+    if (!entry) {
+      entry = { artistName: r.artistName, state: r.state, cityName: r.cityName, note: r.note, tracks: [] };
+      newArtistByKey.set(key, entry);
+      newArtistOrder.push(entry);
+    }
+    entry.tracks.push({ title: r.songTitle, spotifyId });
+  });
+
+  return { linkRows, newArtistEntries: newArtistOrder, problemRows };
+}
+
+let spotifyLinkParsed = { linkRows: [], newArtistEntries: [] };
+
+async function handleSpotifyLinkFile(evt) {
+  const file = evt.target.files[0];
+  const statusEl = document.getElementById("spotify-link-status");
+  const previewEl = document.getElementById("spotify-link-preview");
+  const submitBtn = document.getElementById("spotify-link-submit-btn");
+  if (!file) return;
+
+  statusEl.className = "form-status";
+  statusEl.textContent = "Reading file…";
+  previewEl.innerHTML = "";
+  submitBtn.disabled = true;
+  spotifyLinkParsed = { linkRows: [], newArtistEntries: [] };
+
+  try {
+    let rawRows;
+    if (/\.xlsx$/i.test(file.name)) {
+      await loadXLSXLibrary();
+      const buf = await file.arrayBuffer();
+      const wb = window.XLSX.read(buf, { type: "array" });
+      const sheet = wb.Sheets[wb.SheetNames[0]];
+      rawRows = window.XLSX.utils.sheet_to_json(sheet, { defval: "" });
+    } else {
+      const text = await file.text();
+      rawRows = parseCSV(text);
+    }
+
+    if (!rawRows.length) throw new Error("No rows found in that file.");
+    if (rawRows.length > SPOTIFY_LINK_MAX_ROWS) {
+      throw new Error(`That file has ${rawRows.length} rows — max is ${SPOTIFY_LINK_MAX_ROWS} per upload. Split it into smaller files.`);
+    }
+
+    const normalized = rawRows.map((row, i) => ({ ...normalizeSpotifyLinkRow(row), rowNum: i + 2 }));
+    const { linkRows, newArtistEntries, problemRows } = classifySpotifyLinkRows(normalized);
+    spotifyLinkParsed = { linkRows, newArtistEntries };
+    const newArtistSongs = newArtistEntries.reduce((n, e) => n + e.tracks.length, 0);
+
+    const linkRowsHtml = linkRows.map((r, i) => `
+      <tr>
+        <td>${i + 1}</td>
+        <td>${escapeHtml(r.artistName)}</td>
+        <td>${escapeHtml(r.songTitle)}</td>
+        <td>Link to existing artist</td>
+      </tr>
+    `).join("");
+
+    const newArtistRowsHtml = newArtistEntries.map((e, i) => `
+      <tr>
+        <td>${i + 1}</td>
+        <td>${escapeHtml(e.artistName)}</td>
+        <td>${escapeHtml(e.cityName)}, ${escapeHtml(e.state)}</td>
+        <td>${e.tracks.length}</td>
+        <td>New artist</td>
+      </tr>
+    `).join("");
+
+    const problemRowsHtml = problemRows.map(r => `
+      <tr class="bulk-row-error">
+        <td>row ${r.rowNum}</td>
+        <td>${escapeHtml(r.artistName || "—")}</td>
+        <td>${escapeHtml(r.songTitle || "—")}</td>
+        <td>${escapeHtml(r.problem)}</td>
+      </tr>
+    `).join("");
+
+    previewEl.innerHTML = `
+      ${linkRows.length ? `
+        <p class="section-heading">Link to existing artists (${linkRows.length})</p>
+        <table class="bulk-table">
+          <thead><tr><th>#</th><th>Artist</th><th>Song</th><th>Action</th></tr></thead>
+          <tbody>${linkRowsHtml}</tbody>
+        </table>
+      ` : ""}
+      ${newArtistEntries.length ? `
+        <p class="section-heading">New artists to add (${newArtistEntries.length})</p>
+        <table class="bulk-table">
+          <thead><tr><th>#</th><th>Artist</th><th>City</th><th>Songs</th><th>Action</th></tr></thead>
+          <tbody>${newArtistRowsHtml}</tbody>
+        </table>
+      ` : ""}
+      ${problemRows.length ? `
+        <p class="page-subtitle" style="margin-top:1rem;">${problemRows.length} row(s) skipped — fix and re-upload if you want them included:</p>
+        <table class="bulk-table">
+          <thead><tr><th>Row</th><th>Artist</th><th>Song</th><th>Problem</th></tr></thead>
+          <tbody>${problemRowsHtml}</tbody>
+        </table>
+      ` : ""}
+    `;
+
+    statusEl.textContent = `${linkRows.length} song(s) to link, ${newArtistEntries.length} new artist(s) (${newArtistSongs} song(s) total)` +
+      (problemRows.length ? `, ${problemRows.length} row(s) skipped.` : ".");
+    submitBtn.disabled = linkRows.length === 0 && newArtistEntries.length === 0;
+  } catch (err) {
+    statusEl.className = "form-status is-error";
+    statusEl.textContent = "Couldn't read that file — " + err.message;
+  }
+}
+
+function buildLinkRowBatches(linkRows) {
+  const batches = [];
+  for (let i = 0; i < linkRows.length; i += SPOTIFY_LINK_BATCH_SIZE) batches.push(linkRows.slice(i, i + SPOTIFY_LINK_BATCH_SIZE));
+  return batches;
+}
+
+// Submits in two phases — all linkRows batches (cheap, no external calls
+// per row), then all newArtistEntries batches (same geocode-per-new-city
+// cost/pacing as regular Bulk Upload, via the same buildBulkBatches used
+// there). Sequential, never parallel, so each batch's read-modify-write of
+// data.json always sees the previous batch's committed state.
+async function submitSpotifyLinkUpload() {
+  const statusEl = document.getElementById("spotify-link-status");
+  const submitBtn = document.getElementById("spotify-link-submit-btn");
+  const { linkRows, newArtistEntries } = spotifyLinkParsed;
+  if (!linkRows.length && !newArtistEntries.length) return;
+
+  submitBtn.disabled = true;
+  const linkBatches = buildLinkRowBatches(linkRows);
+  const artistBatches = buildBulkBatches(newArtistEntries);
+  const totalBatches = linkBatches.length + artistBatches.length;
+
+  let linkedTotal = 0, addedTotal = 0, skippedTotal = 0, pinsTotal = 0;
+  const failures = [];
+  let batchNum = 0;
+
+  try {
+    for (const batch of linkBatches) {
+      batchNum++;
+      statusEl.className = "form-status";
+      statusEl.textContent = `Batch ${batchNum} of ${totalBatches} — linking Spotify tracks…`;
+      const res = await fetch(AREA_CODES_CONFIG.ADD_ARTIST_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "bulk_spotify_links", password: storedPassword(), linkRows: batch, newArtistEntries: [] })
+      });
+      if (!res.ok) throw new Error(await res.text());
+      const result = await res.json();
+      linkedTotal += result.linkedCount || 0;
+      (result.linkResults || []).filter(r => !r.ok).forEach(r => failures.push(r));
+    }
+
+    for (const batch of artistBatches) {
+      batchNum++;
+      statusEl.className = "form-status";
+      statusEl.textContent = `Batch ${batchNum} of ${totalBatches} — adding new artists…`;
+      const res = await fetch(AREA_CODES_CONFIG.ADD_ARTIST_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "bulk_spotify_links", password: storedPassword(), linkRows: [], newArtistEntries: batch })
+      });
+      if (!res.ok) throw new Error(await res.text());
+      const result = await res.json();
+      addedTotal += result.addedCount || 0;
+      skippedTotal += result.skippedCount || 0;
+      pinsTotal += result.pinsAdded || 0;
+      (result.newArtistResults || []).filter(r => !r.ok).forEach(r => failures.push(r));
+    }
+  } catch (err) {
+    statusEl.className = "form-status is-error";
+    statusEl.textContent = `Stopped at batch ${batchNum} of ${totalBatches} — ${linkedTotal} link(s) and ${addedTotal} new artist(s) saved before this failed (${err.message}). Those are already live; re-upload the rest as a new file.`;
+    submitBtn.disabled = false;
+    return;
+  }
+
+  let msg = `Linked ${linkedTotal} Spotify track(s), added ${addedTotal} new artist(s) (${pinsTotal} new map pin(s)).`;
+  if (skippedTotal) msg += ` ${skippedTotal} skipped (already existed).`;
+  if (failures.length) msg += ` ${failures.length} row(s) failed: ` + failures.slice(0, 5).map(f => `${f.artist} (${f.error})`).join("; ") + (failures.length > 5 ? "…" : "");
+  statusEl.className = "form-status";
+  statusEl.textContent = msg + " Live on the site shortly.";
+}
+
+function renderSpotifyLinkForm() {
+  spotifyLinkParsed = { linkRows: [], newArtistEntries: [] };
+  app.innerHTML = `
+    <p class="crumbs"><a href="#/add">Add an Artist</a> / Spotify Links Upload</p>
+    <h1 class="page-title">Bulk Upload Spotify Links</h1>
+    <p class="page-subtitle">Upload a CSV or XLSX with exact artist names, exact song titles, and Spotify URLs. Rows for artists already on the site just get that song linked (no Spotify search — you're providing the exact link). Rows for artists not yet on the site create them, same as Bulk Upload.</p>
+    <p><button type="button" class="retro-btn" onclick="downloadSpotifyLinkTemplate()">Download CSV template</button></p>
+    <p class="page-subtitle">Columns: <code>artist_name, song_title, spotify_url, state, city, note</code> — state/city/note only required for artists not already on the site. A Spotify URL, URI, or bare track ID all work. Note: this only links songs that already exist for an existing artist — it can't add a new song to an artist who's already on the site.</p>
+    <p><input type="file" class="retro-field" accept=".csv,.xlsx" onchange="handleSpotifyLinkFile(event)"></p>
+    <div id="spotify-link-preview"></div>
+    <p class="form-actions">
+      <button type="button" id="spotify-link-submit-btn" class="retro-btn" disabled onclick="submitSpotifyLinkUpload()">Submit All</button>
+      <span id="spotify-link-status" class="form-status"></span>
+    </p>
+  `;
+}
+
+function renderSpotifyLinkUpload() {
+  if (!isConfigured()) return renderNotConfigured();
+  if (!storedPassword()) return renderAddGate();
+  renderSpotifyLinkForm();
+}
+
 // ---- hidden admin page: remove a batch of artists by exact name ----
 // Not linked from anywhere in the site's normal navigation — reachable only
 // by going directly to #/add/remove-batch. Built for undoing a bad bulk
@@ -1464,9 +1847,10 @@ const THEMEABLE_VARS = [
   { key: "--line-width", label: "Outline / border thickness", type: "px", default: "1px" },
 ];
 const THEMEABLE_VARS_MAP = [
-  { key: "--state-empty-color", label: "Undiscovered state name color", type: "color", default: "#606060" },
+  // Also drives .key-swatch.is-empty (the small square in the country-map
+  // key) — same variable, one picker controls both.
+  { key: "--state-empty-color", label: "Undiscovered state color (name + map key)", type: "color", default: "#606060" },
   { key: "--map-bg", label: "State map background", type: "color", default: "#c0c0c0" },
-  { key: "--map-border-color", label: "State map outline color", type: "color", default: "#000000" },
   { key: "--map-fill", label: "State shape fill color", type: "color", default: "#c0c0c0" },
 ];
 const THEMEABLE_VARS_ADVANCED = [
@@ -1477,9 +1861,21 @@ const THEMEABLE_VARS_ADVANCED = [
 ];
 const ALL_THEMEABLE_VARS = THEMEABLE_VARS.concat(THEMEABLE_VARS_MAP, THEMEABLE_VARS_ADVANCED);
 
+// Editable plain-text labels (as opposed to CSS vars above) — see
+// LABEL_TARGET_SELECTORS for what DOM element each key controls.
+const THEMEABLE_LABELS = [
+  { key: "addArtistBtn", label: "Footer button text", default: "Login" },
+];
+
 function defaultThemeVars() {
   const out = {};
   ALL_THEMEABLE_VARS.forEach(t => { out[t.key] = t.default; });
+  return out;
+}
+
+function defaultThemeLabels() {
+  const out = {};
+  THEMEABLE_LABELS.forEach(l => { out[l.key] = l.default; });
   return out;
 }
 
@@ -1489,6 +1885,21 @@ function previewThemeVar(key, type, value) {
 
 function previewCustomCss(css) {
   setCustomCssStyleTag(css);
+}
+
+function previewThemeLabel(key, value) {
+  applyThemeLabel(key, value);
+}
+
+function themeLabelFieldHtml(l, labels) {
+  const raw = (labels && labels[l.key] !== undefined && labels[l.key] !== "") ? labels[l.key] : l.default;
+  return `
+    <div class="theme-field">
+      <label for="theme-label-${l.key}">${escapeHtml(l.label)}</label>
+      <input type="text" class="retro-field" id="theme-label-${l.key}" data-theme-label-key="${l.key}"
+        value="${escapeAttr(raw)}" oninput="previewThemeLabel('${l.key}', this.value)">
+    </div>
+  `;
 }
 
 function themeFieldHtml(t, vars) {
@@ -1516,10 +1927,12 @@ function renderThemeForm(previewSource) {
   const source = previewSource || THEME;
   const vars = source.vars || {};
   const customCss = source.customCss || "";
+  const labels = source.labels || {};
   applyThemeObject(source);
 
   const fields = THEMEABLE_VARS.map(t => themeFieldHtml(t, vars)).join("");
   const mapFields = THEMEABLE_VARS_MAP.map(t => themeFieldHtml(t, vars)).join("");
+  const labelFields = THEMEABLE_LABELS.map(l => themeLabelFieldHtml(l, labels)).join("");
   const advancedFields = THEMEABLE_VARS_ADVANCED.map(t => themeFieldHtml(t, vars)).join("");
 
   app.innerHTML = `
@@ -1529,6 +1942,8 @@ function renderThemeForm(previewSource) {
     <div class="theme-form">${fields}</div>
     <h2 class="section-heading">State Map</h2>
     <div class="theme-form">${mapFields}</div>
+    <h2 class="section-heading">Site Text</h2>
+    <div class="theme-form">${labelFields}</div>
     <details class="theme-advanced">
       <summary>Advanced colors</summary>
       <div class="theme-form">${advancedFields}</div>
@@ -1556,20 +1971,29 @@ function collectThemeFormVars() {
   return vars;
 }
 
+function collectThemeFormLabels() {
+  const labels = {};
+  document.querySelectorAll("[data-theme-label-key]").forEach(el => {
+    labels[el.dataset.themeLabelKey] = el.value;
+  });
+  return labels;
+}
+
 async function submitThemeUpdate() {
   const statusEl = document.getElementById("theme-status");
   statusEl.className = "form-status";
   statusEl.textContent = "Saving…";
   const vars = collectThemeFormVars();
   const customCss = document.getElementById("theme-custom-css-input").value;
+  const labels = collectThemeFormLabels();
   try {
     const res = await fetch(AREA_CODES_CONFIG.ADD_ARTIST_ENDPOINT, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ action: "update_theme", password: storedPassword(), vars, customCss })
+      body: JSON.stringify({ action: "update_theme", password: storedPassword(), vars, customCss, labels })
     });
     if (!res.ok) throw new Error(await res.text());
-    THEME = { vars, customCss };
+    THEME = { vars, customCss, labels };
     statusEl.textContent = "Saved — live for everyone within about a minute.";
   } catch (err) {
     statusEl.className = "form-status is-error";
@@ -1582,7 +2006,7 @@ function discardThemeChanges() {
 }
 
 function resetThemeFormToDefaults() {
-  renderThemeForm({ vars: defaultThemeVars(), customCss: "" });
+  renderThemeForm({ vars: defaultThemeVars(), customCss: "", labels: defaultThemeLabels() });
 }
 
 function renderTheme() {
@@ -1606,6 +2030,7 @@ function router() {
   if (parts[0] === "add" && parts[1] === "bulk") return renderBulk();
   if (parts[0] === "add" && parts[1] === "remove-batch") return renderRemoveBatch();
   if (parts[0] === "add" && parts[1] === "relink-spotify") return renderRelinkSpotify();
+  if (parts[0] === "add" && parts[1] === "spotify-links") return renderSpotifyLinkUpload();
   if (parts[0] === "add" && parts[1] === "theme") return renderTheme();
   if (parts[0] === "add") return renderAdd();
   if (parts[0] === "edit" && parts[1] && parts[2] && parts[3]) return renderEdit(parts[1], parts[2], parts[3]);
@@ -1643,7 +2068,7 @@ function renderFooterBadges() {
 
   el.innerHTML = `
     <div class="retro-badges">
-      <a href="#/add" class="retro-badge-link">Add an artist!</a>
+      <a href="#/add" class="retro-badge-link">Login</a>
       <span class="retro-badge retro-badge-seal">100% human-curated</span>
     </div>
   `;
