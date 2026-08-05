@@ -3396,7 +3396,25 @@
             "tracks": [
               {
                 "title": "I Wish",
-                "spotifyId": "3LklW07tvdx2AHsgfi1Mng"
+                "spotifyId": "3LklW07tvdx2AHsgfi1Mng",
+                "producers": [
+                  {
+                    "name": "Walter \"Kandor\" Kahn",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  },
+                  {
+                    "name": "Skee-Lo",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  }
+                ]
               }
             ]
           },
@@ -3405,7 +3423,33 @@
             "note": "LA duo known for laid-back, melodic pop-rap.",
             "tracks": [
               {
-                "title": "Magic in the Hamptons (feat. Lil Yachty)"
+                "title": "Magic in the Hamptons (feat. Lil Yachty)",
+                "producers": [
+                  {
+                    "name": "Mikey Foster",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  },
+                  {
+                    "name": "Anton Göransson",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  },
+                  {
+                    "name": "TBHits",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  }
+                ]
               }
             ]
           },
@@ -3423,7 +3467,41 @@
             "note": "LA artist blending pop-punk energy with rap and internet-era virality.",
             "tracks": [
               {
-                "title": "fast"
+                "title": "fast",
+                "producers": [
+                  {
+                    "name": "Jad Antoury",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  },
+                  {
+                    "name": "Max Louis",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  },
+                  {
+                    "name": "Sueco",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  },
+                  {
+                    "name": "Dean Straub",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  }
+                ]
               }
             ]
           },
@@ -3441,7 +3519,17 @@
             "note": "LA singer-rapper known for melodic, R&B-leaning hip-hop.",
             "tracks": [
               {
-                "title": "This D"
+                "title": "This D",
+                "producers": [
+                  {
+                    "name": "DJ Mustard",
+                    "city": "Los Angeles",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  }
+                ]
               }
             ]
           },
