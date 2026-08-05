@@ -3,32 +3,88 @@
     {
       "id": "northeast-new-england",
       "name": "Northeast / New England",
-      "color": "#add8e6",
-      "states": ["CT", "ME", "MA", "NH", "RI", "VT", "NJ", "NY", "PA"]
+      "color": "#e0f7ff",
+      "states": [
+        "CT",
+        "ME",
+        "MA",
+        "NH",
+        "RI",
+        "VT",
+        "NJ",
+        "NY",
+        "PA"
+      ]
     },
     {
       "id": "south",
       "name": "South",
-      "color": "#ffff99",
-      "states": ["DE", "FL", "GA", "MD", "NC", "SC", "VA", "WV", "DC", "AL", "KY", "MS", "TN", "LA", "AR"]
+      "color": "#ffffd6",
+      "states": [
+        "DE",
+        "FL",
+        "GA",
+        "MD",
+        "NC",
+        "SC",
+        "VA",
+        "WV",
+        "DC",
+        "AL",
+        "KY",
+        "MS",
+        "TN",
+        "LA",
+        "AR"
+      ]
     },
     {
       "id": "midwest",
       "name": "Midwest",
-      "color": "#d9b3ff",
-      "states": ["IL", "IN", "MI", "OH", "WI", "IA", "KS", "MN", "MO", "NE", "ND", "SD"]
+      "color": "#f0e0ff",
+      "states": [
+        "IL",
+        "IN",
+        "MI",
+        "OH",
+        "WI",
+        "IA",
+        "KS",
+        "MN",
+        "MO",
+        "NE",
+        "ND",
+        "SD"
+      ]
     },
     {
       "id": "southwest",
       "name": "Southwest",
-      "color": "#ffb3b3",
-      "states": ["AZ", "NM", "TX", "OK", "NV", "UT", "CO", "MT", "WY"]
+      "color": "#ffe0e0",
+      "states": [
+        "AZ",
+        "NM",
+        "TX",
+        "OK",
+        "NV",
+        "UT",
+        "CO",
+        "MT",
+        "WY"
+      ]
     },
     {
       "id": "west-coast-pacific-northwest",
       "name": "West Coast / Pacific Northwest",
-      "color": "#b3e6b3",
-      "states": ["CA", "OR", "WA", "AK", "HI", "ID"]
+      "color": "#e5ffe5",
+      "states": [
+        "CA",
+        "OR",
+        "WA",
+        "AK",
+        "HI",
+        "ID"
+      ]
     }
   ]
 }
