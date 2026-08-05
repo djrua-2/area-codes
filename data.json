@@ -196,7 +196,8 @@
             "note": "Opium collective member known for hazy, distorted rage-rap production.",
             "tracks": [
               {
-                "title": "NOSTYLIST"
+                "title": "NOSTYLIST",
+                "spotifyId": "42tD9J0KCPFSc1d2hFTvAf"
               }
             ]
           },
@@ -734,6 +735,10 @@
               },
               {
                 "title": "pick up the phone (feat. Quavo)"
+              },
+              {
+                "title": "Love You More (with Nate Ruess, Gunna & Jeff Bhasker)",
+                "spotifyId": "4pUxYUHVKXWsgGhEhOu7R9"
               }
             ]
           },
@@ -1138,7 +1143,8 @@
             "note": "2Pac's posthumous alter-ego persona, rooted in his Bay Area come-up.",
             "tracks": [
               {
-                "title": "Me And My Girlfriend"
+                "title": "Me And My Girlfriend",
+                "spotifyId": "5kGsDi86P9pZux4x4wopHV"
               }
             ]
           },
@@ -1314,6 +1320,10 @@
               },
               {
                 "title": "4 Da Gang"
+              },
+              {
+                "title": "4 Da Gang (with Roddy Ricch)",
+                "spotifyId": "1mAey8kEPmDM2icL56kS9d"
               }
             ]
           },
@@ -1446,6 +1456,10 @@
               },
               {
                 "title": "Crack a Bottle (feat. Dr. Dre & 50 Cent)"
+              },
+              {
+                "title": "Stan",
+                "spotifyId": "3UmaczJpikHgJFyBTAJVoz"
               }
             ]
           },
@@ -1793,6 +1807,14 @@
               {
                 "title": "No Flockin'",
                 "spotifyId": "34oWbFBfGEElvgO0a5c9V4"
+              },
+              {
+                "title": "Roll in Peace (feat. XXXTENTACION)",
+                "spotifyId": "40oKW22ZNNkEdZLJTScaQI"
+              },
+              {
+                "title": "Heart Mind",
+                "spotifyId": "2OPxM2L3KtuehqY24vTMGs"
               }
             ]
           }
@@ -2131,6 +2153,10 @@
             "tracks": [
               {
                 "title": "Broke +-"
+              },
+              {
+                "title": "Wow Freestyle (feat. Kendrick Lamar)",
+                "spotifyId": "0gV5B7zmJkS1aaH9APokrH"
               }
             ]
           },
@@ -3214,6 +3240,10 @@
             "tracks": [
               {
                 "title": "Se Acabo (feat. Method Man) [Remix]"
+              },
+              {
+                "title": "Se Acabo (feat. Method Man)",
+                "spotifyId": "4F3AZKEJubvPsl0hBArVBW"
               }
             ]
           },
@@ -3523,7 +3553,8 @@
             "note": "Brooklyn rapper and Junior M.A.F.I.A. member known for a bold, fashion-forward persona.",
             "tracks": [
               {
-                "title": "Crush On You"
+                "title": "Crush On You",
+                "spotifyId": "1bb6bROP3OXMHcPw84MtmN"
               }
             ]
           },
@@ -3854,6 +3885,10 @@
               },
               {
                 "title": "DANCE (You See It)"
+              },
+              {
+                "title": "Working On It",
+                "spotifyId": "55iqYfPGIKhHpuCn7XFatf"
               }
             ]
           },
@@ -3892,6 +3927,10 @@
               {
                 "title": "Soft Landing",
                 "spotifyId": "0TFzKqmZl7HjklWP0KWqXt"
+              },
+              {
+                "title": "Sauvage",
+                "spotifyId": "60Cm4aPAWANgWW3H9eW5xq"
               }
             ]
           },
@@ -4099,6 +4138,10 @@
             "tracks": [
               {
                 "title": "Demons and Angels (feat. Juice WRLD)"
+              },
+              {
+                "title": "Drowning (feat. Kodak Black)",
+                "spotifyId": "1f5cbQtDrykjarZVrShaDI"
               }
             ]
           },
@@ -4279,6 +4322,10 @@
             "tracks": [
               {
                 "title": "Something Dirty / Pic Got Us (feat. Kendrick Lamar, Jadakiss & Styles P)"
+              },
+              {
+                "title": "Something Dirty/Pic Got Us (feat. Kendrick Lamar, Jadakiss & Styles P)",
+                "spotifyId": "2ZoxdWVXp1jytovFuul6yX"
               }
             ]
           }
@@ -4314,6 +4361,10 @@
               },
               {
                 "title": "WAM"
+              },
+              {
+                "title": "Dreams, Fairytales, Fantasies (feat. Brent Faiyaz & Salaam Remi)",
+                "spotifyId": "5oady7OSE7dH7LHiqmb3Cr"
               }
             ]
           },
@@ -4343,6 +4394,10 @@
               {
                 "title": "RIOT (Rowdy Pipe'n)",
                 "spotifyId": "0B1xarnfKvUFWUoFdQnooq"
+              },
+              {
+                "title": "Babushka Boi",
+                "spotifyId": "643PW82aBMUa1FiWi5VQY7"
               }
             ]
           },
@@ -4569,6 +4624,10 @@
             "tracks": [
               {
                 "title": "The Brenda Song (feat. Kanye West)"
+              },
+              {
+                "title": "The Brenda Song",
+                "spotifyId": "1w1NDbJUo7JqDjvN0LdiXM"
               }
             ]
           },
@@ -4798,6 +4857,10 @@
               },
               {
                 "title": "New God Flow.1"
+              },
+              {
+                "title": "I Wonder",
+                "spotifyId": "7rbECVPkY5UODxoOUVKZnA"
               }
             ]
           },
@@ -5202,6 +5265,10 @@
             "tracks": [
               {
                 "title": "A Bitch Curious (feat. Sam Truth)"
+              },
+              {
+                "title": "Don't Ask, Don't Tell (feat. redveil, Sam Truth & Glen the Saiyan)",
+                "spotifyId": "1TpqQGpvD1yZVdzuy4WqW8"
               }
             ]
           },
@@ -5585,6 +5652,10 @@
             "tracks": [
               {
                 "title": "Getsomerest/Sleepwell"
+              },
+              {
+                "title": "Everything is Different (To Me)",
+                "spotifyId": "6x3sun3UqxP4g0Juw7ZXx4"
               }
             ]
           },
@@ -6433,7 +6504,8 @@
             "note": "Griselda co-founder known for gritty street narratives delivered in a distinctive slurred cadence.",
             "tracks": [
               {
-                "title": "Scatter Brain (feat. Ludacris & JID)"
+                "title": "Scatter Brain (feat. Ludacris & JID)",
+                "spotifyId": "4w7lBzX0EcDuy8tQLQvjC2"
               }
             ]
           },
@@ -6446,6 +6518,10 @@
               },
               {
                 "title": "2 Stings"
+              },
+              {
+                "title": "The Fly who couldn't Fly straight (feat. Tyler, The Creator)",
+                "spotifyId": "6bCbBTw3mqHWQwhFMMaOOq"
               }
             ]
           }
@@ -6550,7 +6626,8 @@
                 "title": "1999 (feat. Lloyd)"
               },
               {
-                "title": "Fly The Coop"
+                "title": "Fly The Coop",
+                "spotifyId": "2EtLw937H91M9tb9eKngRF"
               }
             ]
           }
@@ -6830,6 +6907,14 @@
               {
                 "title": "meet the grahams",
                 "spotifyId": "4S8PxReB1UiDR2F5x1lyIR"
+              },
+              {
+                "title": "Now Or Never - Bonus Track",
+                "spotifyId": "4KjnaUNYPwGnJjoeTFlt91"
+              },
+              {
+                "title": "Mother I Sober (feat. Beth Gibbons of Portishead)",
+                "spotifyId": "6NZOc8kO0Fxo0fLPvIdLnW"
               }
             ]
           },
@@ -7378,6 +7463,14 @@
               },
               {
                 "title": "New God Flow"
+              },
+              {
+                "title": "Nosetalgia",
+                "spotifyId": "7aK5rlTVxSgcqShPMI1TTH"
+              },
+              {
+                "title": "Neck & Wrist (feat. JAY-Z & Pharrell)",
+                "spotifyId": "5QNW6Vx14N4OfJ7D0eDg0d"
               }
             ]
           }
@@ -7872,6 +7965,10 @@
               },
               {
                 "title": "Lemonade (feat. NAV)"
+              },
+              {
+                "title": "Lemonade (feat. Gunna, Don Toliver & NAV)",
+                "spotifyId": "7hxHWCCAIIxFLCzvDgnQHX"
               }
             ]
           },
@@ -8234,6 +8331,10 @@
             "tracks": [
               {
                 "title": "I See Now"
+              },
+              {
+                "title": "Lovin' It (feat. Joe Scudda)",
+                "spotifyId": "6piDHcH0vdPWzIg2uU2q3K"
               }
             ]
           },
@@ -9465,7 +9566,8 @@
             "note": "Rochester rapper known for a prolific, stream-of-consciousness style.",
             "tracks": [
               {
-                "title": "American Tterroristt"
+                "title": "American Tterroristt",
+                "spotifyId": "0ZMI0JL8jU98SxGb27gkaR"
               },
               {
                 "title": "Dub 4 U"
