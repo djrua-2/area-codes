@@ -3614,7 +3614,25 @@
               },
               {
                 "title": "Potato Salad",
-                "spotifyId": "1jzIJcHCXneHw7ojC6LXiF"
+                "spotifyId": "1jzIJcHCXneHw7ojC6LXiF",
+                "producers": [
+                  {
+                    "name": "Missy Elliott",
+                    "city": "Portsmouth",
+                    "state": "VA",
+                    "lat": 36.8320081,
+                    "lon": -76.297699,
+                    "distanceMiles": 2350
+                  },
+                  {
+                    "name": "Kanye West",
+                    "city": "Chicago",
+                    "state": "IL",
+                    "lat": 41.8755616,
+                    "lon": -87.6244212,
+                    "distanceMiles": 1742
+                  }
+                ]
               },
               {
                 "title": "SMUCKERS (feat. Lil Wayne & Kanye West)",
@@ -3676,7 +3694,41 @@
             "tracks": [
               {
                 "title": "Freeze Tag (feat. Phoelix)",
-                "spotifyId": "3t3ZvTvH2juv335N5E1ANK"
+                "spotifyId": "3t3ZvTvH2juv335N5E1ANK",
+                "producers": [
+                  {
+                    "name": "Terrace Martin",
+                    "city": "Los Angeles",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  },
+                  {
+                    "name": "Robert Glasper",
+                    "city": "Houston",
+                    "state": "TX",
+                    "lat": 29.7589382,
+                    "lon": -95.3676974,
+                    "distanceMiles": 1371
+                  },
+                  {
+                    "name": "9th Wonder",
+                    "city": "Winston-Salem",
+                    "state": "NC",
+                    "lat": 36.0998131,
+                    "lon": -80.2440518,
+                    "distanceMiles": 2140
+                  },
+                  {
+                    "name": "Kamasi Washington",
+                    "city": "Inglewood, Los Angeles",
+                    "state": "CA",
+                    "lat": 33.9562003,
+                    "lon": -118.353132,
+                    "distanceMiles": 9
+                  }
+                ]
               }
             ],
             "addedAt": "2026-08-05T01:06:00.011Z",
@@ -3688,7 +3740,33 @@
             "tracks": [
               {
                 "title": "Ego Death (feat. Kanye West, FKA twigs & Skrillex)",
-                "spotifyId": "4JB0EAT4BkLShTyTt50FmO"
+                "spotifyId": "4JB0EAT4BkLShTyTt50FmO",
+                "producers": [
+                  {
+                    "name": "Ty Dolla $ign",
+                    "city": "Los Angeles",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  },
+                  {
+                    "name": "Skrillex",
+                    "city": "Los Angeles",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  },
+                  {
+                    "name": "BoogzDaBeast",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  }
+                ]
               },
               {
                 "title": "Blasé (feat. Future & Rae Sremmurd) - Louis the Child Remix",
@@ -3800,7 +3878,17 @@
             "tracks": [
               {
                 "title": "Them Changes (feat. Flying Lotus & Kamasi Washington)",
-                "spotifyId": "7hmiDaBxoyLW094H8vup2S"
+                "spotifyId": "7hmiDaBxoyLW094H8vup2S",
+                "producers": [
+                  {
+                    "name": "Flying Lotus",
+                    "city": "Los Angeles",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  }
+                ]
               }
             ],
             "addedAt": "2026-08-05T01:06:09.338Z",
