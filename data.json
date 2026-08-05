@@ -2432,7 +2432,17 @@
             "note": "Black Eyed Peas member turned solo pop-rap star.",
             "tracks": [
               {
-                "title": "Fergalicious (feat. will.i.am)"
+                "title": "Fergalicious (feat. will.i.am)",
+                "producers": [
+                  {
+                    "name": "will.i.am",
+                    "city": "Los Angeles",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  }
+                ]
               }
             ],
             "birthYear": 1975
@@ -2452,7 +2462,17 @@
             "tracks": [
               {
                 "title": "Did A Lot",
-                "spotifyId": "3OV02vqUlHie0Ja5kep6Sz"
+                "spotifyId": "3OV02vqUlHie0Ja5kep6Sz",
+                "producers": [
+                  {
+                    "name": "Gotdamnitdupri",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  }
+                ]
               }
             ]
           },
@@ -2490,7 +2510,17 @@
             "note": "LA group best known for the crossover anthem \"Jump Around.\"",
             "tracks": [
               {
-                "title": "Jump Around"
+                "title": "Jump Around",
+                "producers": [
+                  {
+                    "name": "DJ Muggs",
+                    "city": "Queens",
+                    "state": "NY",
+                    "lat": 40.7135078,
+                    "lon": -73.8283132,
+                    "distanceMiles": 2455
+                  }
+                ]
               }
             ]
           },
@@ -2499,7 +2529,25 @@
             "note": "South Central rapper and N.W.A co-founder central to gangsta rap's rise.",
             "tracks": [
               {
-                "title": "Check Yo Self (Remix)"
+                "title": "Check Yo Self (Remix)",
+                "producers": [
+                  {
+                    "name": "DJ Muggs",
+                    "city": "Queens",
+                    "state": "NY",
+                    "lat": 40.7135078,
+                    "lon": -73.8283132,
+                    "distanceMiles": 2455
+                  },
+                  {
+                    "name": "Ice Cube",
+                    "city": "Los Angeles",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  }
+                ]
               }
             ],
             "birthYear": 1969
@@ -2521,7 +2569,17 @@
             "note": "Early female rap trio out of Rialto, foundational to West Coast hip-hop's commercial rise.",
             "tracks": [
               {
-                "title": "Supersonic"
+                "title": "Supersonic",
+                "producers": [
+                  {
+                    "name": "Dr. Dre",
+                    "city": "Compton",
+                    "state": "CA",
+                    "lat": 33.894927,
+                    "lon": -118.226624,
+                    "distanceMiles": 11
+                  }
+                ]
               }
             ]
           },
@@ -3220,7 +3278,25 @@
             "tracks": [
               {
                 "title": "Like That (feat. Gucci Mane)",
-                "spotifyId": "4EivmOT13NMpNSfTKn9p4s"
+                "spotifyId": "4EivmOT13NMpNSfTKn9p4s",
+                "producers": [
+                  {
+                    "name": "Dr. Luke (Tyson Trax)",
+                    "city": "Providence",
+                    "state": "RI",
+                    "lat": 41.8239891,
+                    "lon": -71.4128343,
+                    "distanceMiles": 2575
+                  },
+                  {
+                    "name": "Mike Crook",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  }
+                ]
               }
             ],
             "addedAt": "2026-08-05T01:06:03.833Z",
@@ -3244,11 +3320,31 @@
             "tracks": [
               {
                 "title": "Do The Astral Plane",
-                "spotifyId": "6psC59ooTxage8npmtg74G"
+                "spotifyId": "6psC59ooTxage8npmtg74G",
+                "producers": [
+                  {
+                    "name": "Flying Lotus",
+                    "city": "Los Angeles",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  }
+                ]
               },
               {
                 "title": "Never Catch Me",
-                "spotifyId": "6CTG85NJI1Wm60pxTSRNwL"
+                "spotifyId": "6CTG85NJI1Wm60pxTSRNwL",
+                "producers": [
+                  {
+                    "name": "Flying Lotus",
+                    "city": "Los Angeles",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  }
+                ]
               }
             ],
             "addedAt": "2026-08-05T01:06:09.338Z",
