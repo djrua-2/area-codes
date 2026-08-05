@@ -1386,6 +1386,65 @@ function renderBulkForm() {
   `;
 }
 
+// ---- admin page: export every artist's exact name + city + state ----
+// Read-only — a reference/audit CSV (e.g. for spotting a typo'd or
+// inconsistent city name like "The Bronx, NY" vs "Bronx, NY") in the same
+// column shape the other bulk tools use. There's no matching bulk
+// re-import for renames/city moves (the other tools only add artists or
+// link songs), so editing this file and re-uploading it through Bulk
+// Upload won't rename or relocate anyone — see renderExportForm's copy.
+function csvField(value) {
+  const s = String(value == null ? "" : value);
+  return /["\n,]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+}
+
+function buildArtistExportRows() {
+  const rows = [];
+  regions.forEach(region => {
+    region.cities.forEach(city => {
+      (city.artists || []).forEach(a => {
+        rows.push({ artistName: a.name, city: city.name, state: city.state || "" });
+      });
+      (city.neighborhoods || []).forEach(hood => {
+        (hood.artists || []).forEach(a => {
+          rows.push({ artistName: a.name, city: hood.name, state: city.state || "" });
+        });
+      });
+    });
+  });
+  return rows;
+}
+
+function downloadArtistExport() {
+  const rows = buildArtistExportRows();
+  const csv = ["artist_name", "city", "state"].join(",") + "\n" +
+    rows.map(r => [csvField(r.artistName), csvField(r.city), csvField(r.state)].join(",")).join("\n") + "\n";
+  const blob = new Blob([csv], { type: "text/csv" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "area-codes-artist-export.csv";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function renderExportForm() {
+  const rowCount = buildArtistExportRows().length;
+  app.innerHTML = `
+    <p class="crumbs"><a href="#/add">Add an Artist</a> / Export Artist List</p>
+    <h1 class="page-title">Export Artist List</h1>
+    <p class="page-subtitle">Downloads a CSV with every artist's exact name, city, and state as currently stored on the site — ${rowCount} artist(s), one row each. The city column is the exact stored value (e.g. "Savannah, GA") — handy for spotting typos or naming inconsistencies (like a duplicate city from two slightly different spellings) outside the site.</p>
+    <p class="page-subtitle">This is read-only — there's no matching bulk re-import yet. Re-uploading an edited copy through Bulk Upload won't rename anyone or move them to a new city; it'll just be read as ordinary add/link rows.</p>
+    <p><button type="button" class="retro-btn" onclick="downloadArtistExport()">Download CSV</button></p>
+  `;
+}
+
+function renderExport() {
+  if (!isConfigured()) return renderNotConfigured();
+  if (!storedPassword()) return renderAddGate();
+  renderExportForm();
+}
+
 // ---- hidden admin page: bulk-upload manual Spotify links ----
 // Not linked from anywhere in the site's normal navigation — reachable only
 // by going directly to #/add/spotify-links (also linked from the Add
@@ -2148,6 +2207,7 @@ const ADMIN_HUB_GROUPS = [
       { href: "#/add/new", label: "+ Add an Artist" },
       { href: "#/add/bulk", label: "Bulk Upload Artists" },
       { href: "#/add/remove-batch", label: "Remove Artists in Bulk" },
+      { href: "#/add/export", label: "Export Artist List" },
     ],
   },
   {
@@ -2201,6 +2261,7 @@ function router() {
   if (parts[0] === "add" && parts[1] === "new") return renderAddNew();
   if (parts[0] === "add" && parts[1] === "bulk") return renderBulk();
   if (parts[0] === "add" && parts[1] === "remove-batch") return renderRemoveBatch();
+  if (parts[0] === "add" && parts[1] === "export") return renderExport();
   if (parts[0] === "add" && parts[1] === "relink-spotify") return renderRelinkSpotify();
   if (parts[0] === "add" && parts[1] === "spotify-links") return renderSpotifyLinkUpload();
   if (parts[0] === "add" && parts[1] === "theme") return renderTheme();
