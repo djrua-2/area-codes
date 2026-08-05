@@ -3052,6 +3052,32 @@
               }
             ],
             "addedAt": "2026-08-05T01:06:03.833Z"
+          },
+          {
+            "name": "Flying Lotus",
+            "note": "Experimental producer whose beat-scene innovation at Brainfeeder helped reshape LA's underground hip-hop and jazz fusion.",
+            "tracks": [
+              {
+                "title": "Do The Astral Plane",
+                "spotifyId": "6psC59ooTxage8npmtg74G"
+              },
+              {
+                "title": "Never Catch Me",
+                "spotifyId": "6CTG85NJI1Wm60pxTSRNwL"
+              }
+            ],
+            "addedAt": "2026-08-05T01:06:09.338Z"
+          },
+          {
+            "name": "Thundercat",
+            "note": "Virtuoso bassist whose jazz-funk fusion made him a defining voice of LA's Brainfeeder scene.",
+            "tracks": [
+              {
+                "title": "Them Changes (feat. Flying Lotus & Kamasi Washington)",
+                "spotifyId": "7hmiDaBxoyLW094H8vup2S"
+              }
+            ],
+            "addedAt": "2026-08-05T01:06:09.338Z"
           }
         ]
       }
@@ -7119,6 +7145,17 @@
               }
             ],
             "addedAt": "2026-08-05T01:06:03.833Z"
+          },
+          {
+            "name": "J A Y E L E C T R O N I C A",
+            "note": "Cryptic, densely lyrical rapper whose sparse output made him one of New Orleans' most mythologized MCs.",
+            "tracks": [
+              {
+                "title": "Exhibit A - Dirty",
+                "spotifyId": "6LN2EimThmsF7Mz0TS0Xj2"
+              }
+            ],
+            "addedAt": "2026-08-05T01:06:09.338Z"
           }
         ]
       }
@@ -11129,6 +11166,17 @@
               }
             ],
             "addedAt": "2026-08-05T01:06:03.833Z"
+          },
+          {
+            "name": "Grandmaster Flash & The Furious Five",
+            "note": "Pioneering DJ crew whose turntablism and \"The Message\" helped invent hip-hop itself in the Bronx.",
+            "tracks": [
+              {
+                "title": "The Message (feat. Melle Mel & Duke Bootee)",
+                "spotifyId": "5DuTNKFEjJIySAyJH1yNDU"
+              }
+            ],
+            "addedAt": "2026-08-05T01:06:09.338Z"
           }
         ]
       }
