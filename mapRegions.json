@@ -37,7 +37,7 @@
     {
       "id": "midwest",
       "name": "Midwest",
-      "color": "#f7e5ff",
+      "color": "#ede5ff",
       "titleColor": "#000000",
       "states": [
         "IL",
@@ -64,11 +64,7 @@
         "NM",
         "TX",
         "OK",
-        "NV",
-        "UT",
-        "CO",
-        "MT",
-        "WY"
+        "CO"
       ]
     },
     {
