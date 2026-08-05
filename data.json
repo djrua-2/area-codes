@@ -2578,6 +2578,22 @@
                     "lat": 33.894927,
                     "lon": -118.226624,
                     "distanceMiles": 11
+                  },
+                  {
+                    "name": "DJ Yella",
+                    "city": "Compton",
+                    "state": "CA",
+                    "lat": 33.894927,
+                    "lon": -118.226624,
+                    "distanceMiles": 11
+                  },
+                  {
+                    "name": "Arabian Prince",
+                    "city": "Compton",
+                    "state": "CA",
+                    "lat": 33.894927,
+                    "lon": -118.226624,
+                    "distanceMiles": 11
                   }
                 ]
               }
@@ -2610,7 +2626,33 @@
               },
               {
                 "title": "King's Dead (feat. Future)",
-                "spotifyId": "2jkLbanswkGDIG99MZa5sP"
+                "spotifyId": "2jkLbanswkGDIG99MZa5sP",
+                "producers": [
+                  {
+                    "name": "Mike WiLL Made-It",
+                    "city": "Marietta",
+                    "state": "GA",
+                    "lat": 33.9528472,
+                    "lon": -84.5496148,
+                    "distanceMiles": 1921
+                  },
+                  {
+                    "name": "Teddy Walton",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  },
+                  {
+                    "name": "Sounwave",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  }
+                ]
               }
             ],
             "birthYear": 1985
@@ -2734,7 +2776,33 @@
             "note": "LA rapper known for radio-friendly, hook-driven mainstream rap.",
             "tracks": [
               {
-                "title": "Be Real (feat. Dej Loaf)"
+                "title": "Be Real (feat. Dej Loaf)",
+                "producers": [
+                  {
+                    "name": "DJ Mustard",
+                    "city": "Los Angeles",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  },
+                  {
+                    "name": "J Gramm",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  },
+                  {
+                    "name": "Twice as Nice",
+                    "city": "Los Angeles, CA",
+                    "state": "CA",
+                    "lat": 34.0536909,
+                    "lon": -118.242766,
+                    "distanceMiles": 0
+                  }
+                ]
               }
             ],
             "birthYear": 1986
@@ -2774,7 +2842,17 @@
             "note": "LA rapper best known for the hyphy-adjacent hit \"Up!.\"",
             "tracks": [
               {
-                "title": "Up! (feat. IamSu & Skipper)"
+                "title": "Up! (feat. IamSu & Skipper)",
+                "producers": [
+                  {
+                    "name": "Iamsu!",
+                    "city": "Richmond",
+                    "state": "CA",
+                    "lat": 37.9357576,
+                    "lon": -122.347748,
+                    "distanceMiles": 353
+                  }
+                ]
               }
             ]
           },
@@ -3308,7 +3386,17 @@
             "tracks": [
               {
                 "title": "Sky Walker (feat. Travis Scott)",
-                "spotifyId": "5WoaF1B5XIEnWfmb5NZikf"
+                "spotifyId": "5WoaF1B5XIEnWfmb5NZikf",
+                "producers": [
+                  {
+                    "name": "Miguel",
+                    "city": "San Pedro, Los Angeles",
+                    "state": "CA",
+                    "lat": 33.7358518,
+                    "lon": -118.2922934,
+                    "distanceMiles": 22
+                  }
+                ]
               }
             ],
             "addedAt": "2026-08-05T01:06:03.833Z",
