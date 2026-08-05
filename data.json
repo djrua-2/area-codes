@@ -229,6 +229,10 @@
             "tracks": [
               {
                 "title": "Artificial"
+              },
+              {
+                "title": "Proud Of U (feat. Young Thug)",
+                "spotifyId": "4u8xrKWeF7xBO9kGwIk6u7"
               }
             ]
           },
@@ -741,7 +745,8 @@
             "note": "Atlanta rapper whose warped, genre-defying vocal style reshaped the sound of modern trap.",
             "tracks": [
               {
-                "title": "Bad Bad Bad (feat. Lil Baby)"
+                "title": "Bad Bad Bad (feat. Lil Baby)",
+                "spotifyId": "1GeNui6m825V8jP4uKiIaH"
               },
               {
                 "title": "Homie (feat. Meek Mill)"
@@ -752,6 +757,38 @@
               {
                 "title": "Love You More (with Nate Ruess, Gunna & Jeff Bhasker)",
                 "spotifyId": "4pUxYUHVKXWsgGhEhOu7R9"
+              },
+              {
+                "title": "Can't Tell (feat. T.I. and Boosie BadAzz)",
+                "spotifyId": "4QfVMnOYuE5Ah7E4g1p6Bx"
+              },
+              {
+                "title": "Drippin'",
+                "spotifyId": "0f85bMoarvHbdIcfhDjSjN"
+              },
+              {
+                "title": "Family Don't Matter (feat. Millie Go Lightly)",
+                "spotifyId": "445YTBOjx9kYThBepGA9au"
+              },
+              {
+                "title": "For My People (feat. Duke)",
+                "spotifyId": "7vAtyxWiSO24Q6tVj7LOGo"
+              },
+              {
+                "title": "F Cancer (Boosie) [feat. Quavo]",
+                "spotifyId": "1qPK58q90l8KNoWyXsLI2Y"
+              },
+              {
+                "title": "Hot (feat. Gunna)",
+                "spotifyId": "5Z8HZM6iQMhhqyPcCGY5g9"
+              },
+              {
+                "title": "What's the Move (feat. Lil Uzi Vert)",
+                "spotifyId": "3pTScODwk9tggZzmuH6xDY"
+              },
+              {
+                "title": "The London (feat. J. Cole & Travis Scott)",
+                "spotifyId": "7DcvwMAiqKJQD1rrdfxSDx"
               }
             ]
           },
@@ -983,6 +1020,10 @@
             "tracks": [
               {
                 "title": "Down in the DM"
+              },
+              {
+                "title": "Rake It Up",
+                "spotifyId": "6c7D34787LOtPm8tzhsLgH"
               }
             ]
           },
@@ -1043,6 +1084,10 @@
               {
                 "title": "Choices (Yup)",
                 "spotifyId": "2Zx41xpsAlZZxUVLm1ciar"
+              },
+              {
+                "title": "Boy",
+                "spotifyId": "4tWfESbIYebRHdMqlwy04T"
               }
             ]
           },
@@ -1227,6 +1272,10 @@
               {
                 "title": "The Guillotine",
                 "spotifyId": "0sAfPM3pfs0tdKwyGrwZHh"
+              },
+              {
+                "title": "Whathegirlmuthafuckinwannadoo (feat. Janelle Monáe)",
+                "spotifyId": "4cHr9tKAv2sHQwj79tmCG8"
               }
             ]
           },
@@ -2258,6 +2307,10 @@
             "tracks": [
               {
                 "title": "Contact"
+              },
+              {
+                "title": "Gotta Understand",
+                "spotifyId": "61YLJHPPRYtbwid1WdZEXM"
               }
             ]
           },
@@ -2606,7 +2659,8 @@
             "note": "LA rapper best known for the hit \"I Wish.\"",
             "tracks": [
               {
-                "title": "I Wish"
+                "title": "I Wish",
+                "spotifyId": "3LklW07tvdx2AHsgfi1Mng"
               }
             ]
           },
@@ -3523,6 +3577,10 @@
             "tracks": [
               {
                 "title": "Wipeout (feat. The Beach Boys)"
+              },
+              {
+                "title": "Wipeout",
+                "spotifyId": "46ePNyvaDBKsxusDXDj7Wg"
               }
             ]
           },
@@ -3670,6 +3728,10 @@
             "tracks": [
               {
                 "title": "Da Grind (feat. Apocalypse)"
+              },
+              {
+                "title": "Da Grind (Featuring Apocalypse)",
+                "spotifyId": "6froDsaa4MuUnfdhLr1UKu"
               }
             ]
           },
@@ -3678,7 +3740,8 @@
             "note": "Brooklyn rapper and one of the first prominent female solo MCs.",
             "tracks": [
               {
-                "title": "Cold Rock a Party"
+                "title": "Cold Rock a Party",
+                "spotifyId": "1iVdwLsbPsKnqUoZOWlEqv"
               }
             ]
           },
@@ -3862,7 +3925,8 @@
             "note": "Brooklyn duo foundational to early hip-hop's crossover into R&B-inflected pop.",
             "tracks": [
               {
-                "title": "Friends"
+                "title": "Friends",
+                "spotifyId": "3e8KC0EoBmKGuD5LwBvj4U"
               }
             ]
           },
@@ -4084,6 +4148,10 @@
             "tracks": [
               {
                 "title": "ABCs of New York"
+              },
+              {
+                "title": "Saggy Denim",
+                "spotifyId": "2QjfOoHwnygDutmwzXhWTL"
               }
             ]
           },
@@ -4119,7 +4187,8 @@
             "note": "New York rapper (formerly of Ratking) known for dense, rapid-fire wordplay.",
             "tracks": [
               {
-                "title": "Dame Aquí (feat. Princess Nokia)"
+                "title": "Dame Aquí (feat. Princess Nokia)",
+                "spotifyId": "2TLZfZT33gFzQi3GTlFG3e"
               }
             ]
           },
@@ -4962,6 +5031,10 @@
               {
                 "title": "Everything I Am",
                 "spotifyId": "2T8bL4YC49Ska1yl74qcS0"
+              },
+              {
+                "title": "I Love It (& Lil Pump)",
+                "spotifyId": "4S8d14HvHb70ImctNgVzQQ"
               }
             ]
           },
@@ -5694,6 +5767,10 @@
             "tracks": [
               {
                 "title": "HËÂT RŌČK"
+              },
+              {
+                "title": "HËÂT RŌČK.",
+                "spotifyId": "3bQM0MawqFfEldz1MR58br"
               }
             ]
           },
@@ -6995,7 +7072,8 @@
             "note": "Compton artist blending house music with rap and deep-voiced vocals.",
             "tracks": [
               {
-                "title": "Black Moses (feat. JPEGMAFIA)"
+                "title": "Black Moses (feat. JPEGMAFIA)",
+                "spotifyId": "47HWyJVPEmyGLOVgMwrozC"
               }
             ]
           },
@@ -7307,7 +7385,8 @@
             "note": "Bay Area rapper whose prolific, stream-of-consciousness output made him an underground icon.",
             "tracks": [
               {
-                "title": "Berkeley"
+                "title": "Berkeley",
+                "spotifyId": "1BN1KycitcH264DYvwnP4k"
               }
             ]
           },
@@ -7733,6 +7812,10 @@
             "tracks": [
               {
                 "title": "Blueberry Faygo"
+              },
+              {
+                "title": "Burberry Headband",
+                "spotifyId": "3k8M6cCVi3q0gthqFy7TLc"
               }
             ]
           },
@@ -8274,6 +8357,10 @@
             "tracks": [
               {
                 "title": "Boy Meets World"
+              },
+              {
+                "title": "Hey Young World (feat. Aloe Blacc, Devoya)",
+                "spotifyId": "1oBjEOqMo4Y33RPZHuZb8M"
               }
             ]
           }
@@ -8996,7 +9083,8 @@
             "note": "Orlando artist known for melodic, genre-blending rap-rock hybrids.",
             "tracks": [
               {
-                "title": "I Think I Luv Her (feat. YG)"
+                "title": "I Think I Luv Her (feat. YG)",
+                "spotifyId": "6VYXuUz1nYMap8gtqeIrQB"
               }
             ]
           }
@@ -9022,7 +9110,8 @@
                 "title": "Fantasy"
               },
               {
-                "title": "In the Air"
+                "title": "In the Air",
+                "spotifyId": "63Nh9nDjrK0YB3BaMDN9v6"
               }
             ]
           }
@@ -10211,6 +10300,10 @@
               },
               {
                 "title": "F**k Love"
+              },
+              {
+                "title": "whoa (mind in awe)",
+                "spotifyId": "7pdF27mSDuPWhppnHAmWHa"
               }
             ]
           }
