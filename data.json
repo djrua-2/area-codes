@@ -3399,41 +3399,6 @@
             ]
           },
           {
-            "name": "A Tribe Called Quest",
-            "note": "Jazz-sampling pioneers whose Queens roots shaped the sound of golden-era New York hip-hop.",
-            "tracks": [
-              {
-                "title": "Award Tour (feat. Trugoy the Dove)"
-              },
-              {
-                "title": "I Left My Wallet in El Segundo (Vampire Mix)"
-              },
-              {
-                "title": "Bonita Applebum (Sir Piers and Si Ashton's Curious House Mix)"
-              },
-              {
-                "title": "Bonita Applebum - Sir Piers and Si Ashton's Curious House Mix",
-                "spotifyId": "2A1xJI2naUT75RwcWXSuWG"
-              },
-              {
-                "title": "Electric Relaxation",
-                "spotifyId": "0eEXcw3JLVXcRxYrVYMy68"
-              },
-              {
-                "title": "Solid Wall of Sound (feat. Busta Rhymes, Jack White & Elton John)",
-                "spotifyId": "5OzOQRssjhxaBj0xd78Z2w"
-              },
-              {
-                "title": "Black Spasmodic (feat. Consequence)",
-                "spotifyId": "1qju0WsEHiDZoOBBDp8aAk"
-              },
-              {
-                "title": "Scenario (feat. Busta Rhymes, Dinco D & Charlie Brown) - LP Mix",
-                "spotifyId": "0301nLjG0ti26rx5ZmfqtP"
-              }
-            ]
-          },
-          {
             "name": "Action Bronson",
             "note": "Flushing-born rapper known for dense food/pop-culture wordplay over soulful, sample-heavy beats.",
             "tracks": [
@@ -3657,6 +3622,32 @@
               }
             ],
             "addedAt": "2026-08-05T01:06:00.011Z"
+          },
+          {
+            "name": "A Tribe Called Quest",
+            "note": "Jazz-sampling pioneers whose Queens roots shaped the sound of golden-era New York hip-hop.",
+            "tracks": [
+              {
+                "title": "Bonita Applebum - Sir Piers and Si Ashton's Curious House Mix",
+                "spotifyId": "2A1xJI2naUT75RwcWXSuWG"
+              },
+              {
+                "title": "Electric Relaxation",
+                "spotifyId": "0eEXcw3JLVXcRxYrVYMy68"
+              },
+              {
+                "title": "Solid Wall of Sound (feat. Busta Rhymes, Jack White & Elton John)",
+                "spotifyId": "5OzOQRssjhxaBj0xd78Z2w"
+              },
+              {
+                "title": "Black Spasmodic (feat. Consequence)",
+                "spotifyId": "1qju0WsEHiDZoOBBDp8aAk"
+              },
+              {
+                "title": "Scenario (feat. Busta Rhymes, Dinco D & Charlie Brown) - LP Mix",
+                "spotifyId": "0301nLjG0ti26rx5ZmfqtP"
+              }
+            ]
           }
         ]
       }
