@@ -587,7 +587,8 @@
             "note": "Atlanta rapper known for a melodic, Auto-Tuned trap delivery.",
             "tracks": [
               {
-                "title": "Flex (Ooh, Ooh, Ooh)"
+                "title": "Flex (Ooh, Ooh, Ooh)",
+                "spotifyId": "4T0ScSPdQKmGvruK7pavNP"
               }
             ]
           },
@@ -1180,7 +1181,8 @@
             "note": "Sci-fi concept project led by Oakland's Del the Funky Homosapien.",
             "tracks": [
               {
-                "title": "3030"
+                "title": "3030",
+                "spotifyId": "39GBFwBe4GGk7i3yr3F46P"
               }
             ]
           },
@@ -2110,6 +2112,18 @@
               {
                 "title": "Worlds to Run",
                 "spotifyId": "1xSbrJK5n4NCgjoUaLDDai"
+              },
+              {
+                "title": "Ego Death",
+                "spotifyId": "3XNdcusfibvkxXPlQWt2tp"
+              },
+              {
+                "title": "Colonize the Moon",
+                "spotifyId": "763fAGtAp1Q0AGa1tVRLVN"
+              },
+              {
+                "title": "Too Underground",
+                "spotifyId": "5GgqKFfP4JT6zYR0PzRdT4"
               }
             ]
           },
@@ -4219,7 +4233,8 @@
             "note": "Pioneering New York group that helped bring rap into the punk and alternative mainstream.",
             "tracks": [
               {
-                "title": "Brass Monkey"
+                "title": "Brass Monkey",
+                "spotifyId": "2tY1gxCKslfXLFpFofYmJQ"
               }
             ]
           },
@@ -5230,6 +5245,22 @@
               {
                 "title": "So Appalled",
                 "spotifyId": "6K07Ahf6V7CAQn0ikrOztl"
+              },
+              {
+                "title": "Devil In A New Dress",
+                "spotifyId": "1UGD3lW3tDmgZfAVDh6w7r"
+              },
+              {
+                "title": "Runaway",
+                "spotifyId": "3DK6m7It6Pw857FcQftMds"
+              },
+              {
+                "title": "Blame Game",
+                "spotifyId": "4EndPA8b6FDWYp1RgsnLEB"
+              },
+              {
+                "title": "Lost In The World",
+                "spotifyId": "2Im64pIz6m0EJKdUe6eZ8r"
               }
             ]
           },
@@ -5502,6 +5533,10 @@
             "tracks": [
               {
                 "title": "Daylight"
+              },
+              {
+                "title": "None Shall Pass",
+                "spotifyId": "5DJTYOAHZEKjNqXpOwnomi"
               }
             ]
           },
