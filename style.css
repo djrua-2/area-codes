@@ -91,9 +91,19 @@ a:visited { color: #551a8b; }
    custom-controlled one, see the note above playTrack() in app.js for why.
    Note: the iframe's own contents (Spotify's black/green UI) are a
    cross-origin embed and can't be restyled — only everything around it can. */
+/* position:fixed (not sticky) so it stays pinned to the viewport at every
+   scroll position on every page, including all the way at the bottom of a
+   long one — sticky only holds within its own containing block, and with
+   html/body set to height:100% that block is just one viewport tall, so a
+   sticky bar stops tracking the moment you scroll past that point. Since
+   fixed removes it from document flow, JS (see setPlayerBarVisible in
+   app.js) adds matching padding-top to <body> while it's visible so it
+   doesn't cover the header/content underneath. */
 .player-bar {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
   background: var(--bevel-face);
   border-bottom: 2px solid var(--bevel-sh);

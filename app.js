@@ -174,9 +174,19 @@ window.onSpotifyIframeApiReady = function (IFrameAPI) {
   }
 };
 
-function playTrack(spotifyId) {
+// The player bar is position:fixed (see style.css) so it stays pinned to
+// the viewport everywhere, including the bottom of a long page — but
+// that takes it out of document flow, so showing/hiding it has to push
+// the rest of the page down/up by hand via body padding, measured from
+// its actual rendered height rather than a hardcoded number.
+function setPlayerBarVisible(visible) {
   const bar = document.getElementById("player-bar");
-  bar.hidden = false;
+  bar.hidden = !visible;
+  document.body.style.paddingTop = visible ? `${bar.offsetHeight}px` : "";
+}
+
+function playTrack(spotifyId) {
+  setPlayerBarVisible(true);
 
   if (!spotifyIframeAPI) {
     pendingSpotifyId = spotifyId;
